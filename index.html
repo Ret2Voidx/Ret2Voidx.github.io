@@ -8,8 +8,15 @@
 <meta name="theme-color" content="#0B0F14">
 <meta property="og:title" content="Inside Light EDR · Ret2Void">
 <meta property="og:description" content="Learn how a lightweight Windows EDR is built: ETW telemetry, a bounded queue, SQLite, a Sigma-style rule engine, user-mode memory scanning for process injection, and the validation that measures it.">
-<meta property="og:image" content="assets/img/shot-1.png">
-<link rel="alternate" hreflang="fa" href="fa/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ret2voidx.github.io/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ret2voidx.github.io/assets/img/shot-1.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ret2voidx.github.io/">
+<link rel="alternate" hreflang="en" href="https://ret2voidx.github.io/">
+<link rel="alternate" hreflang="fa" href="https://ret2voidx.github.io/fa/">
+<link rel="alternate" hreflang="x-default" href="https://ret2voidx.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%237C3AED'/%3E%3Ctext x='16' y='20' font-size='10' text-anchor='middle' fill='white' font-family='monospace' font-weight='700'%3Eret%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -24,7 +31,7 @@
 <header class="topbar">
   <a class="logo" href="#top"><span class="logo-mark">ret</span><span>Light EDR <small>/ learn</small></span></a>
   <nav>
-    <button class="menu-btn" type="button">☰ Chapters</button>
+    <button class="menu-btn" type="button" aria-controls="side-nav" aria-expanded="false">☰ Chapters</button>
     <a class="hide-sm" href="#path">The learning path</a>
     <a class="hide-sm" href="https://github.com/Ret2Voidx/Light-EDR">GitHub</a>
     <button class="motion" type="button" aria-pressed="true" title="Toggle animations">◐ Motion</button>
@@ -84,7 +91,7 @@ alerts             0</pre></div>
 </section>
 
 <div class="layout">
-  <aside class="side" aria-label="Chapters">
+  <aside class="side" id="side-nav" aria-label="Chapters">
     <h4>Chapters</h4>
       <a href="#pipeline"><span class="n">01</span><span>One event, three threads</span></a>
       <a href="#phase1"><span class="n">02</span><span>Telemetry: getting events out of the kernel</span></a>
@@ -3567,7 +3574,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <span>Ret2Void · Light EDR v0.5.0 · Console 0.1.0</span>
   <span><a href="https://github.com/Ret2Voidx/Light-EDR">GitHub</a> · <a href="fa/">فارسی</a></span>
 </footer>
-<a class="to-top" href="#top" aria-label="Top">↑</a>
+<a class="to-top" href="#top" aria-label="Back to top">↑</a>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>

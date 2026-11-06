@@ -8,8 +8,15 @@
 <meta name="theme-color" content="#0B0F14">
 <meta property="og:title" content="Light EDR از درون · Ret2Void">
 <meta property="og:description" content="آموزش ساخت یک EDR سبک برای ویندوز: تله‌متری ETW، صف محدود، SQLite، موتور قاعده‌ی شبیه Sigma، اسکن حافظه برای تشخیص تزریق، و اعتبارسنجی همه‌ی این‌ها.">
-<meta property="og:image" content="../assets/img/shot-1.png">
-<link rel="alternate" hreflang="en" href="../">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ret2voidx.github.io/fa/">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:image" content="https://ret2voidx.github.io/assets/img/shot-1.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ret2voidx.github.io/fa/">
+<link rel="alternate" hreflang="en" href="https://ret2voidx.github.io/">
+<link rel="alternate" hreflang="fa" href="https://ret2voidx.github.io/fa/">
+<link rel="alternate" hreflang="x-default" href="https://ret2voidx.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%237C3AED'/%3E%3Ctext x='16' y='20' font-size='10' text-anchor='middle' fill='white' font-family='monospace' font-weight='700'%3Eret%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
@@ -24,10 +31,10 @@
 <header class="topbar">
   <a class="logo" href="#top"><span class="logo-mark">ret</span><span>Light EDR <small>/ learn</small></span></a>
   <nav>
-    <button class="menu-btn" type="button">☰ فصل‌ها</button>
+    <button class="menu-btn" type="button" aria-controls="side-nav" aria-expanded="false">☰ فصل‌ها</button>
     <a class="hide-sm" href="#path">مسیر یادگیری</a>
     <a class="hide-sm" href="https://github.com/Ret2Voidx/Light-EDR">GitHub</a>
-    <button class="motion" type="button" aria-pressed="true" title="Toggle animations">◐ حرکت</button>
+    <button class="motion" type="button" aria-pressed="true" title="روشن و خاموش کردن انیمیشن‌ها">◐ حرکت</button>
     <a class="lang" href="../" hreflang="en">English</a>
   </nav>
 </header>
@@ -87,7 +94,7 @@ alerts             0</pre></div>
 </section>
 
 <div class="layout">
-  <aside class="side" aria-label="فصل‌ها">
+  <aside class="side" id="side-nav" aria-label="فصل‌ها">
     <h4>فصل‌ها</h4>
       <a href="#start"><span class="n">01</span><span>این راهنما را چطور بخوانی و درس بدهی</span></a>
       <a href="#concepts"><span class="n">02</span><span>پیش‌نیازها: مفاهیمی که قبل از کد باید روشن باشند</span></a>
@@ -297,7 +304,7 @@ alerts             0</pre></div>
     <div class="concept">
       <div class="term">POD · RAII</div>
       <div class="fa-name">ساختار ساده · مدیریت خودکار منبع</div>
-      <p>POD (Plain Old Data) یعنی یک struct ساده‌ی C بدون اشاره‌گر و بدون مدیریت حافظه. RAII الگوی C++ است که در آن منبع (فایل، قفل، اتصال دیتابیس) در سازنده گرفته و در مخرب (destructor) خودکار آزاد می‌شود. مرز C و C++ پروژه دقیقاً روی همین تفاوت بنا شده.</p>
+      <p>POD (Plain Old Data) یعنی یک struct ساده‌ی C بدون اشاره‌گر و بدون مدیریت حافظه. RAII الگوی <bdi>C++</bdi> است که در آن منبع (فایل، قفل، اتصال دیتابیس) در سازنده گرفته و در مخرب (destructor) خودکار آزاد می‌شود. مرز C و <bdi>C++</bdi> پروژه دقیقاً روی همین تفاوت بنا شده.</p>
     </div>
     <div class="concept">
       <div class="term">Recursive descent parser</div>
@@ -359,8 +366,8 @@ alerts             0</pre></div>
         <tr><td class="mono">src/injection/</td><td>C++17</td><td>۴</td><td>اسکنر حافظه: thread چهارم، مرور حافظه‌ی پروسس‌ها، نشانه‌های H1، H2، H3، H5 و تبدیل یافته به هشدار</td></tr>
         <tr><td class="mono">rules/</td><td>YAML</td><td>۳</td><td>۱۸ فایل قاعده: ۱۴ روی شروع پروسس، ۴ روی بار شدن DLL</td></tr>
         <tr><td class="mono">tests/</td><td>C++17</td><td>۳ و ۴</td><td>۲۵۰ تست واحد که نه ETW لازم دارند نه Administrator</td></tr>
-        <tr><td class="mono">tools/</td><td>C++ · cmd · PowerShell</td><td>۳ تا ۵</td><td>ابزار benchmark موتور قاعده، <code>mem_census</code> برای baseline حافظه، اسکریپت‌های اندازه‌گیری فاز ۴، و اجراکننده‌ها و گزارش‌سازهای اعتبارسنجی فاز ۵</td></tr>
-        <tr><td class="mono">gui/</td><td>C# · .NET 10 · WPF</td><td>کنسول</td><td>LightEDR Console: داشبورد فقط‌خواندنی روی <code>lightedr.db</code>، جدا از build سنسور (با <code>dotnet build</code>)</td></tr>
+        <tr><td class="mono">tools/</td><td><bdi>C++</bdi> · cmd · PowerShell</td><td>۳ تا ۵</td><td>ابزار benchmark موتور قاعده، <code>mem_census</code> برای baseline حافظه، اسکریپت‌های اندازه‌گیری فاز ۴، و اجراکننده‌ها و گزارش‌سازهای اعتبارسنجی فاز ۵</td></tr>
+        <tr><td class="mono">gui/</td><td>C# · <bdi>.NET</bdi> 10 · WPF</td><td>کنسول</td><td>LightEDR Console: داشبورد فقط‌خواندنی روی <code>lightedr.db</code>، جدا از build سنسور (با <code>dotnet build</code>)</td></tr>
         <tr><td class="mono">third_party/sqlite/</td><td>C</td><td>۲</td><td>کد منبع کامل SQLite که داخل ریپو گذاشته شده (vendored)</td></tr>
         <tr><td class="mono">docs/Architecture/ · docs/Evaluation/</td><td>Markdown</td><td>همه</td><td>ARCHITECTURE، ROADMAP، DETECTION، INJECTION، PHASE1_PLAN تا PHASE5_PLAN، PROJECT_STRUCTURE؛ و نتایج اعتبارسنجی: RULE_COVERAGE، ATOMIC_COVERAGE، phase5-results</td></tr>
       </tbody>
@@ -616,9 +623,9 @@ alerts             0</pre></div>
       </p>
     </li>
     <li>
-      <span class="where">عبور از مرز C به C++</span><span class="thread c">consumer</span>
+      <span class="where">عبور از مرز C به <bdi>C++</bdi></span><span class="thread c">consumer</span>
       <p>
-        <code>NormalizedEvent::FromParsed</code> در <code>event.h</code> آن struct را به یک شیء C++
+        <code>NormalizedEvent::FromParsed</code> در <code>event.h</code> آن struct را به یک شیء <bdi>C++</bdi>
         تبدیل می‌کند که رشته‌اش <code>std::wstring</code> است. از اینجا به بعد هیچ لایه‌ای نمی‌داند ETW
         وجود دارد؛ همه فقط <code>NormalizedEvent</code> می‌بینند.
       </p>
@@ -845,7 +852,7 @@ alerts             0</pre></div>
         <dt><code>EtwSession_Start</code> قدم به قدم</dt>
         <dd>
           <ol>
-            <li><strong>ساخت بافر تنظیمات.</strong> <code>EVENT_TRACE_PROPERTIES</code> یک struct با طول متغیر است: نام session در همان بافر و بلافاصله بعد از struct می‌آید و فیلد <code>LoggerNameOffset</code> می‌گوید از کدام بایت شروع می‌شود. تابع کمکی <code>AllocateSessionProperties</code> به اندازه‌ی struct به‌اضافه‌ی نام جا می‌گیرد و این تنظیمات را می‌گذارد: <code>WNODE_FLAG_TRACED_GUID</code>، <code>ClientContext = 1</code> (ساعت QPC، یعنی Query Performance Counter با دقت بالا)، و <code>LogFileMode = EVENT_TRACE_REAL_TIME_MODE</code> (رویدادها زنده تحویل داده می‌شوند و هیچ فایل .etl نوشته نمی‌شود).</li>
+            <li><strong>ساخت بافر تنظیمات.</strong> <code>EVENT_TRACE_PROPERTIES</code> یک struct با طول متغیر است: نام session در همان بافر و بلافاصله بعد از struct می‌آید و فیلد <code>LoggerNameOffset</code> می‌گوید از کدام بایت شروع می‌شود. تابع کمکی <code>AllocateSessionProperties</code> به اندازه‌ی struct به‌اضافه‌ی نام جا می‌گیرد و این تنظیمات را می‌گذارد: <code>WNODE_FLAG_TRACED_GUID</code>، <code>ClientContext = 1</code> (ساعت QPC، یعنی Query Performance Counter با دقت بالا)، و <code>LogFileMode = EVENT_TRACE_REAL_TIME_MODE</code> (رویدادها زنده تحویل داده می‌شوند و هیچ فایل <bdi>.etl</bdi> نوشته نمی‌شود).</li>
             <li><strong>پاک کردن session یتیم.</strong> اگر اجرای قبلی crash کرده باشد، session آن هنوز در kernel زنده است، چون session به عمر برنامه بسته نیست. پس اول با <code>ControlTraceW(..., EVENT_TRACE_CONTROL_STOP)</code> هر session هم‌نامی را متوقف می‌کند. خطای <code>ERROR_WMI_INSTANCE_NOT_FOUND</code> یعنی «چنین sessionی نبود» و حالت عادی است.</li>
             <li><strong>ساخت session.</strong> بافر را دوباره صفر و پر می‌کند (چون ControlTraceW ممکن است دستکاری‌اش کرده باشد) و <code>StartTraceW</code> را صدا می‌زند که handle برمی‌گرداند.</li>
             <li><strong>علامت‌گذاری قبل از قدم بعد.</strong> <code>isActive = TRUE</code> را <em>قبل</em> از روشن کردن provider می‌گذارد، تا اگر قدم بعد شکست خورد، <code>EtwSession_Stop</code> واقعاً session را پاک کند و زود برنگردد.</li>
@@ -977,7 +984,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <div class="file" id="f-event">
     <div class="fhead"><span class="fname">src/core/event.h</span><span class="tag p1">PHASE 1</span><span class="tag p3">+ PHASE 3</span><span class="tag">C++17</span><span class="tag">C/C++ BOUNDARY</span></div>
     <div class="fbody">
-      <p>اولین فایل C++ پروژه و مرز دو زبان. <code>ParsedEvent</code> (C) را به <code>NormalizedEvent</code> (C++) تبدیل می‌کند. هر لایه‌ی بالاتر فقط <code>NormalizedEvent</code> را می‌بیند.</p>
+      <p>اولین فایل <bdi>C++</bdi> پروژه و مرز دو زبان. <code>ParsedEvent</code> (C) را به <code>NormalizedEvent</code> (<bdi>C++</bdi>) تبدیل می‌کند. هر لایه‌ی بالاتر فقط <code>NormalizedEvent</code> را می‌بیند.</p>
       <div class="tw">
         <table>
           <thead><tr><th class="mono">ParsedEvent · C17</th><th class="mono">NormalizedEvent · C++17</th></tr></thead>
@@ -1013,7 +1020,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt><code>FromParsed</code></dt>
         <dd>یک تابع static به‌جای constructor، تا محل فراخوانی صریح خوانده شود: <code>NormalizedEvent::FromParsed(raw)</code>. رشته فقط وقتی کپی می‌شود که <code>hasImageName</code> درست باشد، چون ساختن <code>std::wstring</code> از بافر مقداردهی‌نشده رفتار تعریف‌نشده است.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا هم C هم C++؟ ناهماهنگ نیست؟»</b> مرز دقیقاً روی همین تبدیل است و سلیقه‌ای نیست. APIهای ETW و TDH به زبان C هستند، callback روی مسیر حساس به تأخیر است که بهتر است در آن حافظه‌ی پویا گرفته نشود، و یک struct ساده که از مرز رد می‌شود یعنی هیچ طرف لازم نیست مدل حافظه‌ی طرف دیگر را بفهمد: parser به زبان C هیچ حافظه‌ای نمی‌گیرد که C++ مجبور به آزاد کردنش باشد. بالای مرز، RAII کار واقعی می‌کند: اتصال دیتابیس، prepared statementها، thread نویسنده و صف همه توسط destructor آزاد می‌شوند. header فایل C با بلوک <code>extern "C"</code> داخل <code>#ifdef __cplusplus</code> محافظت شده تا از C++ هم قابل include باشد.</div>
+      <div class="ask"><b>اگر پرسیدند «چرا هم C هم <bdi>C++</bdi>؟ ناهماهنگ نیست؟»</b> مرز دقیقاً روی همین تبدیل است و سلیقه‌ای نیست. APIهای ETW و TDH به زبان C هستند، callback روی مسیر حساس به تأخیر است که بهتر است در آن حافظه‌ی پویا گرفته نشود، و یک struct ساده که از مرز رد می‌شود یعنی هیچ طرف لازم نیست مدل حافظه‌ی طرف دیگر را بفهمد: parser به زبان C هیچ حافظه‌ای نمی‌گیرد که <bdi>C++</bdi> مجبور به آزاد کردنش باشد. بالای مرز، RAII کار واقعی می‌کند: اتصال دیتابیس، prepared statementها، thread نویسنده و صف همه توسط destructor آزاد می‌شوند. header فایل C با بلوک <code>extern "C"</code> داخل <code>#ifdef __cplusplus</code> محافظت شده تا از <bdi>C++</bdi> هم قابل include باشد.</div>
     </div>
   </div>
 
@@ -1221,7 +1228,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
           <thead><tr><th class="mono">Module</th><th>چرا نگه داشته می‌شود</th><th class="mono">ATT&amp;CK</th></tr></thead>
           <tbody>
             <tr><td class="mono">amsi.dll</td><td>دستکاری و دور زدن AMSI</td><td class="mono">T1562.001</td></tr>
-            <tr><td class="mono">clr.dll · mscoree.dll</td><td>اجرای .NET داخل یک میزبان غیر .NET</td><td class="mono">T1620</td></tr>
+            <tr><td class="mono">clr.dll · mscoree.dll</td><td>اجرای <bdi>.NET</bdi> داخل یک میزبان غیر <bdi>.NET</bdi></td><td class="mono">T1620</td></tr>
             <tr><td class="mono">vbscript.dll</td><td>موتور VBScript</td><td class="mono">T1059.005</td></tr>
             <tr><td class="mono">jscript.dll · jscript9.dll</td><td>موتورهای JScript</td><td class="mono">T1059.007</td></tr>
             <tr><td class="mono">scrobj.dll</td><td>Windows Script Component، تکنیک Squiblydoo</td><td class="mono">T1218.010</td></tr>
@@ -1284,7 +1291,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   
   <div class="lab" data-lab="queue">
     <div class="lab-head"><span class="lab-badge">Lab</span><h4>صف را آن‌قدر پر کن که دور بریزد</h4></div>
-    <div class="lab-body"><p class="hint">callback ETW هیچ‌وقت نباید منتظر بماند، پس صف پر جدیدترین رویداد را دور می‌ریزد و می‌شمارد. نرخ kernel را از سرعت نویسنده بیشتر کن یا یک انفجار بفرست، و ببین حسابرسی چطور دقیق می‌ماند.</p><div class="lab-run"><noscript>JavaScript is needed for this lab.</noscript></div></div>
+    <div class="lab-body"><p class="hint">callback ETW هیچ‌وقت نباید منتظر بماند، پس صف پر جدیدترین رویداد را دور می‌ریزد و می‌شمارد. نرخ kernel را از سرعت نویسنده بیشتر کن یا یک انفجار بفرست، و ببین حسابرسی چطور دقیق می‌ماند.</p><div class="lab-run"><noscript>برای این آزمایشگاه باید JavaScript فعال باشد.</noscript></div></div>
   </div>
 
   <h3>دیتابیس: SQLite</h3>
@@ -1379,7 +1386,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
             <li>نسخه‌ی بزرگ‌تر از ۴: <strong>رد می‌کند.</strong> دیتابیسی که بیلد جدیدتری نوشته ستون‌هایی دارد که این بیلد نمی‌فهمد، و نوشتن در آن ردیف‌های غلطی می‌سازد که کسی متوجه‌شان نمی‌شود.</li>
             <li>نسخه‌ی ۰ و بدون جدول events: فایل نو است، کل schema ساخته می‌شود.</li>
             <li>نسخه‌ی ۰ ولی با جدول events: دیتابیس فاز ۲ است که نسخه نداشت، پس نسخه‌ی ۱ حساب می‌شود.</li>
-            <li>بعد migrationها <strong>یکی‌یکی</strong> اجرا می‌شوند: ۱→۲، ۲→۳، ۳→۴. هر قدم در یک transaction جداست و <code>PRAGMA user_version</code> هم داخل همان transaction است. یک مسیر ارتقا وجود دارد، نه یکی برای هر نقطه‌ی شروع.</li>
+            <li>بعد migrationها <strong>یکی‌یکی</strong> اجرا می‌شوند: ۱←۲، ۲←۳، ۳←۴. هر قدم در یک transaction جداست و <code>PRAGMA user_version</code> هم داخل همان transaction است. یک مسیر ارتقا وجود دارد، نه یکی برای هر نقطه‌ی شروع.</li>
           </ul>
           همه‌ی migrationها از نوع <code>ALTER TABLE ... ADD COLUMN</code> هستند که در SQLite فقط header
           schema را بازنویسی می‌کند، نه ردیف‌ها را. ستون <code>NOT NULL</code> را فقط با
@@ -1633,7 +1640,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <table>
       <thead><tr><th>هفته</th><th>چه ساخته شد</th><th>چطور تأیید شد</th></tr></thead>
       <tbody>
-        <tr><td class="num">1</td><td>لوله‌کشی: ترجمه‌ی مسیر، جدول پروسس‌ها، <code>Alert</code>، interface بین storage و detection، schema نسخه‌ی ۲، سه قاعده‌ی <em>hard-coded</em> به زبان C++، تست‌ها بدون نیاز به admin</td><td>اجرای زنده: هشدار با کلید خارجی درست به دیتابیس رسید؛ ParentImage برای ۳۶ از ۳۶ ProcessStart پیدا شد</td></tr>
+        <tr><td class="num">1</td><td>لوله‌کشی: ترجمه‌ی مسیر، جدول پروسس‌ها، <code>Alert</code>، interface بین storage و detection، schema نسخه‌ی ۲، سه قاعده‌ی <em>hard-coded</em> به زبان <bdi>C++</bdi>، تست‌ها بدون نیاز به admin</td><td>اجرای زنده: هشدار با کلید خارجی درست به دیتابیس رسید؛ ParentImage برای ۳۶ از ۳۶ ProcessStart پیدا شد</td></tr>
         <tr><td class="num">2</td><td>خواننده‌ی YAML اختصاصی با زیرمجموعه‌ی مستند</td><td>۲۸ تست، ۱۵تایش ورودی خراب؛ fallback به yaml-cpp لازم نشد</td></tr>
         <tr><td class="num">3</td><td>مدل قاعده، گرامر condition، loader سخت‌گیر، موتور داده‌محور؛ سه قاعده‌ی هفته‌ی ۱ به فایل YAML تبدیل شدند</td><td>تست‌ها و اجرای زنده</td></tr>
         <tr><td class="num">4</td><td>بسته‌ی ۱۸ قاعده، keep-list در فیلتر، throttle هشدار، schema نسخه‌ی ۳</td><td>تمرین پنج‌مرحله‌ای زنده دقیقاً پنج هشدار مورد انتظار را داد و هیچ چیز دیگر</td></tr>
@@ -1645,7 +1652,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <span class="label">چرا هفته‌ی ۱ اول لوله‌کشی ساخت و نه parser؟</span>
     <p>
       اگر اول loader ساخته می‌شد، دو هفته طول می‌کشید تا معلوم شود اصلاً یک هشدار می‌تواند به دیتابیس
-      برسد یا نه. با ساختن اول لوله‌کشی و سه قاعده‌ی موقت C++، اگر برنامه عقب می‌افتاد، روی parser عقب
+      برسد یا نه. با ساختن اول لوله‌کشی و سه قاعده‌ی موقت <bdi>C++</bdi>، اگر برنامه عقب می‌افتاد، روی parser عقب
       می‌افتاد نه روی کار کردن کل سیستم.
     </p>
   </div>
@@ -2321,7 +2328,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   
   <div class="lab" data-lab="rules">
     <div class="lab-head"><span class="lab-badge">Lab</span><h4>هشت قاعده‌ی واقعی را روی یک رویداد اجرا کن</h4></div>
-    <div class="lab-body"><p class="hint">این‌ها هشت قاعده از بسته‌اند، با همان selection و filter واقعی‌شان، و مثل موتور بدون حساسیت به بزرگی حروف تطبیق داده می‌شوند. یک رویداد ProcessStart بساز و ببین کدام selectionها true می‌شوند.</p><div class="lab-run"><noscript>JavaScript is needed for this lab.</noscript></div></div>
+    <div class="lab-body"><p class="hint">این‌ها هشت قاعده از بسته‌اند، با همان selection و filter واقعی‌شان، و مثل موتور بدون حساسیت به بزرگی حروف تطبیق داده می‌شوند. یک رویداد ProcessStart بساز و ببین کدام selectionها true می‌شوند.</p><div class="lab-run"><noscript>برای این آزمایشگاه باید JavaScript فعال باشد.</noscript></div></div>
   </div>
 
   <h3 id="pack">هفته‌ی ۴: بسته‌ی ۱۸ قاعده</h3>
@@ -2362,7 +2369,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <span class="label">دو قاعده‌ی برنامه که به‌جایشان چیز دیگری نوشته شد</span>
     <p>
       برنامه «بار شدن amsi.dll توسط پروسس غیرمنتظره» و «بار شدن dbghelp.dll توسط غیر debugger» را داشت.
-      هیچ‌کدام با سیستم واقعی جور در نیامد: AMSI را تقریباً هر PowerShell و پروسس .NET 4.8 بار می‌کند،
+      هیچ‌کدام با سیستم واقعی جور در نیامد: AMSI را تقریباً هر PowerShell و پروسس <bdi>.NET</bdi> 4.8 بار می‌کند،
       و ابزارهای گزارش crash در برنامه‌های عادی dbghelp را. جایشان «script host که runtime دات‌نت بار
       کند» (تکنیک DotNetToJScript) و «rundll32 که comsvcs.dll بار کند» (LOLBin مربوط به MiniDump) آمد.
       قاعده برای چیزی انتخاب می‌شود که می‌تواند از آن دفاع کند، نه برای بالا بردن تعداد.
@@ -3024,7 +3031,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   
   <div class="lab" data-lab="memory">
     <div class="lab-head"><span class="lab-badge">Lab</span><h4>یک پروسس را مثل اسکنر اسکن کن</h4></div>
-    <div class="lab-body"><p class="hint">نقشه‌ی حافظه را region به region مرور کن. حافظه‌ی image-backed، غیراجرایی و guard رد می‌شوند؛ حافظه‌ی private اجرایی H1 است. هشدار یعنی H1 و حداقل یکی از H3، H2 یا H5.</p><div class="lab-run"><noscript>JavaScript is needed for this lab.</noscript></div></div>
+    <div class="lab-body"><p class="hint">نقشه‌ی حافظه را region به region مرور کن. حافظه‌ی image-backed، غیراجرایی و guard رد می‌شوند؛ حافظه‌ی private اجرایی H1 است. هشدار یعنی H1 و حداقل یکی از H3، H2 یا H5.</p><div class="lab-run"><noscript>برای این آزمایشگاه باید JavaScript فعال باشد.</noscript></div></div>
   </div>
 
   <h3>چرا H1 تنها هرگز هشدار نیست: baseline</h3>
@@ -3051,7 +3058,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   <div class="prose">
     <p>
       روی سیستم تمیز تقریباً از هر پنج پروسس یکی حافظه‌ی private اجرایی دارد. سه گروه تقریباً همه‌اش را
-      می‌سازند: میزبان‌های .NET (CLR)، که تقریباً همه RWX‌اند؛ Chromium و Electron (JIT موتور V8)، بیشتر
+      می‌سازند: میزبان‌های <bdi>.NET</bdi> (CLR)، که تقریباً همه RWX‌اند؛ Chromium و Electron (JIT موتور V8)، بیشتر
       execute-read؛ و shell و compositor ویندوز (explorer، dwm)، فقط execute-read. دلیلش JIT است: این
       برنامه‌ها در زمان اجرا کد ماشین می‌سازند و در حافظه‌ی private می‌گذارند، دقیقاً شبیه shellcode.
     </p>
@@ -3072,7 +3079,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   <h3>هفته‌ی ۳: آزمودن فرضیه‌ی CLR</h3>
   <div class="prose">
     <p>
-      «گروه RWX همان گروه .NET است» تا اینجا فقط از روی <em>نام</em> پروسس‌ها دیده شده بود. هفته‌ی ۳ آن را
+      «گروه RWX همان گروه <bdi>.NET</bdi> است» تا اینجا فقط از روی <em>نام</em> پروسس‌ها دیده شده بود. هفته‌ی ۳ آن را
       با <em>مکانیزم</em> آزمود. ماژول <code>clr_attribution</code> برای هر پروسس زنده تصمیم می‌گیرد runtime
       دات‌نت (<code>clr.dll</code> یا <code>coreclr.dll</code>) بار شده یا نه، از دو راه مستقل: از ردیف‌های
       ImageLoad خود سنسور، و از فهرست زنده‌ی ماژول‌ها (<code>EnumProcessModulesEx</code>) که حقیقت مبناست.
@@ -3222,7 +3229,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <p>
       دو اجرای ۳۰ دقیقه‌ای روی VM ویندوز ۱۰ (۲ پردازنده‌ی منطقی، x64 Release، با Administrator)، یکی با sweep
       و یکی با <code>--no-sweep</code>، روی یک بار کاری ثابت: هر ۲۰ ثانیه یک <code>powershell.exe</code> که دو
-      دقیقه زنده می‌ماند (میزبان .NET) و یک <code>cmd.exe</code> کوتاه. اسکریپت
+      دقیقه زنده می‌ماند (میزبان <bdi>.NET</bdi>) و یک <code>cmd.exe</code> کوتاه. اسکریپت
       <code>tools\run_phase4_measure.cmd</code> هر دو را build و اجرا می‌کند و
       <code>tools\phase4_cost_report.sql</code> برای هر اجرا یک ردیف از <code>session_stats</code> چاپ می‌کند.
       CPU یعنی زمان user و kernel از <code>GetThreadTimes</code> و <code>GetProcessTimes</code>، به‌صورت درصدی
@@ -3516,7 +3523,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>IsReportable</code></dt>
         <dd><code>(signals &amp; kH1Any) != 0 &amp;&amp; (signals &amp; (H3 | H2 | H5)) != 0</code>.</dd>
         <dt><code>SeverityOf</code></dt>
-        <dd>RWX یا H2 → <code>Critical</code>؛ وگرنه <code>High</code>.</dd>
+        <dd>RWX یا H2 ← <code>Critical</code>؛ وگرنه <code>High</code>.</dd>
         <dt><code>InjectionRuleId · InjectionRuleTitle</code></dt>
         <dd>
           ترتیب اولویت H3، بعد H2، بعد H5:
@@ -3603,7 +3610,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>IsClrRuntimeModule</code></dt>
         <dd>مسیر یا نامی که به <code>clr.dll</code> یا <code>coreclr.dll</code> ختم شود، بدون حساسیت به بزرگی حروف. <code>mscoree.dll</code> عمداً نه.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا از نام پروسس‌ها استفاده نکردید؟»</b> چون فهرست نام یعنی هر .NET hostی که در فهرست نیست false positive می‌دهد و هر بدافزاری که اسمش را عوض کند داخل فهرست می‌رود. پرسیدن «runtime بار شده یا نه» مکانیزم را می‌سنجد، نه برچسب را، و با telemetryای که سنسور از قبل داشت جواب داده می‌شود.</div>
+      <div class="ask"><b>اگر پرسیدند «چرا از نام پروسس‌ها استفاده نکردید؟»</b> چون فهرست نام یعنی هر <bdi>.NET</bdi> hostی که در فهرست نیست false positive می‌دهد و هر بدافزاری که اسمش را عوض کند داخل فهرست می‌رود. پرسیدن «runtime بار شده یا نه» مکانیزم را می‌سنجد، نه برچسب را، و با telemetryای که سنسور از قبل داشت جواب داده می‌شود.</div>
     </div>
   </div>
 
@@ -3749,7 +3756,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     <table>
       <thead><tr><th>قاعده</th><th>محرک</th><th>اجرا</th><th>near miss</th></tr></thead>
       <tbody>
-        <tr><td class="mono">office_spawns_script_host</td><td>دستی · کپی <code>WINWORD.EXE</code> → powershell</td><td class="num">3/3</td><td>PASS</td></tr>
+        <tr><td class="mono">office_spawns_script_host</td><td>دستی · کپی <bdi dir="ltr"><code>WINWORD.EXE</code> → powershell</bdi></td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">user_writable_location</td><td>دستی · کپی cmd در <code>%TEMP%</code></td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">public_or_programdata_location</td><td>دستی · کپی cmd در <code>Users\Public</code></td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">downloads_location</td><td>دستی · کپی cmd در <code>Downloads</code></td><td class="num">3/3</td><td>PASS</td></tr>
@@ -3760,7 +3767,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
         <tr><td class="mono">script_host_spawns_wmic</td><td>دستی · wscript → wmic</td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">wmiprvse_spawns_shell</td><td>atomic T1047-5</td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">script_host_spawns_powershell</td><td>atomic T1218.005-10</td><td class="num">3/3</td><td>PASS</td></tr>
-        <tr><td class="mono">web_server_spawns_shell</td><td>دستی · کپی <code>php.exe</code> → cmd</td><td class="num">3/3</td><td>PASS</td></tr>
+        <tr><td class="mono">web_server_spawns_shell</td><td>دستی · کپی <bdi dir="ltr"><code>php.exe</code> → cmd</bdi></td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">script_host_spawns_schtasks</td><td>دستی · wscript → schtasks</td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">psexec_service</td><td>دستی · PsExec روی <code>\\localhost</code></td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">regsvr32_scrobj</td><td>atomic T1218.010-1</td><td class="num">3/3</td><td>PASS</td></tr>
@@ -4016,7 +4023,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
       دیتابیس باز خوانده می‌شود و هر صفحه می‌گوید از کدام جدول آمده.
     </p>
     <p>
-      یک برنامه‌ی جدا با زبان جدا، در پوشه‌ی <code>gui/</code>: C# روی .NET 10 LTS با WPF، که با .NET SDK ساخته
+      یک برنامه‌ی جدا با زبان جدا، در پوشه‌ی <code>gui/</code>: C# روی <bdi>.NET</bdi> 10 LTS با WPF، که با <bdi>.NET</bdi> SDK ساخته
       می‌شود نه با CMake سنسور. سنسور اصلاً از وجودش خبر ندارد.
     </p>
   </div>
@@ -4058,7 +4065,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     <div class="concept">
       <div class="term">WPF · MVVM</div>
       <div class="fa-name">فریم‌ورک رابط کاربری ویندوز</div>
-      <p>WPF فریم‌ورک دسکتاپ ویندوز در .NET است که ظاهر را با XAML توصیف می‌کند. در الگوی MVVM، صفحه (View) فقط به داده‌ی یک ViewModel وصل می‌شود و منطق در ViewModel است، پس منطق بدون رابط کاربری تست‌پذیر است.</p>
+      <p>WPF فریم‌ورک دسکتاپ ویندوز در <bdi>.NET</bdi> است که ظاهر را با XAML توصیف می‌کند. در الگوی MVVM، صفحه (View) فقط به داده‌ی یک ViewModel وصل می‌شود و منطق در ViewModel است، پس منطق بدون رابط کاربری تست‌پذیر است.</p>
     </div>
     <div class="concept">
       <div class="term">Polling</div>
@@ -4251,7 +4258,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
   </div>
   <div class="prose">
     <ul>
-      <li><strong>چرا WPF:</strong> .NET 10 LTS و WPF در برابر WinUI 3، Avalonia و پوسته‌های وب انتخاب شدند؛ استدلالش در <code>docs/GUI_DESIGN.md</code> است.</li>
+      <li><strong>چرا WPF:</strong> <bdi>.NET</bdi> 10 LTS و WPF در برابر WinUI 3، Avalonia و پوسته‌های وب انتخاب شدند؛ استدلالش در <code>docs/GUI_DESIGN.md</code> است.</li>
       <li><strong>بدون کتابخانه‌ی نمودار:</strong> نمودارها را خود برنامه می‌کشد تا از همان کلید انیمیشن پیروی کنند و با کیبورد قابل‌دسترسی باشند.</li>
       <li><strong>یک کلید برای همه‌ی انیمیشن‌ها:</strong> انیمیشن فقط وقتی اجرا می‌شود که هم کلید داخل برنامه و هم «Show animations» ویندوز روشن باشد، و هیچ وضعیتی به تمام شدن یک انیمیشن وابسته نیست. glow مبتنی بر blur زیر رندر نرم‌افزاری حذف می‌شود، که روی VM بدون 3D محتمل است.</li>
       <li><strong>وابستگی‌ها</strong>، هرکدام با نسخه‌ی ثابت: Microsoft.Data.Sqlite، YamlDotNet، CommunityToolkit.Mvvm، بخشی از Fluent UI System Icons، JetBrains Mono. مجوزها کنار فایل اجرایی منتشر می‌شوند.</li>
@@ -4268,7 +4275,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
         <tr><td>زمان شروع تا دیتابیس رندرشده</td><td>حدود ۲.۳ ثانیه در اجرای گرم، ۶.۳ ثانیه در اولین اجرا بعد از publish (سیستم توسعه)</td></tr>
         <tr><td>دسترس‌پذیری</td><td>هر عنصر قابل‌focus در هر شش صفحه نام قابل‌دسترسی دارد (ممیزی UI Automation)؛ هر ۲۷ جفت رنگ متن/پس‌زمینه WCAG 2.1 AA را می‌گذرانند، کمترین ۵.۱۵:۱</td></tr>
         <tr><td>عددهای روی صفحه</td><td>دستی با SQL روی سه نمونه مقایسه شد، و روی VM با CSVهای خود اجراکننده‌ی فاز ۵</td></tr>
-        <tr><td>VM ویندوز ۱۰ فاز ۵، بدون .NET نصب‌شده</td><td>اجرا شد، نمونه‌ها را باز کرد، هیچ خطای runtime ثبت نشد</td></tr>
+        <tr><td>VM ویندوز ۱۰ فاز ۵، بدون <bdi>.NET</bdi> نصب‌شده</td><td>اجرا شد، نمونه‌ها را باز کرد، هیچ خطای runtime ثبت نشد</td></tr>
         <tr><td>کنار سنسور واقعی</td><td>یک اجرا: هشدار جدید <code>mshta</code> زنده ظاهر شد؛ بعد از Ctrl+C کنسول فایل را immutable دوباره باز کرد و <code>session_stats</code> را برابر خلاصه‌ی خود سنسور نشان داد</td></tr>
       </tbody>
     </table>
@@ -4281,7 +4288,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
       و آرگومان پروسس ندارد. وضعیت سنسور استنتاج است، نه گزارش. خواندن زنده کنار سنسور واقعی در یک اجرا آزموده شد.
       مقیاس واقعی ۱۲۵٪ و ۱۵۰٪ ویندوز و گوش دادن با Narrator آزموده نشدند؛ نام‌های قابل‌دسترسی از راه UI Automation چک
       شدند، که همان چیزی است که Narrator می‌خواند. دیتابیسی با چند session سنسور فقط با یک نمونه‌ی ساختگی از دو نمونه
-      آزموده شده. ویندوز ۱۰ نسخه‌ی 22H2 در جدول پشتیبانی .NET 10 مایکروسافت نیست؛ build خودکفا روی یک VM ویندوز ۱۰ اجرا شد،
+      آزموده شده. ویندوز ۱۰ نسخه‌ی 22H2 در جدول پشتیبانی <bdi>.NET</bdi> 10 مایکروسافت نیست؛ build خودکفا روی یک VM ویندوز ۱۰ اجرا شد،
       که بیانیه‌ی پشتیبانی نیست.
     </p>
   </div>
@@ -4642,7 +4649,7 @@ tools\run_bench.cmd</pre>
         <tr><td>کنسول: فاصله‌ی سرکشی</td><td class="num">1–10 s (پیش‌فرض 2)</td><td>تنظیمات کنسول</td></tr>
         <tr><td>کنسول: پنجره‌ی «در حال نوشتن»</td><td class="num">3 سرکشی</td><td class="mono">DatabaseMonitor.WritingWindow</td></tr>
         <tr><td>کنسول: تست‌ها</td><td class="num">66 موفق · 0 skip</td><td>LightEDR.Data.Tests</td></tr>
-        <tr><td>کنسول: اندازه‌ی build خودکفا</td><td class="num">145 MiB exe · 154 MiB کل</td><td>runtime .NET 10 داخلش</td></tr>
+        <tr><td>کنسول: اندازه‌ی build خودکفا</td><td class="num">145 MiB exe · 154 MiB کل</td><td>runtime <bdi>.NET</bdi> 10 داخلش</td></tr>
         <tr><td>کنسول: زمان شروع</td><td class="num">≈ 2.3 s گرم · 6.3 s اولین بار</td><td>سیستم توسعه</td></tr>
         <tr><td>regionهای RWX در پروسس‌های دارای CLR</td><td class="num">78 از 80</td><td>census هفته‌ی ۳ · ۱۴۷ پروسس</td></tr>
         <tr><td>آستانه‌ی لاگ اسکن کند</td><td class="num">1 s</td><td class="mono">scanner.h · kSlowScanNanos</td></tr>
@@ -4683,7 +4690,7 @@ tools\run_bench.cmd</pre>
         <tr><td>سقف بار پیدا نشد</td><td>۴۰ پروسس/ثانیه بدون loss؛ ۸۰ اجرا نشد</td><td>اندازه‌گیری‌شده</td></tr>
         <tr><td>اسکن یک عکس لحظه‌ای است</td><td>تزریقی که بین دو اسکن انجام و پاک شود دیده نمی‌شود؛ driver آن را لحظه‌ی وقوع می‌دید</td><td>ذاتی (فاز ۴)</td></tr>
         <tr><td>پروسس‌های PPL خواندنی نیستند</td><td>حتی با SeDebugPrivilege؛ به‌عنوان skipped_access شمرده می‌شوند</td><td style="color:var(--crit)">ممکن نیست</td></tr>
-        <tr><td>H1 تنها پرنویز است</td><td>JIT در .NET، مرورگرها و Electron؛ برای همین هرگز به‌تنهایی هشدار نیست</td><td>مستند، اندازه‌گیری‌شده</td></tr>
+        <tr><td>H1 تنها پرنویز است</td><td>JIT در <bdi>.NET</bdi>، مرورگرها و Electron؛ برای همین هرگز به‌تنهایی هشدار نیست</td><td>مستند، اندازه‌گیری‌شده</td></tr>
         <tr><td>۹ زیرتست Atomic تشخیص داده نشد</td><td>دلیل هرکدام بررسی نشده؛ دامنه‌ی تشخیص منجمد شد</td><td style="color:var(--warn)">ثبت‌شده</td></tr>
         <tr><td>بین اجراهای اعتبارسنجی snapshot برگردانده نشد</td><td>اسکریپت داخل VM نمی‌تواند VM را برگرداند؛ هر اجرا سنسور و دیتابیس خودش را داشت</td><td>مستند</td></tr>
         <tr><td>Explorer در soak پانزده بار crash کرد</td><td>ماژول مقصر ثبت نشد؛ اسکنر فقط حق read دارد ولی رابطه رد نشده</td><td style="color:var(--warn)">باز</td></tr>
@@ -4776,8 +4783,8 @@ tools\run_bench.cmd</pre>
       <div class="answer"><p>ImageName روی ProcessStart یونیکد است ولی روی ProcessStop ANSI. کد قدیم بایت‌ها را مستقیم در <code>wchar_t</code> می‌ریخت و <code>chrome.exe</code> به متن چینی تبدیل می‌شد. حالا نوع فیلد (<code>InType</code>) از TDH پرسیده و برای هر Event ID یک بار کش می‌شود، بدون hard-code، چون manifestها بین نسخه‌های ویندوز فرق دارند. این باگ فقط با اجرای زنده پیدا شد.</p></div>
     </details>
     <details>
-      <summary>چرا هم C هم C++؟</summary>
-      <div class="answer"><p>مرز دقیقاً روی تبدیل <code>ParsedEvent → NormalizedEvent</code> است. پایین مرز APIهای ETW و TDH به زبان C‌اند و callback روی مسیر حساس است؛ یک struct ساده با آرایه‌ی ثابت از مرز رد می‌شود تا parser هیچ حافظه‌ای نگیرد که C++ مجبور به آزاد کردنش باشد. بالای مرز RAII کار واقعی می‌کند و <code>std::wstring</code> سقف ۵۱۲ کاراکتری را برمی‌دارد.</p></div>
+      <summary>چرا هم C هم <bdi>C++</bdi>؟</summary>
+      <div class="answer"><p>مرز دقیقاً روی تبدیل <code>ParsedEvent → NormalizedEvent</code> است. پایین مرز APIهای ETW و TDH به زبان C‌اند و callback روی مسیر حساس است؛ یک struct ساده با آرایه‌ی ثابت از مرز رد می‌شود تا parser هیچ حافظه‌ای نگیرد که <bdi>C++</bdi> مجبور به آزاد کردنش باشد. بالای مرز RAII کار واقعی می‌کند و <code>std::wstring</code> سقف ۵۱۲ کاراکتری را برمی‌دارد.</p></div>
     </details>
   </div>
 
@@ -4819,7 +4826,7 @@ tools\run_bench.cmd</pre>
     </details>
     <details>
       <summary>اگر schema عوض شود، دیتابیس‌های قدیمی چه می‌شوند؟</summary>
-      <div class="answer"><p><code>PRAGMA user_version</code> نسخه را نگه می‌دارد. migrationها یکی‌یکی (۱→۲→۳→۴)، هرکدام در transaction خودش با به‌روزرسانی نسخه در همان transaction اجرا می‌شوند. دیتابیس جدیدتر از بیلد رد می‌شود. یک تست v1، v2 و v3 می‌سازد و schema ارتقایافته را ستون‌به‌ستون با schema نو مقایسه می‌کند، و دیتابیس واقعی توسعه به‌صورت زنده از v2 تا v4 ارتقا یافته.</p></div>
+      <div class="answer"><p><code>PRAGMA user_version</code> نسخه را نگه می‌دارد. migrationها یکی‌یکی (۱←۲←۳←۴)، هرکدام در transaction خودش با به‌روزرسانی نسخه در همان transaction اجرا می‌شوند. دیتابیس جدیدتر از بیلد رد می‌شود. یک تست v1، v2 و v3 می‌سازد و schema ارتقایافته را ستون‌به‌ستون با schema نو مقایسه می‌کند، و دیتابیس واقعی توسعه به‌صورت زنده از v2 تا v4 ارتقا یافته.</p></div>
     </details>
     <details>
       <summary>چرا NULL و نه صفر برای ppid نامعلوم؟</summary>
@@ -4909,7 +4916,7 @@ tools\run_bench.cmd</pre>
     </details>
     <details>
       <summary>حافظه‌ی private اجرایی نشانه‌ی کلاسیک تزریق است. چرا رویش هشدار نمی‌دهید؟</summary>
-      <div class="answer"><p>چون روی سیستم تمیز تقریباً یک پروسس از هر پنج تا آن را دارد: در دو اجرای census، ۵۰ و ۴۵ پروسس از حدود ۲۴۰، بیشترشان میزبان‌های .NET، مرورگرها، برنامه‌های Electron و shell ویندوز. همه‌شان JIT دارند. هشداری که روی یک‌پنجم سیستم fire کند هشداری است که کسی نمی‌خواند. پس H1 فقط می‌گوید کجا را نگاه کنیم؛ H3، H2 یا H5 می‌گویند هشدار بدهیم. در session Atomic این ۱٬۸۹۲ region H1 را به ۳ یافته رساند، هر سه از تست‌ها.</p></div>
+      <div class="answer"><p>چون روی سیستم تمیز تقریباً یک پروسس از هر پنج تا آن را دارد: در دو اجرای census، ۵۰ و ۴۵ پروسس از حدود ۲۴۰، بیشترشان میزبان‌های <bdi>.NET</bdi>، مرورگرها، برنامه‌های Electron و shell ویندوز. همه‌شان JIT دارند. هشداری که روی یک‌پنجم سیستم fire کند هشداری است که کسی نمی‌خواند. پس H1 فقط می‌گوید کجا را نگاه کنیم؛ H3، H2 یا H5 می‌گویند هشدار بدهیم. در session Atomic این ۱٬۸۹۲ region H1 را به ۳ یافته رساند، هر سه از تست‌ها.</p></div>
     </details>
     <details>
       <summary>چرا RWX را جدا هشدار نمی‌دهید؟ RWX که مشکوک‌تر است.</summary>
@@ -4953,7 +4960,7 @@ tools\run_bench.cmd</pre>
     </details>
     <details>
       <summary>چرا ۱۵۴ مگابایت برای یک داشبورد؟</summary>
-      <div class="answer"><p>چون build خودکفاست: runtime کامل .NET 10 داخلش است تا روی ماشینی بدون .NET (مثل VM فاز ۵) اجرا شود، و WPF از trim پشتیبانی نمی‌کند پس نمی‌شود قسمت‌های بی‌استفاده‌ی runtime را حذف کرد. build وابسته به framework چند مگابایت است ولی نصب Desktop Runtime دات‌نت ۱۰ را لازم دارد.</p></div>
+      <div class="answer"><p>چون build خودکفاست: runtime کامل <bdi>.NET</bdi> 10 داخلش است تا روی ماشینی بدون <bdi>.NET</bdi> (مثل VM فاز ۵) اجرا شود، و WPF از trim پشتیبانی نمی‌کند پس نمی‌شود قسمت‌های بی‌استفاده‌ی runtime را حذف کرد. build وابسته به framework چند مگابایت است ولی نصب Desktop Runtime دات‌نت ۱۰ را لازم دارد.</p></div>
     </details>
   </div>
 
@@ -5028,7 +5035,7 @@ tools\run_bench.cmd</pre>
         <tr><td class="mono">NT device path</td><td>مسیر به شکل <code>\Device\HarddiskVolumeN\...</code></td></tr>
         <tr><td class="mono">DOS path</td><td>مسیر به شکل <code>C:\...</code></td></tr>
         <tr><td class="mono">ParsedEvent</td><td>struct ساده‌ی C خروجی parser</td></tr>
-        <tr><td class="mono">NormalizedEvent</td><td>نوع C++ رویداد که همه‌ی لایه‌های بالا با آن کار می‌کنند</td></tr>
+        <tr><td class="mono">NormalizedEvent</td><td>نوع <bdi>C++</bdi> رویداد که همه‌ی لایه‌های بالا با آن کار می‌کنند</td></tr>
         <tr><td class="mono">POD</td><td>struct ساده بدون اشاره‌گر و مدیریت حافظه</td></tr>
         <tr><td class="mono">RAII</td><td>آزاد شدن خودکار منبع در destructor</td></tr>
         <tr><td class="mono">Bounded queue</td><td>صف با ظرفیت محدود؛ در پر بودن رویداد جدید دور ریخته و شمرده می‌شود</td></tr>
@@ -5066,7 +5073,7 @@ tools\run_bench.cmd</pre>
         <tr><td class="mono">MEM_IMAGE · MEM_MAPPED · MEM_PRIVATE</td><td>حافظه‌ی فایل اجرایی · نمای section · حافظه‌ی گرفته‌شده بدون فایل</td></tr>
         <tr><td class="mono">RWX</td><td><code>PAGE_EXECUTE_READWRITE</code>؛ هم نوشتنی هم اجرایی</td></tr>
         <tr><td class="mono">PAGE_GUARD</td><td>صفحه‌ای که اولین دسترسی به آن استثنا می‌دهد و guard را برمی‌دارد؛ اسکنر هرگز نمی‌خواندش</td></tr>
-        <tr><td class="mono">JIT</td><td>تولید کد ماشین در زمان اجرا (.NET، V8)؛ منبع اصلی H1 در برنامه‌های سالم</td></tr>
+        <tr><td class="mono">JIT</td><td>تولید کد ماشین در زمان اجرا (<bdi>.NET</bdi>، V8)؛ منبع اصلی H1 در برنامه‌های سالم</td></tr>
         <tr><td class="mono">Shellcode · GetPC</td><td>کد خام مستقل از loader · الگوی <code>call $+5; pop</code> برای پیدا کردن آدرس خود</td></tr>
         <tr><td class="mono">H1 · H2 · H3 · H5</td><td>حافظه‌ی private اجرایی · thread که از آن شروع شده · PE header در آن · الگوی شروع shellcode</td></tr>
         <tr><td class="mono">Sweep · Rescan · Cooldown</td><td>اسکن دوره‌ای همه‌ی پروسس‌ها · اسکن‌های ۰.۵ تا ۳۰ ثانیه بعد از شروع · فاصله‌ی حداقل بین دو اسکن یک PID</td></tr>
@@ -5085,7 +5092,7 @@ tools\run_bench.cmd</pre>
         <tr><td class="mono">Snapshot · run_valid</td><td>حالت تمیز ذخیره‌شده‌ی VM · برچسبی که می‌گوید یک اجرا به‌عنوان شاهد شمرده می‌شود</td></tr>
         <tr><td class="mono">WPF · XAML · MVVM</td><td>فریم‌ورک دسکتاپ ویندوز · زبان توصیف ظاهر · الگوی جدا کردن منطق از صفحه</td></tr>
         <tr><td class="mono">immutable=1 · query_only</td><td>باز کردن SQLite بدون قفل وقتی نویسنده‌ای نیست · pragmaی که هر نوشتن را روی آن اتصال رد می‌کند</td></tr>
-        <tr><td class="mono">Self-contained build</td><td>فایل اجرایی‌ای که runtime خودش را همراه دارد و نصب .NET لازم ندارد</td></tr>
+        <tr><td class="mono">Self-contained build</td><td>فایل اجرایی‌ای که runtime خودش را همراه دارد و نصب <bdi>.NET</bdi> لازم ندارد</td></tr>
         <tr><td class="mono">Background mode</td><td><code>THREAD_MODE_BACKGROUND_BEGIN</code>؛ اولویت پایین CPU، I/O و حافظه برای thread اسکنر</td></tr>
       </tbody>
     </table>
@@ -5098,7 +5105,7 @@ tools\run_bench.cmd</pre>
   <span>Ret2Void · Light EDR v0.5.0 · Console 0.1.0</span>
   <span><a href="https://github.com/Ret2Voidx/Light-EDR">GitHub</a> · <a href="../">English</a></span>
 </footer>
-<a class="to-top" href="#top" aria-label="Top">↑</a>
+<a class="to-top" href="#top" aria-label="بازگشت به بالا">↑</a>
 <script src="../assets/js/site.js" defer></script>
 </body>
 </html>

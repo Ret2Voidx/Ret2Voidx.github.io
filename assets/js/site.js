@@ -23,11 +23,11 @@
 
   function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
   var T = FA ? {
-    q: { offered: 'ورودی', stored: 'ذخیره', dropped: 'دورریخته', peak: 'اوج صف', burst: 'انفجار رویداد', reset: 'از نو', inRate: 'نرخ رویداد از kernel', outRate: 'سرعت نویسنده', ok: 'صف جا دارد؛ هیچ رویدادی از دست نمی‌رود.', bad: 'صف پر شد: جدیدترین رویدادها دور ریخته و شمرده می‌شوند. هیچ‌وقت بی‌صدا نیست.' },
-    r: { evt: 'رویداد ProcessStart', parent: 'والد (ParentImage)', image: 'پروسس (Image)', folder: 'پوشه', match: 'MATCH', none: 'match نشد', noHit: 'هیچ قاعده‌ای fire نکرد. این رویداد فقط ذخیره می‌شود.', hits: function (n) { return n + ' قاعده fire کرد → هشدار در جدول alerts، در همان transaction رویداد.'; } },
-    m: { scan: 'اسکن کن', scanning: 'در حال اسکن…', skipG: 'guard: خوانده نمی‌شود', img: 'image-backed', noX: 'غیراجرایی', mapped: 'mapped + فایل', quiet: 'H1 دیده شد ولی هیچ نشانه‌ی تأییدکننده‌ای نبود → فقط شمرده می‌شود، هشدار نه.', clean: 'هیچ H1ی پیدا نشد → اسکن تمیز، هیچ ردیفی نوشته نمی‌شود.', start: 'یک سناریو انتخاب کن و «اسکن کن» را بزن.' }
+    q: { offered: 'ورودی', stored: 'ذخیره', dropped: 'دورریخته', peak: 'اوج صف', burst: 'انفجار رویداد', reset: 'از نو', inRate: 'نرخ رویداد از kernel', outRate: 'سرعت نویسنده', ok: 'صف جا دارد؛ هیچ رویدادی از دست نمی‌رود.', past: 'صف دوباره جا دارد. رویدادهایی که قبلاً دور ریخته شدند در شمارنده‌ی dropped مانده‌اند.', bad: 'صف پر شد: جدیدترین رویدادها دور ریخته و شمرده می‌شوند. هیچ‌وقت بی‌صدا نیست.' },
+    r: { evt: 'رویداد ProcessStart', parent: 'والد (ParentImage)', image: 'پروسس (Image)', folder: 'پوشه', match: 'MATCH', none: 'match نشد', noHit: 'هیچ قاعده‌ای fire نکرد. این رویداد فقط ذخیره می‌شود.', hits: function (n) { return n.toLocaleString('fa-IR') + ' قاعده fire کرد ← هشدار در جدول alerts، در همان transaction رویداد.'; } },
+    m: { scan: 'اسکن کن', scanning: 'در حال اسکن…', skipG: 'guard: خوانده نمی‌شود', img: 'image-backed', noX: 'غیراجرایی', mapped: 'mapped + فایل', quiet: 'H1 دیده شد ولی هیچ نشانه‌ی تأییدکننده‌ای نبود ← فقط شمرده می‌شود، هشدار نه.', clean: 'هیچ H1ی پیدا نشد ← اسکن تمیز، هیچ ردیفی نوشته نمی‌شود.', start: 'یک سناریو انتخاب کن و «اسکن کن» را بزن.' }
   } : {
-    q: { offered: 'offered', stored: 'stored', dropped: 'dropped', peak: 'queue peak', burst: 'Event burst', reset: 'Reset', inRate: 'Events from the kernel', outRate: 'Writer speed', ok: 'The queue has room: nothing is lost.', bad: 'Queue full: the newest events are dropped and counted. Never silently.' },
+    q: { offered: 'offered', stored: 'stored', dropped: 'dropped', peak: 'queue peak', burst: 'Event burst', reset: 'Reset', inRate: 'Events from the kernel', outRate: 'Writer speed', ok: 'The queue has room: nothing is lost.', past: 'The queue has room again. Events dropped earlier stay in the dropped counter.', bad: 'Queue full: the newest events are dropped and counted. Never silently.' },
     r: { evt: 'ProcessStart event', parent: 'Parent (ParentImage)', image: 'Process (Image)', folder: 'Folder', match: 'MATCH', none: 'no match', noHit: 'No rule fired. The event is only stored.', hits: function (n) { return n + (n === 1 ? ' rule' : ' rules') + ' fired → rows in alerts, in the same transaction as the event.'; } },
     m: { scan: 'Scan', scanning: 'Scanning…', skipG: 'guard: never read', img: 'image-backed', noX: 'not executable', mapped: 'mapped + file', quiet: 'H1 found, but no corroborating signal → counted only, no alert.', clean: 'No H1 at all → a clean scan writes no rows.', start: 'Pick a scenario and press Scan.' }
   };
@@ -41,9 +41,14 @@
     if (toTop) toTop.classList.toggle('show', scrollY > innerHeight * 1.2);
   }
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  var menu = doc.querySelector('.menu-btn');
-  if (menu) menu.addEventListener('click', function () { body.classList.toggle('side-open'); });
-  doc.querySelectorAll('.side a').forEach(function (a) { a.addEventListener('click', function () { body.classList.remove('side-open'); }); });
+  var menu = doc.querySelector('.menu-btn'), side = doc.querySelector('.side');
+  function setSide(open) { body.classList.toggle('side-open', open); if (menu) menu.setAttribute('aria-expanded', String(open)); }
+  if (menu) menu.addEventListener('click', function (e) { e.stopPropagation(); setSide(!body.classList.contains('side-open')); });
+  doc.querySelectorAll('.side a').forEach(function (a) { a.addEventListener('click', function () { setSide(false); }); });
+  doc.addEventListener('click', function (e) { if (body.classList.contains('side-open') && side && !side.contains(e.target) && !(menu && menu.contains(e.target))) setSide(false); });
+  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && body.classList.contains('side-open')) { setSide(false); if (menu) menu.focus(); } });
+  var mqWide = matchMedia('(min-width: 1001px)');
+  if (mqWide.addEventListener) mqWide.addEventListener('change', function (e) { if (e.matches) setSide(false); });
 
   /* ---------------- cursor spotlight ---------------- */
   var mouse = { x: innerWidth / 2, y: innerHeight / 3, nx: 0, ny: 0, active: false };
@@ -303,19 +308,20 @@
     function out() { $('.o1').textContent = fmt(+$('.r1').value) + ' /s'; $('.o2').textContent = fmt(+$('.r2').value) + ' /s'; }
     $('.r1').oninput = out; $('.r2').oninput = out; out();
     $('.b1').onclick = function () { burst = 1.2; };
-    $('.b2').onclick = function () { q = off = sto = dro = peak = 0; };
+    $('.b2').onclick = function () { q = off = sto = dro = peak = burst = 0; dots.forEach(function (d) { d.remove(); }); dots = []; };
     (function tick(t) {
       var dt = Math.min(.05, (t - last) / 1000); last = t;
       if (vis) {
         var inR = +$('.r1').value + (burst > 0 ? 40000 : 0), outR = +$('.r2').value; burst -= dt;
         var add = inR * dt, before = q; off += add; q += add; var dropNow = 0;
         if (q > CAP) { dropNow = q - CAP; dro += dropNow; q = CAP; }
-        var o = Math.min(q, outR * dt); q -= o; sto += o; peak = Math.max(peak, q);
+        peak = Math.max(peak, q);
+        var o = Math.min(q, outR * dt); q -= o; sto += o;
         var f = Math.round(q / CAP * SL);
         for (i = 0; i < SL; i++) { cells[i].className = i < f ? 'f' : ''; }
         slots.classList.toggle('drop', dropNow > 0);
         $('.v1').textContent = fmt(off); $('.v2').textContent = fmt(sto); $('.v3').textContent = fmt(dro); $('.v4').textContent = fmt(peak);
-        var m = $('.qmsg'); m.textContent = dropNow > 0 ? T.q.bad : T.q.ok; m.style.color = dropNow > 0 ? 'var(--crit)' : 'var(--muted)';
+        var m = $('.qmsg'); m.textContent = dropNow > 0 ? T.q.bad : (dro > 0 ? T.q.past : T.q.ok); m.style.color = dropNow > 0 ? 'var(--crit)' : (dro > 0 ? 'var(--warn)' : 'var(--muted)');
         acc += Math.min(inR, 4000) * dt / 120;
         while (acc > 1 && dots.length < 40) { acc--; var s = doc.createElement('span'); s.dataset.x = 0; s.dataset.x0 = 0; if (dropNow > 0 && Math.random() < .5) s.className = 'x'; flow.appendChild(s); dots.push(s); }
         var w = flow.clientWidth;
@@ -369,7 +375,7 @@
         Object.keys(r.sel).forEach(function (k) { res[k] = Object.keys(r.sel[k]).every(function (f) { var s = r.sel[k][f]; return test(ev[f], s[0], s[1]); }); chips += '<em class="' + (res[k] ? 't' : 'f') + '">' + k + ' = ' + res[k] + '</em>'; });
         var hit = res.selection && Object.keys(res).every(function (k) { return k === 'selection' || !res[k]; });
         if (hit) hits++;
-        return '<div class="rule' + (hit ? ' hit' : '') + '"><div class="rt"><span class="lvl">' + r.l + '</span><b>' + r.t + '</b><span class="st">' + (hit ? '● ' + T.r.match : T.r.none) + '</span></div><div class="cond"><span>condition: ' + r.c + '</span>' + chips + '</div></div>';
+        return '<div class="rule' + (hit ? ' hit' : '') + '"><div class="rt"><span class="lvl">' + r.l + '</span><b>' + r.t + '</b><span class="st"' + (FA && !hit ? ' dir="rtl"' : '') + '>' + (hit ? '● ' + T.r.match : T.r.none) + '</span></div><div class="cond"><span>condition: ' + r.c + '</span>' + chips + '</div></div>';
       }).join('');
       var m = $('.rmsg'); m.textContent = hits ? T.r.hits(hits) : T.r.noHit; m.style.color = hits ? 'var(--crit)' : 'var(--muted)';
     }
@@ -393,7 +399,7 @@
     ];
     var S = FA ? [
       ['notepad تمیز', [], 'clean'],
-      ['برنامه‌ی .NET (JIT)', [['000001f2a3c00000', 'PRIVATE', 'RWX', 'CLR JIT code', '', ''], ['000001f2a3d10000', 'PRIVATE', 'RWX', 'CLR JIT stubs', '', ''], ['000001f2a3e20000', 'PRIVATE', 'RWX', 'CLR JIT code', '', '']], 'quiet'],
+      ['برنامه‌ی \u2066.NET (JIT)\u2069', [['000001f2a3c00000', 'PRIVATE', 'RWX', 'CLR JIT code', '', ''], ['000001f2a3d10000', 'PRIVATE', 'RWX', 'CLR JIT stubs', '', ''], ['000001f2a3e20000', 'PRIVATE', 'RWX', 'CLR JIT code', '', '']], 'quiet'],
       ['PE injection (T1055.002)', [['000001f2a3b40000', 'PRIVATE', 'RWX', '4D 5A 90 00 … 50 45 00 00', 'pe', 'thread']], 'h1h3'],
       ['thread hijack (T1055.003)', [['000001f2a3b40000', 'PRIVATE', 'RX', 'FC 48 83 E4 F0 E8 C0 00', 'stub', '']], 'h1h5']
     ] : [
@@ -409,7 +415,7 @@
       cur = i; host.querySelectorAll('[data-s]').forEach(function (b) { b.classList.toggle('on', +b.dataset.s === i); });
       regs = base.slice(0, 3).concat(S[i][1]).concat(base.slice(3));
       $('.mmap').innerHTML = regs.map(function (r) { return '<div class="mrow"><span class="addr">0x' + r[0] + '</span><span class="ty">' + r[1] + '</span><span class="pr">' + r[2] + '</span><span class="what">' + r[3] + '</span></div>'; }).join('');
-      var v = $('.verdict'); v.className = 'verdict'; v.textContent = T.m.start;
+      var v = $('.verdict'); v.className = 'verdict'; v.removeAttribute('dir'); v.textContent = T.m.start;
     }
     function chip(row, cls, txt) { var s = doc.createElement('span'); s.className = 'sig ' + cls; s.textContent = txt; row.querySelector('.what').appendChild(s); }
     function scan() {
@@ -440,12 +446,13 @@
     function finish(found) {
       busy = false; $('.scanb').textContent = '▶ ' + T.m.scan;
       var v = $('.verdict'), rep = found.filter(function (f) { return f.sig.some(function (s) { return s === 'H3' || s === 'H2' || s === 'H5'; }); });
+      v.removeAttribute('dir');
       if (!found.length) { v.className = 'verdict quiet'; v.textContent = T.m.clean; return; }
-      if (!rep.length) { v.className = 'verdict quiet'; v.textContent = T.m.quiet + ' (' + found.length + ' × H1+RWX)'; return; }
+      if (!rep.length) { v.className = 'verdict quiet'; v.textContent = T.m.quiet + ' \u2066(' + found.length + ' × H1+RWX)\u2069'; return; }
       var f = rep[0], has = function (s) { return f.sig.indexOf(s) >= 0; };
       var id = has('H3') ? 'lightedr-inj-h1h3' : has('H2') ? 'lightedr-inj-h1h2' : 'lightedr-inj-h1h5';
       var sev = has('RWX') || has('H2') ? 'critical' : 'high';
-      v.className = 'verdict alert';
+      v.className = 'verdict alert'; v.dir = 'ltr';
       v.innerHTML = '<b style="color:var(--crit)">ALERT</b> &nbsp;<code>' + id + '</code> · ' + sev + ' · T1055<br><code>Region=0x' + f.base + '; Signals=' + f.sig.join('+') + '</code>';
     }
     host.querySelectorAll('[data-s]').forEach(function (b) { b.onclick = function () { if (!busy) load(+b.dataset.s); }; });
