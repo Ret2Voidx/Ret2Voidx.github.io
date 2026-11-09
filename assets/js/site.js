@@ -203,7 +203,7 @@
   }
 
   /* ---------------- terminal typing ---------------- */
-  var term = doc.querySelector('.term pre');
+  var term = doc.querySelector('.hero-term pre');
   if (term) {
     var lines = JSON.parse(term.dataset.lines || '[]'), out = '', li = 0, ci = 0;
     function line(l) { return l.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/^(\$ )/, '<span class="k">$1</span>').replace(/(ALERT.*)$/, '<span class="r">$1</span>').replace(/(dropped=0|0 dropped|OK)/g, '<span class="g">$1</span>'); }
