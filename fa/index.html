@@ -77,18 +77,24 @@ alerts             0</pre></div>
 <section class="path" id="path">
   <div class="path-head"><p class="eyebrow">Ret2Void · Light EDR</p><h2>مسیر یادگیری</h2><p>به ترتیب بخوان، یا مستقیم سراغ چیزی برو که لازم داری. هر فصل یک لایه را توضیح می‌دهد، اینکه چرا این‌طور ساخته شد و چه هزینه‌ای داشت. سه آزمایشگاه تعاملی هم هست که طراحی را خودت امتحان کنی.</p></div>
   <div class="cards">
-      <a class="card" href="#start"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">01</span><h3>این راهنما را چطور بخوانی</h3><p>این راهنما را چطور بخوانی، و ترتیب پیشنهادی برای یاد گرفتن.</p></a>
-      <a class="card" href="#concepts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">02</span><h3>پیش‌نیازها: مفاهیمی که قبل از کد باید روشن باشند</h3><p>EDR، ETW، provider، TDH، WAL و بقیه‌ی مفاهیمی که قبل از کد لازم است.</p></a>
+      <a class="card" href="#start"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">01</span><h3>این راهنما را چطور بخوانی</h3><p>این راهنما چطور چیده شده، و ترتیبی که یاد گرفتن پروژه را از همه ساده‌تر می‌کند.</p></a>
+      <a class="card" href="#concepts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">02</span><h3>پیش‌نیازها: مفاهیمی که قبل از کد باید روشن باشند</h3><p>EDR، ETW، LOLBinها، ATT&amp;CK، Sigma و مفاهیم ویندوزی که کد به آن‌ها تکیه دارد، قبل از هر کدی.</p></a>
       <a class="card" href="#big-picture"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">03</span><h3>تصویر کلی: سیستم در یک نگاه</h3><p>کل سیستم در یک نگاه: لایه‌ها، threadها و پوشه‌ها.</p></a>
       <a class="card" href="#journey"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">04</span><h3>سفر یک رویداد: از kernel تا ردیف دیتابیس</h3><p>یک رویداد واقعی را از kernel تا هشدار در دیتابیس دنبال کن.</p></a>
-      <a class="card" href="#phase1"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path class="spin" d="M12 12L19 6"/></svg><span class="num">05</span><h3>فاز ۱: گرفتن رویداد از kernel</h3><p>گرفتن رویدادهای پروسس از kernel با ETW و TDH، بدون driver.</p></a>
-      <a class="card" href="#phase2"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path class="bob" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="num">06</span><h3>فاز ۲: نوشتن روی دیسک بدون کور شدن</h3><p>صف محدود که دور می‌ریزد نه block، فیلتر، و SQLite در حالت WAL. با آزمایشگاه صف.</p></a>
-      <a class="card" href="#phase3"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path class="bob" d="M8 12h8M8 16h5"/></svg><span class="num">07</span><h3>فاز ۳: از رویداد تا هشدار</h3><p>YAML محدود، گرامر condition، ۱۸ قاعده و هزینه‌ی اندازه‌گیری‌شده. با آزمایشگاه قاعده.</p></a>
-      <a class="card" href="#phase4"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect class="spin" x="9.5" y="9.5" width="5" height="5"/></svg><span class="num">08</span><h3>فاز ۴: نگاه کردن به داخل حافظه‌ی پروسس‌های دیگر</h3><p>پیدا کردن کد تزریق‌شده از user mode: thread چهارم و چهار نشانه. با آزمایشگاه اسکنر.</p></a>
+      <a class="card" href="#phase1"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path class="spin" d="M12 12L19 6"/></svg><span class="num">05</span><h3>فاز ۱: گرفتن رویداد از kernel</h3><p>گرفتن رویدادهای پروسس از kernel با ETW و TDH، بدون نوشتن driver.</p></a>
+      <a class="card" href="#phase2"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path class="bob" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="num">06</span><h3>فاز ۲: نوشتن روی دیسک بدون کور شدن</h3><p>صف محدودی که به‌جای block کردن دور می‌ریزد، یک فیلتر، و SQLite در حالت WAL. با آزمایشگاه صف.</p></a>
+      <a class="card" href="#phase3"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path class="bob" d="M8 12h8M8 16h5"/></svg><span class="num">07</span><h3>فاز ۳: از رویداد تا هشدار</h3><p>خواننده‌ی محدود YAML، گرامر condition، ۱۸ قاعده و هزینه‌ی اندازه‌گیری‌شده. با آزمایشگاه قاعده.</p></a>
+      <a class="card" href="#phase4"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect class="spin" x="9.5" y="9.5" width="5" height="5"/></svg><span class="num">08</span><h3>فاز ۴: نگاه کردن به داخل حافظه‌ی پروسس‌های دیگر</h3><p>پیدا کردن کد تزریق‌شده از user mode: thread چهارم و چهار نشانه‌ی حافظه. با آزمایشگاه اسکنر.</p></a>
       <a class="card" href="#phase5"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">09</span><h3>فاز ۵: اندازه‌گیری چیزی که ساخته شد</h3><p>Atomic Red Team، near miss، soak یک‌ساعته و آزمون بار: سنسور واقعاً چه می‌کند.</p></a>
       <a class="card" href="#console"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path class="bob" d="M7 13l3-3 2 2 4-4"/></svg><span class="num">10</span><h3>کنسول: خواندن دیتابیس بدون دست زدن به آن</h3><p>داشبورد WPF فقط‌خواندنی روی دیتابیس، و اینکه چرا هیچ‌وقت سنسور را معطل نمی‌کند.</p></a>
-      <a class="card" href="#limits"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">11</span><h3>محدودیت‌ها: چیزهایی که سیستم نمی‌بیند</h3><p>محدودیت‌ها: چیزهایی که سیستم نمی‌بیند، صریح و بدون اغراق.</p></a>
-      <a class="card" href="#qa"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">12</span><h3>پرسش و پاسخ</h3><p>سؤال‌های سخت درباره‌ی طراحی، با جواب.</p></a>
+      <a class="card" href="#main"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">11</span><h3>main.cpp: رهبر ارکستر</h3><p>main.cpp: ترتیب راه‌اندازی، ترتیب خاموش شدن، و اینکه چرا هرکدام مهم است.</p></a>
+      <a class="card" href="#build"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">12</span><h3>ساخت، تست و ابزارها</h3><p>CMake، یک harness تست ۹۰ خطی با ۲۵۰ تست، و ابزارهای benchmark.</p></a>
+      <a class="card" href="#status"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">13</span><h3>چه چیزی هست و چه چیزی نیست</h3><p>چه چیزی کار می‌کند، چه چیزی اندازه‌گیری شده، و چه چیزی صادقانه دور از دسترس است.</p></a>
+      <a class="card" href="#numbers"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">14</span><h3>اعداد کلیدی</h3><p>همه‌ی اعداد مهم در یک جدول، با جایی که هرکدام تعریف شده.</p></a>
+      <a class="card" href="#limits"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">15</span><h3>محدودیت‌ها: چیزهایی که سیستم نمی‌بیند</h3><p>چیزهایی که سیستم نمی‌بیند، صریح و بدون اغراق.</p></a>
+      <a class="card" href="#decisions"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">16</span><h3>تصمیم‌ها، و اعتراض‌هایی که به آن‌ها می‌شود</h3><p>سؤال‌های سخت درباره‌ی طراحی، با جواب.</p></a>
+      <a class="card" href="#qa"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">17</span><h3>پرسش‌های بیشتر</h3><p>سؤال‌های بیشتر درباره‌ی هر فاز، هرکدام با یک عدد یا یک مکانیزم جواب داده شده.</p></a>
+      <a class="card" href="#glossary"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">18</span><h3>واژه‌نامه</h3><p>همه‌ی اصطلاح‌های این راهنما، در یک جا.</p></a>
   </div>
 </section>
 
@@ -107,10 +113,12 @@ alerts             0</pre></div>
       <a href="#console"><span class="n">10</span><span>کنسول: خواندن دیتابیس بدون دست زدن به آن</span></a>
       <a href="#main"><span class="n">11</span><span>main.cpp: رهبر ارکستر</span></a>
       <a href="#build"><span class="n">12</span><span>ساخت، تست و ابزارها</span></a>
-      <a href="#numbers"><span class="n">13</span><span>اعداد کلیدی</span></a>
-      <a href="#limits"><span class="n">14</span><span>محدودیت‌ها: چیزهایی که سیستم نمی‌بیند</span></a>
-      <a href="#qa"><span class="n">15</span><span>پرسش و پاسخ</span></a>
-      <a href="#glossary"><span class="n">16</span><span>واژه‌نامه</span></a>
+      <a href="#status"><span class="n">13</span><span>چه چیزی هست و چه چیزی نیست</span></a>
+      <a href="#numbers"><span class="n">14</span><span>اعداد کلیدی</span></a>
+      <a href="#limits"><span class="n">15</span><span>محدودیت‌ها: چیزهایی که سیستم نمی‌بیند</span></a>
+      <a href="#decisions"><span class="n">16</span><span>تصمیم‌ها، و اعتراض‌هایی که به آن‌ها می‌شود</span></a>
+      <a href="#qa"><span class="n">17</span><span>پرسش‌های بیشتر</span></a>
+      <a href="#glossary"><span class="n">18</span><span>واژه‌نامه</span></a>
   </aside>
   <main class="wrap" dir="rtl">
 <section id="start">
@@ -134,12 +142,11 @@ alerts             0</pre></div>
         <tr><td class="num">1</td><td>EDR چیست، ETW چیست، معماری کلی، سفر یک رویداد</td><td>پیش‌نیازها · تصویر کلی · سفر یک رویداد</td></tr>
         <tr><td class="num">2</td><td>فاز ۱: گرفتن رویداد از kernel</td><td>فاز ۱</td></tr>
         <tr><td class="num">3</td><td>فاز ۲: صف، فیلتر، SQLite و سه thread</td><td>فاز ۲ · main.cpp</td></tr>
-        <tr><td class="num">4</td><td>فاز ۳ (بخش اول): مسیرها، جدول پروسس‌ها، قاعده‌ها و YAML</td><td>فاز ۳ تا «گرامر condition»</td></tr>
-        <tr><td class="num">5</td><td>فاز ۳ (بخش دوم): rule pack، keep-list، throttle، سخت‌سازی، اندازه‌گیری</td><td>بقیه‌ی فاز ۳ · ساخت و تست</td></tr>
-        <tr><td class="num">6</td><td>فاز ۴: تزریق به پروسس، thread چهارم، نشانه‌های H1 تا H5، baseline، Atomic، هزینه‌ی اندازه‌گیری‌شده و آزمایش PEB</td><td>فاز ۴ (ممکن است دو نوبت مطالعه لازم شود)</td></tr>
-        <tr><td class="num">7</td><td>فاز ۵: اعتبارسنجی؛ اعتبار اجرا، ۱۸ قاعده، تکرار T1055، soak، بار و هزینه</td><td>فاز ۵</td></tr>
-        <tr><td class="num">8</td><td>کنسول: GUI فقط‌خواندنی، دو حالت باز کردن SQLite، به‌روزرسانی زنده، درخت پروسس</td><td>کنسول</td></tr>
-        <tr><td class="num">9</td><td>مرور، محدودیت‌ها، پرسش و پاسخ</td><td>اعداد کلیدی · محدودیت‌ها · پرسش و پاسخ</td></tr>
+        <tr><td class="num">4</td><td>فاز ۳: مسیرها، جدول پروسس‌ها، قاعده‌ها و خواننده‌ی YAML، بسته‌ی قاعده، keep-list، throttle، سخت‌سازی و هزینه</td><td>فاز ۳ · ساخت، تست و ابزارها</td></tr>
+        <tr><td class="num">5</td><td>فاز ۴: تزریق به پروسس، thread چهارم، نشانه‌های H1 تا H5، baseline، Atomic، هزینه‌ی اندازه‌گیری‌شده و آزمایش PEB</td><td>فاز ۴ (ممکن است دو نوبت مطالعه لازم شود)</td></tr>
+        <tr><td class="num">6</td><td>فاز ۵: اعتبار اجرا، ۱۸ قاعده، تکرار T1055، soak، بار و هزینه</td><td>فاز ۵</td></tr>
+        <tr><td class="num">7</td><td>کنسول: GUI فقط‌خواندنی، دو حالت باز کردن SQLite، به‌روزرسانی زنده، درخت پروسس</td><td>کنسول</td></tr>
+        <tr><td class="num">8</td><td>مرور: چه چیزی هست، اعداد، محدودیت‌ها، و سؤال‌هایی که معمولاً پیش می‌آید</td><td>وضعیت · اعداد کلیدی · محدودیت‌ها · تصمیم‌ها · پرسش‌های بیشتر · واژه‌نامه</td></tr>
       </tbody>
     </table>
   </div>
@@ -732,7 +739,7 @@ alerts             0</pre></div>
     <p>
       در کل این مسیر فقط پنج کار ارزان روی thread مصرف‌کننده انجام شد: callback، parse، تبدیل، فیلتر
       و push. همه‌ی کارهای گران‌تر (ترجمه، جستجوی والد، قاعده‌ها، دیسک) آن طرف صف و روی thread
-      نویسنده‌اند. اگر فقط یک چیز از معماری یادشان بماند، باید همین باشد.
+      نویسنده‌اند. اگر فقط یک چیز از معماری یادت بماند، باید همین باشد.
     </p>
   </div>
 </section>
@@ -850,7 +857,7 @@ alerts             0</pre></div>
         <dt><code>EtwSession_Start</code> قدم به قدم</dt>
         <dd>
           <ol>
-            <li><strong>ساخت بافر تنظیمات.</strong> <code>EVENT_TRACE_PROPERTIES</code> یک struct با طول متغیر است: نام session در همان بافر و بلافاصله بعد از struct می‌آید و فیلد <code>LoggerNameOffset</code> می‌گوید از کدام بایت شروع می‌شود. تابع کمکی <code>AllocateSessionProperties</code> به اندازه‌ی struct به‌اضافه‌ی نام جا می‌گیرد و این تنظیمات را می‌گذارد: <span class="nb"><code>WNODE_FLAG_TRACED_GUID</code>،</span> <code>ClientContext = 1</code> (ساعت QPC، یعنی Query Performance Counter با دقت بالا)، و <code>LogFileMode = EVENT_TRACE_REAL_TIME_MODE</code> (رویدادها زنده تحویل داده می‌شوند و هیچ فایل <bdi>.etl</bdi> نوشته نمی‌شود).</li>
+            <li><strong>ساخت بافر تنظیمات.</strong> <code>EVENT_TRACE_PROPERTIES</code> یک struct با طول متغیر است: نام session در همان بافر و بلافاصله بعد از struct می‌آید و فیلد <code>LoggerNameOffset</code> می‌گوید از کدام بایت شروع می‌شود. تابع کمکی <code>AllocateSessionProperties</code> به اندازه‌ی struct به‌اضافه‌ی نام جا می‌گیرد و این تنظیمات را می‌گذارد: <span class="nb"><code>WNODE_FLAG_TRACED_GUID</code>،</span> <code>ClientContext = 1</code> (ساعت QPC، یعنی Query Performance Counter با دقت بالا)، و <code>LogFileMode = EVENT_TRACE_REAL_TIME_MODE</code> (رویدادها زنده تحویل داده می‌شوند و هیچ فایل .etl نوشته نمی‌شود).</li>
             <li><strong>پاک کردن session یتیم.</strong> اگر اجرای قبلی crash کرده باشد، session آن هنوز در kernel زنده است، چون session به عمر برنامه بسته نیست. پس اول با <code>ControlTraceW(..., EVENT_TRACE_CONTROL_STOP)</code> هر session هم‌نامی را متوقف می‌کند. خطای <code>ERROR_WMI_INSTANCE_NOT_FOUND</code> یعنی «چنین sessionی نبود» و حالت عادی است.</li>
             <li><strong>ساخت session.</strong> بافر را دوباره صفر و پر می‌کند (چون ControlTraceW ممکن است دستکاری‌اش کرده باشد) و <code>StartTraceW</code> را صدا می‌زند که handle برمی‌گرداند.</li>
             <li><strong>علامت‌گذاری قبل از قدم بعد.</strong> <code>isActive = TRUE</code> را <em>قبل</em> از روشن کردن provider می‌گذارد، تا اگر قدم بعد شکست خورد، <code>EtwSession_Stop</code> واقعاً session را پاک کند و زود برنگردد.</li>
@@ -980,7 +987,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
 
   <!-- event.h -->
   <div class="file" id="f-event">
-    <div class="fhead"><span class="fname">src/core/event.h</span><span class="tag p1">PHASE 1</span><span class="tag p3">+ PHASE 3</span><span class="tag">C++17</span><span class="tag">C/C++ BOUNDARY</span></div>
+    <div class="fhead"><span class="fname">src/core/event.h</span><span class="tag p1">PHASE 1</span><span class="tag p3">+ PHASE 3</span><span class="tag">C++17</span><span class="tag">C/<bdi>C++</bdi> BOUNDARY</span></div>
     <div class="fbody">
       <p>اولین فایل <bdi>C++</bdi> پروژه و مرز دو زبان. <code>ParsedEvent</code> (C) را به <code>NormalizedEvent</code> (<bdi>C++</bdi>) تبدیل می‌کند. هر لایه‌ی بالاتر فقط <code>NormalizedEvent</code> را می‌بیند.</p>
       <div class="tw">
@@ -1289,7 +1296,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   
   <div class="lab" data-lab="queue">
     <div class="lab-head"><span class="lab-badge">Lab</span><h4>صف را آن‌قدر پر کن که دور بریزد</h4></div>
-    <div class="lab-body"><p class="hint">callback ETW هیچ‌وقت نباید منتظر بماند، پس صف پر جدیدترین رویداد را دور می‌ریزد و می‌شمارد. نرخ kernel را از سرعت نویسنده بیشتر کن یا یک انفجار بفرست، و ببین حسابرسی چطور دقیق می‌ماند.</p><div class="lab-run"><noscript>برای این آزمایشگاه باید JavaScript فعال باشد.</noscript></div></div>
+    <div class="lab-body"><p class="hint">callback ETW هیچ‌وقت نباید منتظر بماند، پس صف پر جدیدترین رویداد را دور می‌ریزد و می‌شمارد. نرخ kernel را از سرعت نویسنده بیشتر کن یا یک انفجار بفرست، و ببین حسابرسی چطور دقیق می‌ماند.</p><div class="lab-run"><noscript>JavaScript is needed for this lab.</noscript></div></div>
   </div>
 
   <h3>دیتابیس: SQLite</h3>
@@ -2326,7 +2333,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   
   <div class="lab" data-lab="rules">
     <div class="lab-head"><span class="lab-badge">Lab</span><h4>هشت قاعده‌ی واقعی را روی یک رویداد اجرا کن</h4></div>
-    <div class="lab-body"><p class="hint">این‌ها هشت قاعده از بسته‌اند، با همان selection و filter واقعی‌شان، و مثل موتور بدون حساسیت به بزرگی حروف تطبیق داده می‌شوند. یک رویداد ProcessStart بساز و ببین کدام selectionها true می‌شوند.</p><div class="lab-run"><noscript>برای این آزمایشگاه باید JavaScript فعال باشد.</noscript></div></div>
+    <div class="lab-body"><p class="hint">این‌ها هشت قاعده از بسته‌اند، با همان selection و filter واقعی‌شان، و مثل موتور بدون حساسیت به بزرگی حروف تطبیق داده می‌شوند. یک رویداد ProcessStart بساز و ببین کدام selectionها true می‌شوند.</p><div class="lab-run"><noscript>JavaScript is needed for this lab.</noscript></div></div>
   </div>
 
   <h3 id="pack">هفته‌ی ۴: بسته‌ی ۱۸ قاعده</h3>
@@ -3028,7 +3035,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   
   <div class="lab" data-lab="memory">
     <div class="lab-head"><span class="lab-badge">Lab</span><h4>یک پروسس را مثل اسکنر اسکن کن</h4></div>
-    <div class="lab-body"><p class="hint">نقشه‌ی حافظه را region به region مرور کن. حافظه‌ی image-backed، غیراجرایی و guard رد می‌شوند؛ حافظه‌ی private اجرایی H1 است. هشدار یعنی H1 و حداقل یکی از H3، H2 یا H5.</p><div class="lab-run"><noscript>برای این آزمایشگاه باید JavaScript فعال باشد.</noscript></div></div>
+    <div class="lab-body"><p class="hint">نقشه‌ی حافظه را region به region مرور کن. حافظه‌ی image-backed، غیراجرایی و guard رد می‌شوند؛ حافظه‌ی private اجرایی H1 است. هشدار یعنی H1 و حداقل یکی از H3، H2 یا H5.</p><div class="lab-run"><noscript>JavaScript is needed for this lab.</noscript></div></div>
   </div>
 
   <h3>چرا H1 تنها هرگز هشدار نیست: baseline</h3>
@@ -4591,6 +4598,87 @@ tools\run_bench.cmd</pre>
 </section>
 
 <!-- ==================== NUMBERS ==================== -->
+<section id="status">
+  <p class="eyebrow">Status</p>
+  <h2>چه چیزی هست و چه چیزی نیست</h2>
+  <div class="prose">
+    <p class="lede">
+      سیستمی که مرزهایش روشن است یک تصمیم مهندسی خوانده می‌شود؛ سیستمی که مبهم توصیف شده یک محصول
+      ناتمام. این جدول نسخه‌ی صادقانه است.
+    </p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>قابلیت</th><th>وضعیت</th><th>توضیح</th></tr></thead>
+      <tbody>
+        <tr><td>telemetry پروسس</td><td style="color:var(--ok)">ساخته شده</td><td>ProcessStart · ProcessStop · ImageLoad</td></tr>
+        <tr><td>ذخیره‌سازی ماندگار</td><td style="color:var(--ok)">ساخته شده</td><td>SQLite، WAL، transactionهای دسته‌ای، نگهداری ۷ روزه</td></tr>
+        <tr><td>حسابرسی رویدادهای از دست رفته</td><td style="color:var(--ok)">ساخته شده</td><td>دورریخته‌های ما و kernel، جدا شمرده می‌شوند</td></tr>
+        <tr><td>ترجمه‌ی مسیر NT به DOS</td><td style="color:var(--ok)">ساخته شده</td><td>با تست واحد</td></tr>
+        <tr><td>غنی‌سازی ParentImage</td><td style="color:var(--ok)">ساخته شده</td><td>با محافظ بازیافت PID</td></tr>
+        <tr><td>ذخیره‌ی هشدار</td><td style="color:var(--ok)">ساخته شده</td><td>هشدار و رویداد در یک transaction</td></tr>
+        <tr><td>خواننده‌ی محدود YAML</td><td style="color:var(--ok)">ساخته شده</td><td>داخلی، ۲۸ تست؛ fallback به yaml-cpp لازم نشد</td></tr>
+        <tr><td>بارکننده و اعتبارسنجی قاعده</td><td style="color:var(--ok)">ساخته شده</td><td>واژگان پنج‌فیلدی؛ هر رد، نام فایل و شماره‌ی خط را می‌گوید</td></tr>
+        <tr><td>گرامر condition در Sigma</td><td style="color:var(--ok)">ساخته شده</td><td>and / or / not، پرانتز، 1 of / all of، با محدودیت عمق</td></tr>
+        <tr><td>بسته‌ی قاعده، نگاشت ATT&amp;CK</td><td style="color:var(--ok)">ساخته شده</td><td>۱۸ قاعده، ۶ tactic؛ هرکدام با یک تست مثبت و یک near miss</td></tr>
+        <tr><td>keep-list در EventFilter</td><td style="color:var(--ok)">ساخته شده</td><td>۱۴ ماژول؛ هزینه در هر اجرا شمرده می‌شود (حدود ۰.۳٪ در اجرای زنده)</td></tr>
+        <tr><td>throttle هشدار</td><td style="color:var(--ok)">ساخته شده</td><td>(قاعده، actor، target)، ۶۰ ثانیه از زمان رویداد، حذف‌ها شمرده می‌شوند</td></tr>
+        <tr><td>مقاومت در برابر قاعده‌ی خراب</td><td style="color:var(--ok)">ساخته شده</td><td>حدود ۲۰٬۶۰۰ فایل جهش‌یافته؛ چهار stack overflow پیدا و رفع شد</td></tr>
+        <tr><td>هزینه‌ی اندازه‌گیری‌شده‌ی تشخیص</td><td style="color:var(--ok)">ساخته شده</td><td>p50 حدود ۱.۳ µs، p99 حدود ۵.۶ µs؛ نویسنده ۶.۵٪+ (x64 Release)</td></tr>
+        <tr><td>thread اسکنر حافظه</td><td style="color:var(--ok)">ساخته شده</td><td>thread چهارم، دو صف محدود، rescan، sweep (یا <span class="mono">--no-sweep</span>)</td></tr>
+        <tr><td>نشانه‌های تزریق H1 · H2 · H3 · H5</td><td style="color:var(--ok)">ساخته شده</td><td>هشدار یعنی H1 به‌علاوه‌ی H3، H2 یا H5؛ H1 تنها هرگز هشدار نیست</td></tr>
+        <tr><td>false positiveهای تزریق، توضیح‌داده‌شده</td><td style="color:var(--ok)">اندازه‌گیری‌شده</td><td>H1 با JIT در <bdi>.NET</bdi> و JavaScript توضیح داده شد؛ ۰ یافته در ۷٬۰۶۳ اسکن استفاده‌ی عادی (یک VM، یک بار کاری)</td></tr>
+        <tr><td>هزینه‌ی اسکن، Release</td><td style="color:var(--ok)">اندازه‌گیری‌شده</td><td>VM فاز ۵: میانه‌ی ۴۶ میلی‌ثانیه برای هر اسکن؛ اسکنر ۱۵.۶٪ یک هسته با sweep و ۳.۲٪ بدون آن (فاز ۴: ۹.۶٪ / ۱.۹٪)؛ ۰ دورریخته</td></tr>
+        <tr><td>تشخیص تزریق، اعتبارسنجی‌شده</td><td style="color:var(--ok)">اعتبارسنجی‌شده</td><td>۳ از ۱۲ زیرتست Atomic T1055 هرکدام ۳ از ۳ تشخیص داده شد، ۹تا ساکت ۰ از ۳، هیچ‌کدام ناپایدار نبود (بدون برگرداندن snapshot بین اجراها)</td></tr>
+        <tr><td>بسته‌ی قاعده، اعتبارسنجی‌شده</td><td style="color:var(--ok)">اعتبارسنجی‌شده</td><td>۱۸ از ۱۸ قاعده ۳ از ۳، ۱۸ از ۱۸ near miss ساکت؛ ۱۲ از ۱۸ با محرک دستی بی‌خطر</td></tr>
+        <tr><td>soak برای false positive</td><td style="color:var(--ok)">اندازه‌گیری‌شده</td><td>۶۰ دقیقه استفاده‌ی عادی: ۰ هشدار، ۰ یافته‌ی اسکنر (یک VM، یک کاربر)</td></tr>
+        <tr><td>LightEDR Console (رابط گرافیکی)</td><td style="color:var(--ok)">ساخته شده · 0.1.0</td><td>داشبورد WPF فقط‌خواندنی روی <span class="mono">lightedr.db</span>؛ ۶۶ تست؛ خواندن زنده کنار سنسور در یک اجرا آزموده شد</td></tr>
+        <tr><td>نرخ زنده‌ی پایدار</td><td style="color:var(--ok)">اندازه‌گیری‌شده</td><td>۴۰ پروسس در ثانیه (حدود ۱٬۲۸۱ رویداد در ثانیه) با ۰ دورریخته و ۰ ضرر؛ سقف پیدا نشد</td></tr>
+        <tr><td>پروسس‌های محافظت‌شده (PPL)</td><td style="color:var(--crit)">اسکن‌شدنی نیست</td><td>حتی با <span class="mono">SeDebugPrivilege</span> رد می‌شود؛ به‌عنوان skipped_access شمرده می‌شود</td></tr>
+        <tr><td><span class="mono">CommandLine</span></td><td style="color:var(--warn)">آزمایشی</td><td>در ETW نیست، پس در قاعده‌ها هم نیست. فقط برای هشدارهای اسکن، با <span class="mono">--peb-cmdline</span>، از PEB خوانده می‌شود؛ خوداظهاری و فقط ۶۴ بیتی</td></tr>
+        <tr><td>regex، aggregation، <span class="mono">timeframe</span></td><td style="color:var(--crit)">خارج از محدوده</td><td>موقع بار شدن با نام رد می‌شوند؛ پایین‌تر را ببین</td></tr>
+        <tr><td>هر نوع اقدام Response</td><td style="color:var(--crit)">خارج از محدوده</td><td>فقط تشخیص. بلاک نمی‌کند و نمی‌کشد.</td></tr>
+        <tr><td>kernel driver</td><td style="color:var(--crit)">خارج از محدوده</td><td>تصمیم معماری فاز ۱</td></tr>
+        <tr><td>محافظت از خود</td><td style="color:var(--crit)">ممکن نیست</td><td>هر چیزی که با Administrator اجرا شود می‌تواند session را متوقف کند</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note ok">
+    <span class="label">بسته‌شده در فاز ۳</span>
+    <p>
+      مواردی که این بخش قبلاً باز فهرست می‌کرد بسته شده‌اند. نقطه‌ی کور <code>EventFilter</code> به
+      keep-list تبدیل شد. مسیر migration با تست‌هایی آزموده می‌شود که دیتابیس‌های v1، v2 و v3 می‌سازند و
+      schema ارتقایافته را ستون‌به‌ستون با schema نو مقایسه می‌کنند، و دیتابیس واقعی توسعه به‌صورت زنده از
+      v2 تا v4 ارتقا یافته. قاعده‌ی پوشه‌ی Temp روی یک سیستم زنده fire کرده. هزینه‌ی ارزیابی قاعده عدد
+      بیلد Release دارد.
+    </p>
+    <p>
+      <strong>بسته‌شده در فاز ۴:</strong> هزینه‌ی اسکن با و بدون sweep عدد Release دارد؛ false positiveهای
+      H1 با مکانیزم توضیح داده شده‌اند؛ H5 توضیح نوشته‌شده و پروفایل false positive خودش را در
+      <code>INJECTION.md</code> دارد؛ آزمایش <code>CommandLine</code> نتیجه دارد؛ همه‌ی کار فاز ۴ کامیت و با
+      <code>v0.4.0</code> تگ خورده.
+    </p>
+    <p>
+      <strong>بسته‌شده در فاز ۵:</strong> true positive و near miss هر قاعده اندازه‌گیری شده؛ نتایج Atomic سه
+      بار تکرار شده‌اند و دیگر موقت نیستند؛ soak برای false positive اجرا شده؛ هزینه‌ی سنسور زیر بار عدد
+      دارد. با <code>v0.5.0</code> تگ خورده.
+    </p>
+  </div>
+
+  <div class="note warn">
+    <span class="label">هنوز باز</span>
+    <p>
+      Explorer در طول soak پانزده بار crash کرد؛ علتش معلوم نیست و سنسور تبرئه نشده. بین اجراهای
+      اعتبارسنجی snapshot برگردانده نشد. سقف بار پیدا نشد: ۴۰ پروسس در ثانیه بالاترین نرخ امتحان‌شده بود.
+      علت افزایش هزینه‌ی اسکن نسبت به فاز ۴ جدا نشده. شاخه‌ی <code>dbghelp</code> قاعده‌ی dump اعتبارنامه
+      فقط با تست واحدش پوشش داده شده. اسکن ۲۲ ثانیه‌ای فاز ۴ با آزمایش توضیح داده شده، نه با تأیید روی
+      VM. و همه‌ی نتایج درباره‌ی یک build ویندوز ۱۰ روی یک VM دو هسته‌ای است. قاعده‌ی masquerading هنوز
+      فرض می‌کند ویندوز روی <code>C:</code> نصب است.
+    </p>
+  </div>
+</section>
+
 <section id="numbers">
   <p class="eyebrow">Cheat sheet</p>
   <h2>اعداد کلیدی</h2>
@@ -4700,14 +4788,181 @@ tools\run_bench.cmd</pre>
   </div>
 </section>
 
+<section id="decisions">
+  <p class="eyebrow">Trade-offs</p>
+  <h2>تصمیم‌ها، و اعتراض‌هایی که به آن‌ها می‌شود</h2>
+  <div class="prose">
+    <p class="lede">
+      هرکدام از این‌ها کد را عوض کرد. جواب‌ها همان‌هایی‌اند که پروژه واقعاً می‌تواند با یک عدد یا یک
+      مکانیزم از آن‌ها دفاع کند. روی هر سؤال بزن تا باز شود.
+    </p>
+  </div>
+
+  <details>
+    <summary>چرا ETW و نه kernel callback؟ این راه آسان نیست؟</summary>
+    <div class="answer">
+      <p>راه محدودتر است و بهایش اعلام شده، نه پنهان. driver ساخت پروسس را قبل از اجرای آن می‌بیند، با پر شدن بافر رویداد از دست نمی‌دهد و می‌تواند بلاک کند. ولی امضا یا حالت test-signing لازم دارد، در محیطی کار می‌کند که باگ در آن صفحه‌ی آبی است نه exception، و چرخه‌ی توسعه‌اش با reboot اندازه گرفته می‌شود.</p>
+      <p><strong>نکته این نیست که ضرری نیست؛ این است که ضرر اندازه‌گیری می‌شود.</strong> <code>etw_events_lost</code> و <code>events_dropped</code> دقیقاً برای همین سؤال‌اند و دو ستون جدا هستند چون دو شکست جدا هستند.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span>چرا هم C هم <bdi>C++</bdi>؟ ناهماهنگ نیست؟</span></summary>
+    <div class="answer">
+      <p>مرز دقیقاً روی تبدیل <code>ParsedEvent → NormalizedEvent</code> است و سلیقه‌ای نیست. پایین مرز، APIهای ETW و TDH به زبان C هستند، callback روی مسیر حساس به تأخیر است، و یک struct ساده با آرایه‌های ثابت از مرز رد می‌شود تا هیچ طرف لازم نباشد مدل حافظه‌ی طرف دیگر را بفهمد: parser به زبان C هیچ حافظه‌ای نمی‌گیرد که طرف <bdi>C++</bdi> مجبور به آزاد کردنش باشد.</p>
+      <p>بالای مرز، RAII کار واقعی می‌کند: اتصال دیتابیس، prepared statementها، thread نویسنده و صف همه در اختیار destructorها هستند، و <code>std::wstring</code> سقف ۵۱۲ کاراکتری‌ای را که <code>ParsedEvent</code> مجبور به تحملش است برمی‌دارد.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>اگر سنسور رویداد از دست بدهد، قابل‌اعتماد است؟</summary>
+    <div class="answer">
+      <p>سه شمارنده، جدا از هم: رویدادهایی که فیلتر کنار گذاشت، رویدادهایی که صف ما دور ریخت، و رویدادهایی که kernel قبل از رسیدن به ما دور ریخت. هر اجرا اتحاد <code>events_seen = events_suppressed + events_stored + events_dropped</code> را چک می‌کند و <code>EventsLost</code> خود kernel کنارش ذخیره می‌شود.</p>
+      <p>سنسوری که می‌گوید «۴۱۲ رویداد از دست دادم» از سنسوری که وانمود می‌کند همه را دیده مفیدتر است. حالت شکست محدود، دیدنی و ثبت‌شده است.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا CommandLine ندارد؟ بیشتر قاعده‌های Sigma لازمش دارند.</summary>
+    <div class="answer">
+      <p>درست است، و بزرگ‌ترین شکاف پوشش قاعده است. سه گزینه بررسی شد:</p>
+      <p><strong>الف) بدون آن.</strong> حدود ۳۰ تا ۴۰ درصد قاعده‌های جالب process creation با Image، ParentImage و مسیر قابل بیان می‌مانند.</p>
+      <p><strong>ب) خواندن PEB پروسس هدف</strong> با <code>NtQueryInformationProcess</code>. در <code>winternl.h</code> مستند است، ولی مایکروسافت صریحاً هم تابع و هم ساختار <code>PEB</code> را «ممکن است تغییر کند یا حذف شود» علامت زده. در برابر پروسس‌های کوتاه‌عمر هم race دارد.</p>
+      <p><strong>ج) رویداد 4688 در Security log</strong>، که تنظیماتی روی سیستم لازم دارد که سنسور کنترلشان نمی‌کند و فرض فقط-ETW را کنار می‌گذارد.</p>
+      <p>تصمیم: (الف) برای فاز ۳، و (ب) به‌عنوان آزمایش زمان‌دار در فاز ۴. (ب) ساخته شد و به‌صورت اختیاری با <code>--peb-cmdline</code> ماند: command line پروسسی را که اسکن رویش هشدار داده پر می‌کند، ولی مقدارش خوداظهاری است، پروسس‌های ۳۲ بیتی رد می‌شوند، و قاعده‌ها همچنان نمی‌توانند از آن استفاده کنند. <a href="#peb">آزمایش PEB</a> را ببین. و مهم‌ترین بخش: <strong>قاعده‌ای که به فیلد ناموجود اشاره کند، موقع بار شدن با صدای بلند رد می‌شود.</strong> قاعده‌ای که بی‌صدا هرگز match نشود بدترین حالت از این سه است: شبیه پوشش است و هیچ پوششی نمی‌دهد.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا parser YAML خودتان و نه یک کتابخانه؟</summary>
+    <div class="answer">
+      <p>کل وابستگی خارجی پروژه یک فایل SQLite است که هر کسی می‌تواند خط‌به‌خطش را بخواند. اضافه کردن yaml-cpp برای فرمتی که فایل‌هایش را خودمان می‌نویسیم، این را با حدود دو روز کار عوض می‌کرد، و خود parser هم یک کار قابل‌دفاع است.</p>
+      <p><strong>یک ریسک زمانی هم بود، که با یک نقطه‌ی تصمیم از قبل تعیین‌شده مدیریت شد:</strong> اگر تا پایان هفته‌ی ۲ تست‌ها سبز نبودند، yaml-cpp اضافه می‌شد و پروژه جلو می‌رفت، چون محصول موتور قاعده است و parser فقط وسیله است. خواننده با ۲۸ تست، ۱۵تا ورودی خراب، آماده شد و fallback لازم نشد.</p>
+      <p>زیرمجموعه‌ی پشتیبانی‌شده مستند است: block mapping، block sequence، scalar ساده و کوتیشن‌دار، و کامنت. هر چیز دیگر، از جمله flow style، anchor، چند document، block scalar، tab و کلید تکراری، با خطایی که نام فایل و شماره‌ی خط را می‌گوید رد می‌شود و هرگز بی‌صدا نادیده گرفته نمی‌شود.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا کل قاعده را رد می‌کنید و بخشی را که موتور می‌تواند ارزیابی کند بار نمی‌کنید؟</summary>
+    <div class="answer">
+      <p>چون قاعده‌ی نصفه یک قاعده‌ی دیگر است. اگر بند <code>CommandLine</code> را از «powershell.exe با دستور encodeشده» حذف کنی، چیزی که می‌ماند روی هر شروع PowerShell هشدار می‌دهد، یا اگر آن بند همیشه false فرض شود، روی هیچ‌چیز. در هر دو حالت فایل ادعای تشخیصی را می‌کند که انجام نمی‌دهد.</p>
+      <p><strong>قاعده‌ی ردشده دیده می‌شود؛ قاعده‌ای که بی‌صدا ضعیف شده نه.</strong> رد، نام فایل، شماره‌ی خط و دلیل را می‌گوید، سنسور بقیه‌ی قاعده‌ها را اجرا می‌کند، و یک تست کل پوشه‌ی قاعده‌های رسمی را بار می‌کند تا یک پسرفت build را بشکند نه یک اجرا را.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا regex و قاعده‌ی شمارشی در بازه‌ی زمانی ندارد؟</summary>
+    <div class="answer">
+      <p>هر مقدار موقع بار شدن به یکی از چهار مقایسه تبدیل می‌شود: برابر، شامل، شروع با، و ختم به. این هزینه‌ی هر رویداد را به مقایسه‌ی ساده‌ی رشته محدود می‌کند که به الگویی که کسی نوشته بستگی ندارد. <code>|re</code> با نام رد می‌شود، نه نادیده گرفته. مفیدترین modifierی است که هنوز نیست، و هیچ‌کدام از ۱۸ قاعده‌ی بسته لازمش نداشتند.</p>
+      <p>aggregation (<code>| count() by …</code>) و <code>timeframe</code> نوع دیگری از آشکارسازند. برای هر کلید در یک بازه‌ی زمانی حالت نگه می‌دارند، در حالی که این موتور هر بار یک رویداد را ارزیابی می‌کند. موقع بار شدن رد می‌شوند تا نویسنده‌ی قاعده فوراً بفهمد، نه بعد از یک هفته سکوت.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا هشدار و رویداد باید در یک transaction باشند؟</summary>
+    <div class="answer">
+      <p>چون <code>alerts.event_id</code> کلید خارجی به <code>events.id</code> است و آن شناسه تا درج رویداد وجود ندارد. اگر در دو transaction نوشته شوند، شکست دومی یا هشداری می‌سازد که به رویداد rollbackشده اشاره می‌کند، یا رویدادی که هشدارش گم شده.</p>
+      <p>شناسه‌ی ردیف هم برای هر ردیف جدا با <code>sqlite3_last_insert_rowid</code> گرفته می‌شود و از یک فراخوانی آخر حساب نمی‌شود. شناسه‌ها معمولاً پشت‌سرهم‌اند، ولی «معمولاً» چیزی نیست که بشود کلید خارجی رویش ساخت.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا throttle روی والد کلید می‌خورد و نه روی پروسسی که match شد؟</summary>
+    <div class="answer">
+      <p>چون در ساخت پروسس، والد است که رفتار می‌کند. «Excel یک cmd.exe اجرا کرد» جمله‌ای درباره‌ی Excel است، و حلقه‌ای که ۵۰ بار cmd.exe بسازد یک والد و ۵۰ PID فرزند مختلف دارد. اگر کلید روی فرزند بود، throttle هرگز تکرار را نمی‌شناخت.</p>
+      <p><strong>مسیر فرزند هم بخشی از کلید است</strong>، پس یک والد که دو برنامه‌ی مشکوک متفاوت اجرا کند همچنان دو هشدار می‌دهد. ریسک پذیرفته‌شده بازیافت PID است: والدی که تمام شود و PIDش به پروسس نامرتبطی برسد که در ۶۰ ثانیه همان قاعده را روی همان مسیر fire کند. هر حذف شمرده می‌شود، پس throttleی که زیادی پنهان کند در <code>alerts_throttled</code> دیده می‌شود.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>یک فایل قاعده‌ی مخرب می‌تواند سنسور را از کار بیندازد؟</summary>
+    <div class="answer">
+      <p>تا هفته‌ی ۵ می‌توانست. چهار ورودی چند صد کیلوبایتی stack thread اصلی را در یک parser بازگشتی سرریز می‌کردند. حالا خواننده‌ی YAML در ۳۲ سطح و parser شرط در ۶۴ سطح متوقف می‌شوند و فایل بزرگ‌تر از ۲۵۶ KiB خوانده نمی‌شود. حدود ۲۰٬۶۰۰ نسخه‌ی شکسته‌ی قاعده‌های رسمی در هر اجرای تست بار می‌شوند و هرکدام باید یا بار شوند یا با شماره‌ی خط رد شوند.</p>
+      <p><strong>مدل تهدید درباره‌ی حدش صادق است:</strong> کسی که می‌تواند در <code>rules/</code> بنویسد، می‌تواند قاعده‌ها را پاک هم بکند. هدف این است که یک اشتباه، یا یک کپی نیمه‌کاره، در یک فایل به قیمت یک قاعده تمام شود، نه کل سنسور.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا حافظه را از user mode اسکن می‌کنید به‌جای اینکه خود تزریق را لحظه‌ی وقوع ببینید؟</summary>
+    <div class="answer">
+      <p>دیدن لحظه‌ی وقوع یا kernel callback لازم دارد یا provider ETW به اسم Microsoft-Windows-Threat-Intelligence. آن provider مستند عمومی ندارد و طبق گزارش‌های رایج فقط به پروسس‌های antimalware محافظت‌شده رویداد می‌دهد، که یک ترتیب امضای early-launch لازم دارند که این پروژه ندارد. هر دو راه بیرون از محدوده‌ی بدون driver است.</p>
+      <p><strong>هزینه‌ی راه user-mode اعلام شده، نه پنهان.</strong> اسکن حافظه را در لحظه‌ی خواندن می‌بیند، پس تزریقی که بین دو اسکن اجرا و پاک شود دیده نمی‌شود. پروسس‌های محافظت‌شده اصلاً خواندنی نیستند. در عوض اسکنر فقط APIهای مستند user-mode لازم دارد و باگش یک exception است، نه صفحه‌ی آبی.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>حافظه‌ی private اجرایی نشانه‌ی کلاسیک تزریق است. چرا رویش هشدار نمی‌دهید؟</summary>
+    <div class="answer">
+      <p>چون روی یک سیستم تمیز تقریباً یک پروسس از هر پنج تا آن را دارد. baseline در دو اجرا H1 را در ۵۰ و ۴۵ پروسس از حدود ۲۴۰ پیدا کرد، تقریباً همه میزبان‌های <bdi>.NET</bdi>، مرورگرها، برنامه‌های Electron و shell ویندوز. هشداری که روی یک‌پنجم سیستم fire کند هشداری است که کسی نمی‌خواند.</p>
+      <p><strong>پس H1 تعیین می‌کند کجا را نگاه کنیم، و چیز دیگری تعیین می‌کند هشدار بدهیم یا نه:</strong> PE header در region، threadی که از آن شروع شده، یا الگوی شروع shellcode در ابتدای آن. در session Atomic این ۱٬۸۹۲ region H1 را به ۳ یافته رساند، هر سه از تست‌ها.</p>
+      <p>هفته‌ی ۳ بعد نویز را با مکانیزم توضیح داد: ۷۸ از ۸۰ region RWX روی VM در پروسس‌هایی بود که runtime دات‌نت بار شده بود، و بیشتر بقیه‌ی H1 مال JIT جاوااسکریپت مرورگر بود. در دو اجرای ۳۰ دقیقه‌ای استفاده‌ی عادی، ۷٬۰۶۳ اسکن هیچ یافته‌ای نداشت.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>نه تا از دوازده تست تزریق تشخیص داده نشد. این شکست نیست؟</summary>
+    <div class="answer">
+      <p>یک حد اندازه‌گیری‌شده است و به همین اسم گزارش می‌شود. سه تشخیص هرکدام روی یک جفت نشانه‌ی متفاوت بودند، یعنی هر نشانه‌ی تأییدکننده روی یک تکنیک واقعی از اول تا آخر کار می‌کند. نُه مورد تشخیص‌داده‌نشده با نام در سند ارزیابی آمده‌اند، بدون هیچ توجیهی.</p>
+      <p><strong>دلیل اینکه هرکدام دیده نشد بررسی نشده، و سندها هم حدس نمی‌زنند.</strong> دامنه عمداً در این نقطه منجمد شد: برای زمان‌بندی پروژه، یک فاز تمام‌شده با مرز روشن بهتر از تشخیص‌دهنده‌ای است که مدام بزرگ می‌شود. نشانه‌های بیشتر کار اختیاری است اگر وقت بماند.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>اولویت background یک اسکن را ۲۲ ثانیه عقب انداخت. چرا نگهش داشتید؟</summary>
+    <div class="answer">
+      <p>چون جایگزینش ابزار امنیتی‌ای است که روی هر سیستم، همیشه، برای CPU با برنامه‌های خود کاربر رقابت می‌کند، فقط برای جلوگیری از تأخیری که فقط وقتی سیستم از قبل اشباع است پیدا می‌شود. در آزمایش، اسکن در هر دو حالت همان کار CPU را انجام داد؛ در حالت background فقط منتظر یک هسته‌ی آزاد ماند.</p>
+      <p><strong>بهایش اعلام شده، نه پنهان:</strong> زیر بار، تشخیص دیرتر می‌رسد و فاصله‌ی بین دو اسکن یک پروسس بیشتر می‌شود. حالا هر اسکن یک ثانیه یا بیشتر با زمان CPU خودش لاگ می‌شود، تا اسکن کند با برچسب waiting یا working شناخته شود، نه با حدس.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>چرا برای یافته‌ی حافظه یک رویداد ساختگی می‌سازید؟</summary>
+    <div class="answer">
+      <p>چون <code>alerts.event_id</code> مقدار <code>NOT NULL</code> است، و nullable کردنش تضمینی را ضعیف می‌کرد که همه‌ی هشدارهای فاز ۳ به آن تکیه دارند. ردیف <code>MemoryScan</code> (رویداد نوع ۴) درباره‌ی خودش صادق است: پروسس اسکن‌شده را نام می‌برد و هر فیلدی که مشاهده نشده <code>NULL</code> است.</p>
+      <p><strong>به‌علاوه از تنها مسیری می‌گذرد که درستی‌اش ثابت شده:</strong> رویداد و هشدارهایش از همان transaction <code>CommitBatch</code> می‌گذرند که match یک قاعده، پس مسیر نوشتن دومی برای تست کردن وجود نداشت.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>۱۲ از ۱۸ قاعده با محرک دستی اعتبارسنجی شدند. این آزمودن قاعده با خودش نیست؟</summary>
+    <div class="answer">
+      <p>قاعده را با همان الگویی می‌آزماید که ادعا می‌کند تشخیص می‌دهد، و این همان سؤالی است که تست قاعده می‌تواند جواب بدهد. ۹ قاعده روی والدی (script host، Office، وب‌سرور) بنا شده‌اند که یک تست Atomic Red Team نمی‌تواند بسازد، چون پروسس خود atomic همیشه <code>cmd</code> یا <code>powershell</code> است؛ و بدون command line، چند atomic دانلود دقیقاً مثل اجرای خالی ابزارند. یک باینری واقعی با نام دیگر همان <span class="nb"><code>Image</code>،</span> <code>ParentImage</code> و <code>ImageLoaded</code>ی را به سنسور می‌دهد که حمله‌ی واقعی می‌داد.</p>
+      <p><strong>چیزی که نشان نمی‌دهد صریح گفته شده:</strong> اینکه نفوذ واقعی به Office یا وب‌سرور همین الگو را می‌سازد. و همین ترفند دو طرف دارد: باینری با نام دیگر می‌تواند قاعده‌ی مبتنی بر نام را fire کند، پس باینری مخرب با نام دیگر هم می‌تواند از آن فرار کند. near missها نیمه‌ی دیگرند: هر قاعده روی نزدیک‌ترین نسخه‌ی بی‌خطرش ساکت ماند.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>soak هیچ هشداری نداد. یعنی قاعده‌ها آن‌قدر باریک‌اند که اصلاً fire نمی‌کنند؟</summary>
+    <div class="answer">
+      <p>همان قاعده‌ها روی محرک‌هایشان ۵۴ از ۵۴ بار fire کردند، روی همان VM و با همان باینری. سکوت روی یک ساعت استفاده‌ی عادی کنار ۳ از ۳ روی هر محرک، همان جفتی است که فاز برای ساختنش طراحی شد.</p>
+      <p><strong>باریک بودن واقعی است، و ادعای دیگری است:</strong> ۱۸ قاعده‌ی مبتنی بر نام و مسیر فقط چیزی را که توصیف می‌کنند پوشش می‌دهند، و یک ساعت استفاده‌ی یک نفر نرخ false positive نیست. هر دو به‌عنوان محدودیت نوشته شده‌اند، نه اینکه با آن صفر جواب داده شوند.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Explorer در soak crash کرد. کار سنسور بود؟</summary>
+    <div class="answer">
+      <p>معلوم نیست، و به همین شکل ثبت شده. اسکنر روی پروسس‌های دیگر فقط حق query و read دارد و هرگز در آن‌ها نمی‌نویسد، متوقفشان نمی‌کند یا thread نمی‌سازد، پس راه نوشتنی به Explorer ندارد. ولی ماژول مقصر با برگرداندن VM از دست رفت، و اجراهای هزینه که crash نداشتند بیکار بودند، پس رابطه را رد نمی‌کنند.</p>
+      <p><strong>وضعیت صادقانه «باز» است:</strong> تکرار soak با نگه داشتن crash dump جوابش را می‌دهد.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>سنسور از خودش محافظت می‌کند؟</summary>
+    <div class="answer">
+      <p>نه، و نمی‌تواند. هر چیزی که با Administrator اجرا شود می‌تواند session را متوقف یا پروسس را بکشد. مقاومت در برابر دستکاری driver لازم دارد که طبق تصمیم فاز ۱ خارج از محدوده است.</p>
+      <p>این در فهرست محدودیت‌ها آمده تا کسی خودش کشفش نکند. سیستمی که مرزهایش روشن است یک تصمیم مهندسی خوانده می‌شود؛ سیستمی که مبهم توصیف شده یک محصول ناتمام.</p>
+    </div>
+  </details>
+</section>
+
 <!-- ==================== Q&A ==================== -->
 <section id="qa">
   <p class="eyebrow">Common questions</p>
-  <h2>پرسش و پاسخ</h2>
+  <h2>پرسش‌های بیشتر</h2>
   <div class="prose">
     <p class="lede">
-      سؤال‌هایی که معمولاً بعد از خواندن این راهنما پیش می‌آیند، با جوابی که پروژه می‌تواند با یک عدد یا
-      یک مکانیزم از آن دفاع کند. روی هر سؤال بزن تا باز شود.
+      سؤال‌هایی که معمولاً بعد از خواندن این راهنما پیش می‌آیند، هرکدام با یک عدد یا یک مکانیزم جواب داده شده. تصمیم‌های بزرگ‌تر در بخش قبل آمده‌اند؛ این‌ها بقیه‌اند. روی هر سؤال بزن تا باز شود.
     </p>
   </div>
 
@@ -4717,19 +4972,19 @@ tools\run_bench.cmd</pre>
       <summary>این EDR دقیقاً چه چیزی را تشخیص می‌دهد و چه چیزی را نه؟</summary>
       <div class="answer">
         <p>رفتارهایی را که از روی «چه کسی، چه برنامه‌ای را، از کجا اجرا کرد» یا «کدام برنامه کدام DLL را بار کرد» قابل تشخیص‌اند: ۱۸ قاعده در ۶ tactic ATT&amp;CK، مثل Office که PowerShell اجرا کند، اجرا از Temp، mshta، Squiblydoo، dump حافظه با comsvcs.</p>
-        <p>چیزهایی که به داده‌ای نیاز دارند که سنسور جمع نمی‌کند، تشخیص داده نمی‌شوند: هر چیزی وابسته به CommandLine، شبکه، فایل، رجیستری، یا الگوهای زمانی (count در بازه). process injection هم کار فاز ۴ است.</p>
+        <p>چیزهایی که به داده‌ای نیاز دارند که سنسور جمع نمی‌کند، تشخیص داده نمی‌شوند: هر چیزی وابسته به CommandLine، شبکه، فایل، رجیستری، یا الگوهای زمانی (count در بازه). تزریق به پروسس جداگانه، با اسکنر حافظه‌ی فاز ۴، پوشش داده می‌شود.</p>
       </div>
     </details>
     <details>
       <summary>چرا Response ندارد؟ EDR یعنی Detection and Response.</summary>
       <div class="answer">
-        <p>محدوده‌ی پروژه تشخیص است و این صریحاً اعلام شده. Response خودکار روی یک سنسور user-mode بدون محافظت از خود، و بدون اندازه‌گیری نرخ false positive (که کار فاز ۵ است)، می‌تواند پروسس‌های سالم را بکشد. سنسوری که می‌گوید دقیقاً چه کاری <em>نمی‌کند</em>، قابل‌دفاع‌تر از سنسوری است که کاری را نیمه انجام می‌دهد.</p>
+        <p>محدوده‌ی پروژه تشخیص است و این صریحاً اعلام شده. Response خودکار روی یک سنسور user-mode بدون محافظت از خود، و با نرخ false positiveی که فقط روی یک بار کاری سنجیده شده، می‌تواند پروسس‌های سالم را بکشد. سنسوری که می‌گوید دقیقاً چه کاری <em>نمی‌کند</em>، قابل‌دفاع‌تر از سنسوری است که کاری را نیمه انجام می‌دهد.</p>
       </div>
     </details>
     <details>
       <summary>چرا ML نه؟</summary>
       <div class="answer">
-        <p>موضوع مصوب rule-based است. قاعده قابل‌خواندن، قابل‌تست و قابل‌توضیح است: هر هشدار دقیقاً می‌گوید کدام قاعده، روی کدام فیلدها، با کدام technique. هر قاعده یک تست مثبت و یک near miss دارد. یک مدل یادگیری ماشین چنین ضمانتی نمی‌دهد و داده‌ی آموزشی برچسب‌دار هم ندارد.</p>
+        <p>پروژه از اول rule-based طراحی شده. قاعده قابل‌خواندن، قابل‌تست و قابل‌توضیح است: هر هشدار دقیقاً می‌گوید کدام قاعده، روی کدام فیلدها، با کدام technique. هر قاعده یک تست مثبت و یک near miss دارد. یک مدل یادگیری ماشین چنین ضمانتی نمی‌دهد و داده‌ی آموزشی برچسب‌دار هم ندارد.</p>
       </div>
     </details>
     <details>
@@ -4748,13 +5003,6 @@ tools\run_bench.cmd</pre>
 
   <div class="qa-group">
     <h3>ETW و فاز ۱</h3>
-    <details>
-      <summary>چرا ETW و نه kernel callback؟ این راه آسان نیست؟</summary>
-      <div class="answer">
-        <p>راه محدودتر است و بهایش اعلام شده. driver پروسس را قبل از اجرا می‌بیند، با پر شدن بافر رویداد از دست نمی‌دهد و می‌تواند بلاک کند. ولی امضا یا حالت test-signing لازم دارد، باگش صفحه‌ی آبی است نه exception، و چرخه‌ی توسعه‌اش با reboot اندازه گرفته می‌شود.</p>
-        <p><strong>نکته این نیست که ضرری نیست؛ این است که ضرر اندازه‌گیری می‌شود.</strong> <code>etw_events_lost</code> و <code>events_dropped</code> دقیقاً برای همین سؤال‌اند و دو ستون جدا هستند چون دو شکست جدا هستند.</p>
-      </div>
-    </details>
     <details>
       <summary>Light EDR provider است؟</summary>
       <div class="answer"><p>نه. controller و consumer است. هیچ رویدادی تولید نمی‌کند؛ از kernel می‌خواهد provider موجود مایکروسافت (Kernel-Process) در session خودش بنویسد، و آن session را می‌خواند. دلیل اینکه driver لازم نیست همین است.</p></div>
@@ -4779,10 +5027,6 @@ tools\run_bench.cmd</pre>
       <summary>جالب‌ترین باگ فاز ۱ چه بود؟</summary>
       <div class="answer"><p>ImageName روی ProcessStart یونیکد است ولی روی ProcessStop ANSI. کد قدیم بایت‌ها را مستقیم در <code>wchar_t</code> می‌ریخت و <code>chrome.exe</code> به متن چینی تبدیل می‌شد. حالا نوع فیلد (<code>InType</code>) از TDH پرسیده و برای هر Event ID یک بار کش می‌شود، بدون hard-code، چون manifestها بین نسخه‌های ویندوز فرق دارند. این باگ فقط با اجرای زنده پیدا شد.</p></div>
     </details>
-    <details>
-      <summary>چرا هم C هم <bdi>C++</bdi>؟</summary>
-      <div class="answer"><p>مرز دقیقاً روی تبدیل <code>ParsedEvent → NormalizedEvent</code> است. پایین مرز APIهای ETW و TDH به زبان C‌اند و callback روی مسیر حساس است؛ یک struct ساده با آرایه‌ی ثابت از مرز رد می‌شود تا parser هیچ حافظه‌ای نگیرد که <bdi>C++</bdi> مجبور به آزاد کردنش باشد. بالای مرز RAII کار واقعی می‌کند و <code>std::wstring</code> سقف ۵۱۲ کاراکتری را برمی‌دارد.</p></div>
-    </details>
   </div>
 
   <div class="qa-group">
@@ -4790,13 +5034,6 @@ tools\run_bench.cmd</pre>
     <details>
       <summary>چرا سه thread؟ یکی کافی نبود؟</summary>
       <div class="answer"><p>(از فاز ۴ چهار thread؛ همین استدلال یک طبقه بالاتر: اسکن روی نویسنده ذخیره‌سازی را معطل می‌کرد، پس thread خودش را گرفت.) callback روی threadی اجرا می‌شود که <code>ProcessTrace</code> را صدا زده و تا برنگردد رویداد بعدی نمی‌آید. اگر نوشتن دیسک داخل callback باشد، بافرهای kernel پر می‌شوند و kernel رویداد دور می‌ریزد، درست وقتی سیستم شلوغ است. پس callback فقط parse، filter و push می‌کند؛ thread نویسنده کارهای کند را انجام می‌دهد؛ thread اصلی نظارت و خاموش کردن مرتب را.</p></div>
-    </details>
-    <details>
-      <summary>اگر سنسور رویداد از دست بدهد، قابل‌اعتماد است؟</summary>
-      <div class="answer">
-        <p>سه شمارنده، جدا از هم: رویدادهایی که فیلتر کنار گذاشت، رویدادهایی که صف ما دور ریخت، و رویدادهایی که kernel قبل از رسیدن به ما دور ریخت. هر اجرا اتحاد <code>events_seen = events_suppressed + events_stored + events_dropped</code> را دارد و EventsLost خود kernel کنارش ذخیره می‌شود.</p>
-        <p>سنسوری که می‌گوید «۴۱۲ رویداد از دست دادم» از سنسوری که وانمود می‌کند همه را دیده مفیدتر است. حالت شکست محدود، دیدنی و ثبت‌شده است. در اجرای پایان فاز ۲ هر دو ضرر صفر بود و بیشینه‌ی صف ۳ از ۸۱۹۲.</p>
-      </div>
     </details>
     <details>
       <summary>چرا صف block نمی‌شود، مثل صف‌های کتاب درسی؟</summary>
@@ -4809,13 +5046,6 @@ tools\run_bench.cmd</pre>
     <details>
       <summary>چرا 256 رویداد و 200 میلی‌ثانیه؟</summary>
       <div class="answer"><p>دسته تعداد sync دیسک را کم می‌کند: ۲۵۶ ردیف با یک sync به‌جای ۲۵۶ sync. ۲۰۰ میلی‌ثانیه سقف تأخیر نوشتن روی سیستم خلوت است، تا چند رویداد ساعت‌ها در حافظه منتظر پر شدن دسته نمانند. benchmark با همین اندازه‌ی دسته‌ی خود سنسور اجرا می‌شود.</p></div>
-    </details>
-    <details>
-      <summary>چرا هشدار و رویداد باید در یک transaction باشند؟</summary>
-      <div class="answer">
-        <p>چون <code>alerts.event_id</code> کلید خارجی به <code>events.id</code> است و آن شناسه تا درج رویداد وجود ندارد. اگر جدا بودند، شکست دومی یا هشداری می‌ساخت که به رویداد rollbackشده اشاره کند، یا رویدادی که هشدارش گم شده.</p>
-        <p>شناسه‌ی ردیف هم برای هر ردیف جدا با <code>sqlite3_last_insert_rowid</code> گرفته می‌شود و از یک فراخوانی آخر حساب نمی‌شود. شناسه‌ها معمولاً پشت‌سرهم‌اند، ولی «معمولاً» چیزی نیست که بشود کلید خارجی رویش ساخت.</p>
-      </div>
     </details>
     <details>
       <summary>ترتیب خاموش شدن چرا مهم است؟</summary>
@@ -4842,23 +5072,6 @@ tools\run_bench.cmd</pre>
       <div class="answer"><p>نه، یک زیرمجموعه‌ی مستند و سخت‌گیر است: دو دسته‌ی logsource، پنج فیلد، چهار نوع مقایسه، modifierهای contains/startswith/endswith/all، و گرامر condition با and/or/not، پرانتز و 1 of/all of. هر چیز خارج از این با نام رد می‌شود. جزئیاتش در <code>docs/Architecture/DETECTION.md</code> است.</p></div>
     </details>
     <details>
-      <summary>چرا CommandLine ندارد؟ بیشتر قاعده‌های Sigma لازمش دارند.</summary>
-      <div class="answer">
-        <p>درست است و بزرگ‌ترین شکاف پوشش است. سه گزینه بررسی شد:</p>
-        <p><strong>الف) بدون آن.</strong> حدود ۳۰ تا ۴۰ درصد قاعده‌های جالب process creation با Image، ParentImage و مسیر قابل بیان می‌مانند.</p>
-        <p><strong>ب) خواندن PEB پروسس هدف</strong> با <code>NtQueryInformationProcess</code>. در <code>winternl.h</code> مستند است، ولی مایکروسافت صریحاً هم تابع و هم ساختار PEB را «ممکن است تغییر کند یا حذف شود» علامت زده. در برابر پروسس‌های کوتاه‌عمر هم race دارد.</p>
-        <p><strong>ج) رویداد 4688 در Security log</strong>، که تنظیمات سیستمی لازم دارد که سنسور کنترلشان نمی‌کند و فرض فقط-ETW را کنار می‌گذارد.</p>
-        <p>تصمیم: (الف) برای فاز ۳ و (ب) به‌عنوان آزمایش زمان‌دار در فاز ۴. (ب) در فاز ۴ ساخته شد و به‌صورت اختیاری (<code>--peb-cmdline</code>) ماند: command line پروسسی را که اسکن رویش هشدار داده پر می‌کند، ولی مقدارش خوداظهاری است، پروسس‌های ۳۲ بیتی رد می‌شوند، و قاعده‌ها همچنان نمی‌توانند از آن استفاده کنند. و مهم‌ترین بخش: <strong>قاعده‌ای که به فیلد ناموجود اشاره کند موقع بار شدن، با صدای بلند رد می‌شود.</strong></p>
-      </div>
-    </details>
-    <details>
-      <summary>چرا regex و قاعده‌ی شمارشی در بازه‌ی زمانی ندارد؟</summary>
-      <div class="answer">
-        <p>هر مقدار موقع بار شدن به یکی از چهار مقایسه تبدیل می‌شود، پس هزینه‌ی هر رویداد مقایسه‌ی ساده‌ی رشته است و به الگویی که کسی نوشته بستگی ندارد. <code>|re</code> با نام رد می‌شود، نه نادیده گرفته؛ مفیدترین modifierی است که هنوز نیست، و هیچ‌کدام از ۱۸ قاعده لازمش نداشتند.</p>
-        <p>aggregation و timeframe نوع دیگری از آشکارساز‌اند که برای هر کلید در یک بازه حالت نگه می‌دارند؛ این موتور یک رویداد در هر بار را ارزیابی می‌کند. موقع بار شدن رد می‌شوند تا نویسنده‌ی قاعده فوراً بفهمد، نه بعد از یک هفته سکوت.</p>
-      </div>
-    </details>
-    <details>
       <summary>چرا ترجمه‌ی مسیر لازم بود؟</summary>
       <div class="answer"><p>kernel مسیر را به شکل <code>\Device\HarddiskVolume3\...</code> می‌دهد. قاعده‌ای که فقط به <code>endswith '\cmd.exe'</code> نگاه کند بدون ترجمه هم کار می‌کند، ولی هر قاعده‌ای که درباره‌ی مکان باشد (Temp، Public، ProgramData، System32) شکل <code>C:\...</code> را لازم دارد، چون شماره‌ی volume روی هر سیستم فرق دارد. مسیر خام هم در <code>image_path_nt</code> نگه داشته می‌شود چون سند جرم‌شناسی است.</p></div>
     </details>
@@ -4868,33 +5081,15 @@ tools\run_bench.cmd</pre>
     </details>
     <details>
       <summary>از کجا می‌دانید قاعده‌ها کار می‌کنند؟</summary>
-      <div class="answer"><p>سه سطح: (۱) هر قاعده‌ی واقعی یک رویداد تست دارد که باید fire کند و یک near miss که نباید، و کل بسته روی فعالیت عادی ویندوز (svchost، Chrome، Defender، Windows Update، ...) باید ساکت باشد. (۲) یک تست کل پوشه‌ی <code>rules/</code> را بار می‌کند و هر قاعده‌ای که دیگر معتبر نباشد suite را می‌شکند. (۳) تمرین زنده‌ی پنج‌مرحله‌ای دقیقاً پنج هشدار مورد انتظار را داد و هیچ هشدار دیگری. نرخ false positive روی یک baseline تمیز هنوز اندازه‌گیری نشده؛ کار فاز ۵ با Atomic Red Team است.</p></div>
+      <div class="answer"><p>سه سطح: (۱) هر قاعده‌ی واقعی یک رویداد تست دارد که باید fire کند و یک near miss که نباید، و کل بسته روی فعالیت عادی ویندوز (svchost، Chrome، Defender، Windows Update، ...) باید ساکت باشد. (۲) یک تست کل پوشه‌ی <code>rules/</code> را بار می‌کند و هر قاعده‌ای که دیگر معتبر نباشد suite را می‌شکند. (۳) تمرین زنده‌ی پنج‌مرحله‌ای دقیقاً پنج هشدار مورد انتظار را داد و هیچ هشدار دیگری. فاز ۵ بعداً هر قاعده را روی یک VM اعتبارسنجی کرد: ۱۸ از ۱۸، هرکدام ۳ از ۳، و near missها ساکت.</p></div>
     </details>
     <details>
       <summary>keep-list چه هزینه‌ای دارد؟</summary>
       <div class="answer"><p>در اجرای زنده ۷ رویداد از حدود ۲۲۰۰ بار شدن ماژول سیستمی، حدود ۰.۳٪. این عدد اندازه‌گیری شده نه تخمین زده: keep-list فقط برای رویدادهایی چک می‌شود که suppress-list می‌خواست دور بریزد، پس شمارنده‌اش دقیقاً هزینه‌اش است. هر ورودی keep-list نام تکنیکی را دارد که به آن نیاز دارد.</p></div>
     </details>
     <details>
-      <summary>چرا throttle روی والد کلید می‌خورد؟</summary>
-      <div class="answer"><p>چون در ساخت پروسس والد است که رفتار می‌کند، و حلقه‌ای که ۵۰ بار cmd.exe بسازد یک والد و ۵۰ PID فرزند مختلف دارد. کلید روی فرزند هرگز تکراری پیدا نمی‌کرد. مسیر فرزند هم در کلید است تا دو برنامه‌ی مشکوک متفاوت از یک والد دو هشدار بدهند. خود رویداد همیشه ذخیره می‌شود و هر حذف شمرده می‌شود، پس throttleی که زیادی پنهان کند در <code>alerts_throttled</code> دیده می‌شود.</p></div>
-    </details>
-    <details>
-      <summary>یک فایل قاعده‌ی مخرب می‌تواند سنسور را از کار بیندازد؟</summary>
-      <div class="answer">
-        <p>تا هفته‌ی ۵ می‌توانست. چهار ورودی چند صد کیلوبایتی stack یک‌مگابایتی thread اصلی را در parser بازگشتی سرریز می‌کردند. حالا خواننده‌ی YAML در ۳۲ سطح و parser شرط در ۶۴ سطح متوقف می‌شوند و فایل بزرگ‌تر از ۲۵۶ KiB خوانده نمی‌شود. حدود ۲۰٬۶۰۰ نسخه‌ی شکسته‌ی قاعده‌های واقعی در هر اجرای تست بار می‌شوند و هرکدام باید یا بار شوند یا با شماره‌ی خط رد شوند.</p>
-        <p>مدل تهدید درباره‌ی حدش صادق است: کسی که می‌تواند در <code>rules/</code> بنویسد، می‌تواند قاعده‌ها را پاک هم بکند. هدف این است که یک اشتباه، یا یک کپی نیمه‌کاره، در یک فایل به قیمت یک قاعده تمام شود نه کل سنسور.</p>
-      </div>
-    </details>
-    <details>
       <summary>موتور چقدر سریع است؟</summary>
-      <div class="answer"><p>روی بیلد x64 Release با ۱۸ قاعده: میانه‌ی ارزیابی هر رویداد ۱٬۲۷۹ نانوثانیه و p99 برابر ۵٬۶۳۱ نانوثانیه. کل کار thread نویسنده با قاعده‌ها ۶.۵٪ بیشتر شد (در اجراهای مختلف ۴ تا ۱۴٪)، چون بیشتر وقتش صرف SQLite است. با قاعده‌ها حدود ۴۸٬۰۰۰ رویداد در ثانیه، در حالی که سیستم توسعه در حالت عادی چند ده رویداد در ثانیه تولید می‌کرد. رفتار زیر بار سنگین هنوز سنجیده نشده.</p></div>
-    </details>
-    <details>
-      <summary>چرا parser YAML خودتان؟</summary>
-      <div class="answer">
-        <p>کل وابستگی خارجی پروژه یک فایل SQLite است که هر کسی می‌تواند خط‌به‌خطش را بخواند. اضافه کردن yaml-cpp برای فرمتی که خودمان می‌نویسیم این را با حدود دو روز کار عوض می‌کرد، و خود parser هم یک کار قابل‌دفاع است.</p>
-        <p>ریسک زمانی با یک نقطه‌ی تصمیم از قبل تعیین‌شده مدیریت شد: اگر تا پایان هفته‌ی ۲ تست‌ها سبز نبودند، yaml-cpp اضافه می‌شد، چون محصول موتور قاعده است و parser فقط وسیله است. خواننده با ۲۸ تست، ۱۵تا ورودی خراب، آماده شد و fallback لازم نشد.</p>
-      </div>
+      <div class="answer"><p>روی بیلد x64 Release با ۱۸ قاعده: میانه‌ی ارزیابی هر رویداد ۱٬۲۷۹ نانوثانیه و p99 برابر ۵٬۶۳۱ نانوثانیه. کل کار thread نویسنده با قاعده‌ها ۶.۵٪ بیشتر شد (در اجراهای مختلف ۴ تا ۱۴٪)، چون بیشتر وقتش صرف SQLite است. با قاعده‌ها حدود ۴۸٬۰۰۰ رویداد در ثانیه، در حالی که سیستم توسعه در حالت عادی چند ده رویداد در ثانیه تولید می‌کرد. فاز ۵ سنسور زنده را با ۴۰ پروسس در ثانیه بدون loss اندازه گرفت.</p></div>
     </details>
     <details>
       <summary>یک قاعده‌ی جدید چطور اضافه می‌شود؟</summary>
@@ -4905,17 +5100,6 @@ tools\run_bench.cmd</pre>
   <div class="qa-group">
     <h3>تزریق و اسکن حافظه (فاز ۴)</h3>
     <details>
-      <summary>چرا حافظه را از user mode اسکن می‌کنید به‌جای اینکه خود تزریق را لحظه‌ی وقوع ببینید؟</summary>
-      <div class="answer">
-        <p>دیدن لحظه‌ی وقوع یا kernel callback لازم دارد یا provider ETW به اسم Microsoft-Windows-Threat-Intelligence. آن provider مستند عمومی ندارد و طبق گزارش‌های رایج فقط به پروسس‌های antimalware محافظت‌شده رویداد می‌دهد، که یک ترتیب امضای early-launch لازم دارد که این پروژه ندارد. هر دو راه بیرون از محدوده‌ی بدون driver است.</p>
-        <p>هزینه‌ی راه user-mode پنهان نمی‌شود: اسکن حافظه را در لحظه‌ی خواندن می‌بیند، پس تزریقی که بین دو اسکن اجرا و پاک شود دیده نمی‌شود، و پروسس‌های PPL اصلاً خواندنی نیستند. در عوض فقط APIهای مستند user-mode لازم است و باگ اسکنر یک exception است، نه صفحه‌ی آبی.</p>
-      </div>
-    </details>
-    <details>
-      <summary>حافظه‌ی private اجرایی نشانه‌ی کلاسیک تزریق است. چرا رویش هشدار نمی‌دهید؟</summary>
-      <div class="answer"><p>چون روی سیستم تمیز تقریباً یک پروسس از هر پنج تا آن را دارد: در دو اجرای census، ۵۰ و ۴۵ پروسس از حدود ۲۴۰، بیشترشان میزبان‌های <bdi>.NET</bdi>، مرورگرها، برنامه‌های Electron و shell ویندوز. همه‌شان JIT دارند. هشداری که روی یک‌پنجم سیستم fire کند هشداری است که کسی نمی‌خواند. پس H1 فقط می‌گوید کجا را نگاه کنیم؛ H3، H2 یا H5 می‌گویند هشدار بدهیم. در session Atomic این ۱٬۸۹۲ region H1 را به ۳ یافته رساند، هر سه از تست‌ها.</p></div>
-    </details>
-    <details>
       <summary>چرا RWX را جدا هشدار نمی‌دهید؟ RWX که مشکوک‌تر است.</summary>
       <div class="answer"><p>baseline نشان داد ۳۲ تا ۳۵ پروسس سالم RWX دارند و تقریباً همه‌شان میزبان CLR‌اند. پس RWX به‌تنهایی سالم و مخرب را جدا نمی‌کند. فقط وقتی همراه یک نشانه‌ی تأییدکننده است شدت را به critical می‌برد. فرضیه‌ی هفته‌ی ۳ این است که این regionها با بار شدن CLR هم‌زمان‌اند، که با telemetry موجود (بار شدن <code>clr.dll</code> روی keep-list است) قابل‌آزمودن است.</p></div>
     </details>
@@ -4924,20 +5108,8 @@ tools\run_bench.cmd</pre>
       <div class="answer"><p>ویندوز PIDها را بازیافت می‌کند. اسکنر بعد از <code>OpenProcess</code> زمان ساخت را با <code>GetProcessTimes</code> می‌گیرد و با زمان رویداد ProcessStart مقایسه می‌کند. اگر بیش از یک ثانیه بعد از آن باشد، PID مال پروسس دیگری است و اسکن با <code>PidReused</code> رها و شمرده می‌شود. یک ثانیه تحمل برای این است که زمان رویداد و زمان kernel از یک خواندن ساعت نیامده‌اند.</p></div>
     </details>
     <details>
-      <summary>چرا برای یافته‌ی حافظه یک رویداد ساختگی می‌سازید؟</summary>
-      <div class="answer"><p>چون <code>alerts.event_id</code> مقدار NOT NULL است، و nullable کردنش تضمینی را ضعیف می‌کرد که همه‌ی هشدارهای فاز ۳ به آن تکیه دارند. ردیف <code>MemoryScan</code> (نوع ۴) درباره‌ی خودش صادق است: پروسس اسکن‌شده را نام می‌برد و هر فیلدی که مشاهده نشده NULL است. به‌علاوه از همان مسیری می‌گذرد که درستی‌اش ثابت شده: <code>CommitBatch</code> و یک transaction، پس مسیر نوشتن دومی برای تست کردن وجود ندارد.</p></div>
-    </details>
-    <details>
-      <summary>نه تا از دوازده تست تزریق تشخیص داده نشد. این شکست نیست؟</summary>
-      <div class="answer"><p>یک حد اندازه‌گیری‌شده است و به همین اسم گزارش می‌شود. سه تشخیص هرکدام با یک جفت نشانه‌ی متفاوت بودند، یعنی هر سه نشانه‌ی تأییدکننده روی یک تکنیک واقعی از اول تا آخر کار کرده‌اند. نُه مورد با نام در سند ارزیابی آمده‌اند. دلیل هرکدام بررسی نشده و سند هم حدس نمی‌زند. دامنه عمداً در این نقطه منجمد شد: برای زمان‌بندی پروژه، یک فاز تمام‌شده با مرز روشن بهتر از تشخیص‌دهنده‌ای است که مدام بزرگ می‌شود.</p></div>
-    </details>
-    <details>
       <summary>اسکن چقدر هزینه دارد و sweep چقدر به آن اضافه می‌کند؟</summary>
       <div class="answer"><p>در Release روی یک VM دو هسته‌ای، دو اجرای ۳۰ دقیقه‌ای: میانه‌ی هر اسکن در هر دو حالت ۲۵ میلی‌ثانیه است. sweep حدود ۴.۴ برابر اسکن بیشتر انجام می‌دهد (۵٬۷۵۷ در برابر ۱٬۳۰۶) و اسکنر را از ۱.۹٪ به ۹.۶٪ یک هسته می‌برد. در هیچ‌کدام رویدادی دور ریخته نشد و هیچ یافته‌ای نیامد. پس sweep اسکن را گران‌تر نمی‌کند، فقط تعدادش را زیاد می‌کند، و هزینه‌اش محدود است.</p></div>
-    </details>
-    <details>
-      <summary>اولویت background یک اسکن را ۲۲ ثانیه عقب انداخت. چرا نگهش داشتید؟</summary>
-      <div class="answer"><p>چون جایگزینش ابزار امنیتی‌ای است که روی هر سیستم، همیشه، برای CPU با برنامه‌های کاربر رقابت می‌کند، فقط برای جلوگیری از تأخیری که فقط وقتی سیستم از قبل اشباع است پیدا می‌شود. در آزمایش، اسکن در هر دو حالت همان کار CPU را انجام داد؛ در حالت background فقط منتظر هسته‌ی آزاد ماند (میانه ۱۴ ثانیه در برابر ۱۵۹ میلی‌ثانیه، با چهار thread پرمشغله). بهایش پنهان نمی‌شود: زیر بار، تشخیص دیرتر است و فاصله‌ی بین دو اسکن بیشتر. حالا هر اسکن یک ثانیه یا بیشتر با CPU خودش لاگ می‌شود تا با برچسب waiting یا working شناخته شود، نه با حدس.</p></div>
     </details>
     <details>
       <summary>از کجا مطمئنید RWX در پروسس‌های سالم مال دات‌نت است؟</summary>
@@ -4964,20 +5136,8 @@ tools\run_bench.cmd</pre>
   <div class="qa-group">
     <h3>اعتبارسنجی (فاز ۵)</h3>
     <details>
-      <summary>۱۲ قاعده با محرک دستی آزموده شدند. این آزمودن قاعده با خودش نیست؟</summary>
-      <div class="answer"><p>قاعده با همان الگویی آزموده می‌شود که ادعا می‌کند تشخیص می‌دهد، و این تنها سؤالی است که تست قاعده می‌تواند جواب بدهد. ۹ قاعده روی والدی (script host، Office، وب‌سرور) بنا شده‌اند که atomic نمی‌تواند بسازد، چون پروسس خود atomic همیشه <code>cmd</code> یا <code>powershell</code> است؛ و بدون command line، چند atomic دانلود دقیقاً مثل اجرای خالی ابزارند. یک باینری واقعی با نام دیگر همان <span class="nb"><code>Image</code>،</span> <code>ParentImage</code> و <code>ImageLoaded</code>ی را به سنسور می‌دهد که حمله‌ی واقعی می‌داد. چیزی که نشان نمی‌دهد صریح نوشته شده: اینکه نفوذ واقعی به Office همین الگو را می‌سازد. near missها نیمه‌ی دیگرند: هر قاعده روی نزدیک‌ترین نسخه‌ی بی‌خطر ساکت ماند.</p></div>
-    </details>
-    <details>
-      <summary>soak هیچ هشداری نداد. یعنی قاعده‌ها آن‌قدر باریک‌اند که اصلاً fire نمی‌کنند؟</summary>
-      <div class="answer"><p>همان قاعده‌ها روی محرک‌هایشان ۵۴ از ۵۴ بار fire کردند، روی همان VM و با همان باینری. سکوت روی یک ساعت کار عادی کنار ۳ از ۳ روی هر محرک، همان جفتی است که فاز برای ساختنش طراحی شد. باریک بودن ادعای دیگری است و درست هم هست: ۱۸ قاعده‌ی مبتنی بر نام و مسیر فقط چیزی را که توصیف می‌کنند پوشش می‌دهند، و یک ساعت کار یک نفر نرخ false positive نیست. هر دو به‌عنوان محدودیت نوشته شده‌اند.</p></div>
-    </details>
-    <details>
       <summary>یک اجرا کی معتبر است؟</summary>
       <div class="answer"><p>سه شرط، که <code>tools/phase5_validity.ps1</code> چک می‌کند: سنسور تمیز با Ctrl+Break متوقف شده (<code>clean_exit = True</code>)، دیفندر در شروع و پایان خاموش بوده و داخل بازه‌ی اجرا هیچ تشخیصی نداده، و محرک واقعاً اجرا شده (نه warning، نه پیام خطا، exit code قابل‌قبول). اجرای نامعتبر دور ریخته نمی‌شود؛ در گزارش در جدول جدا می‌آید و تکرار می‌شود.</p></div>
-    </details>
-    <details>
-      <summary>Explorer در soak crash کرد. کار سنسور بود؟</summary>
-      <div class="answer"><p>معلوم نیست، و به همین شکل ثبت شده. اسکنر روی پروسس‌های دیگر فقط حق query و read دارد و هرگز در آن‌ها نمی‌نویسد، متوقفشان نمی‌کند یا thread نمی‌سازد، پس راه نوشتن در Explorer ندارد. ولی ماژول مقصر قبل از برگرداندن VM ثبت نشد، و اجراهای هزینه که crash نداشتند بیکار بودند، پس رابطه را رد نمی‌کنند. وضعیت صادقانه «باز» است؛ تکرار soak با نگه داشتن crash dump جوابش را می‌دهد.</p></div>
     </details>
     <details>
       <summary>چرا هزینه‌ی اسکن در فاز ۵ بیشتر از فاز ۴ شد؟</summary>
@@ -5002,10 +5162,6 @@ tools\run_bench.cmd</pre>
     <details>
       <summary>چرا SQLite با OMIT_LOAD_EXTENSION کامپایل شده؟</summary>
       <div class="answer"><p>یک عامل امنیتی هرگز نباید از طریق دیتابیسش DLL دلخواه بار کند. load extension در SQLite یعنی بار کردن کتابخانه‌ی native از داخل SQL. ابزار <code>sqlite3.exe</code> که این قابلیت را لازم دارد نسخه‌ی جداگانه‌ی خودش را می‌سازد، به‌جای اینکه تنظیمات سنسور ضعیف شود.</p></div>
-    </details>
-    <details>
-      <summary>سنسور از خودش محافظت می‌کند؟</summary>
-      <div class="answer"><p>نه، و نمی‌تواند. هر چیزی که با Administrator اجرا شود می‌تواند session را متوقف یا پروسس را بکشد. مقاومت در برابر دستکاری driver لازم دارد که طبق تصمیم فاز ۱ خارج از محدوده است. این در فهرست محدودیت‌ها آمده تا کسی خودش کشفش نکند.</p></div>
     </details>
   </div>
 </section>

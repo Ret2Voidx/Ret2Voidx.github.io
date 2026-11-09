@@ -79,21 +79,22 @@ alerts             0</pre></div>
   <div class="cards">
       <a class="card" href="#start"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">01</span><h3>How to read this guide</h3><p>How this guide is ordered, and the order that makes the project easiest to learn.</p></a>
       <a class="card" href="#concepts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">02</span><h3>Prerequisites: the ideas to have straight before the code</h3><p>EDR, ETW, LOLBins, ATT&amp;CK, Sigma and the Windows ideas the code depends on, before any code.</p></a>
-      <a class="card" href="#pipeline"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">03</span><h3>One event, three threads</h3><p>The whole pipeline on one page: four cheap steps on the ETW thread, the expensive ones on the writer.</p></a>
-      <a class="card" href="#phase1"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path class="spin" d="M12 12L19 6"/></svg><span class="num">04</span><h3>Telemetry: getting events out of the kernel</h3><p>Getting process events out of the kernel with ETW and TDH, without writing a driver.</p></a>
-      <a class="card" href="#phase2"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path class="bob" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="num">05</span><h3>Storage: writing to disk without going blind</h3><p>A bounded queue that drops instead of blocking, a filter, and SQLite in WAL mode. Includes a queue lab.</p></a>
-      <a class="card" href="#phase3"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path class="bob" d="M8 12h8M8 16h5"/></svg><span class="num">06</span><h3>Detection: from event to alert</h3><p>A restricted YAML reader, a condition grammar, 18 rules and a measured cost. Includes a rule lab.</p></a>
-      <a class="card" href="#phase4"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect class="spin" x="9.5" y="9.5" width="5" height="5"/></svg><span class="num">07</span><h3>Injection: looking inside other processes</h3><p>Finding injected code from user mode: a fourth thread and four memory signals. Includes a scanner lab.</p></a>
-      <a class="card" href="#phase5"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">08</span><h3>Validation: measuring what was built</h3><p>Atomic Red Team, near misses, a one-hour soak and a load ladder: what the sensor really does.</p></a>
-      <a class="card" href="#console"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path class="bob" d="M7 13l3-3 2 2 4-4"/></svg><span class="num">09</span><h3>The console: reading the database without touching it</h3><p>A read-only WPF dashboard over the database, and how it never blocks the sensor.</p></a>
-      <a class="card" href="#main"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">10</span><h3>main.cpp: the conductor</h3><p>main.cpp: the startup order, the shutdown order, and why each one matters.</p></a>
-      <a class="card" href="#build"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">11</span><h3>Build, tests and tools</h3><p>CMake, a 90-line test harness with 250 tests, and the benchmark tools.</p></a>
-      <a class="card" href="#status"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">12</span><h3>What exists, and what does not</h3><p>What works, what is measured, and what is honestly out of reach.</p></a>
-      <a class="card" href="#numbers"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">13</span><h3>Key numbers</h3><p>Every important number in one table, with where it is defined.</p></a>
-      <a class="card" href="#limits"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">14</span><h3>Limitations: what the system does not see</h3><p>What the system does not see, plainly and without exaggeration.</p></a>
-      <a class="card" href="#decisions"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">15</span><h3>Decisions, and the objections to them</h3><p>The hard questions about the design, answered.</p></a>
-      <a class="card" href="#qa"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">16</span><h3>More questions</h3><p>More questions about each phase, each answered with a number or a mechanism.</p></a>
-      <a class="card" href="#glossary"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">17</span><h3>Glossary</h3><p>Every term used in this guide, in one place.</p></a>
+      <a class="card" href="#big-picture"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">03</span><h3>The big picture: the system at a glance</h3><p>The whole system at a glance: the layers, the threads and the folders.</p></a>
+      <a class="card" href="#journey"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">04</span><h3>The journey of one event: from the kernel to a database row</h3><p>Follow one real event from the kernel to an alert in the database.</p></a>
+      <a class="card" href="#phase1"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path class="spin" d="M12 12L19 6"/></svg><span class="num">05</span><h3>Telemetry: getting events out of the kernel</h3><p>Getting process events out of the kernel with ETW and TDH, without writing a driver.</p></a>
+      <a class="card" href="#phase2"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path class="bob" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="num">06</span><h3>Storage: writing to disk without going blind</h3><p>A bounded queue that drops instead of blocking, a filter, and SQLite in WAL mode. Includes a queue lab.</p></a>
+      <a class="card" href="#phase3"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path class="bob" d="M8 12h8M8 16h5"/></svg><span class="num">07</span><h3>Detection: from event to alert</h3><p>A restricted YAML reader, a condition grammar, 18 rules and a measured cost. Includes a rule lab.</p></a>
+      <a class="card" href="#phase4"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect class="spin" x="9.5" y="9.5" width="5" height="5"/></svg><span class="num">08</span><h3>Injection: looking inside other processes</h3><p>Finding injected code from user mode: a fourth thread and four memory signals. Includes a scanner lab.</p></a>
+      <a class="card" href="#phase5"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">09</span><h3>Validation: measuring what was built</h3><p>Atomic Red Team, near misses, a one-hour soak and a load ladder: what the sensor really does.</p></a>
+      <a class="card" href="#console"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path class="bob" d="M7 13l3-3 2 2 4-4"/></svg><span class="num">10</span><h3>The console: reading the database without touching it</h3><p>A read-only WPF dashboard over the database, and how it never blocks the sensor.</p></a>
+      <a class="card" href="#main"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">11</span><h3>main.cpp: the conductor</h3><p>main.cpp: the startup order, the shutdown order, and why each one matters.</p></a>
+      <a class="card" href="#build"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">12</span><h3>Build, tests and tools</h3><p>CMake, a 90-line test harness with 250 tests, and the benchmark tools.</p></a>
+      <a class="card" href="#status"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">13</span><h3>What exists, and what does not</h3><p>What works, what is measured, and what is honestly out of reach.</p></a>
+      <a class="card" href="#numbers"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">14</span><h3>Key numbers</h3><p>Every important number in one table, with where it is defined.</p></a>
+      <a class="card" href="#limits"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">15</span><h3>Limitations: what the system does not see</h3><p>What the system does not see, plainly and without exaggeration.</p></a>
+      <a class="card" href="#decisions"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">16</span><h3>Decisions, and the objections to them</h3><p>The hard questions about the design, answered.</p></a>
+      <a class="card" href="#qa"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">17</span><h3>More questions</h3><p>More questions about each phase, each answered with a number or a mechanism.</p></a>
+      <a class="card" href="#glossary"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">18</span><h3>Glossary</h3><p>Every term used in this guide, in one place.</p></a>
   </div>
 </section>
 
@@ -102,21 +103,22 @@ alerts             0</pre></div>
     <h4>Chapters</h4>
       <a href="#start"><span class="n">01</span><span>How to read this guide</span></a>
       <a href="#concepts"><span class="n">02</span><span>Prerequisites: the ideas to have straight before the code</span></a>
-      <a href="#pipeline"><span class="n">03</span><span>One event, three threads</span></a>
-      <a href="#phase1"><span class="n">04</span><span>Telemetry: getting events out of the kernel</span></a>
-      <a href="#phase2"><span class="n">05</span><span>Storage: writing to disk without going blind</span></a>
-      <a href="#phase3"><span class="n">06</span><span>Detection: from event to alert</span></a>
-      <a href="#phase4"><span class="n">07</span><span>Injection: looking inside other processes</span></a>
-      <a href="#phase5"><span class="n">08</span><span>Validation: measuring what was built</span></a>
-      <a href="#console"><span class="n">09</span><span>The console: reading the database without touching it</span></a>
-      <a href="#main"><span class="n">10</span><span>main.cpp: the conductor</span></a>
-      <a href="#build"><span class="n">11</span><span>Build, tests and tools</span></a>
-      <a href="#status"><span class="n">12</span><span>What exists, and what does not</span></a>
-      <a href="#numbers"><span class="n">13</span><span>Key numbers</span></a>
-      <a href="#limits"><span class="n">14</span><span>Limitations: what the system does not see</span></a>
-      <a href="#decisions"><span class="n">15</span><span>Decisions, and the objections to them</span></a>
-      <a href="#qa"><span class="n">16</span><span>More questions</span></a>
-      <a href="#glossary"><span class="n">17</span><span>Glossary</span></a>
+      <a href="#big-picture"><span class="n">03</span><span>The big picture: the system at a glance</span></a>
+      <a href="#journey"><span class="n">04</span><span>The journey of one event: from the kernel to a database row</span></a>
+      <a href="#phase1"><span class="n">05</span><span>Telemetry: getting events out of the kernel</span></a>
+      <a href="#phase2"><span class="n">06</span><span>Storage: writing to disk without going blind</span></a>
+      <a href="#phase3"><span class="n">07</span><span>Detection: from event to alert</span></a>
+      <a href="#phase4"><span class="n">08</span><span>Injection: looking inside other processes</span></a>
+      <a href="#phase5"><span class="n">09</span><span>Validation: measuring what was built</span></a>
+      <a href="#console"><span class="n">10</span><span>The console: reading the database without touching it</span></a>
+      <a href="#main"><span class="n">11</span><span>main.cpp: the conductor</span></a>
+      <a href="#build"><span class="n">12</span><span>Build, tests and tools</span></a>
+      <a href="#status"><span class="n">13</span><span>What exists, and what does not</span></a>
+      <a href="#numbers"><span class="n">14</span><span>Key numbers</span></a>
+      <a href="#limits"><span class="n">15</span><span>Limitations: what the system does not see</span></a>
+      <a href="#decisions"><span class="n">16</span><span>Decisions, and the objections to them</span></a>
+      <a href="#qa"><span class="n">17</span><span>More questions</span></a>
+      <a href="#glossary"><span class="n">18</span><span>Glossary</span></a>
   </aside>
   <main class="wrap" dir="ltr">
 <section id="start">
@@ -138,7 +140,7 @@ alerts             0</pre></div>
     <table>
       <thead><tr><th>Step</th><th>Topic</th><th>Sections</th></tr></thead>
       <tbody>
-        <tr><td class="num">1</td><td>What an EDR is, what ETW is, the overall architecture</td><td>Prerequisites · One event, three threads</td></tr>
+        <tr><td class="num">1</td><td>What an EDR is, what ETW is, the overall architecture, the journey of one event</td><td>Prerequisites · The big picture · The journey of one event</td></tr>
         <tr><td class="num">2</td><td>Phase 1: getting events out of the kernel</td><td>Telemetry</td></tr>
         <tr><td class="num">3</td><td>Phase 2: the queue, the filter, SQLite and three threads</td><td>Storage · main.cpp</td></tr>
         <tr><td class="num">4</td><td>Phase 3: paths, the process table, rules and the YAML reader, the rule pack, keep-list, throttle, hardening and cost</td><td>Detection · Build, tests and tools</td></tr>
@@ -321,21 +323,152 @@ alerts             0</pre></div>
 </section>
 
 
-<section id="pipeline">
-  <p class="eyebrow">The shape of the system</p>
-  <h2>One event, three threads</h2>
+<section id="big-picture">
+  <p class="eyebrow">The big picture</p>
+  <h2>The big picture: the system at a glance</h2>
   <div class="prose">
     <p class="lede">
-      Everything in this project follows from one constraint. The ETW callback runs on the thread that
-      called <span class="nb"><code>ProcessTrace</code>.</span> Anything slow inside it stalls event delivery, and when the
-      kernel's trace buffers fill, the kernel <em>discards</em> events. A slow disk write would blind
-      the sensor at exactly the moment the machine is busiest — which is also the moment an attacker
-      is most likely to be working.
+      Light EDR is a Windows console program that runs as administrator, takes process events from
+      ETW, runs about 18 Sigma-style rules against each one, and stores both the events and the alerts
+      in one SQLite file, <span class="nb"><code>lightedr.db</code>.</span>
     </p>
+    <p>The whole project in one sentence:</p>
+  </div>
+  <div class="note teach">
+    <span class="label">Key point</span>
     <p>
-      So the callback parses, filters, hands the event over, and returns. Everything expensive happens
-      on the other side of a bounded queue.
+      The kernel produces the event, Phase 1 receives and decodes it, Phase 2 writes it to disk
+      without slowing the sensor down, and Phase 3 decides before writing whether the event is
+      suspicious.
     </p>
+  </div>
+
+  <h3>What it is, and what it is not</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>It is</th><th>It is not (on purpose)</th></tr></thead>
+      <tbody>
+        <tr><td>Telemetry collection from ETW, in user mode</td><td>A kernel driver, minifilter or kernel callback</td></tr>
+        <tr><td>Rule-based detection in a Sigma-like language, mapped to MITRE ATT&amp;CK</td><td>Machine learning or behavioural scoring</td></tr>
+        <tr><td>Local storage in SQLite, on the same single machine</td><td>An agent/server architecture, a central console, fleet management</td></tr>
+        <tr><td>Alerting (detection)</td><td>Any kind of response: killing processes, blocking, quarantine</td></tr>
+        <tr><td>Exact counting of lost events</td><td>Self-protection against an administrator</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Folder map</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="mono">Folder</th><th>Language</th><th>Phase</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">src/telemetry/</td><td>C17</td><td>1 (stats in 2)</td><td>Talks to ETW and TDH: creates the session, reads events, decodes fields</td></tr>
+        <tr><td class="mono">src/core/</td><td>C++17</td><td>1 to 4</td><td>Shared structures: the event model, the queue (a template queue since Phase 4), the filter, the logger, path translation, the process table, Alert, the scan request and result types</td></tr>
+        <tr><td class="mono">src/storage/</td><td>C++17</td><td>2</td><td>SQLite: schema, migration, batched writes, the writer thread</td></tr>
+        <tr><td class="mono">src/detection/</td><td>C++17</td><td>3</td><td>The YAML reader, rule validation, the condition grammar, the matching engine, the throttle, the pipeline</td></tr>
+        <tr><td class="mono">src/main.cpp</td><td>C++17</td><td>1 to 4</td><td>The conductor: ordered startup, three threads (four since Phase 4), ordered shutdown</td></tr>
+        <tr><td class="mono">src/injection/</td><td>C++17</td><td>4</td><td>The memory scanner: the fourth thread, walking process memory, signals H1, H2, H3, H5, and turning a finding into an alert</td></tr>
+        <tr><td class="mono">rules/</td><td>YAML</td><td>3</td><td>18 rule files: 14 on process start, 4 on DLL load</td></tr>
+        <tr><td class="mono">tests/</td><td>C++17</td><td>3 and 4</td><td>250 unit tests that need neither ETW nor administrator rights</td></tr>
+        <tr><td class="mono">tools/</td><td>C++ · cmd · PowerShell</td><td>3 to 5</td><td>The rule engine benchmark, <code>mem_census</code> for the memory baseline, the Phase 4 measurement scripts, and the Phase 5 validation runners and report builders</td></tr>
+        <tr><td class="mono">gui/</td><td>C# · .NET 10 · WPF</td><td>Console</td><td>LightEDR Console: a read-only dashboard over <span class="nb"><code>lightedr.db</code>,</span> built separately from the sensor (with <code>dotnet build</code>)</td></tr>
+        <tr><td class="mono">third_party/sqlite/</td><td>C</td><td>2</td><td>SQLite's complete source, kept in the repository (vendored)</td></tr>
+        <tr><td class="mono">docs/Architecture/ · docs/Evaluation/</td><td>Markdown</td><td>All</td><td>ARCHITECTURE, ROADMAP, DETECTION, INJECTION, PHASE1_PLAN to PHASE5_PLAN, PROJECT_STRUCTURE; and the validation results: RULE_COVERAGE, ATOMIC_COVERAGE, phase5-results</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Layers, and the dependency rule</h3>
+  <div class="prose">
+    <p>
+      A dependency means one file <code>#include</code>s another's header. The project's rule is that
+      dependencies only point downwards, and that the storage and detection layers do not know about
+      each other at all.
+    </p>
+  </div>
+  <figure>
+    <div class="fig-frame">
+      <svg class="d" viewBox="0 0 860 380" role="img"
+           aria-label="Layer dependencies: main.cpp depends on storage, detection and telemetry. Storage and detection both depend on core and not on each other; they meet through IEventProcessor in core. Core depends only on the telemetry event header.">
+        <defs>
+          <marker id="arL" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+            <polygon points="0 0, 9 3.5, 0 7" fill="#8B98A5"/>
+          </marker>
+          <marker id="arLa" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+            <polygon points="0 0, 9 3.5, 0 7" fill="#A78BFA"/>
+          </marker>
+        </defs>
+
+        <rect class="s-box" x="330" y="16" width="200" height="48"/>
+        <text class="s-tm"  x="430" y="38" text-anchor="middle">src/main.cpp</text>
+        <text class="s-lbl" x="430" y="55" text-anchor="middle">wires every layer together</text>
+
+        <rect class="s-box" x="70" y="110" width="270" height="56"/>
+        <text class="s-tm"  x="205" y="134" text-anchor="middle">src/storage/</text>
+        <text class="s-lbl" x="205" y="153" text-anchor="middle">DbManager · WriterThread</text>
+
+        <rect class="s-box" x="520" y="110" width="270" height="56"/>
+        <text class="s-tm"  x="655" y="134" text-anchor="middle">src/detection/</text>
+        <text class="s-lbl" x="655" y="153" text-anchor="middle">RuleLoader · RuleEngine · DetectionPipeline</text>
+
+        <!-- no dependency between storage and detection -->
+        <line class="s-lnc s-dash" x1="344" y1="138" x2="516" y2="138"/>
+        <line class="s-lnc" x1="420" y1="128" x2="440" y2="148"/>
+        <line class="s-lnc" x1="440" y1="128" x2="420" y2="148"/>
+        <text class="s-crit" x="430" y="120" text-anchor="middle">no dependency either way</text>
+
+        <rect class="s-acc" x="70" y="214" width="720" height="58"/>
+        <text class="s-tm"  x="430" y="238" text-anchor="middle">src/core/</text>
+        <text class="s-acct" x="430" y="258" text-anchor="middle">NormalizedEvent · Alert · IEventProcessor · EventQueue · ProcessTable · PathResolver</text>
+
+        <rect class="s-ker" x="250" y="312" width="360" height="52"/>
+        <text class="s-tm"  x="430" y="334" text-anchor="middle">src/telemetry/   (C17)</text>
+        <text class="s-lbl" x="430" y="352" text-anchor="middle">ETW · TDH · ParsedEvent</text>
+
+        <!-- arrows: depends on -->
+        <line class="s-ln" x1="380" y1="64" x2="250" y2="106" marker-end="url(#arL)"/>
+        <line class="s-ln" x1="480" y1="64" x2="610" y2="106" marker-end="url(#arL)"/>
+        <line class="s-lna" x1="205" y1="168" x2="205" y2="210" marker-end="url(#arLa)"/>
+        <line class="s-lna" x1="655" y1="168" x2="655" y2="210" marker-end="url(#arLa)"/>
+        <line class="s-ln"  x1="430" y1="274" x2="430" y2="308" marker-end="url(#arL)"/>
+        <text class="s-lbl" x="442" y="296">event.h includes event_parser.h</text>
+        <text class="s-lbl" x="20" y="370">arrow = "depends on" (#include)</text>
+      </svg>
+    </div>
+    <figcaption>
+      <b>Storage and detection depend only on core, never on each other.</b> They meet through an
+      interface in core, <span class="nb"><code>IEventProcessor</code>:</span> the writer thread (storage) holds a pointer to it
+      and knows nothing about rules; <code>DetectionPipeline</code> implements it and knows nothing
+      about SQLite. <code>Alert</code> also lives in core because both layers need it. Only
+      <code>main.cpp</code> knows everything and wires it together.
+    </figcaption>
+  </figure>
+  <div class="note">
+    <span class="label">Since Phase 4</span>
+    <p>
+      The new <code>src/injection/</code> layer also depends only on core. Storage and detection include
+      nothing from injection; all they see is <span class="nb"><code>core/scan_result.h</code>,</span> the shape of a request and
+      a result. It is the <code>IEventProcessor</code> pattern again: the meeting point is in core, and
+      only <code>main.cpp</code> connects the scanner to the rest.
+    </p>
+  </div>
+  <div class="prose">
+    <p>
+      Why does this matter? If storage depended on detection, the storage layer could not be built or
+      tested without the rule engine, and the other way round. As it is, each layer is tested on its own.
+    </p>
+  </div>
+
+  <h3>Three threads, and the project's golden rule</h3>
+  <div class="prose">
+    <p>
+      Everything in this project follows from one constraint: <strong>the Windows callback runs on the
+      same thread that called <code>ProcessTrace</code></strong>. Do anything slow inside the callback
+      (writing to disk, say) and delivery of the next events stalls. When the session's buffers in the
+      kernel fill up, the kernel <em>discards</em> new events. A slow disk would blind the sensor at
+      exactly the moment the machine is busy, and a machine is usually busy when an attacker is at work.
+    </p>
+    <p>The fix: split the work across three threads. (Phase 4 adds a fourth for memory scanning; see the table below.)</p>
   </div>
 
   <figure>
@@ -414,21 +547,205 @@ alerts             0</pre></div>
         <text class="s-tm" x="705" y="382" text-anchor="middle">lightedr.db</text>
       </svg>
     </div>
-    <figcaption>
-      <b>The spine of the whole system.</b> Four cheap steps on the left of the dashed line, four
-      expensive ones on the right. The queue is the only thing between them, and it is bounded on
-      purpose — see the next figure.
-    </figcaption>
+    <figcaption><b>The spine of the whole system.</b> Four cheap steps left of the dashed line (on the consumer thread) and four expensive ones on the right (on the writer thread). The queue is the only thing between them, and it is bounded on purpose. The writer's fifth step, the throttle, happens inside the RuleEngine stage.</figcaption>
   </figure>
-  <div class="note">
-    <span class="label">Since Phase 4</span>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Thread</th><th>Created in</th><th>What it does</th><th>Its rule</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">main</td><td><code>main()</code></td><td>Startup, statistics every 10 seconds, waiting for Ctrl+C, ordered shutdown</td><td>Does no heavy work on the event path</td></tr>
+        <tr><td class="mono">consumer</td><td><code>std::thread</code> in main</td><td>Runs <span class="nb"><code>ProcessTrace</code>;</span> the callback runs here: parse, filter, push to the queue</td><td>Must stay fast. No disk, no long locks, no rules</td></tr>
+        <tr><td class="mono">writer</td><td><code>WriterThread::Start</code></td><td>Takes batches off the queue, translates and enriches them, runs the rules, commits to SQLite</td><td>The only thread that touches the database and the rule engine, so no locks are needed</td></tr>
+        <tr><td class="mono">scanner (Phase 4)</td><td><code>ScannerThread::Start</code></td><td>Reads the memory of new and running processes and sends findings back to the writer through another queue</td><td>Never touches the database or the rules; runs in background mode</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The phases in one table</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Phase</th><th>The question it answers</th><th>Output</th><th>Main files</th></tr></thead>
+      <tbody>
+        <tr><td>1 · Telemetry</td><td>How do we learn about process starts without a driver?</td><td>A program that prints live events</td><td class="mono">etw_session · etw_consumer · event_parser · event.h · logger</td></tr>
+        <tr><td>2 · Storage</td><td>How do we write everything to disk without blinding the sensor?</td><td>Three threads, a bounded queue, SQLite in WAL mode, exact loss accounting</td><td class="mono">event_queue · event_filter · etw_stats · db_manager · writer_thread</td></tr>
+        <tr><td>3 · Detection</td><td>How do we decide which event is suspicious?</td><td>18 YAML rules, a matching engine, alerts in the database, a measured cost</td><td class="mono">path_resolver · process_table · yaml_reader · condition · rule_loader · rule_engine · alert_throttle · detection_pipeline</td></tr>
+        <tr><td>4 · Injection</td><td>How do we tell, without a driver, that someone put code into another process?</td><td>A scanner thread, four signals, alerts with fixed rule ids, a baseline with the CLR explanation, measured cost, the PEB experiment, Atomic (repeated in Phase 5)</td><td class="mono">bounded_queue · scan_result · region_classifier · pe_probe · shellcode_probe · thread_inspector · process_scan · scan_conversion · scanner · clr_attribution · peb_reader</td></tr>
+        <tr><td>5 · Validation</td><td>Does what was built really work, and what does it cost?</td><td>18/18 rules 3 of 3 with silent near misses, T1055 repeated, a one-hour soak with no alerts, 40 processes/s with no loss</td><td class="mono">run_phase5_rules · phase5_validity · phase5_report · run_phase5_load · RULE_COVERAGE · ATOMIC_COVERAGE</td></tr>
+        <tr><td>After 5 · Console</td><td>How do you see what the sensor recorded, without SQL and without touching the database?</td><td>A read-only WPF dashboard with six pages, live refresh, 66 tests</td><td class="mono">LightEdrDb · DatabaseMonitor · ProcessTree · SensorProbe · RuleCatalog</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="journey">
+  <p class="eyebrow">The life of one event</p>
+  <h2>The journey of one event: from the kernel to a database row</h2>
+  <div class="prose">
+    <p class="lede">
+      The best way to understand this project is to follow one real event from start to finish. Every
+      file explained later is one of the stops on this route.
+    </p>
     <p>
-      The event path above is still exactly this. Phase 4 adds a fourth thread, the memory scanner,
-      beside the writer rather than in this line: the writer sends it a request for each new process
-      and receives findings back through two more bounded queues. See <a href="#scanner">Phase 4</a>.
+      <strong>The scenario:</strong> a user opens a Word document with a macro, and the macro starts
+      PowerShell. So <code>WINWORD.EXE</code> with PID 6120 creates a new <code>powershell.exe</code>
+      process with PID 7344. That is exactly technique <code>T1566.001</code> (spearphishing
+      attachment), and one of the 18 rules should catch it. The PIDs and row numbers are examples; the
+      code path is real.
+    </p>
+  </div>
+
+  <ol class="journey">
+    <li>
+      <span class="where">Windows produces the event</span><span class="thread k">kernel</span>
+      <p>
+        The <code>Microsoft-Windows-Kernel-Process</code> provider writes an event with Event ID 1
+        (ProcessStart) into our session's buffers (<code>LightEDR_ETW_Session</code>). It carries the
+        fields <span class="nb"><code>ProcessID=7344</code>,</span> <span class="nb"><code>ParentProcessID=6120</code>,</span> <code>SessionID</code> and
+        <span class="nb"><code>ImageName</code>,</span> and ImageName is in NT form:
+        <code>\Device\HarddiskVolume3\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code>.
+        Our code has not run yet; Microsoft did this, because at startup we enabled the provider on our
+        own session.
+      </p>
+    </li>
+    <li>
+      <span class="where">ETW hands the event to our callback</span><span class="thread c">consumer</span>
+      <p>
+        The consumer thread has been waiting inside <code>ProcessTrace</code> (the
+        <code>EtwConsumer_Run</code> function in <code>etw_consumer.c</code>). Windows calls
+        <code>InternalEventRecordCallback</code>, which finds its own context through
+        <code>eventRecord-&gt;UserContext</code> and calls the program's main callback,
+        <code>OnEventReceived</code> in <span class="nb"><code>main.cpp</code>.</span>
+      </p>
+    </li>
+    <li>
+      <span class="where">Decoding with TDH</span><span class="thread c">consumer</span>
+      <p>
+        <code>EventParser_Parse</code> in <code>event_parser.c</code> first checks that the event comes
+        from our provider (a GUID comparison), then learns from the Event ID that it is a ProcessStart,
+        and pulls the fields out of the binary data one by one with <code>TdhGetPropertySize</code> and
+        <span class="nb"><code>TdhGetProperty</code>.</span> The result is a plain C struct, <span class="nb"><code>ParsedEvent</code>.</span> The
+        <code>g_eventsSeen</code> counter goes up by one.
+      </p>
+    </li>
+    <li>
+      <span class="where">Crossing from C to C++</span><span class="thread c">consumer</span>
+      <p>
+        <code>NormalizedEvent::FromParsed</code> in <code>event.h</code> turns that struct into a C++
+        object whose strings are <span class="nb"><code>std::wstring</code>.</span> From here on, no layer knows ETW exists; they
+        all see only <span class="nb"><code>NormalizedEvent</code>.</span>
+      </p>
+    </li>
+    <li>
+      <span class="where">The filter</span><span class="thread c">consumer</span>
+      <p>
+        <code>EventFilter::ShouldStore</code> in <code>event_filter.cpp</code> filters only ImageLoad
+        events. This is a ProcessStart, so it returns <code>true</code> unconditionally.
+        <strong>A process start is never filtered.</strong>
+      </p>
+    </li>
+    <li>
+      <span class="where">Into the queue, and back</span><span class="thread c">consumer</span>
+      <p>
+        <code>EventQueue::TryPush</code> puts the event into the queue (at most 8,192 slots) and wakes
+        the writer thread. The callback returns and ETW delivers the next event. No disk, no rules and no
+        path translation happened on this path. Had the queue been full, the event would have been
+        dropped and counted.
+      </p>
+    </li>
+    <li>
+      <span class="where">Taking a batch off the queue</span><span class="thread w">writer</span>
+      <p>
+        <code>WriterThread::Run</code> in <code>writer_thread.cpp</code> takes up to 256 events with
+        <span class="nb"><code>PopBatch</code>,</span> or, if the queue is quiet, waits at most 200 ms and takes whatever is
+        there. It then hands the batch to <code>DetectionPipeline::ProcessBatch</code>.
+      </p>
+    </li>
+    <li>
+      <span class="where">Translating the path</span><span class="thread w">writer</span>
+      <p>
+        <code>PathResolver::Translate</code> in <code>path_resolver.cpp</code> replaces the
+        <code>\Device\HarddiskVolume3</code> prefix with <span class="nb"><code>C:</code>.</span> The result goes into
+        <span class="nb"><code>imagePathDos</code>:</span>
+        <code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code>.
+      </p>
+    </li>
+    <li>
+      <span class="where">Finding the parent</span><span class="thread w">writer</span>
+      <p>
+        <code>ProcessTable::ParentImage</code> in <code>process_table.cpp</code> looks up PID 6120 in
+        the in-memory process table. Word got there either through its own ProcessStart event or, if it
+        was opened before the sensor started, from the snapshot of running processes taken at startup.
+        One check is made: the parent must not have started after the child. The result:
+        <code>parentImageName = C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</code>.
+      </p>
+    </li>
+    <li>
+      <span class="where">Updating the process table</span><span class="thread w">writer</span>
+      <p>
+        <code>ProcessTable::OnEvent</code> adds process 7344 with its translated path, so that if
+        PowerShell later creates a child of its own, the parent will be known.
+      </p>
+    </li>
+    <li>
+      <span class="where">Running the rules</span><span class="thread w">writer</span>
+      <p>
+        <code>RuleEngine::Evaluate</code> in <code>rule_engine.cpp</code> tries only the 14 rules in the
+        <code>process_creation</code> category (the 4 ImageLoad rules never see this event). The event's
+        fields are lower-cased once. The rule
+        <code>proc_creation_office_spawns_script_host.yml</code> asks: does ParentImage end with
+        <code>\winword.exe</code>? Yes. Does Image end with <code>\powershell.exe</code>? Yes. The
+        condition <code>condition: selection</code> holds, so an <code>Alert</code> is created: high
+        severity, technique <span class="nb"><code>T1566.001</code>,</span> and the fields that matched. The time this
+        evaluation took is measured and recorded in a histogram.
+      </p>
+    </li>
+    <li>
+      <span class="where">Preventing a duplicate alert</span><span class="thread w">writer</span>
+      <p>
+        <code>AlertThrottle::Admit</code> in <code>alert_throttle.cpp</code> builds a key: "rule id |
+        parent PID 6120 | powershell.exe path". That combination has not been seen in the last 60
+        seconds, so the alert is not suppressed. Had the macro started PowerShell a hundred times in a
+        loop, only the first would have become an alert and the other 99 would have been counted.
+      </p>
+    </li>
+    <li>
+      <span class="where">Writing the event and the alert together</span><span class="thread w">writer</span>
+      <p>
+        <code>DbManager::CommitBatch</code> in <code>db_manager.cpp</code> opens a transaction with
+        <span class="nb"><code>BEGIN IMMEDIATE</code>,</span> inserts every event of the batch into the <code>events</code> table
+        and keeps each row's id, then inserts the alert into the <code>alerts</code> table with that id
+        as its <span class="nb"><code>event_id</code>,</span> and runs <span class="nb"><code>COMMIT</code>.</span> Either all of it is stored, or none.
+      </p>
+    </li>
+    <li>
+      <span class="where">At the end: the accounting</span><span class="thread w">main</span>
+      <p>
+        When the user presses Ctrl+C, <code>main.cpp</code> shuts everything down in order and writes a
+        row into the <code>session_stats</code> table: how many events were seen, filtered, stored and
+        lost, how many alerts were raised, and what the rules cost.
+      </p>
+    </li>
+  </ol>
+
+  <h3>What you see on screen and in the database</h3>
+  <div class="prose"><p>The alert line printed to the console (by <code>DetectionPipeline::ProcessBatch</code>):</p></div>
+  <pre><span class="w">[!] ALERT [high] Office Application Started a Shell or Script Host | rule=ebaa4d66-f156-4059-be5f-40f5f9c0cd1d | T1566.001 | PID=7344 | ParentImage=C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE; Image=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</span></pre>
+  <div class="prose"><p>And the query that pulls the alert out of the database together with its event:</p></div>
+  <pre><span class="k">SELECT</span> a.rule_title, a.mitre_technique, a.rule_level, e.pid, e.image_path, e.parent_image
+<span class="k">FROM</span>   alerts a <span class="k">JOIN</span> events e <span class="k">ON</span> e.id = a.event_id
+<span class="k">ORDER BY</span> a.raised_at <span class="k">DESC</span>;</pre>
+  <div class="note teach">
+    <span class="label">Key point</span>
+    <p>
+      On this whole route, only five cheap things happened on the consumer thread: the callback, the
+      parse, the conversion, the filter and the push. Everything more expensive (translation, the parent
+      lookup, the rules, the disk) is on the other side of the queue, on the writer thread. If you
+      remember one thing about the architecture, it should be this.
     </p>
   </div>
 </section>
+
 
 <!-- ==================== PHASE 1 ==================== -->
 <section id="phase1">
