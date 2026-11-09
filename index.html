@@ -77,32 +77,250 @@ alerts             0</pre></div>
 <section class="path" id="path">
   <div class="path-head"><p class="eyebrow">Ret2Void · Light EDR</p><h2>The learning path</h2><p>Read in order, or jump to what you need. Each chapter explains one layer, why it was built that way, and what it cost. Three labs let you poke the design yourself.</p></div>
   <div class="cards">
-      <a class="card" href="#pipeline"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">01</span><h3>One event, three threads</h3><p>The whole pipeline on one page: four cheap steps on the ETW thread, the expensive ones on the writer.</p></a>
-      <a class="card" href="#phase1"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path class="spin" d="M12 12L19 6"/></svg><span class="num">02</span><h3>Telemetry: getting events out of the kernel</h3><p>Getting process events out of the kernel with ETW and TDH, without writing a driver.</p></a>
-      <a class="card" href="#phase2"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path class="bob" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="num">03</span><h3>Storage: writing to disk without going blind</h3><p>A bounded queue that drops instead of blocking, a filter, and SQLite in WAL mode. Includes a queue lab.</p></a>
-      <a class="card" href="#phase3"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path class="bob" d="M8 12h8M8 16h5"/></svg><span class="num">04</span><h3>Detection: from event to alert</h3><p>A restricted YAML reader, a condition grammar, 18 rules and a measured cost. Includes a rule lab.</p></a>
-      <a class="card" href="#phase4"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect class="spin" x="9.5" y="9.5" width="5" height="5"/></svg><span class="num">05</span><h3>Injection: looking inside other processes</h3><p>Finding injected code from user mode: a fourth thread and four memory signals. Includes a scanner lab.</p></a>
-      <a class="card" href="#phase5"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">06</span><h3>Validation: measuring what was built</h3><p>Atomic Red Team, near misses, a one-hour soak and a load ladder: what the sensor really does.</p></a>
-      <a class="card" href="#console"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path class="bob" d="M7 13l3-3 2 2 4-4"/></svg><span class="num">07</span><h3>The console: reading the database without touching it</h3><p>A read-only WPF dashboard over the database, and how it never blocks the sensor.</p></a>
-      <a class="card" href="#status"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">08</span><h3>What exists, and what does not</h3><p>What works, what is measured, and what is honestly out of reach.</p></a>
-      <a class="card" href="#decisions"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">09</span><h3>Decisions, and the objections to them</h3><p>The hard questions about the design, answered.</p></a>
+      <a class="card" href="#start"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">01</span><h3>How to read this guide</h3><p>How this guide is ordered, and the order that makes the project easiest to learn.</p></a>
+      <a class="card" href="#concepts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">02</span><h3>Prerequisites: the ideas to have straight before the code</h3><p>EDR, ETW, LOLBins, ATT&amp;CK, Sigma and the Windows ideas the code depends on, before any code.</p></a>
+      <a class="card" href="#pipeline"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">03</span><h3>One event, three threads</h3><p>The whole pipeline on one page: four cheap steps on the ETW thread, the expensive ones on the writer.</p></a>
+      <a class="card" href="#phase1"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path class="spin" d="M12 12L19 6"/></svg><span class="num">04</span><h3>Telemetry: getting events out of the kernel</h3><p>Getting process events out of the kernel with ETW and TDH, without writing a driver.</p></a>
+      <a class="card" href="#phase2"><svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path class="bob" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="num">05</span><h3>Storage: writing to disk without going blind</h3><p>A bounded queue that drops instead of blocking, a filter, and SQLite in WAL mode. Includes a queue lab.</p></a>
+      <a class="card" href="#phase3"><svg class="ico" viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path class="bob" d="M8 12h8M8 16h5"/></svg><span class="num">06</span><h3>Detection: from event to alert</h3><p>A restricted YAML reader, a condition grammar, 18 rules and a measured cost. Includes a rule lab.</p></a>
+      <a class="card" href="#phase4"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><rect class="spin" x="9.5" y="9.5" width="5" height="5"/></svg><span class="num">07</span><h3>Injection: looking inside other processes</h3><p>Finding injected code from user mode: a fourth thread and four memory signals. Includes a scanner lab.</p></a>
+      <a class="card" href="#phase5"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">08</span><h3>Validation: measuring what was built</h3><p>Atomic Red Team, near misses, a one-hour soak and a load ladder: what the sensor really does.</p></a>
+      <a class="card" href="#console"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path class="bob" d="M7 13l3-3 2 2 4-4"/></svg><span class="num">09</span><h3>The console: reading the database without touching it</h3><p>A read-only WPF dashboard over the database, and how it never blocks the sensor.</p></a>
+      <a class="card" href="#main"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">10</span><h3>main.cpp: the conductor</h3><p>main.cpp: the startup order, the shutdown order, and why each one matters.</p></a>
+      <a class="card" href="#build"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path class="bob" d="M8 12.5l2.5 2.5L16 9.5"/></svg><span class="num">11</span><h3>Build, tests and tools</h3><p>CMake, a 90-line test harness with 250 tests, and the benchmark tools.</p></a>
+      <a class="card" href="#status"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">12</span><h3>What exists, and what does not</h3><p>What works, what is measured, and what is honestly out of reach.</p></a>
+      <a class="card" href="#numbers"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">13</span><h3>Key numbers</h3><p>Every important number in one table, with where it is defined.</p></a>
+      <a class="card" href="#limits"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v16M5 20h14"/><path class="bob" d="M4 9l3-5 3 5a3 3 0 0 1-6 0zM14 9l3-5 3 5a3 3 0 0 1-6 0z"/></svg><span class="num">14</span><h3>Limitations: what the system does not see</h3><p>What the system does not see, plainly and without exaggeration.</p></a>
+      <a class="card" href="#decisions"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">15</span><h3>Decisions, and the objections to them</h3><p>The hard questions about the design, answered.</p></a>
+      <a class="card" href="#qa"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7"/><circle class="bob" cx="12" cy="17" r=".6"/></svg><span class="num">16</span><h3>More questions</h3><p>More questions about each phase, each answered with a number or a mechanism.</p></a>
+      <a class="card" href="#glossary"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">17</span><h3>Glossary</h3><p>Every term used in this guide, in one place.</p></a>
   </div>
 </section>
 
 <div class="layout">
   <aside class="side" id="side-nav" aria-label="Chapters">
     <h4>Chapters</h4>
-      <a href="#pipeline"><span class="n">01</span><span>One event, three threads</span></a>
-      <a href="#phase1"><span class="n">02</span><span>Telemetry: getting events out of the kernel</span></a>
-      <a href="#phase2"><span class="n">03</span><span>Storage: writing to disk without going blind</span></a>
-      <a href="#phase3"><span class="n">04</span><span>Detection: from event to alert</span></a>
-      <a href="#phase4"><span class="n">05</span><span>Injection: looking inside other processes</span></a>
-      <a href="#phase5"><span class="n">06</span><span>Validation: measuring what was built</span></a>
-      <a href="#console"><span class="n">07</span><span>The console: reading the database without touching it</span></a>
-      <a href="#status"><span class="n">08</span><span>What exists, and what does not</span></a>
-      <a href="#decisions"><span class="n">09</span><span>Decisions, and the objections to them</span></a>
+      <a href="#start"><span class="n">01</span><span>How to read this guide</span></a>
+      <a href="#concepts"><span class="n">02</span><span>Prerequisites: the ideas to have straight before the code</span></a>
+      <a href="#pipeline"><span class="n">03</span><span>One event, three threads</span></a>
+      <a href="#phase1"><span class="n">04</span><span>Telemetry: getting events out of the kernel</span></a>
+      <a href="#phase2"><span class="n">05</span><span>Storage: writing to disk without going blind</span></a>
+      <a href="#phase3"><span class="n">06</span><span>Detection: from event to alert</span></a>
+      <a href="#phase4"><span class="n">07</span><span>Injection: looking inside other processes</span></a>
+      <a href="#phase5"><span class="n">08</span><span>Validation: measuring what was built</span></a>
+      <a href="#console"><span class="n">09</span><span>The console: reading the database without touching it</span></a>
+      <a href="#main"><span class="n">10</span><span>main.cpp: the conductor</span></a>
+      <a href="#build"><span class="n">11</span><span>Build, tests and tools</span></a>
+      <a href="#status"><span class="n">12</span><span>What exists, and what does not</span></a>
+      <a href="#numbers"><span class="n">13</span><span>Key numbers</span></a>
+      <a href="#limits"><span class="n">14</span><span>Limitations: what the system does not see</span></a>
+      <a href="#decisions"><span class="n">15</span><span>Decisions, and the objections to them</span></a>
+      <a href="#qa"><span class="n">16</span><span>More questions</span></a>
+      <a href="#glossary"><span class="n">17</span><span>Glossary</span></a>
   </aside>
   <main class="wrap" dir="ltr">
+<section id="start">
+  <p class="eyebrow">How to use this guide</p>
+  <h2>How to read this guide</h2>
+  <div class="prose">
+    <p class="lede">
+      This guide assumes you have never seen the code. The sections are in the order that makes the
+      project easiest to learn: concepts first, then the overall shape, then one event followed from
+      start to finish, and only after that the file-by-file detail.
+    </p>
+    <p>
+      The reason is simple: without the big picture, the explanation of a single file has nothing to
+      attach to. Once you know where an event comes from and where it goes, every file becomes one
+      stop on that route.
+    </p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Step</th><th>Topic</th><th>Sections</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td>What an EDR is, what ETW is, the overall architecture</td><td>Prerequisites · One event, three threads</td></tr>
+        <tr><td class="num">2</td><td>Phase 1: getting events out of the kernel</td><td>Telemetry</td></tr>
+        <tr><td class="num">3</td><td>Phase 2: the queue, the filter, SQLite and three threads</td><td>Storage · main.cpp</td></tr>
+        <tr><td class="num">4</td><td>Phase 3: paths, the process table, rules and the YAML reader, the rule pack, keep-list, throttle, hardening and cost</td><td>Detection · Build, tests and tools</td></tr>
+        <tr><td class="num">5</td><td>Phase 4: process injection, the fourth thread, signals H1 to H5, the baseline, Atomic, measured cost and the PEB experiment</td><td>Injection (may take two sittings)</td></tr>
+        <tr><td class="num">6</td><td>Phase 5: run validity, the 18 rules, T1055 repeats, the soak, load and cost</td><td>Validation</td></tr>
+        <tr><td class="num">7</td><td>The console: a read-only GUI, two ways to open SQLite, live refresh, the process tree</td><td>The console</td></tr>
+        <tr><td class="num">8</td><td>Review: what exists, the numbers, the limits, and the questions people ask</td><td>Status · Key numbers · Limitations · Decisions · More questions · Glossary</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note teach">
+    <span class="label">How this guide is written</span>
+    <p>
+      Wherever you see a box labelled <strong>Key point</strong>, it holds the one sentence worth
+      remembering from that part if you remember nothing else. Every number in this guide comes from a
+      real run or from the code itself.
+    </p>
+  </div>
+</section>
+
+<section id="concepts">
+  <p class="eyebrow">Prerequisites</p>
+  <h2>Prerequisites: the ideas to have straight before the code</h2>
+  <div class="prose">
+    <p class="lede">
+      Every question about this project sooner or later comes back to one of these ideas. Once they
+      are clear, the rest of the guide is detail.
+    </p>
+  </div>
+
+  <h3>The security side</h3>
+  <div class="concepts">
+    <div class="concept">
+      <div class="term">EDR · Endpoint Detection and Response</div>
+      <div class="cname">Watching the machine from the inside</div>
+      <p>Software that runs on the machine itself (the endpoint), observes and records what the system does, and detects suspicious behaviour. Commercial products also respond: they kill processes or isolate the host. <strong>Light EDR is detection only.</strong> It never kills or blocks anything, and that is a deliberate choice.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Telemetry</div>
+      <div class="cname">The raw observations</div>
+      <p>What an EDR feeds on: "process X started with PID 4812", "process Y loaded Z.dll". Light EDR collects three kinds: <span class="nb"><code>ProcessStart</code>,</span> <code>ProcessStop</code> and <span class="nb"><code>ImageLoad</code>.</span></p>
+    </div>
+    <div class="concept">
+      <div class="term">LOLBins · Living off the land</div>
+      <div class="cname">Windows' own tools in an attacker's hands</div>
+      <p>Legitimate, signed Windows programs such as <span class="nb"><code>powershell.exe</code>,</span> <span class="nb"><code>mshta.exe</code>,</span> <span class="nb"><code>rundll32.exe</code>,</span> <code>regsvr32.exe</code> and <code>certutil.exe</code> that attackers use instead of malware. That is why detection asks "who ran what, from where", not "is this file bad".</p>
+    </div>
+    <div class="concept">
+      <div class="term">MITRE ATT&amp;CK</div>
+      <div class="cname">The catalogue of attacker behaviour</div>
+      <p>The standard list of attacker behaviours. A <strong>tactic</strong> is the goal (Execution, Persistence) and a <strong>technique</strong> is a way to reach it, with an id such as <code>T1059.001</code> (execution through PowerShell). Every Light EDR rule maps to a technique.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Sigma</div>
+      <div class="cname">The common rule format</div>
+      <p>An open, tool-independent language for writing detection rules in YAML. Sigma rules are usually converted into a SIEM query. Light EDR runs the same language directly on the machine, at the moment the event happens.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Alert · False positive</div>
+      <div class="cname">A match, and a wrong one</div>
+      <p>An alert means a rule matched an event. A false positive is an alert with no attack behind it, such as a legitimate installer running from Temp. Every rule in the project has a <code>falsepositives</code> section.</p>
+    </div>
+  </div>
+
+  <h3>The Windows side</h3>
+  <div class="concepts">
+    <div class="concept">
+      <div class="term">Process · PID · PPID</div>
+      <div class="cname">A process, its id, its parent's id</div>
+      <p>Every running program is a process with a number, its PID. Every process was created by another one (its parent), whose PID is the child's PPID. A chain like <code>explorer.exe → WINWORD.EXE → powershell.exe</code> is half of detection: Word should not start PowerShell.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Image · Image path</div>
+      <div class="cname">The file behind a process</div>
+      <p>In Windows terms the image is the file a process was created from, such as <code>C:\Windows\System32\cmd.exe</code>. In rules, <code>Image</code> is that path and <code>ParentImage</code> is the parent's.</p>
+    </div>
+    <div class="concept">
+      <div class="term">DLL · ImageLoad</div>
+      <div class="cname">Libraries, and loading them</div>
+      <p>DLLs are libraries a process loads while it runs, and each load is an <code>ImageLoad</code> event. Most are routine; a few are the fingerprint of a technique, such as <code>regsvr32.exe</code> loading <code>scrobj.dll</code> (Squiblydoo).</p>
+    </div>
+    <div class="concept">
+      <div class="term">User mode · Kernel mode</div>
+      <div class="cname">Application level, operating system level</div>
+      <p>Kernel code sees everything, and when it fails the whole machine stops with a blue screen. Commercial EDRs ship a kernel driver. <strong>Light EDR is entirely user mode</strong> with no driver; it gets its data from ETW, which Windows itself feeds from the kernel.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Thread</div>
+      <div class="cname">One line of execution</div>
+      <p>A process can do several things at once on several threads. Light EDR had three threads in Phases 2 and 3 and has four since Phase 4; most of its architecture is about which work runs on which thread.</p>
+    </div>
+    <div class="concept">
+      <div class="term">NT device path · DOS path</div>
+      <div class="cname">Two spellings of one path</div>
+      <p>The kernel reports <code>\Device\HarddiskVolume3\Windows\System32\cmd.exe</code>. People and rules think in <code>C:\Windows\System32\cmd.exe</code>. The volume number differs between machines and the drive letter does not, so the path has to be translated.</p>
+    </div>
+    <div class="concept">
+      <div class="term">FILETIME</div>
+      <div class="cname">Windows' clock format</div>
+      <p>A 64-bit count of 100-nanosecond intervals since 1 January 1601 (UTC). The whole project keeps time in this raw form and converts it only for display.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Administrator</div>
+      <div class="cname">Elevated rights</div>
+      <p>Only administrators, members of Performance Log Users, and services running as LocalSystem, LocalService or NetworkService may create an ETW session (per the <code>StartTraceW</code> documentation). That is why the sensor needs Run as administrator. The tests do not.</p>
+    </div>
+  </div>
+
+  <h3>ETW: the most important idea in the project</h3>
+  <div class="prose">
+    <p>
+      <strong>Event Tracing for Windows</strong> is the operating system's built-in tracing
+      infrastructure. Parts of Windows produce events all the time; ETW is how a program listens to
+      them. It has four roles, and understanding them is the key to Phase 1:
+    </p>
+  </div>
+  <div class="concepts">
+    <div class="concept">
+      <div class="term">Provider</div>
+      <div class="cname">Writes the events</div>
+      <p>The part of Windows that emits events. The project uses exactly one: <code>Microsoft-Windows-Kernel-Process</code>, which reports process start and stop and DLL loads. <strong>Microsoft wrote it, not this project.</strong></p>
+    </div>
+    <div class="concept">
+      <div class="term">Session</div>
+      <div class="cname">Where events are collected</div>
+      <p>A kernel object with a name and a set of memory buffers. Providers write their events into the session's buffers. This project's session is called <span class="nb"><code>LightEDR_ETW_Session</code>.</span></p>
+    </div>
+    <div class="concept">
+      <div class="term">Controller</div>
+      <div class="cname">Starts and stops the session</div>
+      <p>Creates the session, enables a provider on it, and stops it at the end. <strong>Light EDR plays this role</strong> (<code>etw_session.c</code>).</p>
+    </div>
+    <div class="concept">
+      <div class="term">Consumer</div>
+      <div class="cname">Reads the events</div>
+      <p>Reads events out of the session's buffers. <strong>Light EDR plays this role too</strong> (<code>etw_consumer.c</code>). For every event, Windows calls a function of ours, the callback.</p>
+    </div>
+  </div>
+  <div class="note teach">
+    <span class="label">Key point</span>
+    <p>
+      Light EDR produces no events. It asks the kernel to route the events a Microsoft provider already
+      produces into a session, then reads that session. That is why the project works without a driver.
+    </p>
+  </div>
+
+  <h3>The programming side</h3>
+  <div class="concepts">
+    <div class="concept">
+      <div class="term">Callback</div>
+      <div class="cname">A function the system calls</div>
+      <p>A function whose address we hand to Windows, which calls it each time an event arrives. The crucial detail: the callback runs on our own thread, and the next event is not delivered until it returns.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Producer / consumer queue</div>
+      <div class="cname">Separating fast work from slow work</div>
+      <p>One thread puts items in, another takes them out, so fast work and slow work do not wait on each other. In Light EDR the queue sits between the callback (fast) and writing to disk (slow).</p>
+    </div>
+    <div class="concept">
+      <div class="term">Transaction</div>
+      <div class="cname">All or nothing</div>
+      <p>A group of database operations that either all happen or none do: <span class="nb"><code>BEGIN</code>,</span> then <code>COMMIT</code> to keep or <code>ROLLBACK</code> to discard. Light EDR writes each batch of events and their alerts in one transaction.</p>
+    </div>
+    <div class="concept">
+      <div class="term">POD · RAII</div>
+      <div class="cname">Plain data, owned resources</div>
+      <p>POD (plain old data) is a simple C struct with no pointers and no memory management. RAII is the C++ pattern where a resource (a file, a lock, a database connection) is acquired in a constructor and released automatically in the destructor. The project's C/C++ boundary is built on exactly this difference.</p>
+    </div>
+    <div class="concept">
+      <div class="term">Recursive descent parser</div>
+      <div class="cname">One function per grammar rule</div>
+      <p>A way of reading a structured language in which each grammar rule is a function and the functions call each other. Both parsers in the project (YAML and condition) work this way, which is why they needed depth limits in week 5 of Phase 3.</p>
+    </div>
+    <div class="concept">
+      <div class="term">p50 · p99</div>
+      <div class="cname">Percentiles</div>
+      <p>p50 means half the samples were faster than this value (the median). p99 means 99% were faster and only 1% slower. An average hides a rare slow event; p99 shows it.</p>
+    </div>
+  </div>
+</section>
+
+
 <section id="pipeline">
   <p class="eyebrow">The shape of the system</p>
   <h2>One event, three threads</h2>
@@ -859,7 +1077,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <div class="prose">
     <p>
       The kernel reports paths in NT device form:
-      <span class="nb"><code>\Device\HarddiskVolume3\Windows\System32\cmd.exe</code>.</span> Any rule that reasons about
+      <code>\Device\HarddiskVolume3\Windows\System32\cmd.exe</code>. Any rule that reasons about
       <em>location</em> — "an executable under the user's Temp directory" — needs the translated form,
       because the volume number is machine-specific while the drive letter is not.
     </p>
@@ -1491,7 +1709,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <p>
       A script that starts the same child a hundred times would otherwise produce a hundred identical
       alerts and bury the first one. The throttle stores the first alert, suppresses repeats for 60
-      seconds and counts them in <span class="nb"><code>session_stats.alerts_throttled</code>.</span> The event itself is
+      seconds and counts them in <code>session_stats.alerts_throttled</code>. The event itself is
       always stored: throttling applies to alerts, never to telemetry.
     </p>
   </div>
@@ -1890,7 +2108,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       <code>BoundedQueue&lt;T&gt;</code> in <span class="nb"><code>core/bounded_queue.h</code>,</span> with the same
       drop-newest rule and the same pushed / dropped / peak counters. The original
       <code>EventQueue</code> was left untouched rather than migrated, so the Phase 2 and 3 code
-      path did not change at all. The scanner thread runs in <span class="nb"><code>THREAD_MODE_BACKGROUND_BEGIN</code>,</span>
+      path did not change at all. The scanner thread runs in <code>THREAD_MODE_BACKGROUND_BEGIN</code>,
       which Windows documents as lowering CPU, I/O and memory priority for background work. A scan is
       never more urgent than the user's own programs.
     </p>
@@ -1936,7 +2154,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <h3>What a scan reads, and what it refuses to touch</h3>
   <div class="prose">
     <p>
-      The scanner opens the target with <span class="nb"><code>PROCESS_QUERY_INFORMATION | PROCESS_VM_READ</code>.</span>
+      The scanner opens the target with <code>PROCESS_QUERY_INFORMATION | PROCESS_VM_READ</code>.
       <code>VirtualQueryEx</code> documents the full query right as required, so the limited right is
       not enough. The sensor enables <code>SeDebugPrivilege</code> at start so that processes of other
       users can be opened. Protected (PPL) processes stay unreadable even then. They are counted, not
@@ -2272,7 +2490,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       the test itself prints, with no other finding and no dropped event. These runs followed the
       protocol except for the snapshot restore, so the sub-test stays provisional too. The test's
       injector had to be restored from Defender quarantine first, where it had been placed as
-      <span class="nb"><code>VirTool:Win32/Meterpreter</code>.</span>
+      <code>VirTool:Win32/Meterpreter</code>.
     </p>
   </div>
 
@@ -2957,7 +3175,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       reader that kept its connection open would hold a snapshot, and SQLite cannot checkpoint the WAL past a
       snapshot a reader still holds; the sensor's <code>-wal</code> file would grow for as long as the
       console stayed open. The one file the console writes is its own
-      <span class="nb"><code>%LOCALAPPDATA%\Ret2Void\LightEDR Console\settings.json</code>.</span>
+      <code>%LOCALAPPDATA%\Ret2Void\LightEDR Console\settings.json</code>.
     </p>
     <p>How "read-only" was checked rather than assumed:</p>
     <ul>
@@ -3122,6 +3340,246 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
 </section>
 
 <!-- ==================== STATUS ==================== -->
+<section id="main">
+  <p class="eyebrow">src/main.cpp · the conductor</p>
+  <h2>main.cpp: the conductor</h2>
+  <div class="prose">
+    <p class="lede">
+      <code>main.cpp</code> builds every layer and wires them together. Two orders in this file matter:
+      the startup order and the shutdown order. Both are what they are on purpose. Since Phase 4 the
+      file manages four threads.
+    </p>
+  </div>
+
+  <h3>Fixed settings</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="mono">Constant</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">kQueueCapacity</td><td class="num">8192</td><td>At roughly 1 KB per event, about 8 MB in the worst case. Sized to absorb a short burst, not to ride out sustained overload.</td></tr>
+        <tr><td class="mono">kBatchSize</td><td class="num">256</td><td>Events per transaction.</td></tr>
+        <tr><td class="mono">kFlushInterval</td><td class="num">200 ms</td><td>The longest the writer waits for a batch to fill on a quiet system.</td></tr>
+        <tr><td class="mono">kRetentionDays</td><td class="num">7</td><td>Older events are deleted at startup.</td></tr>
+        <tr><td class="mono">kDatabaseFileName</td><td class="mono">lightedr.db</td><td>In the working directory.</td></tr>
+        <tr><td class="mono">kScanRequestCapacity</td><td class="num">1024</td><td>Phase 4. A request is only a PID and a path, a few hundred bytes; 1,024 is far beyond any real burst of process creation.</td></tr>
+        <tr><td class="mono">kScanResultCapacity</td><td class="num">256</td><td>Phase 4. Results are rarer; a clean scan produces none.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The main callback: <code>OnEventReceived</code></h3>
+  <pre>void CALLBACK OnEventReceived(PEVENT_RECORD eventRecord) {
+    ParsedEvent parsed;
+    if (!EventParser_Parse(eventRecord, &amp;parsed)) return;     <span class="c">// thread events etc.</span>
+    g_eventsSeen.fetch_add(1);
+    NormalizedEvent normalized = NormalizedEvent::FromParsed(parsed);
+    if (g_filter &amp;&amp; !g_filter-&gt;ShouldStore(normalized)) return;
+    if (g_queue) (void)g_queue-&gt;TryPush(std::move(normalized));  <span class="c">// false = dropped, counted by the queue</span>
+}</pre>
+  <div class="prose">
+    <p>
+      Look at the last line: when the queue is full, the callback does nothing about it. Reacting to
+      backpressure inside the callback is exactly the stall the whole architecture exists to avoid. The
+      queue does its own counting.
+    </p>
+  </div>
+
+  <h3>Startup order</h3>
+  <ol>
+    <li><code>SetConsoleOutputCP(CP_UTF8)</code> and the log level.</li>
+    <li>Open the database (<span class="nb"><code>DbManager::Open</code>:</span> pragmas, schema or migration, prepared statements). On failure, exit.</li>
+    <li>Delete events older than seven days.</li>
+    <li>Create the queue, the filter and the <span class="nb"><code>DetectionPipeline</code>,</span> and set <code>g_queue</code> and <span class="nb"><code>g_filter</code>.</span></li>
+    <li><span class="nb"><code>EtwSession_Start</code>:</span> create the session and enable the provider. On failure: "Are you running as Administrator?".</li>
+    <li><span class="nb"><code>EtwConsumer_Open</code>:</span> open the session for reading.</li>
+    <li><code>detection.Initialize(ResolveRulesDirectory())</code>: the volume table, the process snapshot, loading the rules.</li>
+    <li>Phase 4: <code>EnableDebugPrivilege</code> (only a warning if it fails; other users' processes are then counted as skipped_access), create <span class="nb"><code>ScanRequestQueue</code>,</span> <code>ScanResultQueue</code> and <span class="nb"><code>ScannerThread</code>,</span> and call <code>detection.SetScanRequestQueue</code>.</li>
+    <li>Create the <code>WriterThread</code> (now with the scan result queue as its last parameter) and start the writer and the scanner.</li>
+    <li>Register the <code>ConsoleCtrlHandler</code> for Ctrl+C, only once every layer is ready, so it never runs against a half-built system.</li>
+    <li>Start the consumer thread, which runs <span class="nb"><code>EtwConsumer_Run</code>.</span></li>
+    <li>The monitoring loop: check for Ctrl+C every 250 ms, and every 40 rounds (about 10 s) sample the kernel's statistics and print a status line.</li>
+  </ol>
+  <div class="note">
+    <span class="label">Why is detection initialised between steps 5 and 10?</span>
+    <p>
+      After the provider is enabled but before reading starts. In that window, a process created
+      between the snapshot and the first event read is both in the snapshot and delivered as a
+      ProcessStart event, and the event overwrites the snapshot entry. If the snapshot were taken before
+      the provider was enabled, there would be a gap in which a process was neither in the snapshot nor
+      in the events.
+    </p>
+  </div>
+
+  <h3>Shutdown order (this one matters)</h3>
+  <pre>1. StopSessionOnce()       <span class="c">// no new events are produced; makes ProcessTrace return</span>
+2. consumerThread.join()   <span class="c">// the callback will never run again</span>
+   EtwConsumer_Close()
+   g_queue = g_filter = nullptr
+3. scanner.Stop()          <span class="c">// Phase 4: finishes queued scans, pushes their findings</span>
+4. writer.Stop()           <span class="c">// drains events AND findings, commits the last batch</span>
+5. RecordSessionStats()    <span class="c">// then Optimize, print summaries, Close the database</span></pre>
+  <div class="prose">
+    <p>
+      Swap steps 2 and 4 and whatever is still in the queue is lost. Swap 3 and 4 and the writer closes
+      the result queue, so the scanner's last findings are rejected. A process that starts between steps
+      3 and 4 is stored but not scanned, because the request queue is already closed; at the moment of
+      exit that is the right trade. Stopping the session is what makes <code>ProcessTrace</code> stop
+      blocking, and only then can the consumer thread finish. The detection engine's non-atomic counters
+      are read only after the writer thread is joined; that join is what makes reading them safe.
+    </p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Piece</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">ConsoleCtrlHandler</td><td>On Ctrl+C, Ctrl+Break or closing the window: stops the session, sets the shutdown flag and returns <span class="nb"><code>TRUE</code>,</span> meaning "handled", so Windows does not kill the program immediately and main can shut down in order.</td></tr>
+        <tr><td class="mono">StopSessionOnce</td><td>Uses <code>compare_exchange_strong</code> on an <code>atomic&lt;bool&gt;</code> so the session is stopped exactly once, because both the handler and main reach this path and a second stop returns an error.</td></tr>
+        <tr><td class="mono">ResolveRulesDirectory</td><td>First the <code>rules</code> folder next to the executable (installed layout), otherwise the source <code>rules</code> folder whose path was baked in at build time through <code>LIGHTEDR_SOURCE_RULES_DIR</code> (development layout). An edited rule therefore takes effect on the next run without a rebuild. The chosen folder is logged at startup.</td></tr>
+        <tr><td class="mono">SampleEtwStats</td><td>Calls <code>EtwStats_Query</code> and keeps the latest values in two atomics.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The end-of-run report</h3>
+  <div class="prose">
+    <p>Every run ends by printing these summaries, and all of them are also stored in <span class="nb"><code>session_stats</code>:</span></p>
+    <ul>
+      <li><strong>Session summary:</strong> seen, filtered, keep-list, stored, dropped, kernel loss, peak queue depth.</li>
+      <li><strong>Keep-list:</strong> how many system-module loads were kept because of the keep-list, as a percentage.</li>
+      <li><strong>Detection summary:</strong> rules loaded and rejected, events evaluated, alerts, throttled, parent hits and misses, untranslated paths. The parent hit rate is the measure of trust in ParentImage-based rules, and the untranslated count is the measure for location-based rules.</li>
+      <li><strong>Rule evaluation cost:</strong> mean, p50, p99 and max in nanoseconds.</li>
+      <li><strong>Scan summary (Phase 4):</strong> run, skipped_access, skipped_gone, skipped_reused, skipped_self, skipped_other, dropped, regions, H1 regions, findings, results_dropped and scan_events_stored.</li>
+      <li><strong>Scan cost per process (Phase 4):</strong> mean, p50, p99 and max in microseconds. The scanner's counters and histogram are read only after <span class="nb"><code>scanner.Stop()</code>.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="build">
+  <p class="eyebrow">Build · tests · tools</p>
+  <h2>Build, tests and tools</h2>
+
+  <div class="files-list">
+  <div class="file">
+    <p class="name">CMakeLists.txt <span class="tag">build</span></p>
+    <dl>
+      <dt>Languages</dt>
+      <dd>C17 and C++17, both required. The build stops with an error on anything other than Windows, because the project is built on ETW.</dd>
+      <dt>The <code>sqlite3</code> target (static library)</dt>
+      <dd>
+        Built from <code>sqlite3.c</code> only; <code>shell.c</code> is the command-line tool and has
+        its own <span class="nb"><code>main()</code>.</span> Compiled as C99 (third-party code) with its warnings silenced. The
+        compile options come from SQLite's recommended-options page, including:
+        <ul>
+          <li><code>SQLITE_OMIT_LOAD_EXTENSION=1</code>: <strong>a security choice.</strong> A security agent must never load an arbitrary DLL through its database.</li>
+          <li><span class="nb"><code>SQLITE_DQS=0</code>:</span> a double-quoted string is an error, not a silent fallback to an identifier.</li>
+          <li><span class="nb"><code>SQLITE_THREADSAFE=1</code>:</span> a mistake in the threading contract costs performance, not data.</li>
+          <li>Plus <span class="nb"><code>DEFAULT_MEMSTATUS=0</code>,</span> <code>DEFAULT_WAL_SYNCHRONOUS=1</code>, <span class="nb"><code>OMIT_DEPRECATED</code>,</span> <code>OMIT_SHARED_CACHE</code> and a few others.</li>
+        </ul>
+        The <code>sqlite3.exe</code> tool is optional (<code>-DLIGHTEDR_BUILD_SQLITE_SHELL=ON</code>) and
+        builds its own separate copy of SQLite with default settings, because shell.c needs symbols the
+        OMIT options remove. This is a recorded security decision: rather than weakening the sensor's
+        settings, the tool gets its own copy.
+      </dd>
+      <dt>The <code>lightedr_core</code> target (static library)</dt>
+      <dd>Everything except <span class="nb"><code>main()</code>.</span> The reason is testability: the tests link straight against this library and run without ETW and without administrator rights. It links <code>advapi32</code> (the ETW functions) and <span class="nb"><code>tdh</code>.</span> Includes are rooted at <code>src/</code> (<code>"core/event.h"</code>).</dd>
+      <dt>MSVC flags</dt>
+      <dd>
+        <span class="nb"><code>/W4</code>,</span> <code>/permissive-</code> and <span class="nb"><code>/utf-8</code>.</span> The third has a story:
+        without it MSVC reads source files in the system code page, and the repository hit exactly that,
+        with <code>src/telemetry/</code> saved as Windows-1252 and <code>src/core/</code> as UTF-8.
+        <code>UNICODE</code> and <code>_UNICODE</code> are defined too, so Win32 macros resolve to the W
+        variants and an accidental ANSI call fails to compile.
+      </dd>
+      <dt>Other targets</dt>
+      <dd><code>Light_EDR</code> (the sensor, <code>main.cpp</code> only), <code>lightedr_bench</code> (the measurement tool) and <span class="nb"><code>lightedr_tests</code>,</span> all three given <code>LIGHTEDR_SOURCE_RULES_DIR</code>. From Phase 4: <code>mem_census</code> (the memory baseline tool), and the <code>src/injection/*.cpp</code> files (including <code>clr_attribution</code> and <code>peb_reader</code>) added to <code>lightedr_core</code> so the tests link against them as well.</dd>
+    </dl>
+    <pre><span class="c"># build + test (no Administrator needed)</span>
+cmake --build out\build\x64-Debug
+ctest --test-dir out\build\x64-Debug --output-on-failure
+
+<span class="c"># run the sensor (Administrator)</span>
+out\build\x64-Debug\Light_EDR.exe
+
+<span class="c"># headline measurement: x64 Release, one command</span>
+tools\run_bench.cmd</pre>
+  </div>
+
+  <div class="file">
+    <p class="name">tests/ · test_harness.h · test_harness.cpp <span class="tag">phase 3</span> <span class="tag">phase 4</span></p>
+    <p>A test harness of about 90 lines with no external framework. The reason: the project's whole dependency argument is that anyone can read all the code it pulls in.</p>
+    <ul>
+      <li>The <code>LIGHTEDR_TEST(name)</code> macro defines a function and a static <code>Registrar</code> object whose constructor adds the test to a list.</li>
+      <li>That list is a static <em>inside a function</em> (<code>Registry()</code>), not a global, because the initialisation order of statics across files is undefined and a global vector could be constructed after the first registration and wipe it.</li>
+      <li><code>CHECK(expr)</code> and <code>CHECK_WSTR(actual, expected)</code> count every check separately and do not stop the test on failure, so a broken table-driven test shows every broken case. <code>CHECK_WSTR</code> prints both values.</li>
+      <li><code>main()</code> runs everything and returns non-zero if anything failed; that is the whole contract CTest needs.</li>
+    </ul>
+    <div class="tw">
+      <table>
+        <thead><tr><th class="mono">File</th><th>Tests</th><th>Checks</th><th>Covers</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">test_yaml_reader.cpp</td><td class="num">28</td><td class="num">121</td><td>The YAML subset; 15 malformed inputs</td></tr>
+          <tr><td class="mono">test_rule_loader.cpp</td><td class="num">31</td><td class="num">102</td><td>Validation and every rejection path</td></tr>
+          <tr><td class="mono">test_condition.cpp</td><td class="num">18</td><td class="num">42</td><td>Grammar, precedence, quantifiers</td></tr>
+          <tr><td class="mono">test_rule_engine.cpp</td><td class="num">16</td><td class="num">46</td><td>Sigma semantics on synthetic rules</td></tr>
+          <tr><td class="mono">test_rule_pack.cpp</td><td class="num">7</td><td class="num">9</td><td>Every real rule: one positive, one near miss, silence on normal activity</td></tr>
+          <tr><td class="mono">test_rule_hardening.cpp</td><td class="num">18</td><td class="num">45</td><td>Named malformed cases, about 20,600 mutated files, depth limits</td></tr>
+          <tr><td class="mono">test_alert_throttle.cpp</td><td class="num">16</td><td class="num">51</td><td>Key, window, pipeline accounting</td></tr>
+          <tr><td class="mono">test_event_filter.cpp</td><td class="num">8</td><td class="num">35</td><td>The keep-list and its link to the rule pack</td></tr>
+          <tr><td class="mono">test_db_manager.cpp</td><td class="num">10 (+8 in Phase 4)</td><td class="num">244 (Phase 3)</td><td>Migration from v1 to v4, and to v7 in Phase 4; column-by-column comparison with a fresh schema</td></tr>
+          <tr><td class="mono">test_latency_histogram.cpp</td><td class="num">7</td><td class="num">447</td><td>The 12.5% bound across forty bits of magnitude</td></tr>
+          <tr><td class="mono">test_path_resolver.cpp</td><td class="num">7</td><td class="num">19</td><td>NT to DOS translation</td></tr>
+          <tr><td class="mono">test_process_table.cpp</td><td class="num">7</td><td class="num">14</td><td>ParentImage and the PID-reuse guard</td></tr>
+          <tr><td><strong>Phase 3 total</strong></td><td class="num"><strong>173</strong></td><td class="num"><strong>1,175</strong></td><td>All green on MSVC</td></tr>
+          <tr><td class="mono">test_h2_classifier.cpp</td><td class="num">10</td><td class="num">·</td><td>Phase 4: region type and backing file, containment, odd regions; H2 in an H1 region is reportable</td></tr>
+          <tr><td class="mono">test_scan_conversion.cpp</td><td class="num">9</td><td class="num">·</td><td>Phase 4: reportable combinations, severity, matched_fields text, the synthetic event</td></tr>
+          <tr><td class="mono">test_shellcode_probe.cpp</td><td class="num">7</td><td class="num">·</td><td>Phase 4: H5 patterns, ordinary code, short buffers; file-less mapped views</td></tr>
+          <tr><td class="mono">test_region_classifier.cpp</td><td class="num">6</td><td class="num">·</td><td>Phase 4: the executable set, modifier bits, H1, never reading guard or noaccess</td></tr>
+          <tr><td class="mono">test_bounded_queue.cpp</td><td class="num">6</td><td class="num">·</td><td>Phase 4: drop-newest, DrainNow, timeout, shutdown, concurrent producers</td></tr>
+          <tr><td class="mono">test_pe_probe.cpp</td><td class="num">5</td><td class="num">·</td><td>Phase 4: the e_lfanew bound and the signature</td></tr>
+          <tr><td class="mono">test_scan_status.cpp</td><td class="num">4</td><td class="num">·</td><td>Phase 4: error code to outcome</td></tr>
+          <tr><td class="mono">test_writer_thread.cpp</td><td class="num">4</td><td class="num">·</td><td>Phase 4: findings committed alongside telemetry, drained on Stop, Phase 3 behaviour without a result queue</td></tr>
+          <tr><td class="mono">test_peb_reader.cpp</td><td class="num">7</td><td class="num">·</td><td>Phase 4: pointer reads, sanity of an untrusted string, UTF-16 decoding, reading our own PEB against <code>GetCommandLineW</code></td></tr>
+          <tr><td class="mono">test_clr_attribution.cpp</td><td class="num">6</td><td class="num">·</td><td>Phase 4: load after start, start seen without a load, unseen start, a PID's previous owner, two runtimes but not the shim</td></tr>
+          <tr><td class="mono">test_slow_scan.cpp</td><td class="num">5</td><td class="num">·</td><td>Phase 4: the one-second threshold and the waiting/working verdict at half the wall time</td></tr>
+          <tr><td><strong>Final Phase 4 total</strong></td><td class="num"><strong>250</strong></td><td class="num"><strong>1,717</strong></td><td>All green on MSVC, Debug and Release</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Check counts measure different things in different files. The rule-pack and hardening tests record a check only when a case breaks, so thousands of inputs show up as a handful of checks; the histogram test checks every sample value.</p>
+    <div class="note ok">
+      <span class="label">Tests with teeth</span>
+      <p>
+        Every new part was tested by breaking the code on purpose and confirming the suite failed:
+        removing a keep-list entry, keying the throttle on the child PID, making a default value differ
+        between a fresh and a migrated schema, removing a rule's filter, reporting a histogram bucket's
+        lower edge, and removing the YAML depth limit. The last one crashes the test process itself,
+        exactly as it should.
+      </p>
+    </div>
+  </div>
+
+  <div class="file">
+    <p class="name">tools/lightedr_bench.cpp · tools/run_bench.cmd <span class="tag">phase 3</span></p>
+    <dl>
+      <dt><code>lightedr_bench</code></dt>
+      <dd>
+        <ul>
+          <li>Reads the events of a <code>lightedr.db</code> <strong>read-only</strong> and rebuilds them in the form the callback produced (the raw kernel path from <span class="nb"><code>image_path_nt</code>,</span> untranslated and unenriched).</li>
+          <li>Feeds them in batches of 256 through <code>DetectionPipeline::ProcessBatch</code> and <code>DbManager::CommitBatch</code> into a temporary database, once with the rules and once without.</li>
+          <li>One untimed warm-up for each, then <em>alternating</em> repeats (11 in <code>run_bench.cmd</code>), so if another process slows the machine for a few seconds it affects both modes.</li>
+          <li>Only errors are logged while measuring, because console output is slow enough to hide the work.</li>
+          <li>Prints its own architecture (x64 or x86); added after an accidental 32-bit run.</li>
+          <li>Does not measure the ETW callback, parsing or the queue, because they run on another thread and do not change with the rules.</li>
+        </ul>
+      </dd>
+      <dt><code>run_bench.cmd</code></dt>
+      <dd>Finds Visual Studio with <span class="nb"><code>vswhere</code>,</span> loads <code>vcvars64.bat</code> so the x64 compiler is available, deletes the build folder if it was configured with a 32-bit compiler (CMake remembers the first compiler), builds into <code>out\build\x64-Release</code> and runs the benchmark with 11 repeats.</dd>
+    </dl>
+  </div>
+  </div>
+</section>
+
+
 <section id="status">
   <p class="eyebrow">Status</p>
   <h2>What exists, and what does not</h2>
@@ -3206,6 +3664,115 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
 </section>
 
 <!-- ==================== DECISIONS ==================== -->
+<section id="numbers">
+  <p class="eyebrow">Cheat sheet</p>
+  <h2>Key numbers</h2>
+  <div class="prose"><p class="lede">Every important number in this guide in one place, with where each one is defined.</p></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>What</th><th>Number</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Queue capacity</td><td class="num">8,192</td><td class="mono">main.cpp · event_queue</td></tr>
+        <tr><td>Batch size / flush interval</td><td class="num">256 / 200 ms</td><td class="mono">main.cpp · writer_thread</td></tr>
+        <tr><td>Event retention</td><td class="num">7 days</td><td class="mono">main.cpp</td></tr>
+        <tr><td>Maximum path length in ParsedEvent</td><td class="num">512 chars</td><td class="mono">event_parser.h</td></tr>
+        <tr><td>Event IDs modelled</td><td class="num">1 · 2 · 5</td><td class="mono">event_parser.h</td></tr>
+        <tr><td>Process table cap</td><td class="num">8,192</td><td class="mono">process_table.h</td></tr>
+        <tr><td>Schema version</td><td class="num">7</td><td class="mono">schema.sql · db_manager.cpp</td></tr>
+        <tr><td>Rules</td><td class="num">18 = 14 + 4</td><td class="mono">rules/</td></tr>
+        <tr><td>ATT&amp;CK tactics covered</td><td class="num">6</td><td class="mono">rules/</td></tr>
+        <tr><td>Fields a rule can use</td><td class="num">5</td><td class="mono">rule.h</td></tr>
+        <tr><td>Keep-list entries</td><td class="num">14</td><td class="mono">event_filter.cpp</td></tr>
+        <tr><td>Keep-list cost in a live run</td><td class="num">7 / ~2,200 ≈ 0.3%</td><td>Phase 3, week 4 run</td></tr>
+        <tr><td>Throttle window / key cap</td><td class="num">60 s / 16,384</td><td class="mono">alert_throttle.h</td></tr>
+        <tr><td>Maximum YAML / condition depth</td><td class="num">32 / 64</td><td class="mono">yaml_reader.cpp · condition.cpp</td></tr>
+        <tr><td>Maximum rule file size</td><td class="num">256 KiB</td><td class="mono">rule_loader.cpp</td></tr>
+        <tr><td>Main thread stack on Windows</td><td class="num">1 MB</td><td>The reason for the depth limits</td></tr>
+        <tr><td>Mutated files per test run</td><td class="num">~20,600</td><td class="mono">test_rule_hardening.cpp</td></tr>
+        <tr><td>Tests / checks</td><td class="num">250 / 1,717 (Phase 3: 173 / 1,175)</td><td class="mono">tests/</td></tr>
+        <tr><td>Rule evaluation p50 / p99</td><td class="num">1,279 / 5,631 ns</td><td>x64 Release</td></tr>
+        <tr><td>Writer thread overhead from rules</td><td class="num">+6.5% (4–14%)</td><td>x64 Release</td></tr>
+        <tr><td>Writer throughput with rules</td><td class="num">~48,000 events/s</td><td>x64 Release</td></tr>
+        <tr><td>Histogram precision</td><td class="num">≤ 12.5%, never under</td><td class="mono">latency_histogram.h</td></tr>
+        <tr><td>Phase 2 result</td><td class="num">~30 ev/s · 95.9% · peak 3</td><td>End-of-Phase-2 run</td></tr>
+        <tr><td>Scan request / result queue capacity</td><td class="num">1,024 / 256</td><td class="mono">main.cpp</td></tr>
+        <tr><td>Rescans after ProcessStart</td><td class="num">0.5 · 3 · 10 · 30 s</td><td class="mono">scanner.cpp</td></tr>
+        <tr><td>Sweep: first / interval / slice / cooldown</td><td class="num">5 s / 60 s / 4 per 100 ms / 20 s</td><td class="mono">scanner.cpp</td></tr>
+        <tr><td>Scheduled scan cap</td><td class="num">4,096</td><td class="mono">scanner.cpp</td></tr>
+        <tr><td>PID-reuse tolerance in a scan</td><td class="num">1 s</td><td class="mono">process_scan.cpp</td></tr>
+        <tr><td>Bytes read for H3 / H5</td><td class="num">64 + 4 / 16</td><td class="mono">pe_probe.h · shellcode_probe.h</td></tr>
+        <tr><td>Processes with H1 on a clean system</td><td class="num">19–21%</td><td>Census, two runs</td></tr>
+        <tr><td>Atomic T1055: detected / run (Phase 4)</td><td class="num">3 / 12</td><td>VM, one session</td></tr>
+        <tr><td>Atomic: processes scanned / H1 regions / findings</td><td class="num">1,244 / 1,892 / 3</td><td>Same session</td></tr>
+        <tr><td>Scan cost per process (Phase 4, week 3)</td><td class="num">p50 25.2 ms · p99 252 / 101 ms</td><td>Release · VM · with / without sweep</td></tr>
+        <tr><td>Scanner CPU, share of one core</td><td class="num">9.6% / 1.9%</td><td>With / without sweep · 30 min</td></tr>
+        <tr><td>Scans in 30 minutes</td><td class="num">5,757 / 1,306</td><td>With / without sweep · 0 findings · 0 dropped</td></tr>
+        <tr><td>Rules in validation</td><td class="num">18/18 · 3/3 · near miss 18/18</td><td>Phase 5 · RULE_COVERAGE.md</td></tr>
+        <tr><td>Atomic / manual triggers</td><td class="num">6 / 12</td><td>PHASE5_PLAN.md §4</td></tr>
+        <tr><td>T1055 in Phase 5</td><td class="num">3/12 each 3/3 · 9 each 0/3</td><td>ATOMIC_COVERAGE.md</td></tr>
+        <tr><td>Soak</td><td class="num">60.6 min · 0 alerts · 10,043 scans</td><td>RULE_COVERAGE.md</td></tr>
+        <tr><td>Live rate with no loss</td><td class="num">40 processes/s ≈ 1,281 events/s</td><td>run_phase5_load · ceiling not found</td></tr>
+        <tr><td>Writer capacity (replay)</td><td class="num">68,497 / 57,438 ev/s (+19.3%)</td><td>Without / with rules · bench_soak.txt</td></tr>
+        <tr><td>Rule evaluation in replay</td><td class="num">mean 2.83 · p50 2.82 · p99 10.24 µs</td><td>Phase 5</td></tr>
+        <tr><td>Scan cost in Phase 5</td><td class="num">15.6% / 3.2% · p50 46.1 ms</td><td>With / without sweep · cause of the rise not isolated</td></tr>
+        <tr><td>Phase 5 binary SHA-256</td><td class="num">BAB6580B…CEACB9D</td><td>Every run</td></tr>
+        <tr><td>Console: poll interval</td><td class="num">1–10 s (default 2)</td><td>Console settings</td></tr>
+        <tr><td>Console: "writing" window</td><td class="num">3 polls</td><td class="mono">DatabaseMonitor.WritingWindow</td></tr>
+        <tr><td>Console: tests</td><td class="num">66 passed · 0 skipped</td><td>LightEDR.Data.Tests</td></tr>
+        <tr><td>Console: self-contained build size</td><td class="num">145 MiB exe · 154 MiB total</td><td>Includes the .NET 10 runtime</td></tr>
+        <tr><td>Console: startup time</td><td class="num">≈ 2.3 s warm · 6.3 s first</td><td>Development machine</td></tr>
+        <tr><td>RWX regions in processes with a CLR</td><td class="num">78 of 80</td><td>Phase 4 week 3 census · 147 processes</td></tr>
+        <tr><td>Slow-scan log threshold</td><td class="num">1 s</td><td class="mono">scanner.h · kSlowScanNanos</td></tr>
+        <tr><td>PEB experiment against WMI</td><td class="num">91 / 91 identical · 5 WOW64 skipped</td><td>No Administrator · 105 processes</td></tr>
+        <tr><td>PEB offsets on x64</td><td class="num">0x20 · 0x70</td><td class="mono">peb_reader · static_assert</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="limits">
+  <p class="eyebrow">Limitations</p>
+  <h2>Limitations: what the system does not see</h2>
+  <div class="prose">
+    <p class="lede">
+      A system with clear boundaries reads as an engineering decision; a vaguely described one reads as
+      an unfinished product. This list is part of the design, not an apology.
+    </p>
+  </div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Limitation</th><th>Reason</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>No response (kill, block)</td><td>Project scope: detection</td><td style="color:var(--crit)">Out of scope</td></tr>
+        <tr><td>No <code>CommandLine</code></td><td>The Kernel-Process provider does not report it; the largest gap in rule coverage. Since Phase 4 it is read from the PEB, with <span class="nb"><code>--peb-cmdline</code>,</span> only for a process a scan alerted on; self-reported and 64-bit only</td><td style="color:var(--warn)">Optional experiment</td></tr>
+        <tr><td>Events from before the session started are not seen</td><td>The nature of ETW; the snapshot fills only the process table, not the events</td><td>Inherent</td></tr>
+        <tr><td>The kernel can drop events</td><td>Full buffers; but they are counted and stored</td><td style="color:var(--ok)">Measured</td></tr>
+        <tr><td>No self-protection</td><td>Any administrator can stop the session or kill the process; tamper resistance needs a driver</td><td style="color:var(--crit)">Not possible</td></tr>
+        <tr><td>PID reuse</td><td>Closed only in the common direction in the process table; an accepted risk in the throttle</td><td>Documented</td></tr>
+        <tr><td>DLL side-loading blind spot from system folders</td><td>The price of filtering ImageLoad volume</td><td>Documented, can be turned off</td></tr>
+        <tr><td>regex, aggregation, timeframe</td><td>A single-event engine with four simple comparisons</td><td>Rejected by name</td></tr>
+        <tr><td>The masquerading rule assumes Windows is on C:</td><td>An untranslated path falls out of the filter and alerts</td><td>Documented in the rule</td></tr>
+        <tr><td>A USB drive added mid-run gives untranslated paths</td><td>The volume table is built only at startup</td><td>Documented</td></tr>
+        <tr><td>Case-insensitivity is ASCII only</td><td>Deliberate for paths; non-ASCII letters are case-sensitive</td><td>Documented</td></tr>
+        <tr><td>False positives measured on one workload only</td><td>A one-hour soak of one user on one VM: 0 alerts; not a rate for real users</td><td>Measured, limited</td></tr>
+        <tr><td>Per-event cost breakdown not profiled</td><td>Hypothesis: string copies and case folding</td><td>Open</td></tr>
+        <tr><td>Load ceiling not found</td><td>40 processes/s with no loss; 80 was not run</td><td>Measured</td></tr>
+        <tr><td>A scan is a snapshot</td><td>An injection that runs and cleans up between two scans is not seen; a driver would see it as it happens</td><td>Inherent (Phase 4)</td></tr>
+        <tr><td>PPL processes cannot be read</td><td>Not even with SeDebugPrivilege; counted as skipped_access</td><td style="color:var(--crit)">Not possible</td></tr>
+        <tr><td>H1 alone is noisy</td><td>JIT in .NET, browsers and Electron; that is why it is never an alert on its own</td><td>Documented, measured</td></tr>
+        <tr><td>9 Atomic sub-tests not detected</td><td>The reason for each was not investigated; the detection scope was frozen</td><td style="color:var(--warn)">Recorded</td></tr>
+        <tr><td>No snapshot revert between validation runs</td><td>A script inside the VM cannot revert the VM; each run had its own sensor and database</td><td>Documented</td></tr>
+        <tr><td>Explorer crashed fifteen times during the soak</td><td>The faulting module was not recorded; the scanner only has read rights, but a link is not ruled out</td><td style="color:var(--warn)">Open</td></tr>
+        <tr><td>A manual trigger tests the rule, not the attack</td><td>12 of 18 rules; the same renaming that fires a rule also makes it possible to evade it</td><td>Documented</td></tr>
+        <tr><td>Scan cost rose compared with Phase 4</td><td>9.6% to 15.6%; hypothesis: larger processes on the VM</td><td style="color:var(--warn)">Not isolated</td></tr>
+        <tr><td>Limited false-positive evidence</td><td>One development machine, one VM, one fixed workload</td><td>Documented</td></tr>
+        <tr><td>Background priority delays detection under load</td><td>One scan took 22 seconds; an experiment showed the cause is waiting for CPU, but that specific run is not confirmed</td><td>Accepted, logged</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
 <section id="decisions">
   <p class="eyebrow">Trade-offs</p>
   <h2>Decisions, and the objections to them</h2>
@@ -3276,7 +3843,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         expressible using Image, ParentImage and path.
       </p>
       <p>
-        <strong>b) Read the target's PEB</strong> via <span class="nb"><code>NtQueryInformationProcess</code>.</span> It is
+        <strong>b) Read the target's PEB</strong> via <code>NtQueryInformationProcess</code>. It is
         documented in <span class="nb"><code>winternl.h</code>,</span> but Microsoft explicitly marks both the function and
         the <code>PEB</code> layout as subject to change or removal. It is also racy against
         short-lived processes.
@@ -3564,6 +4131,302 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       </p>
     </div>
   </details>
+</section>
+
+<section id="qa">
+  <p class="eyebrow">Common questions</p>
+  <h2>More questions</h2>
+  <div class="prose">
+    <p class="lede">
+      Questions that usually come up after reading this guide, each answered with a number or a
+      mechanism. The bigger trade-offs are in the previous section; these are the rest. Click a
+      question to open it.
+    </p>
+  </div>
+
+  <div class="qa-group">
+    <h3>Scope</h3>
+    <details>
+      <summary>What exactly does this EDR detect, and what not?</summary>
+      <div class="answer">
+        <p>Behaviour that can be recognised from "who ran what, from where" or "which program loaded which DLL": 18 rules across 6 ATT&amp;CK tactics, such as Office starting PowerShell, execution from Temp, mshta, Squiblydoo, or dumping memory with comsvcs.</p>
+        <p>Anything that needs data the sensor does not collect is not detected: anything that depends on the command line, the network, files, the registry, or patterns over time (counts in a window). Process injection is covered separately, by the Phase 4 memory scanner.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Why is there no response? EDR stands for Detection and Response.</summary>
+      <div class="answer">
+        <p>The project's scope is detection, and that is stated up front. Automatic response from a user-mode sensor with no self-protection, and with a false-positive rate measured on only one workload, could kill healthy processes. A sensor that says exactly what it does <em>not</em> do is easier to defend than one that does something halfway.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Why no machine learning?</summary>
+      <div class="answer">
+        <p>The project is rule-based by design. A rule can be read, tested and explained: every alert says exactly which rule fired, on which fields, for which technique, and every rule has a positive test and a near miss. A machine-learning model gives no such guarantee, and there is no labelled training data for it.</p>
+      </div>
+    </details>
+    <details>
+      <summary>How is this different from Sysmon?</summary>
+      <div class="answer">
+        <p>Sysmon is a Microsoft tool with a driver. It collects more data (including the command line and file hashes) and writes it to the Windows Event Log; another tool, such as a SIEM, does the detecting. Light EDR has no driver and uses only ETW, and it runs the rules <em>itself</em>, on the machine, at the moment of the event, storing the result in the same transaction as the event. It has less data, and that is the price of staying in user mode.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Why SQLite rather than a text file or Elasticsearch?</summary>
+      <div class="answer">
+        <p>The sensor is single-machine with no server; SQLite is a library and the whole database is one file. It has queries (a JOIN between alert and event), transactions (event and alert together or not at all), foreign keys with CASCADE, and in WAL mode a reader can work alongside the sensor. Its source is vendored in the repository, so the build is reproducible offline and years from now.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="qa-group">
+    <h3>ETW and Phase 1</h3>
+    <details>
+      <summary>Is Light EDR a provider?</summary>
+      <div class="answer"><p>No. It is a controller and a consumer. It produces no events; it asks the kernel to have Microsoft's existing provider (Kernel-Process) write into its own session, and reads that session. That is why no driver is needed.</p></div>
+    </details>
+    <details>
+      <summary>Why does it need administrator rights?</summary>
+      <div class="answer"><p>Per the <code>StartTraceW</code> documentation, only administrators, members of Performance Log Users and services running as LocalSystem, LocalService or NetworkService can create a session. The tests do not need it, because they link against the <code>lightedr_core</code> library and never touch ETW.</p></div>
+    </details>
+    <details>
+      <summary>What happens if the sensor crashes?</summary>
+      <div class="answer"><p>The session stays alive in the kernel, because it is not tied to the program's lifetime. The next run, using the same fixed name, stops the orphaned session with <code>ControlTraceW(STOP)</code> before creating a new one. Events between the crash and the next run are not seen.</p></div>
+    </details>
+    <details>
+      <summary>Why are most events rejected during parsing?</summary>
+      <div class="answer"><p>Because the provider is enabled with MatchAnyKeyword set to zero, which for manifest-based providers means every keyword, so thread start/stop and image unload arrive too. The parser keeps only Event IDs 1, 2 and 5. Rejecting the rest is not an error; it is the normal case, and <code>events_seen</code> counts only successful parses.</p></div>
+    </details>
+    <details>
+      <summary>What is TDH, and why is it called twice?</summary>
+      <div class="answer"><p>Trace Data Helper is the API that reads a provider's manifest and returns the fields of a binary event by name. It follows the usual Win32 pattern: <code>TdhGetPropertySize</code> for the size first, then <code>TdhGetProperty</code> to copy, because the API cannot know how big your buffer is.</p></div>
+    </details>
+    <details>
+      <summary>What was the most interesting bug in Phase 1?</summary>
+      <div class="answer"><p>ImageName is Unicode on ProcessStart but ANSI on ProcessStop. The old code poured the bytes straight into <span class="nb"><code>wchar_t</code>,</span> and <code>chrome.exe</code> came out as Chinese characters. Now the field's type (<code>InType</code>) is asked of TDH and cached once per Event ID, with nothing hard-coded, because manifests differ between Windows versions. The bug was found only in a live run.</p></div>
+    </details>
+  </div>
+
+  <div class="qa-group">
+    <h3>Threads, the queue and storage (Phase 2)</h3>
+    <details>
+      <summary>Why three threads? Wasn't one enough?</summary>
+      <div class="answer"><p>(Four since Phase 4; the same argument one level up: scanning on the writer would stall storage, so it got its own thread.) The callback runs on the thread that called <span class="nb"><code>ProcessTrace</code>,</span> and the next event does not arrive until it returns. If disk writes happened inside the callback, the kernel's buffers would fill and the kernel would drop events, exactly when the system is busy. So the callback only parses, filters and pushes; the writer thread does the slow work; the main thread monitors and shuts everything down in order.</p></div>
+    </details>
+    <details>
+      <summary>Why doesn't the queue block, like a textbook queue?</summary>
+      <div class="answer"><p>Because there is no way to tell the kernel "slow down". Backpressure in a textbook queue makes the producer wait; here the producer is the callback, and making it wait is exactly what forces the kernel to drop events. An unbounded queue only moves the failure to memory growth. So <code>TryPush</code> never blocks: it drops the newest event and counts it.</p></div>
+    </details>
+    <details>
+      <summary>What do WAL and synchronous=NORMAL mean, and what is the risk?</summary>
+      <div class="answer"><p>In WAL mode the writer appends changed pages to a separate file instead of rewriting the main file in place, so a reader can work at the same time and an analyst opening the database does not stop collection. NORMAL in WAL mode means a power cut may lose the last few transactions but never corrupts the database. Acceptable for telemetry, not for financial data.</p></div>
+    </details>
+    <details>
+      <summary>Why 256 events and 200 milliseconds?</summary>
+      <div class="answer"><p>Batching reduces disk syncs: 256 rows with one sync instead of 256 syncs. 200 ms caps the write delay on a quiet system, so a few events do not sit in memory for hours waiting for a batch to fill. The benchmark runs with the sensor's own batch size.</p></div>
+    </details>
+    <details>
+      <summary>Why does the shutdown order matter?</summary>
+      <div class="answer"><p>First the session is stopped (no new events, and ProcessTrace returns), then the consumer thread is joined (the callback will never run again), then the writer is stopped, which drains the queue and commits the last batch, and finally the statistics are stored. If the writer stopped before the consumer was joined, anything left in the queue would be lost.</p></div>
+    </details>
+    <details>
+      <summary>If the schema changes, what happens to old databases?</summary>
+      <div class="answer"><p><code>PRAGMA user_version</code> holds the version. Migrations run one at a time, each in its own transaction with the version update inside that same transaction. A database newer than the build is refused. A test builds v1, v2 and v3 databases and compares the upgraded schema column by column with a fresh one, and the real development database was upgraded live.</p></div>
+    </details>
+    <details>
+      <summary>Why NULL rather than zero for an unknown ppid?</summary>
+      <div class="answer"><p>"Not seen" and "the parent PID is zero" are different facts. Zero is a real PID (the System Idle Process). Replacing unknown with a value creates data that looks right and is not.</p></div>
+    </details>
+  </div>
+
+  <div class="qa-group">
+    <h3>Detection (Phase 3)</h3>
+    <details>
+      <summary>Where do the rules run, and why not query the database?</summary>
+      <div class="answer"><p>Inside the program, on the writer thread, just before the batch is inserted. The callback is off-limits. Polling the database adds latency and re-reads rows that were just written, and by the time a poll arrives a short-lived process is already gone. The writer thread holds the batch in memory and is the only database thread, so the alert is stored in the same transaction with no new lock.</p></div>
+    </details>
+    <details>
+      <summary>Is this full Sigma?</summary>
+      <div class="answer"><p>No. It is a documented, strict subset: two logsource categories, five fields, four comparison types, the contains/startswith/endswith/all modifiers, and a condition grammar with and/or/not, parentheses and 1 of/all of. Anything outside that is rejected by name. The details are in <code>docs/Architecture/DETECTION.md</code>.</p></div>
+    </details>
+    <details>
+      <summary>Why was path translation needed?</summary>
+      <div class="answer"><p>The kernel gives paths as <code>\Device\HarddiskVolume3\...</code>. A rule that only checks <code>endswith '\cmd.exe'</code> works without translation, but every rule about location (Temp, Public, ProgramData, System32) needs the <code>C:\...</code> form, because the volume number differs between machines. The raw path is still kept in <span class="nb"><code>image_path_nt</code>,</span> because it is forensic evidence.</p></div>
+    </details>
+    <details>
+      <summary>Where does ParentImage come from when the provider does not supply it?</summary>
+      <div class="answer"><p>From an in-memory process table built from ProcessStart and ProcessStop events and seeded at startup with a snapshot of running processes. It is found with one hash lookup on the PPID, plus one check: a parent cannot have started after its child. In the week 1 verification run, the parent was found for 36 of 36 ProcessStart events.</p></div>
+    </details>
+    <details>
+      <summary>How do you know the rules work?</summary>
+      <div class="answer"><p>Three levels: (1) every real rule has a test event that must fire and a near miss that must not, and the whole pack must stay silent on normal Windows activity (svchost, Chrome, Defender, Windows Update and so on). (2) A test loads the whole <code>rules/</code> folder, and any rule that stops being valid breaks the suite. (3) A live five-step exercise produced exactly the five expected alerts and nothing else. Phase 5 then validated every rule on a VM: 18 of 18, each 3 of 3, with near misses silent.</p></div>
+    </details>
+    <details>
+      <summary>What does the keep-list cost?</summary>
+      <div class="answer"><p>In a live run, 7 events out of about 2,200 system-module loads, roughly 0.3%. That number is measured, not estimated: the keep-list is checked only for events the suppress-list wanted to drop, so its counter is exactly its cost. Every keep-list entry names the technique that needs it.</p></div>
+    </details>
+    <details>
+      <summary>How fast is the engine?</summary>
+      <div class="answer"><p>On an x64 Release build with 18 rules: median evaluation per event 1,279 ns and p99 5,631 ns. The writer thread's total work grew by 6.5% with the rules (4% to 14% across runs), because most of its time goes to SQLite. With rules, about 48,000 events per second, while the development machine produced a few dozen per second in normal use. Phase 5 measured the live sensor at 40 processes per second with no loss.</p></div>
+    </details>
+    <details>
+      <summary>How is a new rule added?</summary>
+      <div class="answer"><p>A <code>.yml</code> file in <code>rules/</code> with a <span class="nb"><code>title</code>,</span> a unique <span class="nb"><code>id</code>,</span> a <span class="nb"><code>level</code>,</span> a <code>logsource</code> with <code>product: windows</code> and a <code>category</code> of <code>process_creation</code> or <span class="nb"><code>image_load</code>,</span> a <code>detection</code> block with at least one selection and a <span class="nb"><code>condition</code>,</span> and an ATT&amp;CK tag. The sensor loads it on the next run without a rebuild. If the rule is image_load and its DLL is in System32, it must also be added to the keep-list; the test <code>EventFilter_KeepsEveryModuleTheRulePackMatchesOn</code> breaks if you forget. For the official pack, a positive and a near miss in <code>test_rule_pack.cpp</code> are required too.</p></div>
+    </details>
+  </div>
+
+  <div class="qa-group">
+    <h3>Injection and memory scanning (Phase 4)</h3>
+    <details>
+      <summary>Why not alert on RWX on its own? Isn't RWX more suspicious?</summary>
+      <div class="answer"><p>The baseline showed 32 to 35 healthy processes with RWX memory, almost all of them CLR hosts. So RWX alone does not separate benign from malicious. Only alongside a confirming signal does it raise the severity to critical.</p></div>
+    </details>
+    <details>
+      <summary>How does the scanner make sure the process it opened is the one from the event?</summary>
+      <div class="answer"><p>Windows recycles PIDs. After <span class="nb"><code>OpenProcess</code>,</span> the scanner reads the creation time with <code>GetProcessTimes</code> and compares it with the ProcessStart event's time. If it is more than one second later, the PID belongs to another process, and the scan is abandoned and counted as <span class="nb"><code>PidReused</code>.</span> The one-second tolerance exists because the event time and the kernel time do not come from the same clock read.</p></div>
+    </details>
+    <details>
+      <summary>What does a scan cost, and how much does the sweep add?</summary>
+      <div class="answer"><p>In Release on a two-core VM, two 30-minute runs: the median scan took 25 ms in both modes. The sweep performs about 4.4 times as many scans (5,757 against 1,306) and takes the scanner from 1.9% to 9.6% of one core. Neither run dropped an event or produced a finding. So the sweep does not make a scan more expensive, it only makes scans more frequent, and its cost is bounded.</p></div>
+    </details>
+    <details>
+      <summary>How do you know the RWX memory in healthy processes is .NET?</summary>
+      <div class="answer"><p>It was measured in week 3, not inferred from names: <code>clr_attribution</code> checked the real module list of 147 live processes for <code>clr.dll</code> or <span class="nb"><code>coreclr.dll</code>.</span> All 78 RWX regions in the 6 processes with a .NET runtime were found there, and the other 141 processes had only 2 RWX regions between them. The .NET JIT maps its code RWX. <code>mscoree.dll</code> was deliberately not counted, because it is only a shim that unmanaged processes load too.</p></div>
+    </details>
+  </div>
+
+  <div class="qa-group">
+    <h3>The console</h3>
+    <details>
+      <summary>Does the console affect a running sensor?</summary>
+      <div class="answer"><p>It is designed not to: every refresh opens a fresh connection, runs one short read transaction and closes, so no snapshot is held that could stall the sensor's checkpoint, and in Live mode it takes only a shared read lock. In one run on a VM, the sensor reported <code>dropped=0</code> and <code>etw_lost=0</code> with the console open. That is one run, not a comparison with and without the console, and it is written up that way.</p></div>
+    </details>
+    <details>
+      <summary>Why doesn't the console ask the sensor for its status?</summary>
+      <div class="answer"><p>Because the sensor has no channel to ask through, and adding one would mean changing a sensor that was validated in Phase 5. The console looks from the outside: is a <code>Light_EDR.exe</code> process running, and is this file changing. The price is that the status is an inference; without administrator rights the console cannot read an elevated sensor's <span class="nb"><code>--db</code>,</span> so a sensor writing a different file shows as "not this database".</p></div>
+    </details>
+    <details>
+      <summary>Why 154 MB for a dashboard?</summary>
+      <div class="answer"><p>Because the build is self-contained: the full .NET 10 runtime is inside it so it runs on a machine without .NET (like the Phase 5 VM), and WPF does not support trimming, so the unused parts of the runtime cannot be removed. A framework-dependent build is a few megabytes but needs the .NET 10 Desktop Runtime installed.</p></div>
+    </details>
+  </div>
+
+  <div class="qa-group">
+    <h3>Validation (Phase 5)</h3>
+    <details>
+      <summary>When does a run count as valid?</summary>
+      <div class="answer"><p>Three conditions, checked by <code>tools/phase5_validity.ps1</code>: the sensor was stopped cleanly with Ctrl+Break (<code>clean_exit = True</code>); Defender was off at the start and the end and made no detection inside the run's window; and the trigger really ran (no warning, no error message, an acceptable exit code). An invalid run is not thrown away; it appears in a separate table in the report and is repeated.</p></div>
+    </details>
+    <details>
+      <summary>Why did scan cost rise in Phase 5 compared with Phase 4?</summary>
+      <div class="answer"><p>The cause was not isolated. The shape of the result is the same: one scan costs the same with and without the sweep, and the sweep only increases the number of scans. But CPU per scan rose from 30 to 45 ms. The VM now runs more and larger processes, such as the Copilot app, WebView2 and OneDrive, which would raise the cost of each scan; that is a hypothesis, not a measurement, and the documentation says so.</p></div>
+    </details>
+  </div>
+
+  <div class="qa-group">
+    <h3>Testing, measurement and security</h3>
+    <details>
+      <summary>Why not GoogleTest or Catch2?</summary>
+      <div class="answer"><p>A test framework would be a second external dependency, for a suite of this size. The project's own harness is about 90 lines: test registration, counted checks, and a main that returns non-zero on failure. That is everything CTest needs.</p></div>
+    </details>
+    <details>
+      <summary>How do the tests run without administrator rights?</summary>
+      <div class="answer"><p>The build is split into a library (<code>lightedr_core</code>) and a thin <span class="nb"><code>main.cpp</code>,</span> and the tests link against the library. Every part with complex logic is designed to be testable without the operating system: <code>Translate</code> calls no Windows API, <code>YamlReader::Parse</code> and <code>RuleLoader::LoadText</code> take text, and the throttle works on event time rather than the wall clock. A suite that needs an admin prompt is a suite that does not get run.</p></div>
+    </details>
+    <details>
+      <summary>How do you know the tests actually catch anything?</summary>
+      <div class="answer"><p>Every new part was tried by breaking the code on purpose and confirming the suite failed: removing a keep-list entry, keying the throttle on the child PID, a default value that differed between a fresh and a migrated schema, removing a rule's filter, reporting a bucket's lower edge, and removing the YAML depth limit, which crashed the test process itself.</p></div>
+    </details>
+    <details>
+      <summary>Why is SQLite compiled with OMIT_LOAD_EXTENSION?</summary>
+      <div class="answer"><p>A security agent must never load an arbitrary DLL through its database, and a SQLite load extension means loading a native library from inside SQL. The <code>sqlite3.exe</code> tool, which needs that feature, builds its own separate copy rather than weakening the sensor's settings.</p></div>
+    </details>
+  </div>
+</section>
+
+<section id="glossary">
+  <p class="eyebrow">Glossary</p>
+  <h2>Glossary</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="mono">Term</th><th>Meaning in this project</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">ETW</td><td>Event Tracing for Windows; the operating system's event tracing infrastructure</td></tr>
+        <tr><td class="mono">Provider</td><td>Produces events; here Microsoft-Windows-Kernel-Process</td></tr>
+        <tr><td class="mono">Session</td><td>A named kernel object with buffers that events are written into</td></tr>
+        <tr><td class="mono">Controller · Consumer</td><td>Creates and controls a session · reads it; Light EDR is both</td></tr>
+        <tr><td class="mono">TDH</td><td>Trace Data Helper; the API that decodes event fields using the manifest</td></tr>
+        <tr><td class="mono">Manifest</td><td>The formal definition of a provider's events and their field types</td></tr>
+        <tr><td class="mono">Event ID</td><td>The event type number within a provider; 1 start, 2 stop, 5 image load</td></tr>
+        <tr><td class="mono">InType</td><td>The declared type of a field in the manifest (Unicode or ANSI, for example)</td></tr>
+        <tr><td class="mono">Callback</td><td>Our function, which Windows calls for each event</td></tr>
+        <tr><td class="mono">FILETIME</td><td>Time as a count of 100 ns intervals since 1601 (UTC)</td></tr>
+        <tr><td class="mono">QPC</td><td>QueryPerformanceCounter; Windows' high-resolution clock</td></tr>
+        <tr><td class="mono">NT device path</td><td>A path in the form <code>\Device\HarddiskVolumeN\...</code></td></tr>
+        <tr><td class="mono">DOS path</td><td>A path in the form <code>C:\...</code></td></tr>
+        <tr><td class="mono">ParsedEvent</td><td>The plain C struct the parser outputs</td></tr>
+        <tr><td class="mono">NormalizedEvent</td><td>The C++ event type every higher layer works with</td></tr>
+        <tr><td class="mono">POD</td><td>A simple struct with no pointers and no memory management</td></tr>
+        <tr><td class="mono">RAII</td><td>Releasing a resource automatically in a destructor</td></tr>
+        <tr><td class="mono">Bounded queue</td><td>A queue with a fixed capacity; when full, the new event is dropped and counted</td></tr>
+        <tr><td class="mono">Backpressure</td><td>A "slow down" signal from consumer to producer; it does not exist for the kernel</td></tr>
+        <tr><td class="mono">EventFilter · suppress-list · keep-list</td><td>The ImageLoad volume filter · folders that are dropped · DLLs that are kept anyway</td></tr>
+        <tr><td class="mono">WAL</td><td>Write-Ahead Logging; the SQLite mode that lets reads run alongside writes</td></tr>
+        <tr><td class="mono">Transaction · Commit · Rollback</td><td>An all-or-nothing group of operations · keep it · discard it</td></tr>
+        <tr><td class="mono">Prepared statement</td><td>A SQL statement prepared once and executed many times</td></tr>
+        <tr><td class="mono">Migration</td><td>Upgrading an old database's structure to the new version</td></tr>
+        <tr><td class="mono">user_version</td><td>The schema version number SQLite keeps in the file header</td></tr>
+        <tr><td class="mono">Enrichment</td><td>Adding to an event: translating its path and finding its parent</td></tr>
+        <tr><td class="mono">Process table</td><td>An in-memory map from PID to path and start time</td></tr>
+        <tr><td class="mono">PID reuse</td><td>Windows giving a process number to a new process</td></tr>
+        <tr><td class="mono">Sigma</td><td>An open YAML format for detection rules</td></tr>
+        <tr><td class="mono">logsource · category</td><td>A rule's data source; here process_creation or image_load</td></tr>
+        <tr><td class="mono">Selection</td><td>A named block of conditions; an OR of ANDs</td></tr>
+        <tr><td class="mono">Modifier</td><td>A field suffix such as <code>|endswith</code> or <code>|all</code></td></tr>
+        <tr><td class="mono">Condition · Quantifier</td><td>The boolean expression over selections · <code>1 of</code> and <code>all of</code></td></tr>
+        <tr><td class="mono">Near miss</td><td>A very similar test event the rule must not fire on</td></tr>
+        <tr><td class="mono">Throttle</td><td>Suppressing duplicate alerts within a 60-second window, with a count</td></tr>
+        <tr><td class="mono">Actor · Target</td><td>The process doing the behaviour (parent or loader) · what it acts on (child or DLL)</td></tr>
+        <tr><td class="mono">ATT&amp;CK Tactic · Technique</td><td>The attacker's goal · a way to reach it, with a Txxxx id</td></tr>
+        <tr><td class="mono">LOLBin</td><td>A legitimate Windows program that attackers abuse</td></tr>
+        <tr><td class="mono">Squiblydoo</td><td>Running a script through <code>regsvr32 /i:... scrobj.dll</code> (T1218.010)</td></tr>
+        <tr><td class="mono">MiniDump · comsvcs.dll</td><td>Dumping a process's memory, usually LSASS, to steal credentials (T1003.001)</td></tr>
+        <tr><td class="mono">Recursive descent</td><td>A parser in which each grammar rule is a function</td></tr>
+        <tr><td class="mono">Stack overflow</td><td>Filling a thread's stack through deep recursion; the reason for the depth limits</td></tr>
+        <tr><td class="mono">p50 · p99</td><td>The median · the 99th percentile</td></tr>
+        <tr><td class="mono">Histogram (log-linear)</td><td>Counting samples in buckets that grow with magnitude; at most 12.5% error</td></tr>
+        <tr><td class="mono">Vendored</td><td>Third-party library code kept directly in the repository</td></tr>
+        <tr><td class="mono">Amalgamation</td><td>SQLite's entire source in one file, <code>sqlite3.c</code></td></tr>
+        <tr><td class="mono">CTest</td><td>CMake's test runner</td></tr>
+        <tr><td class="mono">Process injection</td><td>Running attacker code inside a healthy process; T1055 in ATT&amp;CK</td></tr>
+        <tr><td class="mono">Region · VirtualQueryEx</td><td>A run of address space with uniform attributes · the API that returns a region's attributes in another process</td></tr>
+        <tr><td class="mono">MEM_IMAGE · MEM_MAPPED · MEM_PRIVATE</td><td>Memory of an executable file · a section view · memory allocated with no file</td></tr>
+        <tr><td class="mono">RWX</td><td><span class="nb"><code>PAGE_EXECUTE_READWRITE</code>;</span> both writable and executable</td></tr>
+        <tr><td class="mono">PAGE_GUARD</td><td>A page whose first access raises an exception and removes the guard; the scanner never reads it</td></tr>
+        <tr><td class="mono">JIT</td><td>Generating machine code at run time (.NET, V8); the main source of H1 in healthy programs</td></tr>
+        <tr><td class="mono">Shellcode · GetPC</td><td>Raw code that runs without the loader · the <code>call $+5; pop</code> pattern for finding its own address</td></tr>
+        <tr><td class="mono">H1 · H2 · H3 · H5</td><td>Private executable memory · a thread that started in it · a PE header in it · a shellcode start pattern</td></tr>
+        <tr><td class="mono">Sweep · Rescan · Cooldown</td><td>A periodic scan of every process · scans 0.5 to 30 s after start · the minimum gap between two scans of one PID</td></tr>
+        <tr><td class="mono">MemoryScan</td><td>The synthetic type-4 event a scan alert points to</td></tr>
+        <tr><td class="mono">SeDebugPrivilege · PPL</td><td>The right to open other users' processes · a protected process that cannot be read even with that right</td></tr>
+        <tr><td class="mono">Baseline · census</td><td>Measuring how often a signal appears on a clean system · the <code>mem_census</code> tool that does it</td></tr>
+        <tr><td class="mono">Atomic Red Team</td><td>A public collection of small tests that simulate ATT&amp;CK techniques</td></tr>
+        <tr><td class="mono">CLR · coreclr · mscoree</td><td>The .NET Framework runtime · the .NET Core and 5+ runtime · the shim that decides which runtime loads</td></tr>
+        <tr><td class="mono">PEB · RTL_USER_PROCESS_PARAMETERS</td><td>A process's own information structure in its memory · the part of it that holds the command line</td></tr>
+        <tr><td class="mono">WOW64</td><td>Running a 32-bit process on 64-bit Windows; it has a separate PEB with different offsets</td></tr>
+        <tr><td class="mono">Wall time · CPU time</td><td>Real elapsed time, including waiting · the time a thread actually ran on a CPU</td></tr>
+        <tr><td class="mono">True positive · False positive</td><td>An alert on real behaviour · an alert on harmless activity</td></tr>
+        <tr><td class="mono">Manual trigger</td><td>A harmless payload that produces the rule's Image/ParentImage/ImageLoaded pattern</td></tr>
+        <tr><td class="mono">Soak</td><td>A long run of the sensor on ordinary work, with no attack, to count false alerts</td></tr>
+        <tr><td class="mono">Replay benchmark</td><td>Replaying recorded events through the writer thread to measure pure capacity</td></tr>
+        <tr><td class="mono">Snapshot · run_valid</td><td>A saved clean state of the VM · the label that says a run counts as evidence</td></tr>
+        <tr><td class="mono">WPF · XAML · MVVM</td><td>The Windows desktop framework · its layout language · the pattern that separates logic from the screen</td></tr>
+        <tr><td class="mono">immutable=1 · query_only</td><td>Opening SQLite without locks when no writer exists · a pragma that refuses any write on that connection</td></tr>
+        <tr><td class="mono">Self-contained build</td><td>An executable that carries its own runtime and needs no .NET install</td></tr>
+        <tr><td class="mono">Background mode</td><td><code>THREAD_MODE_BACKGROUND_BEGIN</code>; low CPU, I/O and memory priority for the scanner thread</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
   </main>
 </div>

@@ -46,12 +46,12 @@
   .prose { max-width: 68ch; }
 
   code, .mono { font-family: var(--mono); font-size: 0.86em; }
-  p code, li code, td code, figcaption code, p .mono, li .mono, figcaption .mono {
+  p code, li code, td code, dd code, dt code, summary code, figcaption code, p .mono, li .mono, figcaption .mono {
     /* A Windows path has no natural break opportunity — a backslash is not one —
        so a single inline path can push the whole page sideways on a phone. */
     overflow-wrap: anywhere;
   }
-  p code, li code, td code, figcaption code {
+  p code, li code, td code, dd code, dt code, summary code, figcaption code {
     color: var(--accent-soft);
     background: var(--surface);
     border: 1px solid var(--border-soft);
@@ -287,3 +287,17 @@
   }
 
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  /* ---------- concept cards, Q&A groups, definition lists ---------- */
+  .concepts { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin: 22px 0; }
+  .concept { background: var(--surface-2); border: 1px solid var(--border); padding: 14px 16px; min-width: 0; }
+  .concept .term { font-family: var(--mono); font-size: 13px; color: var(--accent-soft); font-weight: 500; text-align: center; overflow-wrap: anywhere; }
+  .concept .cname { font-weight: 600; font-size: 15.5px; margin: 4px 0 8px; text-align: center; }
+  .concept p { font-size: 14.5px; line-height: 1.7; margin: 0; }
+  .note.teach { border-left-color: var(--accent); }
+  td.num { font-family: var(--mono); font-size: 12.5px; white-space: nowrap; }
+  .qa-group h3 { margin-top: 34px; }
+  dl { margin: 6px 0 14px; }
+  dt { font-weight: 600; margin-top: 14px; }
+  dd { margin: 4px 0 0; }
+  dd ul { margin-top: 6px; }

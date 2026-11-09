@@ -389,3 +389,4 @@ main h2, main h3 { text-wrap: balance; }
 /* quiet sidebar scrollbar */
 .side { scrollbar-width: thin; scrollbar-color: rgba(167,139,250,.25) transparent; }
 .side::-webkit-scrollbar { width: 6px; } .side::-webkit-scrollbar-thumb { background: rgba(167,139,250,.25); border-radius: 3px; } .side::-webkit-scrollbar-track { background: transparent; }
+main .concept code, main .answer code { overflow-wrap: anywhere; }
