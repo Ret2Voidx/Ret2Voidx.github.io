@@ -78,7 +78,7 @@ alerts             0</pre></div>
 <section class="path" id="path">
   <div class="path-head"><p class="eyebrow">Ret2Void · Light EDR</p><h2>مسیر یادگیری</h2><p>به ترتیب بخوان، یا مستقیم سراغ چیزی برو که لازم داری. هر فصل یک لایه را توضیح می‌دهد، اینکه چرا این‌طور ساخته شد و چه هزینه‌ای داشت. سه آزمایشگاه تعاملی هم هست که طراحی را خودت امتحان کنی.</p></div>
   <div class="cards">
-      <a class="card" href="#start"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">01</span><h3>این راهنما را چطور بخوانی و درس بدهی</h3><p>این راهنما را چطور بخوانی، و ترتیب پیشنهادی برای یاد گرفتن یا درس دادن.</p></a>
+      <a class="card" href="#start"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">01</span><h3>این راهنما را چطور بخوانی</h3><p>این راهنما را چطور بخوانی، و ترتیب پیشنهادی برای یاد گرفتن.</p></a>
       <a class="card" href="#concepts"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path class="bob" d="M8 7h7M8 11h5"/></svg><span class="num">02</span><h3>پیش‌نیازها: مفاهیمی که قبل از کد باید روشن باشند</h3><p>EDR، ETW، provider، TDH، WAL و بقیه‌ی مفاهیمی که قبل از کد لازم است.</p></a>
       <a class="card" href="#big-picture"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">03</span><h3>تصویر کلی: سیستم در یک نگاه</h3><p>کل سیستم در یک نگاه: لایه‌ها، threadها و پوشه‌ها.</p></a>
       <a class="card" href="#journey"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12h13"/><path class="bob" d="M13 7l5 5-5 5"/><circle cx="4" cy="12" r="1.5"/></svg><span class="num">04</span><h3>سفر یک رویداد: از kernel تا ردیف دیتابیس</h3><p>یک رویداد واقعی را از kernel تا هشدار در دیتابیس دنبال کن.</p></a>
@@ -96,7 +96,7 @@ alerts             0</pre></div>
 <div class="layout">
   <aside class="side" id="side-nav" aria-label="فصل‌ها">
     <h4>فصل‌ها</h4>
-      <a href="#start"><span class="n">01</span><span>این راهنما را چطور بخوانی و درس بدهی</span></a>
+      <a href="#start"><span class="n">01</span><span>این راهنما را چطور بخوانی</span></a>
       <a href="#concepts"><span class="n">02</span><span>پیش‌نیازها: مفاهیمی که قبل از کد باید روشن باشند</span></a>
       <a href="#big-picture"><span class="n">03</span><span>تصویر کلی: سیستم در یک نگاه</span></a>
       <a href="#journey"><span class="n">04</span><span>سفر یک رویداد: از kernel تا ردیف دیتابیس</span></a>
@@ -116,28 +116,28 @@ alerts             0</pre></div>
   <main class="wrap" dir="rtl">
 <section id="start">
   <p class="eyebrow">How to use this guide</p>
-  <h2>این راهنما را چطور بخوانی و درس بدهی</h2>
+  <h2>این راهنما را چطور بخوانی</h2>
   <div class="prose">
     <p class="lede">
-      این سند فرض می‌کند خواننده هیچ‌چیز از کد نمی‌داند. ترتیب بخش‌ها همان ترتیبی است که برای درس دادن
+      این سند فرض می‌کند خواننده هیچ‌چیز از کد نمی‌داند. ترتیب بخش‌ها همان ترتیبی است که برای یاد گرفتن
       پیشنهاد می‌شود: اول مفاهیم، بعد تصویر کلی، بعد یک مثال کامل از اول تا آخر، و فقط بعد از آن جزئیات
       فایل‌به‌فایل.
     </p>
     <p>
-      دلیلش ساده است: کسی که تصویر کلی را ندیده، توضیح یک فایل را به چیزی وصل نمی‌کند. اگر شنونده‌ها
-      بدانند یک رویداد از کجا می‌آید و به کجا می‌رود، هر فایل برایشان «یک ایستگاه در این مسیر» می‌شود.
+      دلیلش ساده است: کسی که تصویر کلی را ندیده، توضیح یک فایل را به چیزی وصل نمی‌کند. وقتی بدانی
+      یک رویداد از کجا می‌آید و به کجا می‌رود، هر فایل برایت «یک ایستگاه در این مسیر» می‌شود.
     </p>
   </div>
   <div class="tw">
     <table>
-      <thead><tr><th>جلسه</th><th>موضوع</th><th>بخش‌های این سند</th></tr></thead>
+      <thead><tr><th>گام</th><th>موضوع</th><th>بخش‌های این سند</th></tr></thead>
       <tbody>
         <tr><td class="num">1</td><td>EDR چیست، ETW چیست، معماری کلی، سفر یک رویداد</td><td>پیش‌نیازها · تصویر کلی · سفر یک رویداد</td></tr>
         <tr><td class="num">2</td><td>فاز ۱: گرفتن رویداد از kernel</td><td>فاز ۱</td></tr>
         <tr><td class="num">3</td><td>فاز ۲: صف، فیلتر، SQLite و سه thread</td><td>فاز ۲ · main.cpp</td></tr>
         <tr><td class="num">4</td><td>فاز ۳ (بخش اول): مسیرها، جدول پروسس‌ها، قاعده‌ها و YAML</td><td>فاز ۳ تا «گرامر condition»</td></tr>
         <tr><td class="num">5</td><td>فاز ۳ (بخش دوم): rule pack، keep-list، throttle، سخت‌سازی، اندازه‌گیری</td><td>بقیه‌ی فاز ۳ · ساخت و تست</td></tr>
-        <tr><td class="num">6</td><td>فاز ۴: تزریق به پروسس، thread چهارم، نشانه‌های H1 تا H5، baseline، Atomic، هزینه‌ی اندازه‌گیری‌شده و آزمایش PEB</td><td>فاز ۴ (ممکن است دو جلسه لازم شود)</td></tr>
+        <tr><td class="num">6</td><td>فاز ۴: تزریق به پروسس، thread چهارم، نشانه‌های H1 تا H5، baseline، Atomic، هزینه‌ی اندازه‌گیری‌شده و آزمایش PEB</td><td>فاز ۴ (ممکن است دو نوبت مطالعه لازم شود)</td></tr>
         <tr><td class="num">7</td><td>فاز ۵: اعتبارسنجی؛ اعتبار اجرا، ۱۸ قاعده، تکرار T1055، soak، بار و هزینه</td><td>فاز ۵</td></tr>
         <tr><td class="num">8</td><td>کنسول: GUI فقط‌خواندنی، دو حالت باز کردن SQLite، به‌روزرسانی زنده، درخت پروسس</td><td>کنسول</td></tr>
         <tr><td class="num">9</td><td>مرور، محدودیت‌ها، پرسش و پاسخ</td><td>اعداد کلیدی · محدودیت‌ها · پرسش و پاسخ</td></tr>
@@ -148,9 +148,9 @@ alerts             0</pre></div>
     <span class="label">قرارداد این سند</span>
     <p>
       متن فارسی است و اصطلاحات فنی، نام فایل‌ها، توابع و APIها انگلیسی می‌مانند، چون در کد، در
-      مستندات مایکروسافت و در سؤال‌ها با همین نام‌ها می‌آیند. هر جا کادری با عنوان
-      «برای کلاس» دیدی، آن جمله‌ای است که ارزش دارد شنونده‌ها حفظش کنند. کادرهای «اگر پرسیدند»
-      زیر هر فایل، سؤال‌های محتمل همان فایل‌اند. همه‌ی اعداد این سند از اجراهای واقعی و از خود کد
+      مستندات مایکروسافت و در هر منبع دیگری که بعداً بخوانی با همین نام‌ها می‌آیند. هر جا کادری با
+      عنوان «نکته‌ی کلیدی» دیدی، آن جمله‌ای است که اگر فقط یک چیز از آن بخش یادت بماند، باید همان باشد.
+      کادرهای «سؤال رایج» زیر هر فایل، سؤال‌هایی‌اند که معمولاً بعد از خواندن همان فایل پیش می‌آیند. همه‌ی اعداد این سند از اجراهای واقعی و از خود کد
       آمده‌اند.
     </p>
   </div>
@@ -162,8 +162,7 @@ alerts             0</pre></div>
   <h2>پیش‌نیازها: مفاهیمی که قبل از کد باید روشن باشند</h2>
   <div class="prose">
     <p class="lede">
-      هر سؤالی که درباره‌ی این پروژه پرسیده شود، دیر یا زود به یکی از این مفاهیم برمی‌گردد. اگر
-      این‌ها برای شنونده جا بیفتد، بقیه‌ی سند فقط جزئیات است.
+      هر سؤالی که درباره‌ی این پروژه پرسیده شود، دیر یا زود به یکی از این مفاهیم برمی‌گردد. اگر این‌ها جا بیفتند، بقیه‌ی سند فقط جزئیات است.
     </p>
   </div>
 
@@ -276,7 +275,7 @@ alerts             0</pre></div>
     </div>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>
       Light EDR هیچ رویدادی تولید نمی‌کند. فقط از kernel می‌خواهد رویدادهایی را که provider مایکروسافت
       از قبل تولید می‌کند در یک session بریزد، و بعد آن session را می‌خواند. دلیل اینکه این پروژه
@@ -329,10 +328,10 @@ alerts             0</pre></div>
       پروسس را از ETW می‌گیرد، روی هرکدام حدود ۱۸ قاعده‌ی شبیه Sigma را اجرا می‌کند، و هم رویدادها و
       هم هشدارها را در یک فایل SQLite به نام <code>lightedr.db</code> ذخیره می‌کند.
     </p>
-    <p>اگر بخواهی کل پروژه را در یک جمله بگویی:</p>
+    <p>کل پروژه در یک جمله:</p>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>
       kernel رویداد را تولید می‌کند، فاز ۱ آن را می‌گیرد و می‌خواند، فاز ۲ آن را بدون کند کردن سنسور
       روی دیسک می‌نویسد، و فاز ۳ قبل از نوشتن تصمیم می‌گیرد که آیا آن رویداد مشکوک است یا نه.
@@ -579,7 +578,7 @@ alerts             0</pre></div>
   <h2>سفر یک رویداد: از kernel تا ردیف دیتابیس</h2>
   <div class="prose">
     <p class="lede">
-      بهترین راه برای درس دادن این پروژه، دنبال کردن یک رویداد واقعی از اول تا آخر است. هر فایلی که
+      بهترین راه برای فهمیدن این پروژه، دنبال کردن یک رویداد واقعی از اول تا آخر است. هر فایلی که
       بعداً توضیح داده می‌شود، یکی از ایستگاه‌های همین مسیر است.
     </p>
     <p>
@@ -730,7 +729,7 @@ alerts             0</pre></div>
 <span class="k">FROM</span>   alerts a <span class="k">JOIN</span> events e <span class="k">ON</span> e.id = a.event_id
 <span class="k">ORDER BY</span> a.raised_at <span class="k">DESC</span>;</pre>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>
       در کل این مسیر فقط پنج کار ارزان روی thread مصرف‌کننده انجام شد: callback، parse، تبدیل، فیلتر
       و push. همه‌ی کارهای گران‌تر (ترجمه، جستجوی والد، قاعده‌ها، دیسک) آن طرف صف و روی thread
@@ -868,7 +867,7 @@ alerts             0</pre></div>
           </ul>
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا نام session ثابت است و تصادفی نیست؟»</b> چون اگر برنامه crash کند، session در kernel باقی می‌ماند. با نام ثابت، اجرای بعدی آن را پیدا و پاک می‌کند. مایکروسافت هم در مستندات <code>StartTraceW</code> همین را توصیه می‌کند: نام توصیفی، و پاک کردن session یتیم به‌جای ساختن session دوم. sessionهای ETW منبع محدودی در کل سیستم‌اند.</div>
+      <div class="ask"><b>سؤال رایج: «چرا نام session ثابت است و تصادفی نیست؟»</b> چون اگر برنامه crash کند، session در kernel باقی می‌ماند. با نام ثابت، اجرای بعدی آن را پیدا و پاک می‌کند. مایکروسافت هم در مستندات <code>StartTraceW</code> همین را توصیه می‌کند: نام توصیفی، و پاک کردن session یتیم به‌جای ساختن session دوم. sessionهای ETW منبع محدودی در کل سیستم‌اند.</div>
     </div>
   </div>
 
@@ -900,7 +899,7 @@ alerts             0</pre></div>
           اشتباه باشد stack خراب می‌شود.
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «پس چرا main.cpp هنوز متغیر سراسری دارد؟»</b> callback سطح بالا (<code>OnEventReceived</code>) امضای ثابتی دارد و اشاره‌گر context کاربر را نمی‌گیرد، پس صف و فیلتر از طریق <code>g_queue</code> و <code>g_filter</code> در دسترس‌اند. این در کد به‌عنوان کار بعدی ثبت شده: اضافه کردن یک <code>void* userContext</code> به <code>EtwConsumerContext</code>. صادقانه بگو که بدهی فنی کوچکی است و دلیل ماندنش این بوده که تغییرش لایه‌ی C را دست می‌زد.</div>
+      <div class="ask"><b>سؤال رایج: «پس چرا main.cpp هنوز متغیر سراسری دارد؟»</b> callback سطح بالا (<code>OnEventReceived</code>) امضای ثابتی دارد و اشاره‌گر context کاربر را نمی‌گیرد، پس صف و فیلتر از طریق <code>g_queue</code> و <code>g_filter</code> در دسترس‌اند. این در کد به‌عنوان کار بعدی ثبت شده: اضافه کردن یک <code>void* userContext</code> به <code>EtwConsumerContext</code>. این یک بدهی فنی کوچک است و دلیل ماندنش این بوده که تغییرش لایه‌ی C را دست می‌زد.</div>
     </div>
   </div>
 
@@ -976,7 +975,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
           بایتی‌اند داخل همان حافظه (<code>NameOffset</code>)، همان الگوی <code>LoggerNameOffset</code>.
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «کش static در محیط چند thread امن است؟»</b> فقط thread مصرف‌کننده به parser می‌رسد، پس بله. کامنت کد صریحاً می‌گوید اگر روزی consumer دوم اضافه شد، این باید بازبینی شود.</div>
+      <div class="ask"><b>سؤال رایج: «کش static در محیط چند thread امن است؟»</b> فقط thread مصرف‌کننده به parser می‌رسد، پس بله. کامنت کد صریحاً می‌گوید اگر روزی consumer دوم اضافه شد، این باید بازبینی شود.</div>
     </div>
   </div>
 
@@ -1020,7 +1019,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt><code>FromParsed</code></dt>
         <dd>یک تابع static به‌جای constructor، تا محل فراخوانی صریح خوانده شود: <code>NormalizedEvent::FromParsed(raw)</code>. رشته فقط وقتی کپی می‌شود که <code>hasImageName</code> درست باشد، چون ساختن <code>std::wstring</code> از بافر مقداردهی‌نشده رفتار تعریف‌نشده است.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا هم C هم <bdi>C++</bdi>؟ ناهماهنگ نیست؟»</b> مرز دقیقاً روی همین تبدیل است و سلیقه‌ای نیست. APIهای ETW و TDH به زبان C هستند، callback روی مسیر حساس به تأخیر است که بهتر است در آن حافظه‌ی پویا گرفته نشود، و یک struct ساده که از مرز رد می‌شود یعنی هیچ طرف لازم نیست مدل حافظه‌ی طرف دیگر را بفهمد: parser به زبان C هیچ حافظه‌ای نمی‌گیرد که <bdi>C++</bdi> مجبور به آزاد کردنش باشد. بالای مرز، RAII کار واقعی می‌کند: اتصال دیتابیس، prepared statementها، thread نویسنده و صف همه توسط destructor آزاد می‌شوند. header فایل C با بلوک <code>extern "C"</code> داخل <code>#ifdef __cplusplus</code> محافظت شده تا از <bdi>C++</bdi> هم قابل include باشد.</div>
+      <div class="ask"><b>سؤال رایج: «چرا هم C هم <bdi>C++</bdi>؟ ناهماهنگ نیست؟»</b> مرز دقیقاً روی همین تبدیل است و سلیقه‌ای نیست. APIهای ETW و TDH به زبان C هستند، callback روی مسیر حساس به تأخیر است که بهتر است در آن حافظه‌ی پویا گرفته نشود، و یک struct ساده که از مرز رد می‌شود یعنی هیچ طرف لازم نیست مدل حافظه‌ی طرف دیگر را بفهمد: parser به زبان C هیچ حافظه‌ای نمی‌گیرد که <bdi>C++</bdi> مجبور به آزاد کردنش باشد. بالای مرز، RAII کار واقعی می‌کند: اتصال دیتابیس، prepared statementها، thread نویسنده و صف همه توسط destructor آزاد می‌شوند. header فایل C با بلوک <code>extern "C"</code> داخل <code>#ifdef __cplusplus</code> محافظت شده تا از <bdi>C++</bdi> هم قابل include باشد.</div>
     </div>
   </div>
 
@@ -1184,7 +1183,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     </p>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>
       صف نامحدود مشکل را حل نمی‌کند، فقط جایش را عوض می‌کند: زیر بار طولانی، حافظه آن‌قدر رشد می‌کند تا
       سیستم‌عامل برنامه را بکشد. صف محدود شکست را صریح و قابل‌تحمل می‌کند: یک رویداد دور ریخته و
@@ -1240,7 +1239,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
           </tbody>
         </table>
       </div>
-      <div class="ask"><b>اگر پرسیدند «این فیلتر چه هزینه‌ای دارد؟»</b> دو هزینه، هر دو اعلام‌شده: (۱) تشخیص DLL side-loading با یک DLL هم‌نام سیستمی از پوشه‌ی سیستم از دست می‌رود. (۲) keep-list بخشی از کاهش حجم را پس می‌دهد؛ در اجرای زنده ۷ رویداد از حدود ۲۲۰۰ بار شدن ماژول سیستمی، یعنی حدود ۰.۳٪. یک تست هم هر قاعده‌ی image_load را بار می‌کند و اگر به DLLی اشاره کند که keep-list پوشش نمی‌دهد، شکست می‌خورد.</div>
+      <div class="ask"><b>سؤال رایج: «این فیلتر چه هزینه‌ای دارد؟»</b> دو هزینه، هر دو اعلام‌شده: (۱) تشخیص DLL side-loading با یک DLL هم‌نام سیستمی از پوشه‌ی سیستم از دست می‌رود. (۲) keep-list بخشی از کاهش حجم را پس می‌دهد؛ در اجرای زنده ۷ رویداد از حدود ۲۲۰۰ بار شدن ماژول سیستمی، یعنی حدود ۰.۳٪. یک تست هم هر قاعده‌ی image_load را بار می‌کند و اگر به DLLی اشاره کند که keep-list پوشش نمی‌دهد، شکست می‌خورد.</div>
     </div>
   </div>
 
@@ -1258,7 +1257,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
           </ul>
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا UTF-8 و نه <code>sqlite3_bind_text16</code>؟»</b> فایل دیتابیس برای داده‌ای که بیشترش ASCII است (مسیرها) نصف حجم می‌شود، و هر ابزار SQLite روی هر سیستمی بدون دردسر encoding بازش می‌کند.</div>
+      <div class="ask"><b>سؤال رایج: «چرا UTF-8 و نه <code>sqlite3_bind_text16</code>؟»</b> فایل دیتابیس برای داده‌ای که بیشترش ASCII است (مسیرها) نصف حجم می‌شود، و هر ابزار SQLite روی هر سیستمی بدون دردسر encoding بازش می‌کند.</div>
     </div>
   </div>
 
@@ -1415,7 +1414,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
           </ul>
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا یک transaction برای چند رویداد؟»</b> به نمودار پایین نگاه کن: تعداد sync دیسک است که عوض می‌شود، نه تعداد درج‌ها. بدون transaction صریح، SQLite هر INSERT را در transaction خودش می‌گذارد و برای هر ردیف یک sync می‌کند. سنسور ۲۵۶ ردیف را با یک sync می‌نویسد.</div>
+      <div class="ask"><b>سؤال رایج: «چرا یک transaction برای چند رویداد؟»</b> به نمودار پایین نگاه کن: تعداد sync دیسک است که عوض می‌شود، نه تعداد درج‌ها. بدون transaction صریح، SQLite هر INSERT را در transaction خودش می‌گذارد و برای هر ردیف یک sync می‌کند. سنسور ۲۵۶ ردیف را با یک sync می‌نویسد.</div>
     </div>
   </div>
 
@@ -1546,7 +1545,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt><code>Stop</code></dt>
         <dd>صف را shutdown می‌کند (رویدادهای داخلش می‌مانند)، منتظر تمام شدن thread می‌شود (<code>join</code>)، و خلاصه را لاگ می‌کند. دو بار صدا زدنش بی‌خطر است، و destructor هم صدایش می‌زند، چون یک <code>std::thread</code> قابل join که بدون join نابود شود <code>std::terminate</code> را صدا می‌زند.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «processor = nullptr چه فایده‌ای دارد؟»</b> رفتار دقیق فاز ۲ را بازتولید می‌کند: ذخیره بدون هیچ قاعده‌ای. همین خط پایه‌ی اندازه‌گیری هزینه‌ی موتور تشخیص است.</div>
+      <div class="ask"><b>سؤال رایج: «processor = nullptr چه فایده‌ای دارد؟»</b> رفتار دقیق فاز ۲ را بازتولید می‌کند: ذخیره بدون هیچ قاعده‌ای. همین خط پایه‌ی اندازه‌گیری هزینه‌ی موتور تشخیص است.</div>
     </div>
   </div>
 
@@ -1869,7 +1868,7 @@ public:
         <dt><code>EvictOldest</code></dt>
         <dd>وقتی جدول از سقف رد شد، یک‌هشتم قدیمی‌ترین ورودی‌ها را یک‌جا حذف می‌کند (با <code>std::nth_element</code> که فقط مرتب‌سازی جزئی می‌کند)، تا اسکن O(n) به‌ندرت اتفاق بیفتد نه در هر رویداد.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «بازیافت PID کامل حل شده؟»</b> نه، و این صادقانه مستند است. محافظ فقط جهت رایج را می‌بندد (والدی که بعد از فرزند شروع شده). حالتی که پروسس جایگزین حتی زودتر شروع شده باز است. بستن کاملش «process start key» می‌خواهد که فقط kernel callback یا یک property جدیدتر ETW می‌دهد. اگر والد معلوم نباشد، قاعده‌ای که ParentImage می‌خواهد match نمی‌شود، و این رفتار درست وقتی نمی‌دانیم است.</div>
+      <div class="ask"><b>سؤال رایج: «بازیافت PID کامل حل شده؟»</b> نه، و این صادقانه مستند است. محافظ فقط جهت رایج را می‌بندد (والدی که بعد از فرزند شروع شده). حالتی که پروسس جایگزین حتی زودتر شروع شده باز است. بستن کاملش «process start key» می‌خواهد که فقط kernel callback یا یک property جدیدتر ETW می‌دهد. اگر والد معلوم نباشد، قاعده‌ای که ParentImage می‌خواهد match نمی‌شود، و این رفتار درست وقتی نمی‌دانیم است.</div>
     </div>
   </div>
 
@@ -2085,7 +2084,7 @@ public:
           (root، detection، selection، فهرست، mapping، فهرست).
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا parser خودتان و نه یک کتابخانه؟»</b> کل وابستگی‌های خارجی پروژه یک فایل SQLite است که هر کسی می‌تواند خط‌به‌خطش را ببیند. اضافه کردن yaml-cpp برای فرمتی که فایل‌هایش را خودمان می‌نویسیم، این را با دو روز کار عوض می‌کرد، و کل مشخصات YAML (anchor، alias، tag، flow) سطحی است که هیچ‌وقت استفاده نمی‌شد. ریسک زمانی هم از قبل مدیریت شده بود: اگر تا پایان هفته‌ی ۲ تست‌ها سبز نمی‌شدند، yaml-cpp اضافه می‌شد. نشد لازم.</div>
+      <div class="ask"><b>سؤال رایج: «چرا parser خودتان و نه یک کتابخانه؟»</b> کل وابستگی‌های خارجی پروژه یک فایل SQLite است که هر کسی می‌تواند خط‌به‌خطش را ببیند. اضافه کردن yaml-cpp برای فرمتی که فایل‌هایش را خودمان می‌نویسیم، این را با دو روز کار عوض می‌کرد، و کل مشخصات YAML (anchor، alias، tag، flow) سطحی است که هیچ‌وقت استفاده نمی‌شد. ریسک زمانی هم از قبل مدیریت شده بود: اگر تا پایان هفته‌ی ۲ تست‌ها سبز نمی‌شدند، yaml-cpp اضافه می‌شد. نشد لازم.</div>
     </div>
   </div>
 
@@ -2227,7 +2226,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <div class="fbody">
       <p>فایل‌های قاعده را به <code>Rule</code>های اعتبارسنجی‌شده تبدیل می‌کند. قراردادش یک جمله است:</p>
       <div class="note teach" style="margin-top:6px">
-        <span class="label">برای کلاس</span>
+        <span class="label">نکته‌ی کلیدی</span>
         <p>یک قاعده یا کامل بار می‌شود و دقیقاً همان معنی‌ای را دارد که نوشته، یا با فایل، خط و دلیل رد می‌شود. حالت سومی وجود ندارد. حالت سوم خطرناک، یعنی قاعده‌ای که بار شود ولی هیچ‌وقت match نکند، دقیقاً چیزی است که یک loader سهل‌گیر می‌سازد: در شمار قاعده‌ها هست، در جدول پوشش هست، و هرگز هشدار نمی‌دهد.</p>
       </div>
       <dl>
@@ -2297,7 +2296,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
           </ul>
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا کل قاعده را رد می‌کنید و بخشی را که می‌شود ارزیابی کرد بار نمی‌کنید؟»</b> چون قاعده‌ی ناقص قاعده‌ی دیگری است. بند <code>CommandLine</code> را از «powershell.exe با دستور encoded» حذف کن؛ آنچه می‌ماند روی هر اجرای PowerShell هشدار می‌دهد، یا اگر آن بند «هیچ‌وقت درست» فرض شود، روی هیچ‌چیز. در هر دو حالت فایل ادعای تشخیصی را دارد که انجام نمی‌دهد. قاعده‌ی ردشده دیده می‌شود؛ قاعده‌ی بی‌صدا تضعیف‌شده نه.</div>
+      <div class="ask"><b>سؤال رایج: «چرا کل قاعده را رد می‌کنید و بخشی را که می‌شود ارزیابی کرد بار نمی‌کنید؟»</b> چون قاعده‌ی ناقص قاعده‌ی دیگری است. بند <code>CommandLine</code> را از «powershell.exe با دستور encoded» حذف کن؛ آنچه می‌ماند روی هر اجرای PowerShell هشدار می‌دهد، یا اگر آن بند «هیچ‌وقت درست» فرض شود، روی هیچ‌چیز. در هر دو حالت فایل ادعای تشخیصی را دارد که انجام نمی‌دهد. قاعده‌ی ردشده دیده می‌شود؛ قاعده‌ی بی‌صدا تضعیف‌شده نه.</div>
     </div>
   </div>
 
@@ -2321,7 +2320,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
         <dt><code>Matches</code>: یک مقایسه</dt>
         <dd>Equals مقایسه‌ی کامل، Contains با <code>find</code>، StartsWith و EndsWith با <code>wmemcmp</code> روی ابتدا یا انتهای رشته. قانون مهم: <strong>فیلد خالی با هیچ چیز match نمی‌شود.</strong> فیلدی که سنسور نتوانست پیدا کند (مثلاً والد نامعلوم) هرگز به هشدار منجر نمی‌شود؛ قاعده‌ای که وقتی والد را نمی‌داند هشدار دهد، آن قاعده‌ای نیست که نوشته شده.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا قاعده‌ها <code>'\cmd.exe'</code> را با backslash می‌نویسند؟»</b> ProcessStop فقط نام خالی فایل را گزارش می‌دهد، و <code>C:\Tools\notcmd.exe</code> هم به <code>cmd.exe</code> ختم می‌شود. جداکننده‌ی اول مقدار، تطبیق را به یک نام فایل کامل محدود می‌کند و یک تست هر دو حالت را چک می‌کند.</div>
+      <div class="ask"><b>سؤال رایج: «چرا قاعده‌ها <code>'\cmd.exe'</code> را با backslash می‌نویسند؟»</b> ProcessStop فقط نام خالی فایل را گزارش می‌دهد، و <code>C:\Tools\notcmd.exe</code> هم به <code>cmd.exe</code> ختم می‌شود. جداکننده‌ی اول مقدار، تطبیق را به یک نام فایل کامل محدود می‌کند و یک تست هر دو حالت را چک می‌کند.</div>
     </div>
   </div>
 
@@ -2482,7 +2481,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
           </ul>
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا کلید روی والد است نه پروسسی که match شد؟»</b> چون در ساخت پروسس، والد است که رفتار می‌کند. «Excel، cmd.exe را اجرا کرد» جمله‌ای درباره‌ی Excel است، و حلقه‌ای که ۵۰ بار cmd.exe اجرا کند یک والد و ۵۰ PID فرزند متفاوت دارد. برنامه‌ی اولیه کلید را (rule_id، pid) نوشته بود، که هرگز چیزی را حذف نمی‌کرد چون هر ProcessStart PID تازه دارد. مسیر فرزند در کلید است تا والدی که دو برنامه‌ی مشکوک متفاوت اجرا کند دو هشدار بدهد. ریسک پذیرفته‌شده بازیافت PID است: والدی که خارج شود و PIDش ظرف ۶۰ ثانیه به پروسس بی‌ربطی برسد که همان قاعده را روی همان مسیر فعال کند.</div>
+      <div class="ask"><b>سؤال رایج: «چرا کلید روی والد است نه پروسسی که match شد؟»</b> چون در ساخت پروسس، والد است که رفتار می‌کند. «Excel، cmd.exe را اجرا کرد» جمله‌ای درباره‌ی Excel است، و حلقه‌ای که ۵۰ بار cmd.exe اجرا کند یک والد و ۵۰ PID فرزند متفاوت دارد. برنامه‌ی اولیه کلید را (rule_id، pid) نوشته بود، که هرگز چیزی را حذف نمی‌کرد چون هر ProcessStart PID تازه دارد. مسیر فرزند در کلید است تا والدی که دو برنامه‌ی مشکوک متفاوت اجرا کند دو هشدار بدهد. ریسک پذیرفته‌شده بازیافت PID است: والدی که خارج شود و PIDش ظرف ۶۰ ثانیه به پروسس بی‌ربطی برسد که همان قاعده را روی همان مسیر فعال کند.</div>
     </div>
   </div>
 
@@ -2710,7 +2709,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
 
   <h3>پیش‌نیازهای این فاز</h3>
   <div class="prose">
-    <p>قبل از اینکه سراغ فایل‌ها بروی، شنونده باید این هشت مفهوم را بشناسد. بدون آن‌ها هیچ‌کدام از نشانه‌ها معنی ندارد.</p>
+    <p>قبل از اینکه سراغ فایل‌ها بروی، باید این هشت مفهوم را بشناسی. بدون آن‌ها هیچ‌کدام از نشانه‌ها معنی ندارد.</p>
   </div>
   <div class="concepts">
     <div class="concept">
@@ -2862,10 +2861,9 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     </table>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>
-      «مسیر رویداد عوض نشده. اسکن یک حلقه است که از کنار نویسنده بیرون می‌زند و برمی‌گردد.» اگر شنونده
-      نمودار سه thread فاز ۲ را بلد باشد، فاز ۴ فقط یک جعبه و دو صف به سمت راستش اضافه می‌کند.
+      «مسیر رویداد عوض نشده. اسکن یک حلقه است که از کنار نویسنده بیرون می‌زند و برمی‌گردد.» اگر نمودار سه thread فاز ۲ را بلد باشی، فاز ۴ فقط یک جعبه و دو صف به سمت راستش اضافه می‌کند.
     </p>
   </div>
 
@@ -3020,7 +3018,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   </figure>
 
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>
       «H1 دروازه است، نه حکم.» H1 می‌گوید کجا را نگاه کنیم؛ یکی از H3، H2 یا H5 می‌گوید هشدار بدهیم یا نه.
       قانون کامل: <strong>H1 و حداقل یکی از H3، H2، H5</strong>. شدت: اگر RWX یا H2 باشد
@@ -3114,7 +3112,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     </p>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>«RWX در پروسس سالم یعنی دات‌نت؛ بقیه‌ی H1 یعنی JIT مرورگر. پس H1 و حتی RWX عادی‌اند، و هشدار نشانه‌ی تأییدکننده می‌خواهد.»</p>
   </div>
 
@@ -3381,7 +3379,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>scan_result.h</code></dt>
         <dd><code>ScanRequest{pid, startTime, image}</code> (چیزی که نویسنده می‌فرستد)، <code>ScanResult{NormalizedEvent event; vector&lt;Alert&gt; alerts}</code> (چیزی که برمی‌گردد)، و دو نوع <code>ScanRequestQueue</code> و <code>ScanResultQueue</code>. ظرفیت‌ها در <code>main.cpp</code>: ۱۰۲۴ درخواست و ۲۵۶ نتیجه.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا EventQueue را هم به این template منتقل نکردید؟»</b> چون مسیر فاز ۲ و ۳ تست‌شده و اندازه‌گیری‌شده بود و هیچ سودی از تغییرش نمی‌آمد. صف قدیمی دست‌نخورده ماند و template فقط برای دو صف جدید استفاده شد؛ ریسک تغییر صفر.</div>
+      <div class="ask"><b>سؤال رایج: «چرا EventQueue را هم به این template منتقل نکردید؟»</b> چون مسیر فاز ۲ و ۳ تست‌شده و اندازه‌گیری‌شده بود و هیچ سودی از تغییرش نمی‌آمد. صف قدیمی دست‌نخورده ماند و template فقط برای دو صف جدید استفاده شد؛ ریسک تغییر صفر.</div>
     </div>
   </div>
 
@@ -3418,7 +3416,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>ClassifyH2(H2Input)</code></dt>
         <dd>hit وقتی: آدرس شروع thread داخل یک region کامیت‌شده باشد، نوع PRIVATE یا MAPPED باشد (نه IMAGE)، query فایل پشتش واقعاً انجام شده باشد، و هیچ فایلی برنگرداند. چک مرز طوری نوشته شده که با regionهای ناجور overflow نکند.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا صفحه‌ی guard را نمی‌خوانید؟»</b> چون اولین دسترسی به صفحه‌ی <code>PAGE_GUARD</code> یک استثنا در پروسس <em>هدف</em> ایجاد و guard را برمی‌دارد. stack threadها با همین مکانیزم رشد می‌کنند؛ خواندن آن یعنی اسکنر رفتار پروسس سالم را عوض کرده. ابزار امنیتی نباید چیزی را که نگاه می‌کند تغییر دهد.</div>
+      <div class="ask"><b>سؤال رایج: «چرا صفحه‌ی guard را نمی‌خوانید؟»</b> چون اولین دسترسی به صفحه‌ی <code>PAGE_GUARD</code> یک استثنا در پروسس <em>هدف</em> ایجاد و guard را برمی‌دارد. stack threadها با همین مکانیزم رشد می‌کنند؛ خواندن آن یعنی اسکنر رفتار پروسس سالم را عوض کرده. ابزار امنیتی نباید چیزی را که نگاه می‌کند تغییر دهد.</div>
     </div>
   </div>
 
@@ -3433,7 +3431,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>StartsWithMz · PeHeaderOffset · IsPeSignature</code></dt>
         <dd><code>PeHeaderOffset</code> عدد <code>e_lfanew</code> را little-endian می‌خواند و فقط وقتی قبولش می‌کند که <code>e_lfanew + 4</code> داخل اندازه‌ی region باشد. بعد <code>process_scan</code> ۴ بایت در آن محل می‌خواند و <code>IsPeSignature</code> دقیقاً <code>PE\0\0</code> را چک می‌کند.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا مرز e_lfanew را چک می‌کنید؟»</b> چون آن عدد از حافظه‌ی پروسسی آمده که ممکن است مهاجم باشد. بدون چک، یک مقدار دلخواه اسکنر را به خواندن بیرون از region می‌فرستاد، و <code>ReadProcessMemory</code> اگر حتی یک بایت از بازه در دسترس نباشد کل خواندن را رد می‌کند.</div>
+      <div class="ask"><b>سؤال رایج: «چرا مرز e_lfanew را چک می‌کنید؟»</b> چون آن عدد از حافظه‌ی پروسسی آمده که ممکن است مهاجم باشد. بدون چک، یک مقدار دلخواه اسکنر را به خواندن بیرون از region می‌فرستاد، و <code>ReadProcessMemory</code> اگر حتی یک بایت از بازه در دسترس نباشد کل خواندن را رد می‌کند.</div>
     </div>
   </div>
 
@@ -3461,7 +3459,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt>پروفایل false positive (از <code>INJECTION.md</code>)</dt>
         <dd>در هیچ‌کدام از دو اجرای ۳۰ دقیقه‌ای هفته‌ی ۳ یافته‌ی H5 نبود و تنها یافته‌اش در session Atomic به T1055.003-1 برمی‌گشت. این یک بار کاری و یک session است، نه نرخ. الگوی بایتی ثابت به‌راحتی دور زده می‌شود، پس H5 به‌تنهایی نشانه‌ی ضعیفی است.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «مهاجم الگو را عوض کند چه؟»</b> این امضای بایتی است و دور زدنش آسان است؛ برای همین H5 هرگز به‌تنهایی هشدار نیست و فقط H1 را تأیید می‌کند. ارزشش برای shellcodeهای آماده و رایج است که بدون تغییر استفاده می‌شوند، همان‌طور که در T1055.003-1 دیده شد.</div>
+      <div class="ask"><b>سؤال رایج: «مهاجم الگو را عوض کند چه؟»</b> این امضای بایتی است و دور زدنش آسان است؛ برای همین H5 هرگز به‌تنهایی هشدار نیست و فقط H1 را تأیید می‌کند. ارزشش برای shellcodeهای آماده و رایج است که بدون تغییر استفاده می‌شوند، همان‌طور که در T1055.003-1 دیده شد.</div>
     </div>
   </div>
 
@@ -3483,7 +3481,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt>مدیریت منابع</dt>
         <dd>handleها و ماژول با کلاس‌های RAII کوچک (<code>UniqueHandle</code>، <code>UniqueModule</code>) بسته می‌شوند. threadی که بین snapshot و باز کردن بسته شده فقط رد می‌شود.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا H2 این‌قدر گران است؟»</b> چون snapshot threadها کل سیستم را می‌گیرد، نه فقط یک پروسس، و برای هر thread یک handle، یک syscall و یک <code>VirtualQueryEx</code> لازم است. در census Debug زمان کل از ۲.۲–۳.۷ ثانیه به ۱۹ ثانیه رسید. اندازه‌گیری Release با و بدون H2 کار هفته‌ی ۳ است.</div>
+      <div class="ask"><b>سؤال رایج: «چرا H2 این‌قدر گران است؟»</b> چون snapshot threadها کل سیستم را می‌گیرد، نه فقط یک پروسس، و برای هر thread یک handle، یک syscall و یک <code>VirtualQueryEx</code> لازم است. در census Debug زمان کل از ۲.۲–۳.۷ ثانیه به ۱۹ ثانیه رسید. اندازه‌گیری Release با و بدون H2 کار هفته‌ی ۳ است.</div>
     </div>
   </div>
 
@@ -3510,7 +3508,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
           </ol>
         </dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «از کجا می‌دانید اسکنر به پروسس هدف آسیب نمی‌زند؟»</b> فقط سه API خواندنی صدا زده می‌شود: <code>VirtualQueryEx</code>، <code>ReadProcessMemory</code> و <code>GetMappedFileNameW</code>. از هر region حداکثر ۸۴ بایت خوانده می‌شود (و ۱۶ بایت دیگر در آدرس شروع thread H2)، هرگز از صفحه‌ی guard یا noaccess، و handle فقط حق query و read دارد، نه نوشتن.</div>
+      <div class="ask"><b>سؤال رایج: «از کجا می‌دانید اسکنر به پروسس هدف آسیب نمی‌زند؟»</b> فقط سه API خواندنی صدا زده می‌شود: <code>VirtualQueryEx</code>، <code>ReadProcessMemory</code> و <code>GetMappedFileNameW</code>. از هر region حداکثر ۸۴ بایت خوانده می‌شود (و ۱۶ بایت دیگر در آدرس شروع thread H2)، هرگز از صفحه‌ی guard یا noaccess، و handle فقط حق query و read دارد، نه نوشتن.</div>
     </div>
   </div>
 
@@ -3539,7 +3537,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>BuildScanResult</code></dt>
         <dd>یک رویداد <code>MemoryScan</code> و برای هر یافته‌ی قابل‌گزارش یک <code>Alert</code> با <code>batchIndex = 0</code>. اگر هیچ یافته‌ای قابل‌گزارش نباشد <code>false</code> برمی‌گرداند و خروجی دست‌نخورده می‌ماند: اسکن تمیز هیچ ردیفی نمی‌نویسد.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا rule id ثابت و نه یک فایل YAML؟»</b> چون این یافته از هیچ قاعده‌ی YAMLی نیامده و موتور قاعده فیلدهای حافظه را نمی‌شناسد. یک شناسه‌ی ثابت و مستند صادقانه‌تر از قرض گرفتن شناسه‌ی یک قاعده است، و با <code>WHERE rule_id LIKE 'lightedr-inj-%'</code> جدا می‌شود.</div>
+      <div class="ask"><b>سؤال رایج: «چرا rule id ثابت و نه یک فایل YAML؟»</b> چون این یافته از هیچ قاعده‌ی YAMLی نیامده و موتور قاعده فیلدهای حافظه را نمی‌شناسد. یک شناسه‌ی ثابت و مستند صادقانه‌تر از قرض گرفتن شناسه‌ی یک قاعده است، و با <code>WHERE rule_id LIKE 'lightedr-inj-%'</code> جدا می‌شود.</div>
     </div>
   </div>
 
@@ -3568,7 +3566,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt>شمارنده‌ها</dt>
         <dd>همه atomic و هر لحظه خواندنی؛ ولی histogram فقط بعد از <code>Stop</code>، همان قانون histogram موتور تشخیص در فاز ۳.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا background mode؟»</b> مستندات <code>SetThreadPriority</code> این حالت را برای threadهایی معرفی می‌کند که کار پس‌زمینه انجام می‌دهند: اولویت CPU، I/O و حافظه پایین می‌آید. اسکن هرگز از برنامه‌های خود کاربر فوری‌تر نیست.</div>
+      <div class="ask"><b>سؤال رایج: «چرا background mode؟»</b> مستندات <code>SetThreadPriority</code> این حالت را برای threadهایی معرفی می‌کند که کار پس‌زمینه انجام می‌دهند: اولویت CPU، I/O و حافظه پایین می‌آید. اسکن هرگز از برنامه‌های خود کاربر فوری‌تر نیست.</div>
     </div>
   </div>
 
@@ -3610,7 +3608,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>IsClrRuntimeModule</code></dt>
         <dd>مسیر یا نامی که به <code>clr.dll</code> یا <code>coreclr.dll</code> ختم شود، بدون حساسیت به بزرگی حروف. <code>mscoree.dll</code> عمداً نه.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا از نام پروسس‌ها استفاده نکردید؟»</b> چون فهرست نام یعنی هر <bdi>.NET</bdi> hostی که در فهرست نیست false positive می‌دهد و هر بدافزاری که اسمش را عوض کند داخل فهرست می‌رود. پرسیدن «runtime بار شده یا نه» مکانیزم را می‌سنجد، نه برچسب را، و با telemetryای که سنسور از قبل داشت جواب داده می‌شود.</div>
+      <div class="ask"><b>سؤال رایج: «چرا از نام پروسس‌ها استفاده نکردید؟»</b> چون فهرست نام یعنی هر <bdi>.NET</bdi> hostی که در فهرست نیست false positive می‌دهد و هر بدافزاری که اسمش را عوض کند داخل فهرست می‌رود. پرسیدن «runtime بار شده یا نه» مکانیزم را می‌سنجد، نه برچسب را، و با telemetryای که سنسور از قبل داشت جواب داده می‌شود.</div>
     </div>
   </div>
 
@@ -3623,7 +3621,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt>ساختار</dt>
         <dd>دنبال کردن اشاره‌گرها و چک‌های معقول بودن (طول زوج، غیرصفر، حداکثر MaximumLength، بافر aligned، حداکثر ۶۴ KiB) توابع خالص روی بافر بایت‌اند و تست واحد دارند؛ بخش Win32 فقط می‌خواند. وضعیت هر خواندن یک <code>PebReadStatus</code> است (مثلاً <code>Wow64Skipped</code> یا <code>Unavailable</code>) و خلاصه‌ی اجرا <code>read / wow64_skipped / failed</code> را چاپ می‌کند.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «پس چرا CommandLine هنوز در قاعده‌ها نیست؟»</b> چون قاعده‌ها روی رویدادهای ETW در لحظه‌ی شروع پروسس اجرا می‌شوند، و PEB فقط بعداً و فقط برای پروسسی که اسکن رویش هشدار داده خوانده می‌شود. به‌علاوه مقدارش خوداظهاری است؛ پروسس می‌تواند بازنویسی‌اش کند. پس این یک غنی‌سازی برای بررسی هشدار است، نه منبع داده برای تشخیص.</div>
+      <div class="ask"><b>سؤال رایج: «پس چرا CommandLine هنوز در قاعده‌ها نیست؟»</b> چون قاعده‌ها روی رویدادهای ETW در لحظه‌ی شروع پروسس اجرا می‌شوند، و PEB فقط بعداً و فقط برای پروسسی که اسکن رویش هشدار داده خوانده می‌شود. به‌علاوه مقدارش خوداظهاری است؛ پروسس می‌تواند بازنویسی‌اش کند. پس این یک غنی‌سازی برای بررسی هشدار است، نه منبع داده برای تشخیص.</div>
     </div>
   </div>
 
@@ -3645,7 +3643,7 @@ mem_census.exe --csv out.csv    <span class="c"># same, to a file</span>
 mem_census.exe --pid 1234       <span class="c"># one process, one line per H1 region</span>
 mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process's H1 to the CLR</span></pre>
       <p>با Administrator روی VM ایزوله اجرا می‌شود. پروسس‌های محافظت‌شده گزارش می‌شوند، نه پنهان. همین ابزار عددهایی را داد که H1 تنها را از «medium» به «هرگز» رساند.</p>
-      <div class="ask"><b>اگر پرسیدند «چرا قبل از نوشتن اسکنر یک ابزار جدا ساختید؟»</b> چون نرخ false positive یک واقعیت تجربی درباره‌ی ماشین است، نه چیزی که بشود فرض کرد. اگر اسکنر اول ساخته می‌شد، قانون هشدار روی حدس بنا می‌شد؛ census اول آمد تا قانون روی عدد بنا شود.</div>
+      <div class="ask"><b>سؤال رایج: «چرا قبل از نوشتن اسکنر یک ابزار جدا ساختید؟»</b> چون نرخ false positive یک واقعیت تجربی درباره‌ی ماشین است، نه چیزی که بشود فرض کرد. اگر اسکنر اول ساخته می‌شد، قانون هشدار روی حدس بنا می‌شد؛ census اول آمد تا قانون روی عدد بنا شود.</div>
     </div>
   </div>
 </section>
@@ -3747,7 +3745,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     </p>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>«محرک دستی قاعده را می‌آزماید، نه حمله را.» همین جمله جواب اولین سؤال درباره‌ی ۱۲ محرک دستی است.</p>
   </div>
 
@@ -3961,7 +3959,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     </p>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>چهار عدد اصلی این فاز، هرکدام با پوشه‌ی اجرایش در <code>PHASE5_PLAN.md</code> §7.1: نرخ زنده (۴۰ پروسس/ثانیه بدون loss)، ظرفیت نویسنده (۵۷٬۴۳۸ رویداد/ثانیه با قاعده‌ها)، تأخیر قاعده (p50 حدود ۲.۸ میکروثانیه در بازپخش)، و هزینه‌ی اسکن (۱۵.۶٪ / ۳.۲٪ یک هسته).</p>
   </div>
 
@@ -3984,7 +3982,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     <div class="fhead"><span class="fname">tools/run_phase5_rules.ps1 · run_phase5_all.ps1</span><span class="tag p5">PHASE 5</span><span class="tag">POWERSHELL</span><span class="tag">RUNNER</span></div>
     <div class="fbody">
       <p>هر فراخوانی یک اجرا: روشن کردن سنسور روی یک دیتابیس تازه، انتظار برای خط آماده، محرک atomic یا دستی، توقف با Ctrl+Break، cleanup، خروجی CSV، و <code>env.txt</code> با hash باینری و وضعیت دیفندر. اسکریپت batch هر تست را در کنسول کوچک‌شده‌ی خودش با timeout ۶۰۰ ثانیه اجرا می‌کند تا یک تست گیرکرده کل batch را نگه ندارد.</p>
-      <div class="ask"><b>اگر پرسیدند «چرا سنسور را با Ctrl+Break متوقف می‌کنید نه با kill؟»</b> چون kill یعنی آخرین دسته‌ی رویدادها و ردیف <code>session_stats</code> نوشته نمی‌شوند، و بدون آن ردیف اتحاد حسابرسی چک‌پذیر نیست. Ctrl+Break همان مسیر خاموشی مرتب <code>main.cpp</code> را طی می‌کند؛ برای همین <code>clean_exit</code> شرط اول اعتبار است.</div>
+      <div class="ask"><b>سؤال رایج: «چرا سنسور را با Ctrl+Break متوقف می‌کنید نه با kill؟»</b> چون kill یعنی آخرین دسته‌ی رویدادها و ردیف <code>session_stats</code> نوشته نمی‌شوند، و بدون آن ردیف اتحاد حسابرسی چک‌پذیر نیست. Ctrl+Break همان مسیر خاموشی مرتب <code>main.cpp</code> را طی می‌کند؛ برای همین <code>clean_exit</code> شرط اول اعتبار است.</div>
     </div>
   </div>
 
@@ -3999,7 +3997,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     <div class="fhead"><span class="fname">tools/run_phase5_load.ps1 · phase5_load_report.sql</span><span class="tag p5">PHASE 5</span><span class="tag">POWERSHELL · SQL</span><span class="tag">LOAD</span></div>
     <div class="fbody">
       <p>نردبان نرخ: ۵، ۱۰، ۲۰ و ۴۰ پروسس در ثانیه، هرکدام ۳۰۰ ثانیه، توقف تمیز، و یک گزارش برای هر اجرا از <code>session_stats</code>.</p>
-      <div class="ask"><b>اگر پرسیدند «چرا events_per_s تنها نقل نمی‌شود؟»</b> چون روی کل session میانگین گرفته می‌شود که حدود ۸۷ ثانیه حاشیه‌ی بیکار شروع و پایان دارد. برای همین همیشه همراه نرخ پروسس پیشنهادی و به‌دست‌آمده، و «رویداد در پنجره‌ی بار» نقل می‌شود.</div>
+      <div class="ask"><b>سؤال رایج: «چرا events_per_s تنها نقل نمی‌شود؟»</b> چون روی کل session میانگین گرفته می‌شود که حدود ۸۷ ثانیه حاشیه‌ی بیکار شروع و پایان دارد. برای همین همیشه همراه نرخ پروسس پیشنهادی و به‌دست‌آمده، و «رویداد در پنجره‌ی بار» نقل می‌شود.</div>
     </div>
   </div>
 
@@ -4164,7 +4162,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     </ul>
   </div>
   <div class="note teach">
-    <span class="label">برای کلاس</span>
+    <span class="label">نکته‌ی کلیدی</span>
     <p>«کنسول هرگز snapshot نگه نمی‌دارد.» این جمله توضیح می‌دهد چرا هر refresh اتصال تازه باز می‌کند، و چرا باز ماندن کنسول کنار سنسور هزینه‌ای برای سنسور ندارد.</p>
   </div>
 
@@ -4306,7 +4304,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
         <dt><code>Read(query)</code></dt>
         <dd>اتصال تازه، <code>PRAGMA query_only = 1</code>، یک transaction deferred، اجرای query، commit و بستن. هر چیزی که کنسول نشان می‌دهد از همین یک تابع رد می‌شود.</dd>
       </dl>
-      <div class="ask"><b>اگر پرسیدند «چرا Pooling خاموش است؟ کندتر نیست؟»</b> چرا، کمی. ولی pool یعنی اتصالی که بعد از «بستن» واقعاً باز می‌ماند، و اتصال باز ممکن است snapshot یا قفل نگه دارد. برای برنامه‌ای که هر ۲ ثانیه یک query کوچک دارد، هزینه‌ی باز کردن اتصال ناچیز است و تضمین «هیچ چیز باز نمی‌ماند» ارزشش را دارد.</div>
+      <div class="ask"><b>سؤال رایج: «چرا Pooling خاموش است؟ کندتر نیست؟»</b> چرا، کمی. ولی pool یعنی اتصالی که بعد از «بستن» واقعاً باز می‌ماند، و اتصال باز ممکن است snapshot یا قفل نگه دارد. برای برنامه‌ای که هر ۲ ثانیه یک query کوچک دارد، هزینه‌ی باز کردن اتصال ناچیز است و تضمین «هیچ چیز باز نمی‌ماند» ارزشش را دارد.</div>
     </div>
   </div>
 
@@ -4597,7 +4595,7 @@ tools\run_bench.cmd</pre>
 <section id="numbers">
   <p class="eyebrow">Cheat sheet</p>
   <h2>اعداد کلیدی</h2>
-  <div class="prose"><p class="lede">اعدادی که ممکن است وسط ارائه پرسیده شوند، در یک جا.</p></div>
+  <div class="prose"><p class="lede">همه‌ی اعداد مهم این راهنما، در یک جا، با جایی که هرکدام در کد تعریف شده.</p></div>
   <div class="tw">
     <table>
       <thead><tr><th>چه</th><th>عدد</th><th>کجا</th></tr></thead>
@@ -4667,7 +4665,7 @@ tools\run_bench.cmd</pre>
   <div class="prose">
     <p class="lede">
       سیستمی که مرزهایش روشن است یک تصمیم مهندسی خوانده می‌شود؛ سیستمی که مبهم توصیف شده یک محصول
-      ناتمام. این فهرست جزو ارائه است، نه عذرخواهی.
+      ناتمام. این فهرست جزو طراحی است، نه عذرخواهی.
     </p>
   </div>
   <div class="tw">
@@ -4705,11 +4703,11 @@ tools\run_bench.cmd</pre>
 
 <!-- ==================== Q&A ==================== -->
 <section id="qa">
-  <p class="eyebrow">Questions you will be asked</p>
+  <p class="eyebrow">Common questions</p>
   <h2>پرسش و پاسخ</h2>
   <div class="prose">
     <p class="lede">
-      سؤال‌هایی که هر کسی بعد از خواندن این راهنما احتمالاً می‌پرسد، با جوابی که پروژه می‌تواند با یک عدد یا
+      سؤال‌هایی که معمولاً بعد از خواندن این راهنما پیش می‌آیند، با جوابی که پروژه می‌تواند با یک عدد یا
       یک مکانیزم از آن دفاع کند. روی هر سؤال بزن تا باز شود.
     </p>
   </div>

@@ -1708,7 +1708,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <p>
       173 tests and 1,175 checks across twelve files, all passing on MSVC, on a dependency-free
       harness of about ninety lines. No test framework was vendored: the project's dependency argument
-      is that a reviewer can read every line of what it pulls in.
+      is that anyone can read every line of what it pulls in.
     </p>
   </div>
   <div class="tw">
@@ -3302,8 +3302,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     <summary>Why write your own YAML parser instead of using a library?</summary>
     <div class="answer">
       <p>
-        The project's entire dependency surface is one vendored SQLite amalgamation that a reviewer
-        can read line by line. Adding yaml-cpp for a format whose files we author ourselves trades
+        The project's entire dependency surface is one vendored SQLite amalgamation that anyone can read line by line. Adding yaml-cpp for a format whose files we author ourselves trades
         that away for about two days of work, and the parser is a defensible piece of work in its own
         right.
       </p>
