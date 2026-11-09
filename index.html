@@ -18,8 +18,7 @@
 <link rel="alternate" hreflang="fa" href="https://ret2voidx.github.io/fa/">
 <link rel="alternate" hreflang="x-default" href="https://ret2voidx.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%237C3AED'/%3E%3Ctext x='16' y='20' font-size='10' text-anchor='middle' fill='white' font-family='monospace' font-weight='700'%3Eret%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/css/fonts-en.css">
 <link rel="stylesheet" href="assets/css/content-en.css">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
@@ -110,7 +109,7 @@ alerts             0</pre></div>
   <div class="prose">
     <p class="lede">
       Everything in this project follows from one constraint. The ETW callback runs on the thread that
-      called <code>ProcessTrace</code>. Anything slow inside it stalls event delivery, and when the
+      called <span class="nb"><code>ProcessTrace</code>.</span> Anything slow inside it stalls event delivery, and when the
       kernel's trace buffers fill, the kernel <em>discards</em> events. A slow disk write would blind
       the sensor at exactly the moment the machine is busiest — which is also the moment an attacker
       is most likely to be working.
@@ -302,9 +301,9 @@ alerts             0</pre></div>
   <div class="prose">
     <p>
       A trace session is a kernel object with a name and a set of buffers. The controller creates it
-      with <code>StartTraceW</code> and attaches providers to it with <code>EnableTraceEx2</code>.
+      with <code>StartTraceW</code> and attaches providers to it with <span class="nb"><code>EnableTraceEx2</code>.</span>
       The consumer opens the same session by name with <code>OpenTraceW</code> and then calls
-      <code>ProcessTrace</code>, which blocks and invokes a callback per event until the session stops.
+      <span class="nb"><code>ProcessTrace</code>,</span> which blocks and invokes a callback per event until the session stops.
     </p>
   </div>
 
@@ -335,8 +334,8 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <span class="label">A bug that only a manual says out loud</span>
     <p>
       An early version copied the session name into the <code>EVENT_TRACE_PROPERTIES</code> buffer
-      before calling <code>StartTraceW</code>. Microsoft's documentation is explicit that the API
-      performs that copy itself, at the offset you set in <code>LoggerNameOffset</code>. Doing it
+      before calling <span class="nb"><code>StartTraceW</code>.</span> Microsoft's documentation is explicit that the API
+      performs that copy itself, at the offset you set in <span class="nb"><code>LoggerNameOffset</code>.</span> Doing it
       manually is redundant work that gets overwritten — harmless here, but the kind of plausible
       wrong assumption that is impossible to catch by reading your own code. Every API claim in this
       project is now checked against Microsoft's documentation before it is written down.
@@ -348,7 +347,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <p>
       Phase 1 ends at a deliberate seam. Below it, <code>src/telemetry/</code> is C17; above it,
       everything is C++17. The boundary is the conversion from <code>ParsedEvent</code> to
-      <code>NormalizedEvent</code>.
+      <span class="nb"><code>NormalizedEvent</code>.</span>
     </p>
   </div>
   <div class="tw">
@@ -497,7 +496,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       <code>ImageLoad</code> records, nearly all of them ordinary system DLLs. Persisting all of them
       fills the database with data no rule will ever match on, so
       <code>EventFilter</code> suppresses module loads from
-      <code>\Windows\System32\</code>, <code>\SysWOW64\</code> and <code>\WinSxS\</code>.
+      <span class="nb"><code>\Windows\System32\</code>,</span> <code>\SysWOW64\</code> and <span class="nb"><code>\WinSxS\</code>.</span>
     </p>
   </div>
   <div class="note crit">
@@ -505,8 +504,8 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <p>
       The obvious next step — "ignore anything under System32" — would have been a serious mistake.
       System32 is exactly where the living-off-the-land binaries live:
-      <code>powershell.exe</code>, <code>rundll32.exe</code>, <code>mshta.exe</code>,
-      <code>regsvr32.exe</code>. Filtering process creation by path would blind the sensor to the most
+      <span class="nb"><code>powershell.exe</code>,</span> <span class="nb"><code>rundll32.exe</code>,</span> <span class="nb"><code>mshta.exe</code>,</span>
+      <span class="nb"><code>regsvr32.exe</code>.</span> Filtering process creation by path would blind the sensor to the most
       common execution technique in the ATT&amp;CK matrix.
       <strong>Filtering applies to ImageLoad only. Process lifecycle is never filtered.</strong>
     </p>
@@ -652,7 +651,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <div class="note">
     <span class="label">A classic SQLite trap, avoided</span>
     <p>
-      String binds use <code>SQLITE_TRANSIENT</code>, not <code>SQLITE_STATIC</code>. The converted
+      String binds use <span class="nb"><code>SQLITE_TRANSIENT</code>,</span> not <span class="nb"><code>SQLITE_STATIC</code>.</span> The converted
       UTF-8 string is destroyed at the end of the loop iteration, long before the statement is
       stepped. <code>SQLITE_STATIC</code> here is a dangling-pointer bug that <em>appears to work in
       testing</em> and corrupts data under load.
@@ -860,13 +859,13 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <div class="prose">
     <p>
       The kernel reports paths in NT device form:
-      <code>\Device\HarddiskVolume3\Windows\System32\cmd.exe</code>. Any rule that reasons about
+      <span class="nb"><code>\Device\HarddiskVolume3\Windows\System32\cmd.exe</code>.</span> Any rule that reasons about
       <em>location</em> — "an executable under the user's Temp directory" — needs the translated form,
       because the volume number is machine-specific while the drive letter is not.
     </p>
     <p>
       <code>QueryDosDeviceW</code> maps in the opposite direction to the one we need: give it
-      <code>"C:"</code> and it returns <code>\Device\HarddiskVolume3</code>. So the resolver enumerates
+      <code>"C:"</code> and it returns <span class="nb"><code>\Device\HarddiskVolume3</code>.</span> So the resolver enumerates
       drive letters with <code>GetLogicalDriveStringsW</code> and builds the reverse map.
     </p>
   </div>
@@ -897,7 +896,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     </div>
     <figcaption>
       <b>This is the bug the unit tests caught.</b> <code>\Device\HarddiskVolume1</code> is a string
-      prefix of <code>\Device\HarddiskVolume10</code>, so a naive prefix match silently misattributes
+      prefix of <span class="nb"><code>\Device\HarddiskVolume10</code>,</span> so a naive prefix match silently misattributes
       every event on that volume — and <code>D:0\tools\x.exe</code> does not look obviously wrong at a
       glance. A match is now only accepted when the character after the device name is a backslash.
       Sorting the table longest-device-first is a second line of defence.
@@ -922,7 +921,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       Without a process table a rule can say "the parent PID was 4812", which is useless — but not
       "the parent was <code>WINWORD.EXE</code>", which is most of the detection value available from
       process telemetry. The table is seeded at startup from
-      <code>CreateToolhelp32Snapshot</code>, because ETW cannot tell us about processes that started
+      <span class="nb"><code>CreateToolhelp32Snapshot</code>,</span> because ETW cannot tell us about processes that started
       before the trace session did.
     </p>
   </div>
@@ -981,8 +980,8 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     </div>
     <figcaption>
       <b>Translation has to happen before the table is updated.</b> <code>ProcessTable::OnEvent</code>
-      stores <code>BestImagePath()</code>, so if the order slips, the table fills with raw NT paths
-      and <code>parent_image</code> stops agreeing with <code>image_path</code>. Enrich-before-update
+      stores <span class="nb"><code>BestImagePath()</code>,</span> so if the order slips, the table fills with raw NT paths
+      and <code>parent_image</code> stops agreeing with <span class="nb"><code>image_path</code>.</span> Enrich-before-update
       is a weaker requirement — it keeps the semantics "the tree as it was when the process was
       created" — but the translate-first dependency is a real correctness constraint.
     </figcaption>
@@ -1009,7 +1008,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       impossible to build or test apart.
     </p>
     <p>
-      Instead there is an interface, <code>IEventProcessor</code>, in <code>src/core/</code>. The
+      Instead there is an interface, <span class="nb"><code>IEventProcessor</code>,</span> in <span class="nb"><code>src/core/</code>.</span> The
       writer holds a pointer to it and knows nothing about rules; <code>DetectionPipeline</code>
       implements it and knows nothing about SQLite. <code>Alert</code> lives in <code>core/</code>
       because both need it. The cost is one virtual call per <em>batch</em> — not per event.
@@ -1051,7 +1050,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <h3 id="rules">Week 2: a YAML reader that refuses</h3>
   <div class="prose">
     <p>
-      Rule files are YAML, and the reader is written in-house in <code>yaml_reader.cpp</code>. It
+      Rule files are YAML, and the reader is written in-house in <span class="nb"><code>yaml_reader.cpp</code>.</span> It
       accepts a documented subset and rejects everything else with the file, the line and the
       construct. The pre-agreed check at the end of the week did not trigger the fallback: yaml-cpp
       was not vendored, and <code>third_party/</code> still holds only SQLite.
@@ -1201,7 +1200,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       An ImageLoad event's own path is the module, so in the image_load category <code>Image</code>
       has to come from somewhere else. The detection stage gained a step for it: the loading process
       is looked up in the process table by PID, with the same start-time guard used for
-      <code>ParentImage</code>. An entry that started after the event describes a different process.
+      <span class="nb"><code>ParentImage</code>.</span> An entry that started after the event describes a different process.
     </p>
     <p>The loader also tells a typo apart from a real limitation:</p>
   </div>
@@ -1212,8 +1211,8 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <div class="prose">
     <p>
       Twenty-three other Sigma fields the sensor recognises but cannot supply, such as
-      <code>User</code>, <code>Hashes</code>, <code>IntegrityLevel</code> and
-      <code>OriginalFileName</code>, get the "not collected" message rather than "unknown".
+      <span class="nb"><code>User</code>,</span> <span class="nb"><code>Hashes</code>,</span> <code>IntegrityLevel</code> and
+      <span class="nb"><code>OriginalFileName</code>,</span> get the "not collected" message rather than "unknown".
     </p>
   </div>
 
@@ -1221,14 +1220,14 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <span class="label">Three loader details that came from real files</span>
     <p>
       <strong>Byte-order marks are stripped.</strong> Notepad writes one, and left in place the first
-      key reads as <code>\uFEFFtitle</code>, which produces a baffling "missing required field
+      key reads as <span class="nb"><code>\uFEFFtitle</code>,</span> which produces a baffling "missing required field
       'title'". <strong>A repeated rule id is rejected</strong>, naming both files.
       <strong>Files load in filename order</strong>, so when several rules match one event the alerts
       appear in the same order on every run.
     </p>
     <p>
       The rules directory is the one beside the executable when it exists, otherwise the source
-      tree's <code>rules/</code>, whose path is baked in at build time. An edited rule takes effect on
+      tree's <span class="nb"><code>rules/</code>,</span> whose path is baked in at build time. An edited rule takes effect on
       the next run without a rebuild, and the chosen directory is logged at startup.
     </p>
   </div>
@@ -1259,9 +1258,9 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   </div>
   <div class="prose">
     <p>
-      Supported modifiers are <code>contains</code>, <code>startswith</code>, <code>endswith</code>
-      and <code>all</code>. Real Sigma modifiers the engine does not implement, including
-      <code>re</code>, <code>base64</code>, <code>windash</code>, <code>cidr</code> and the numeric
+      Supported modifiers are <span class="nb"><code>contains</code>,</span> <span class="nb"><code>startswith</code>,</span> <code>endswith</code>
+      and <span class="nb"><code>all</code>.</span> Real Sigma modifiers the engine does not implement, including
+      <span class="nb"><code>re</code>,</span> <span class="nb"><code>base64</code>,</span> <span class="nb"><code>windash</code>,</span> <code>cidr</code> and the numeric
       comparisons, are refused by name. <code>ProcessId</code> and <code>ParentProcessId</code> take
       digits only and no string modifier. A <code>*</code> or <code>?</code> cannot occur in a
       Windows file name, so a path never needs one escaped.
@@ -1272,7 +1271,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <span class="label">Why the rules write '\cmd.exe' with the backslash</span>
     <p>
       ProcessStop reports a bare file name, and <code>C:\Tools\notcmd.exe</code> also ends in
-      <code>cmd.exe</code>. The leading separator anchors the match to a whole file name, and a test
+      <span class="nb"><code>cmd.exe</code>.</span> The leading separator anchors the match to a whole file name, and a test
       pins both cases. A field the sensor could not resolve, such as an unknown parent, is empty and
       never matches anything: a rule that fires when it does not know the parent is not the rule that
       was written.
@@ -1288,10 +1287,10 @@ primary    := NAME | "(" or_expr ")" | quantifier
 quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p>
-      Precedence, tightest first, is <code>not</code>, <code>and</code>, <code>or</code>: the same
+      Precedence, tightest first, is <span class="nb"><code>not</code>,</span> <span class="nb"><code>and</code>,</span> <span class="nb"><code>or</code>:</span> the same
       as Sigma and every mainstream language, so <code>a or b and c</code> means
-      <code>a or (b and c)</code>. Parentheses override it. Selection names, including the prefix in
-      <code>1 of filter_*</code>, are resolved to indices while the rule loads, so the engine never
+      <span class="nb"><code>a or (b and c)</code>.</span> Parentheses override it. Selection names, including the prefix in
+      <span class="nb"><code>1 of filter_*</code>,</span> are resolved to indices while the rule loads, so the engine never
       looks up a name at event time.
     </p>
   </div>
@@ -1346,7 +1345,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <figcaption>
       <b>Names become indices at load; evaluation reads a flat array.</b> Each selection is matched
       once per rule per event and its result written into one slot. The array holds
-      <code>char</code>, not <code>bool</code>: <code>std::vector&lt;bool&gt;</code> is a packed
+      <span class="nb"><code>char</code>,</span> not <span class="nb"><code>bool</code>:</span> <code>std::vector&lt;bool&gt;</code> is a packed
       specialisation with proxy references, slower to index and a known source of surprises. The
       selection names here are illustrative; the shape is the common "selection and not filter" idiom.
     </figcaption>
@@ -1362,9 +1361,9 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       undefined selection.
     </p>
     <p>
-      Also refused at load: quantifiers other than <code>1</code> and <code>all</code>, a wildcard
-      name outside a quantifier, aggregation pipes such as <code>| count() by host &gt; 5</code>, and
-      <code>timeframe</code>. Aggregation is a different kind of detector, one that keeps state over a
+      Also refused at load: quantifiers other than <code>1</code> and <span class="nb"><code>all</code>,</span> a wildcard
+      name outside a quantifier, aggregation pipes such as <span class="nb"><code>| count() by host &gt; 5</code>,</span> and
+      <span class="nb"><code>timeframe</code>.</span> Aggregation is a different kind of detector, one that keeps state over a
       time window; this engine evaluates one event at a time.
     </p>
   </div>
@@ -1414,7 +1413,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p>
       <code>EventFilter</code> runs before the queue, so a module it drops never reaches a rule. It
-      drops everything under System32 — which is exactly where <code>scrobj.dll</code>,
+      drops everything under System32 — which is exactly where <span class="nb"><code>scrobj.dll</code>,</span>
       <code>comsvcs.dll</code> and <code>vbscript.dll</code> live. Under the Phase 2 filter, the
       Squiblydoo rule could load cleanly and never see a single event: the "loads but never matches"
       outcome the loader was built to prevent, arriving one layer earlier.
@@ -1492,7 +1491,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <p>
       A script that starts the same child a hundred times would otherwise produce a hundred identical
       alerts and bury the first one. The throttle stores the first alert, suppresses repeats for 60
-      seconds and counts them in <code>session_stats.alerts_throttled</code>. The event itself is
+      seconds and counts them in <span class="nb"><code>session_stats.alerts_throttled</code>.</span> The event itself is
       always stored: throttling applies to alerts, never to telemetry.
     </p>
   </div>
@@ -1546,7 +1545,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     </div>
     <figcaption>
       <b>The actor for process creation is the parent, on purpose.</b> The plan first keyed on
-      <code>(rule_id, pid)</code>, but every process start has a new pid, so that key could never
+      <span class="nb"><code>(rule_id, pid)</code>,</span> but every process start has a new pid, so that key could never
       suppress anything. The target is in the key so that one parent starting two <em>different</em>
       suspicious binaries still produces two alerts. A start with no known parent is never throttled:
       with too little information to recognise a repeat, the alert goes through.
@@ -1557,8 +1556,8 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <span class="label">Verified live</span>
     <p>
       A five-step exercise on the development machine raised exactly the five expected alerts and
-      nothing else: <code>mshta</code>, an executable copied into <code>%TEMP%</code>,
-      <code>certutil</code>, <code>regsvr32 /i:x scrobj.dll</code>, and a VBScript starting
+      nothing else: <span class="nb"><code>mshta</code>,</span> an executable copied into <span class="nb"><code>%TEMP%</code>,</span>
+      <span class="nb"><code>certutil</code>,</span> <span class="nb"><code>regsvr32 /i:x scrobj.dll</code>,</span> and a VBScript starting
       PowerShell. The regsvr32 alert is an image_load rule and fires only because of the keep-list.
       The same run migrated the real development database from schema v2 to v3 in place.
     </p>
@@ -1607,7 +1606,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       <li>Rule values are lowercased once, when the rule loads. Event fields are lowercased once per event, not once per rule or per value. Matching is case-insensitive, as in Sigma.</li>
       <li>Rules are split into per-category buckets when they are installed. A ProcessStart visits 14 rules, an ImageLoad visits 4, and a ProcessStop returns immediately because no category covers it.</li>
       <li>The selection-results buffer is sized once for the widest rule, so evaluation never grows it.</li>
-      <li>Every run records the per-event evaluation time as a mean and as p50 / p99 / max, from a log-linear histogram that is accurate to within 12.5% and never understates. Schema v4 stores them in <code>session_stats</code>.</li>
+      <li>Every run records the per-event evaluation time as a mean and as p50 / p99 / max, from a log-linear histogram that is accurate to within 12.5% and never understates. Schema v4 stores them in <span class="nb"><code>session_stats</code>.</span></li>
     </ul>
     <p>
       For the headline figure, <code>lightedr_bench</code> replays events recorded by the sensor through
@@ -1697,7 +1696,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <p>
       Two fields under one selection are AND'd; a list of values is OR'd unless <code>|all</code> is
       present. The alert records only the fields the rule actually tested, in
-      <code>alerts.matched_fields</code>, and the first <code>attack.tNNNN</code> tag becomes the
+      <span class="nb"><code>alerts.matched_fields</code>,</span> and the first <code>attack.tNNNN</code> tag becomes the
       alert's technique. The full format — fields, modifiers, the grammar, the YAML subset and a
       five-minute first rule — is in <code>docs/Architecture/DETECTION.md</code> in the repository.
     </p>
@@ -1759,7 +1758,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p class="lede">
       Phase 3 sees processes start and modules load. It cannot see code that one process writes into
-      another, because the Kernel-Process provider does not report <code>VirtualAllocEx</code>,
+      another, because the Kernel-Process provider does not report <span class="nb"><code>VirtualAllocEx</code>,</span>
       <code>WriteProcessMemory</code> or a remote thread. A driver would catch those calls as they
       happen. Light EDR has no driver, so it does the user-mode thing instead: it opens the target
       afterwards, reads its memory map, and looks for memory that looks like code nobody loaded.
@@ -1777,7 +1776,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <p>
       All four weeks are done, ahead of the plan's mid-November dates: the scanner thread, four
       signals, a measured false-positive and cost profile (schema v7), an opt-in command-line
-      experiment, and <code>INJECTION.md</code>. 250 tests and 1,717 checks pass on MSVC in Debug and
+      experiment, and <span class="nb"><code>INJECTION.md</code>.</span> 250 tests and 1,717 checks pass on MSVC in Debug and
       Release. The Atomic Red Team results are still provisional; making them final is Phase 5.
     </p>
   </div>
@@ -1888,10 +1887,10 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p>
       The two new queues are the same class. Phase 4 turned the event queue's logic into a template,
-      <code>BoundedQueue&lt;T&gt;</code> in <code>core/bounded_queue.h</code>, with the same
+      <code>BoundedQueue&lt;T&gt;</code> in <span class="nb"><code>core/bounded_queue.h</code>,</span> with the same
       drop-newest rule and the same pushed / dropped / peak counters. The original
       <code>EventQueue</code> was left untouched rather than migrated, so the Phase 2 and 3 code
-      path did not change at all. The scanner thread runs in <code>THREAD_MODE_BACKGROUND_BEGIN</code>,
+      path did not change at all. The scanner thread runs in <span class="nb"><code>THREAD_MODE_BACKGROUND_BEGIN</code>,</span>
       which Windows documents as lowering CPU, I/O and memory priority for background work. A scan is
       never more urgent than the user's own programs.
     </p>
@@ -1919,7 +1918,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p>
       The sweep takes its own <code>CreateToolhelp32Snapshot</code> and never reads
-      <code>ProcessTable</code>, because the table belongs to the writer thread. A PID scanned in the
+      <span class="nb"><code>ProcessTable</code>,</span> because the table belongs to the writer thread. A PID scanned in the
       last 20 seconds is skipped by the sweep. The schedule is capped at 4,096 pending scans: past
       that, the first scan of a new process still runs immediately and only the follow-ups are dropped
       and counted. Because a process is now scanned several times, a region that has already produced
@@ -1937,7 +1936,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <h3>What a scan reads, and what it refuses to touch</h3>
   <div class="prose">
     <p>
-      The scanner opens the target with <code>PROCESS_QUERY_INFORMATION | PROCESS_VM_READ</code>.
+      The scanner opens the target with <span class="nb"><code>PROCESS_QUERY_INFORMATION | PROCESS_VM_READ</code>.</span>
       <code>VirtualQueryEx</code> documents the full query right as required, so the limited right is
       not enough. The sensor enables <code>SeDebugPrivilege</code> at start so that processes of other
       users can be opened. Protected (PPL) processes stay unreadable even then. They are counted, not
@@ -1961,8 +1960,8 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       <thead><tr><th>Outcome</th><th>Counter</th><th>Meaning</th></tr></thead>
       <tbody>
         <tr><td>Ok</td><td class="mono">scans_run</td><td>The address space was walked</td></tr>
-        <tr><td>AccessDenied</td><td class="mono">scans_skipped_access</td><td><code>ERROR_ACCESS_DENIED</code>: protected process, System, CSRSS</td></tr>
-        <tr><td>Gone</td><td class="mono">scans_skipped_gone</td><td><code>ERROR_INVALID_PARAMETER</code>: the process exited before the scan (an assumption, labelled as one)</td></tr>
+        <tr><td>AccessDenied</td><td class="mono">scans_skipped_access</td><td><span class="nb"><code>ERROR_ACCESS_DENIED</code>:</span> protected process, System, CSRSS</td></tr>
+        <tr><td>Gone</td><td class="mono">scans_skipped_gone</td><td><span class="nb"><code>ERROR_INVALID_PARAMETER</code>:</span> the process exited before the scan (an assumption, labelled as one)</td></tr>
         <tr><td>PidReused</td><td class="mono">scans_skipped_reused</td><td>Opened, but created after its ProcessStart event</td></tr>
         <tr><td>self</td><td class="mono">scans_skipped_self</td><td>PID 0, or the sensor itself</td></tr>
         <tr><td>OpenFailed</td><td class="mono">scans_skipped_other</td><td>Any other <code>OpenProcess</code> error</td></tr>
@@ -1975,7 +1974,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       number of requests: the Phase 2 accounting rule, applied to scans. Week 1 had a single
       catch-all for the last four outcomes. Week 2 split it (schema v6) after the first live run,
       because one number could not tell a short-lived process from a bug. The mapping from error code
-      to outcome is a pure function, <code>ClassifyOpenFailure</code>, so it is unit-tested without
+      to outcome is a pure function, <span class="nb"><code>ClassifyOpenFailure</code>,</span> so it is unit-tested without
       opening anything.
     </p>
   </div>
@@ -1984,10 +1983,10 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p>
       Each committed region is classified, and the expensive checks run only on the regions that pass
-      the cheap one. The decision logic lives in pure modules (<code>region_classifier</code>,
-      <code>pe_probe</code>, <code>shellcode_probe</code>, <code>scan_conversion</code>) that take plain
+      the cheap one. The decision logic lives in pure modules (<span class="nb"><code>region_classifier</code>,</span>
+      <span class="nb"><code>pe_probe</code>,</span> <span class="nb"><code>shellcode_probe</code>,</span> <code>scan_conversion</code>) that take plain
       structs and bytes and are tested without Windows memory. The Win32 half,
-      <code>process_scan</code> and <code>thread_inspector</code>, only gathers the data.
+      <code>process_scan</code> and <span class="nb"><code>thread_inspector</code>,</span> only gathers the data.
     </p>
   </div>
   <div class="tw">
@@ -1998,7 +1997,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
         <tr><td class="mono">H1 mapped</td><td><code>MEM_MAPPED</code> executable view with no file behind it (<code>GetMappedFileNameW</code> returns nothing): section-based injection</td><td>Candidate, same as H1</td></tr>
         <tr><td class="mono">RWX</td><td>The H1 region is <code>PAGE_EXECUTE_READWRITE</code></td><td>Raises severity only</td></tr>
         <tr><td class="mono">H3</td><td><code>MZ</code> at the region start, a bounds-checked <code>e_lfanew</code> at 0x3C, and <code>PE\0\0</code> there</td><td>Corroborates: a whole PE image that the loader never mapped</td></tr>
-        <tr><td class="mono">H2</td><td>A thread's start address (<code>NtQueryInformationThread</code>, <code>ThreadQuerySetWin32StartAddress</code>) falls inside an H1 region with no mapped file</td><td>Corroborates: code in that region is actually running</td></tr>
+        <tr><td class="mono">H2</td><td>A thread's start address (<span class="nb"><code>NtQueryInformationThread</code>,</span> <code>ThreadQuerySetWin32StartAddress</code>) falls inside an H1 region with no mapped file</td><td>Corroborates: code in that region is actually running</td></tr>
         <tr><td class="mono">H5</td><td>The first 16 bytes match a known shellcode entry stub: the x64 and x86 Metasploit <code>block_api</code> prologues, or the <code>call $+5; pop reg</code> GetPC idiom</td><td>Corroborates. Probed at the region start and at an H2 thread's start address. A fixed byte pattern, so easy to evade: weak on its own</td></tr>
       </tbody>
     </table>
@@ -2062,8 +2061,8 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <figcaption>
       <b>H1 is the gate, never the verdict.</b> An alert needs H1 and at least one of H3, H2 or H5.
       When several fire, the most specific names the alert, in the order H3, then H2, then H5, and the
-      full signal set is kept in <code>matched_fields</code>. Severity is <code>critical</code> when the
-      region is RWX or a thread starts in it, otherwise <code>high</code>. The bottom box is drawn red
+      full signal set is kept in <span class="nb"><code>matched_fields</code>.</span> Severity is <code>critical</code> when the
+      region is RWX or a thread starts in it, otherwise <span class="nb"><code>high</code>.</span> The bottom box is drawn red
       because it is the case the design deliberately refuses to alert on.
     </figcaption>
   </figure>
@@ -2078,7 +2077,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p>
       The plan required H1's false-positive rate to be <em>measured</em> on a clean machine before any
-      alert was built on it. A separate tool, <code>tools/mem_census.cpp</code>, walks every process
+      alert was built on it. A separate tool, <span class="nb"><code>tools/mem_census.cpp</code>,</span> walks every process
       it can open and counts what the scanner would flag, without raising anything. On the development
       workstation, about 240 processes in two runs, it found:
     </p>
@@ -2101,7 +2100,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       produce almost all of it: .NET (CLR) hosts, almost all RWX; Chromium and Electron processes
       (V8's JIT), mostly execute-read; and the Windows shell and compositor, execute-read only. An
       alert on H1 would fire all day. <strong>RWX alone does not discriminate either</strong>, because
-      the CLR group is the RWX group. The plan originally allowed bare H1 at <code>medium</code>. The
+      the CLR group is the RWX group. The plan originally allowed bare H1 at <span class="nb"><code>medium</code>.</span> The
       baseline overruled it: bare H1 is now only counted, and used as the candidate set for the
       other checks.
     </p>
@@ -2138,14 +2137,14 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       <strong>Every RWX region but two belonged to a process with the .NET runtime loaded.</strong>
       The .NET JIT maps its code read-write-execute, so RWX in a healthy process is a managed-runtime
       property. The non-CLR H1 was mostly execute-read memory in Chromium and Edge WebView hosts
-      (<code>msedgewebview2</code>, <code>SearchApp</code>, <code>M365Copilot</code>,
+      (<span class="nb"><code>msedgewebview2</code>,</span> <span class="nb"><code>SearchApp</code>,</span> <span class="nb"><code>M365Copilot</code>,</span>
       <code>msedge</code>), which is JavaScript JIT, plus the Windows shell. The telemetry answer agreed
       with the module list in all 9 processes where it had one; the other 138 had started before the
       sensor, and there a missing load row is correctly read as "unknown", not "no".
     </p>
     <p>
       That turns the one-in-five H1 rate from an observation into an explanation, and it is the
-      measured justification for <code>IsReportable</code>. The plan had allowed for an allowlist of
+      measured justification for <span class="nb"><code>IsReportable</code>.</span> The plan had allowed for an allowlist of
       JIT hosts in week 3. It was not needed: with a corroborating signal required, the 30-minute runs
       below produced zero findings without one.
     </p>
@@ -2170,12 +2169,12 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       <code>events</code> row. A memory finding has no ETW event behind it. Rather than loosen the
       schema, the scanner synthesises one: a <code>MemoryScan</code> event (<code>event_type = 4</code>)
       for the scanned process. It goes through the same <code>CommitBatch</code> as a rule match, with
-      the alerts at <code>batchIndex 0</code>, so the alert and its event share a transaction exactly
+      the alerts at <span class="nb"><code>batchIndex 0</code>,</span> so the alert and its event share a transaction exactly
       as in Phase 3.
     </p>
     <p>
       The synthetic event records only what is known. <code>image_path</code> is the target's image.
-      <code>image_path_nt</code>, the parent PID and the session are <code>NULL</code> rather than an
+      <span class="nb"><code>image_path_nt</code>,</span> the parent PID and the session are <code>NULL</code> rather than an
       invented 0, because none of them were observed. A clean scan writes no rows at all; it is only
       counted. The alert carries everything needed to review it after the process is gone:
     </p>
@@ -2189,9 +2188,9 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <p>
       The values in that example are illustrative; the format is exact. The <code>lightedr-inj-</code>
       prefix keeps scan alerts apart from YAML rules in any query. Schema <strong>v5</strong> added
-      event type 4 and ten scan columns to <code>session_stats</code>: run, dropped and skip counts,
+      event type 4 and ten scan columns to <span class="nb"><code>session_stats</code>:</span> run, dropped and skip counts,
       regions examined, findings, and p50 / p99 / max / total scan time from the Phase 3
-      <code>LatencyHistogram</code>. <strong>v6</strong> added the three split skip counters, and
+      <span class="nb"><code>LatencyHistogram</code>.</span> <strong>v6</strong> added the three split skip counters, and
       <strong>v7</strong> six cost columns for week 3: whether the sweep ran, sweeps and sweep-initiated
       scans, H1 regions, and the CPU time of the scanner thread and of the whole sensor. Every migration
       is tested the same way as v1 to v4, by comparing a migrated database with a fresh one column by
@@ -2269,11 +2268,11 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
     <p>
       In week 4, T1055.003-1 was run three more times on its own, each time with a fresh sensor that
       had printed its first status line before the test started. All three raised the same
-      <code>lightedr-inj-h1h5</code> alert for the new <code>notepad.exe</code>, attributed by the PID
+      <code>lightedr-inj-h1h5</code> alert for the new <span class="nb"><code>notepad.exe</code>,</span> attributed by the PID
       the test itself prints, with no other finding and no dropped event. These runs followed the
       protocol except for the snapshot restore, so the sub-test stays provisional too. The test's
       injector had to be restored from Defender quarantine first, where it had been placed as
-      <code>VirTool:Win32/Meterpreter</code>.
+      <span class="nb"><code>VirTool:Win32/Meterpreter</code>.</span>
     </p>
   </div>
 
@@ -2281,11 +2280,11 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
   <div class="prose">
     <p>
       Two 30-minute runs on the Windows 10 VM (2 logical processors, x64 Release, elevated), one with
-      the sweep and one with <code>--no-sweep</code>, against the same fixed workload: every 20 seconds
+      the sweep and one with <span class="nb"><code>--no-sweep</code>,</span> against the same fixed workload: every 20 seconds
       one <code>powershell.exe</code> that lives for two minutes (a .NET host) and one short native
-      <code>cmd.exe</code>. <code>tools\run_phase4_measure.cmd</code> builds and runs both, and
-      <code>tools\phase4_cost_report.sql</code> prints one row per run from <code>session_stats</code>.
-      CPU is user plus kernel time from <code>GetThreadTimes</code> and <code>GetProcessTimes</code>, as
+      <span class="nb"><code>cmd.exe</code>.</span> <code>tools\run_phase4_measure.cmd</code> builds and runs both, and
+      <code>tools\phase4_cost_report.sql</code> prints one row per run from <span class="nb"><code>session_stats</code>.</span>
+      CPU is user plus kernel time from <code>GetThreadTimes</code> and <span class="nb"><code>GetProcessTimes</code>,</span> as
       a share of <strong>one</strong> core over the session.
     </p>
   </div>
@@ -2370,7 +2369,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       versions of Windows", and both structures "may be altered in future versions of Windows". So
       <code>peb_reader</code> is built defensively. The function is resolved at run time, and a missing
       export means "unavailable", not a crash. The two offsets are pinned by <code>static_assert</code>
-      against the SDK's <code>winternl.h</code>, so a changed SDK breaks the build instead of the reader.
+      against the SDK's <span class="nb"><code>winternl.h</code>,</span> so a changed SDK breaks the build instead of the reader.
       Every value read from the target is untrusted: the string must have an even, non-zero length no
       larger than its maximum and an aligned buffer, and at most 64 KiB is read. Any failure leaves
       <code>command_line</code> NULL.
@@ -2379,7 +2378,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       <strong>32-bit processes are skipped, not guessed.</strong> A WOW64 process has a 32-bit PEB with
       different offsets, and Microsoft documents <code>ProcessWow64Information</code> only as "nonzero"
       for such a process, not as the address of that PEB. They are detected with
-      <code>IsWow64Process2</code> and counted as <code>wow64_skipped</code>.
+      <code>IsWow64Process2</code> and counted as <span class="nb"><code>wow64_skipped</code>.</span>
     </p>
   </div>
   <div class="tw">
@@ -2404,13 +2403,13 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="note warn">
     <span class="label">Decision: an opt-in experiment, off by default</span>
     <p>
-      <code>Light_EDR --peb-cmdline</code>. It works on every 64-bit process the check could open and end
+      <span class="nb"><code>Light_EDR --peb-cmdline</code>.</span> It works on every 64-bit process the check could open and end
       to end in the sensor. It stays off by default for three reasons: it rests on structures Microsoft
       says may change, it skips 32-bit targets, and the value is <strong>self-reported</strong>. The PEB is
       in the target's own writable memory, so the process can rewrite its command line after it starts.
       What is stored is what the process shows at alert time, not what its creator passed. WMI reads the
       same field, so agreement with WMI shows the parsing is right; it does not make the PEB an independent
-      source. Rules still cannot use <code>CommandLine</code>: the rule engine runs on ETW events, not on
+      source. Rules still cannot use <span class="nb"><code>CommandLine</code>:</span> the rule engine runs on ETW events, not on
       scan results.
     </p>
   </div>
@@ -2420,9 +2419,9 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     <table>
       <thead><tr><th>Blind spot</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td>Protected (PPL) processes</td><td>Denied even with <code>SeDebugPrivilege</code>: System, csrss, services, Defender, Sysmon and others; 19–20 on the workstation, 109 skips in the Atomic session</td></tr>
+        <tr><td>Protected (PPL) processes</td><td>Denied even with <span class="nb"><code>SeDebugPrivilege</code>:</span> System, csrss, services, Defender, Sysmon and others; 19–20 on the workstation, 109 skips in the Atomic session</td></tr>
         <tr><td>The time between two scans</td><td>A scan is a snapshot. Memory that is allocated, run and freed or made non-executable between scans is missed. After the 30 s rescan only the 60 s sweep sees a process again, and load stretches the gap</td></tr>
-        <tr><td>Processes that exit first</td><td>Counted as <code>skipped_gone</code>; 482 in the Atomic session</td></tr>
+        <tr><td>Processes that exit first</td><td>Counted as <span class="nb"><code>skipped_gone</code>;</span> 482 in the Atomic session</td></tr>
         <tr><td>Image-backed memory</td><td>By construction H1 never fires on <code>MEM_IMAGE</code> or a file-backed view, so code written into a loaded module's own pages is outside every signal</td></tr>
         <tr><td>Fixed offsets</td><td>H3 looks only at the region start, H5 only at the region start and H2 thread starts</td></tr>
         <tr><td>An attacker who knows the signals</td><td>Write into image-backed memory, keep the payload non-executable between uses, avoid a PE header, encode the stub, or act between two scans</td></tr>
@@ -2434,7 +2433,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="files-list">
     <div class="file">
       <p class="name">src/core/bounded_queue.h <span class="tag">new</span></p>
-      <p>The event queue's logic as a template: <code>TryPush</code> that never blocks, <code>PopBatch</code> with a timeout, and the non-blocking <code>DrainNow</code> the writer uses between batches. <code>scan_result.h</code> defines the two payloads, <code>ScanRequest</code> and <code>ScanResult</code>, and the two queue types.</p>
+      <p>The event queue's logic as a template: <code>TryPush</code> that never blocks, <code>PopBatch</code> with a timeout, and the non-blocking <code>DrainNow</code> the writer uses between batches. <code>scan_result.h</code> defines the two payloads, <code>ScanRequest</code> and <span class="nb"><code>ScanResult</code>,</span> and the two queue types.</p>
     </div>
     <div class="file">
       <p class="name">src/injection/scanner.{h,cpp} <span class="tag">thread</span></p>
@@ -2442,11 +2441,11 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     </div>
     <div class="file">
       <p class="name">src/injection/process_scan.{h,cpp} <span class="tag">win32</span></p>
-      <p>Opens one process, applies the PID-reuse guard, walks its regions and probes H1 regions for H3 and H5. Then attaches H2 from the thread observations, by containment. Also <code>ClassifyOpenFailure</code> and <code>EnableDebugPrivilege</code>.</p>
+      <p>Opens one process, applies the PID-reuse guard, walks its regions and probes H1 regions for H3 and H5. Then attaches H2 from the thread observations, by containment. Also <code>ClassifyOpenFailure</code> and <span class="nb"><code>EnableDebugPrivilege</code>.</span></p>
     </div>
     <div class="file">
       <p class="name">src/injection/thread_inspector.{h,cpp} <span class="tag">win32</span></p>
-      <p>Enumerates the target's threads and reads each start address with <code>NtQueryInformationThread</code>, resolved at run time because Microsoft documents it as subject to change. If it is missing, only H2 is disabled; H1, H3 and H5 still stand.</p>
+      <p>Enumerates the target's threads and reads each start address with <span class="nb"><code>NtQueryInformationThread</code>,</span> resolved at run time because Microsoft documents it as subject to change. If it is missing, only H2 is disabled; H1, H3 and H5 still stand.</p>
     </div>
     <div class="file">
       <p class="name">src/injection/region_classifier · pe_probe · shellcode_probe <span class="tag">pure</span></p>
@@ -2454,19 +2453,19 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     </div>
     <div class="file">
       <p class="name">src/injection/finding.h · scan_conversion.{h,cpp} <span class="tag">pure</span></p>
-      <p>The signal bits, <code>IsReportable</code>, <code>SeverityOf</code>, the rule ids and titles, the <code>matched_fields</code> text, and <code>BuildScanResult</code>, which turns findings into the synthetic event and its alerts.</p>
+      <p>The signal bits, <span class="nb"><code>IsReportable</code>,</span> <span class="nb"><code>SeverityOf</code>,</span> the rule ids and titles, the <code>matched_fields</code> text, and <span class="nb"><code>BuildScanResult</code>,</span> which turns findings into the synthetic event and its alerts.</p>
     </div>
     <div class="file">
       <p class="name">tools/mem_census.cpp <span class="tag">tool</span></p>
-      <p>The read-only baseline: one CSV row per process, or one line per H1 region with <code>--pid</code>. It produced the numbers that turned bare H1 from "medium" into "never".</p>
+      <p>The read-only baseline: one CSV row per process, or one line per H1 region with <span class="nb"><code>--pid</code>.</span> It produced the numbers that turned bare H1 from "medium" into "never".</p>
     </div>
     <div class="file">
       <p class="name">src/injection/clr_attribution.{h,cpp} <span class="tag">pure · week 3</span></p>
-      <p>Decides whether a process instance had the .NET runtime loaded: <code>Loaded</code>, <code>NotLoaded</code> (its start was seen and no runtime load followed), or <code>Unknown</code> (it started before the sensor, so absence is not evidence). A load older than the process, minus the same 1-second tolerance as the PID-reuse guard, belongs to a previous holder of the PID and does not count. Used by <code>mem_census --db</code>.</p>
+      <p>Decides whether a process instance had the .NET runtime loaded: <span class="nb"><code>Loaded</code>,</span> <code>NotLoaded</code> (its start was seen and no runtime load followed), or <code>Unknown</code> (it started before the sensor, so absence is not evidence). A load older than the process, minus the same 1-second tolerance as the PID-reuse guard, belongs to a previous holder of the PID and does not count. Used by <span class="nb"><code>mem_census --db</code>.</span></p>
     </div>
     <div class="file">
       <p class="name">src/injection/peb_reader.{h,cpp} <span class="tag">win32 · week 4</span></p>
-      <p>Experiment D6: the command line from the target's PEB, behind <code>--peb-cmdline</code>. The pointer-chasing and plausibility checks are pure functions over byte buffers and are unit-tested; the Win32 part only reads.</p>
+      <p>Experiment D6: the command line from the target's PEB, behind <span class="nb"><code>--peb-cmdline</code>.</span> The pointer-chasing and plausibility checks are pure functions over byte buffers and are unit-tested; the Win32 part only reads.</p>
     </div>
     <div class="file">
       <p class="name">tools/run_phase4_measure.cmd · phase4_workload.cmd · phase4_cost_report.sql <span class="tag">tool · week 3</span></p>
@@ -2474,7 +2473,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     </div>
     <div class="file">
       <p class="name">writer_thread · detection_pipeline · db_manager · schema.sql · main.cpp <span class="tag">changed</span></p>
-      <p>The writer drains scan results; the pipeline pushes a request for each <code>ProcessStart</code>; the schema goes to v7; <code>main</code> creates the queues and the scanner, stops them in the new order, and takes four new switches: <code>--no-sweep</code>, <code>--peb-cmdline</code>, <code>--duration N</code> and <code>--db path</code>. The scanner also counts and logs slow scans (one second or more) and records its own CPU time.</p>
+      <p>The writer drains scan results; the pipeline pushes a request for each <span class="nb"><code>ProcessStart</code>;</span> the schema goes to v7; <code>main</code> creates the queues and the scanner, stops them in the new order, and takes four new switches: <span class="nb"><code>--no-sweep</code>,</span> <span class="nb"><code>--peb-cmdline</code>,</span> <code>--duration N</code> and <span class="nb"><code>--db path</code>.</span> The scanner also counts and logs slow scans (one second or more) and records its own CPU time.</p>
     </div>
   </div>
 
@@ -2494,7 +2493,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <tr><td class="mono">test_scan_conversion.cpp</td><td>9</td><td>Reportable combinations, severity, the <code>matched_fields</code> text, the synthetic event</td></tr>
         <tr><td class="mono">test_shellcode_probe.cpp</td><td>7</td><td>The H5 pattern families, ordinary code, short buffers; file-less mapped views</td></tr>
         <tr><td class="mono">test_region_classifier.cpp</td><td>6</td><td>The executable set, modifier bits, H1, never reading guard or no-access pages</td></tr>
-        <tr><td class="mono">test_bounded_queue.cpp</td><td>6</td><td>Drop-newest, <code>DrainNow</code>, timeouts, shutdown, concurrent producers</td></tr>
+        <tr><td class="mono">test_bounded_queue.cpp</td><td>6</td><td>Drop-newest, <span class="nb"><code>DrainNow</code>,</span> timeouts, shutdown, concurrent producers</td></tr>
         <tr><td class="mono">test_pe_probe.cpp</td><td>5</td><td><code>e_lfanew</code> bounds and the signature</td></tr>
         <tr><td class="mono">test_scan_status.cpp</td><td>4</td><td>Error code → outcome</td></tr>
         <tr><td class="mono">test_writer_thread.cpp</td><td>4</td><td>Results committed beside telemetry, drained at stop; no result queue behaves as Phase 3</td></tr>
@@ -2531,7 +2530,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       18 of 18 rules alerted in 3 of 3 valid runs and stayed silent on all 18 near misses. The memory
       scanner detected the same 3 of 12 T1055 sub-tests, now 3 of 3 times each. A 60-minute soak raised
       nothing. 40 processes per second lost no event. Every Phase 5 run used one sensor binary, SHA-256
-      <code>BAB6580B…CEACB9D</code>.
+      <span class="nb"><code>BAB6580B…CEACB9D</code>.</span>
     </p>
   </div>
 
@@ -2541,7 +2540,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       Every run has its own sensor process and its own database: start the sensor, wait for its
       "running" line and 15 more seconds, run the trigger, wait 45 seconds, stop the sensor with
       Ctrl+Break, run the trigger's cleanup, export <code>alerts.csv</code> and
-      <code>session_stats.csv</code>. Each rule gets three true-positive runs and one near-miss run.
+      <span class="nb"><code>session_stats.csv</code>.</span> Each rule gets three true-positive runs and one near-miss run.
       <code>tools/phase5_validity.ps1</code> then decides whether the run counts:
     </p>
     <ul>
@@ -2585,7 +2584,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <tr><td class="mono">system_binary_masquerading</td><td>atomic T1036.003-4</td><td>3/3</td><td>PASS</td></tr>
         <tr><td class="mono">mshta_execution</td><td>atomic T1218.005-2</td><td>3/3</td><td>PASS</td></tr>
         <tr><td class="mono">rundll32_suspicious_parent</td><td>manual · wscript → rundll32</td><td>3/3</td><td>PASS</td></tr>
-        <tr><td class="mono">certutil_bitsadmin</td><td>manual · <code>certutil -?</code>, <code>bitsadmin /?</code></td><td>3/3</td><td>PASS</td></tr>
+        <tr><td class="mono">certutil_bitsadmin</td><td>manual · <span class="nb"><code>certutil -?</code>,</span> <code>bitsadmin /?</code></td><td>3/3</td><td>PASS</td></tr>
         <tr><td class="mono">script_host_spawns_wmic</td><td>manual · wscript → wmic</td><td>3/3</td><td>PASS</td></tr>
         <tr><td class="mono">wmiprvse_spawns_shell</td><td>atomic T1047-5</td><td>3/3</td><td>PASS</td></tr>
         <tr><td class="mono">script_host_spawns_powershell</td><td>atomic T1218.005-10</td><td>3/3</td><td>PASS</td></tr>
@@ -2595,16 +2594,16 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <tr><td class="mono">regsvr32_scrobj</td><td>atomic T1218.010-1</td><td>3/3</td><td>PASS</td></tr>
         <tr><td class="mono">office_scripting_engine</td><td>manual · <code>WINWORD.EXE</code> = renamed wscript</td><td>3/3</td><td>PASS</td></tr>
         <tr><td class="mono">script_host_clr</td><td>manual · cscript creates a .NET COM object</td><td>3/3</td><td>PASS</td></tr>
-        <tr><td class="mono">credential_dump_helper</td><td>manual · <code>rundll32 comsvcs.dll,#-1</code>, nothing dumped</td><td>3/3</td><td>PASS</td></tr>
+        <tr><td class="mono">credential_dump_helper</td><td>manual · <span class="nb"><code>rundll32 comsvcs.dll,#-1</code>,</span> nothing dumped</td><td>3/3</td><td>PASS</td></tr>
       </tbody>
     </table>
   </div>
   <div class="prose">
     <p>
       Every alert from the rule under test was checked to name the trigger's own process in
-      <code>matched_fields</code>, not some other process that happened to match. The near miss is the
+      <span class="nb"><code>matched_fields</code>,</span> not some other process that happened to match. The near miss is the
       closest benign variant the rule must ignore: the same <code>WINWORD.EXE</code> copy starting
-      <code>notepad</code>, <code>wmic</code> run from <code>cmd</code> instead of a script host, the real
+      <span class="nb"><code>notepad</code>,</span> <code>wmic</code> run from <code>cmd</code> instead of a script host, the real
       <code>svchost.exe</code> in System32. All 18 stayed silent, which shows each rule is anchored where
       the design says it is.
     </p>
@@ -2623,9 +2622,9 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       Four of them would have produced results that looked real. A PowerShell call
       <code>Send-CtrlBreak -Pid</code> bound nothing, so the sensor would never have been stopped cleanly.
       A parameter named <code>$Args</code> collided with an automatic variable and arrived empty. The
-      T1047-5 atomic's cleanup stopped <em>every</em> <code>powershell.exe</code>, including the runner,
+      T1047-5 atomic's cleanup stopped <em>every</em> <span class="nb"><code>powershell.exe</code>,</span> including the runner,
       so five runs never finished; the runner now stops only the PowerShell whose parent is
-      <code>WmiPrvSE.exe</code>. And atomic T1569.002-2 failed before PsExec ran, so it was replaced by
+      <span class="nb"><code>WmiPrvSE.exe</code>.</span> And atomic T1569.002-2 failed before PsExec ran, so it was replaced by
       calling the same PsExec binary directly. All invalid runs are kept in the results, outside the counts.
     </p>
   </div>
@@ -2644,7 +2643,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       <tbody>
         <tr><td>T1055.002-1 · PE injection</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h3 · H1+RWX+H3+H2 · critical</td><td><code>notepad.exe</code> from <code>RedInjection.exe</code></td></tr>
         <tr><td>T1055.003-1 · thread hijacking</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h5 · H1+H5 · high</td><td><code>notepad.exe</code></td></tr>
-        <tr><td>T1055.012-1 · hollowing (PowerShell)</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h2 · H1+H2 · critical</td><td><code>notepad.exe</code>, region at <code>0x40001000</code></td></tr>
+        <tr><td>T1055.012-1 · hollowing (PowerShell)</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h2 · H1+H2 · critical</td><td><span class="nb"><code>notepad.exe</code>,</span> region at <code>0x40001000</code></td></tr>
         <tr><td>T1055.001-1, -2 · .004-1, -2, -3 · .011-1 · .012-3, -4 · .015-1</td><td style="color:var(--crit)">0/3 each</td><td>–</td><td>–</td></tr>
         <tr><td>T1055.012-2 · RunPE via VBA</td><td style="color:var(--dim)">N/A</td><td colspan="2">needs Microsoft Office</td></tr>
       </tbody>
@@ -2756,7 +2755,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="prose">
     <p>
       <strong>Writer capacity</strong>, by replaying the soak database (2,735 events) through
-      <code>lightedr_bench</code>, 11 interleaved repetitions, medians:
+      <span class="nb"><code>lightedr_bench</code>,</span> 11 interleaved repetitions, medians:
     </p>
   </div>
   <div class="tw">
@@ -2827,7 +2826,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     </div>
     <div class="file">
       <p class="name">tools/run_phase5_load.ps1 · phase5_load_report.sql <span class="tag">load</span></p>
-      <p>The rate ladder: 5, 10, 20 and 40 processes per second, 300 seconds each, a clean stop, and one report per run from <code>session_stats</code>.</p>
+      <p>The rate ladder: 5, 10, 20 and 40 processes per second, 300 seconds each, a clean stop, and one report per run from <span class="nb"><code>session_stats</code>.</span></p>
     </div>
     <div class="file">
       <p class="name">docs/Architecture/PHASE5_PLAN.md · docs/Evaluation/RULE_COVERAGE.md · ATOMIC_COVERAGE.md · phase5-results/ <span class="tag">evidence</span></p>
@@ -2843,13 +2842,13 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="prose">
     <p class="lede">
       Until Phase 5, the only way to see what the sensor recorded was SQL against
-      <code>lightedr.db</code>. LightEDR Console is a Windows desktop dashboard over that same file: six pages
+      <span class="nb"><code>lightedr.db</code>.</span> LightEDR Console is a Windows desktop dashboard over that same file: six pages
       for alerts, process ancestry, memory-scan findings and the rule pack. It adds no detection and no
       control. Every number on screen is read from the open database at that moment, and each page says
       which table it came from.
     </p>
     <p>
-      It is a separate program in a separate language, under <code>gui/</code>: C# on .NET 10 LTS with WPF,
+      It is a separate program in a separate language, under <span class="nb"><code>gui/</code>:</span> C# on .NET 10 LTS with WPF,
       built with the .NET SDK and not with the sensor's CMake. The sensor does not know it exists.
     </p>
   </div>
@@ -2948,7 +2947,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       <b>Two open modes, decided by the <code>-wal</code> file.</b> With no writer, SQLite's
       <code>immutable=1</code> takes no locks and creates no file at all next to the database, which is how
       the Phase 5 samples open. With the sensor writing, the console is an ordinary WAL reader: read-only
-      connection, <code>PRAGMA query_only = 1</code>, shared read locks only. It re-opens when the
+      connection, <span class="nb"><code>PRAGMA query_only = 1</code>,</span> shared read locks only. It re-opens when the
       <code>-wal</code> file appears or disappears, so an immutable snapshot never goes stale.
     </figcaption>
   </figure>
@@ -2958,13 +2957,13 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       reader that kept its connection open would hold a snapshot, and SQLite cannot checkpoint the WAL past a
       snapshot a reader still holds; the sensor's <code>-wal</code> file would grow for as long as the
       console stayed open. The one file the console writes is its own
-      <code>%LOCALAPPDATA%\Ret2Void\LightEDR Console\settings.json</code>.
+      <span class="nb"><code>%LOCALAPPDATA%\Ret2Void\LightEDR Console\settings.json</code>.</span>
     </p>
     <p>How "read-only" was checked rather than assumed:</p>
     <ul>
       <li><strong>Write refusal:</strong> a test runs <code>DELETE FROM alerts</code> through the console's own connection and expects it to fail.</li>
       <li><strong>Fingerprints:</strong> a test fixture records name, size and SHA-256 of every file in the three sample folders before the run and fails the run if anything changed. Every test also works on a copy.</li>
-      <li><strong>Next to the real sensor</strong>, on the Phase 5 VM: v0.5.0 wrote a database while the console read it, and reported <code>dropped=0</code>, <code>etw_lost=0</code>. That is one run, not a comparison with and without the console.</li>
+      <li><strong>Next to the real sensor</strong>, on the Phase 5 VM: v0.5.0 wrote a database while the console read it, and reported <span class="nb"><code>dropped=0</code>,</span> <span class="nb"><code>etw_lost=0</code>.</span> That is one run, not a comparison with and without the console.</li>
     </ul>
   </div>
 
@@ -2974,7 +2973,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       The console polls every 1–10 seconds (default 2). On each poll it checks whether a
       <code>Light_EDR.exe</code> process exists, and whether the size or write time of the database or its
       <code>-wal</code> changed. Only a change triggers a query, and new alerts are read with
-      <code>id &gt; last seen</code>, so an alert appears within one poll interval, with an in-app notification.
+      <span class="nb"><code>id &gt; last seen</code>,</span> so an alert appears within one poll interval, with an in-app notification.
       The top bar shows one of three states:
     </p>
   </div>
@@ -3033,7 +3032,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     </div>
     <figcaption>
       <b>The mshta chain from Phase 5</b>: <code>powershell 9576</code> under <code>mshta 8384</code> under
-      <code>cmd 11116</code>, below a PowerShell that started before the sensor and is shown as such.
+      <span class="nb"><code>cmd 11116</code>,</span> below a PowerShell that started before the sensor and is shown as such.
     </figcaption>
   </figure>
   <figure>
@@ -3061,7 +3060,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   </div>
   <div class="prose">
     <ul>
-      <li><strong>Why WPF:</strong> .NET 10 LTS and WPF were chosen over WinUI 3, Avalonia and web shells; the reasoning is in <code>docs/GUI_DESIGN.md</code>.</li>
+      <li><strong>Why WPF:</strong> .NET 10 LTS and WPF were chosen over WinUI 3, Avalonia and web shells; the reasoning is in <span class="nb"><code>docs/GUI_DESIGN.md</code>.</span></li>
       <li><strong>No chart library:</strong> the charts are drawn by the app, so they follow the same animation switch and are reachable by keyboard.</li>
       <li><strong>One animation switch:</strong> animations run only when the in-app toggle <em>and</em> Windows "Show animations" are both on, and no state ever depends on an animation finishing. Blur-based glow is skipped under software rendering, which is likely on a VM without 3D.</li>
       <li><strong>Dependencies</strong>, each version pinned: Microsoft.Data.Sqlite, YamlDotNet, CommunityToolkit.Mvvm, a subset of Fluent UI System Icons, JetBrains Mono. Licences ship next to the executable.</li>
@@ -3113,7 +3112,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     </div>
     <div class="file">
       <p class="name">gui/src/LightEDR.Data/SensorProbe.cs · RuleCatalog.cs <span class="tag">data</span></p>
-      <p>The sensor probe finds <code>Light_EDR.exe</code> with query-limited rights only and takes its hash from the runner's <code>env.txt</code>, the running image, or a chosen file. The catalogue parses the YAML rules and adds the three scanner rules fixed in the sensor's code; an unreadable rule is reported, not skipped silently.</p>
+      <p>The sensor probe finds <code>Light_EDR.exe</code> with query-limited rights only and takes its hash from the runner's <span class="nb"><code>env.txt</code>,</span> the running image, or a chosen file. The catalogue parses the YAML rules and adds the three scanner rules fixed in the sensor's code; an unreadable rule is reported, not skipped silently.</p>
     </div>
     <div class="file">
       <p class="name">docs/GUI.md · docs/GUI_DESIGN.md <span class="tag">docs</span></p>
@@ -3182,13 +3181,13 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     <p>
       <strong>Closed in Phase 4:</strong> the scan cost has a Release figure with and without the sweep;
       the H1 false positives are explained by mechanism; H5 has its written description and
-      false-positive profile in <code>INJECTION.md</code>; the <code>CommandLine</code> experiment has a
-      result; all Phase 4 work is committed and tagged <code>v0.4.0</code>.
+      false-positive profile in <span class="nb"><code>INJECTION.md</code>;</span> the <code>CommandLine</code> experiment has a
+      result; all Phase 4 work is committed and tagged <span class="nb"><code>v0.4.0</code>.</span>
     </p>
     <p>
       <strong>Closed in Phase 5:</strong> per-rule true positives and near misses are measured; the Atomic
       results are repeated three times and no longer provisional; the false-positive soak has run; the sensor's
-      cost under load has a figure. Tagged <code>v0.5.0</code>.
+      cost under load has a figure. Tagged <span class="nb"><code>v0.5.0</code>.</span>
     </p>
   </div>
 
@@ -3201,7 +3200,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       <code>dbghelp</code> branch of the credential-dump rule is covered only by its unit test. The 22-second
       scan of Phase 4 is explained by experiment, not confirmed on the VM. And every result describes one
       Windows 10 build on one 2-vCPU VM. The masquerading rule still assumes Windows is installed on
-      <code>C:</code>.
+      <span class="nb"><code>C:</code>.</span>
     </p>
   </div>
 </section>
@@ -3277,8 +3276,8 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         expressible using Image, ParentImage and path.
       </p>
       <p>
-        <strong>b) Read the target's PEB</strong> via <code>NtQueryInformationProcess</code>. It is
-        documented in <code>winternl.h</code>, but Microsoft explicitly marks both the function and
+        <strong>b) Read the target's PEB</strong> via <span class="nb"><code>NtQueryInformationProcess</code>.</span> It is
+        documented in <span class="nb"><code>winternl.h</code>,</span> but Microsoft explicitly marks both the function and
         the <code>PEB</code> layout as subject to change or removal. It is also racy against
         short-lived processes.
       </p>
@@ -3288,7 +3287,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       </p>
       <p>
         Decision: (a) for Phase 3, (b) as a time-boxed Phase 4 experiment. (b) has since been built and
-        kept as an opt-in, <code>--peb-cmdline</code>: it fills the command line of a process a scan alerts
+        kept as an opt-in, <span class="nb"><code>--peb-cmdline</code>:</span> it fills the command line of a process a scan alerts
         on, but the value is self-reported, 32-bit targets are skipped, and rules still cannot use it. See
         <a href="#peb">the PEB experiment</a>. And the part that matters
         most: <strong>a rule referencing an unavailable field is rejected at load time, loudly.</strong>
@@ -3360,7 +3359,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     <summary>Why must the alert and the event share a transaction?</summary>
     <div class="answer">
       <p>
-        Because <code>alerts.event_id</code> is a foreign key into <code>events.id</code>, and that id
+        Because <code>alerts.event_id</code> is a foreign key into <span class="nb"><code>events.id</code>,</span> and that id
         does not exist until the event has been inserted. Writing them in two transactions means a
         failure of the second produces an alert referencing a rolled-back event, or an event whose
         alert was lost.
@@ -3386,7 +3385,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         different suspicious binaries still raises two alerts. The accepted risk is PID reuse: a
         parent that exits and has its pid handed to an unrelated process that triggers the same rule
         against the same path within 60 seconds. Every suppression is counted, so a throttle that is
-        hiding too much would show up in <code>alerts_throttled</code>.
+        hiding too much would show up in <span class="nb"><code>alerts_throttled</code>.</span>
       </p>
     </div>
   </details>
@@ -3487,10 +3486,10 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     <summary>Why invent an event for a memory finding?</summary>
     <div class="answer">
       <p>
-        Because <code>alerts.event_id</code> is <code>NOT NULL</code>, and making it nullable would
+        Because <code>alerts.event_id</code> is <span class="nb"><code>NOT NULL</code>,</span> and making it nullable would
         weaken a guarantee every Phase 3 alert relies on. A <code>MemoryScan</code> row (event type 4)
         is honest about what it is: it names the scanned process and leaves every field that was not
-        observed <code>NULL</code>.
+        observed <span class="nb"><code>NULL</code>.</span>
       </p>
       <p>
         <strong>It also reuses the one path already proven correct:</strong> the event and its alerts
@@ -3507,8 +3506,8 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         It tests the rule against the pattern it claims to match, which is the question a rule test can
         answer. Nine rules are keyed on a parent (a script host, Office, a web server) that an Atomic
         Red Team test cannot supply, because the atomic's own process is always <code>cmd</code> or
-        <code>powershell</code>; and without a command line, several download atomics look exactly like the
-        bare tool starting. A renamed real binary gives the sensor the same <code>Image</code>,
+        <span class="nb"><code>powershell</code>;</span> and without a command line, several download atomics look exactly like the
+        bare tool starting. A renamed real binary gives the sensor the same <span class="nb"><code>Image</code>,</span>
         <code>ParentImage</code> and <code>ImageLoaded</code> a real attack would.
       </p>
       <p>

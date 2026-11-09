@@ -18,8 +18,7 @@
 <link rel="alternate" hreflang="fa" href="https://ret2voidx.github.io/fa/">
 <link rel="alternate" hreflang="x-default" href="https://ret2voidx.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%237C3AED'/%3E%3Ctext x='16' y='20' font-size='10' text-anchor='middle' fill='white' font-family='monospace' font-weight='700'%3Eret%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../assets/css/fonts-fa.css">
 <link rel="stylesheet" href="../assets/css/content-fa.css">
 <link rel="stylesheet" href="../assets/css/site.css">
 </head>
@@ -176,12 +175,12 @@ alerts             0</pre></div>
     <div class="concept">
       <div class="term">Telemetry</div>
       <div class="fa-name">داده‌ی مشاهده‌ای</div>
-      <p>خوراک خام EDR: «پروسس X با PID فلان شروع شد»، «پروسس Y فایل Z.dll را بار کرد». Light EDR سه نوع telemetry دارد: <code>ProcessStart</code>، <code>ProcessStop</code> و <code>ImageLoad</code>.</p>
+      <p>خوراک خام EDR: «پروسس X با PID فلان شروع شد»، «پروسس Y فایل Z.dll را بار کرد». Light EDR سه نوع telemetry دارد: <span class="nb"><code>ProcessStart</code>،</span> <code>ProcessStop</code> و <span class="nb"><code>ImageLoad</code>.</span></p>
     </div>
     <div class="concept">
       <div class="term">LOLBins · Living-off-the-land</div>
       <div class="fa-name">ابزارهای خود ویندوز در دست مهاجم</div>
-      <p>برنامه‌های سالم و امضاشده‌ی خود ویندوز مثل <code>powershell.exe</code>، <code>mshta.exe</code>، <code>rundll32.exe</code>، <code>regsvr32.exe</code> و <code>certutil.exe</code> که مهاجم به‌جای بدافزار از آن‌ها استفاده می‌کند. به همین دلیل تشخیص بر اساس «چه کسی، چه چیزی را، از کجا اجرا کرد» است، نه «این فایل بد است».</p>
+      <p>برنامه‌های سالم و امضاشده‌ی خود ویندوز مثل <span class="nb"><code>powershell.exe</code>،</span> <span class="nb"><code>mshta.exe</code>،</span> <span class="nb"><code>rundll32.exe</code>،</span> <code>regsvr32.exe</code> و <code>certutil.exe</code> که مهاجم به‌جای بدافزار از آن‌ها استفاده می‌کند. به همین دلیل تشخیص بر اساس «چه کسی، چه چیزی را، از کجا اجرا کرد» است، نه «این فایل بد است».</p>
     </div>
     <div class="concept">
       <div class="term">MITRE ATT&amp;CK</div>
@@ -210,7 +209,7 @@ alerts             0</pre></div>
     <div class="concept">
       <div class="term">Image · Image path</div>
       <div class="fa-name">فایل اجرایی پشت پروسس</div>
-      <p>در اصطلاح ویندوز، «image» فایلی است که process از روی آن ساخته شده، مثل <code>C:\Windows\System32\cmd.exe</code>. در قاعده‌ها فیلد <code>Image</code> یعنی مسیر همین فایل، و <code>ParentImage</code> یعنی مسیر فایل والد.</p>
+      <p>در اصطلاح ویندوز، «image» فایلی است که process از روی آن ساخته شده، مثل <span class="nb"><code>C:\Windows\System32\cmd.exe</code>.</span> در قاعده‌ها فیلد <code>Image</code> یعنی مسیر همین فایل، و <code>ParentImage</code> یعنی مسیر فایل والد.</p>
     </div>
     <div class="concept">
       <div class="term">DLL · ImageLoad</div>
@@ -366,7 +365,7 @@ alerts             0</pre></div>
         <tr><td class="mono">rules/</td><td>YAML</td><td>۳</td><td>۱۸ فایل قاعده: ۱۴ روی شروع پروسس، ۴ روی بار شدن DLL</td></tr>
         <tr><td class="mono">tests/</td><td>C++17</td><td>۳ و ۴</td><td>۲۵۰ تست واحد که نه ETW لازم دارند نه Administrator</td></tr>
         <tr><td class="mono">tools/</td><td><bdi>C++</bdi> · cmd · PowerShell</td><td>۳ تا ۵</td><td>ابزار benchmark موتور قاعده، <code>mem_census</code> برای baseline حافظه، اسکریپت‌های اندازه‌گیری فاز ۴، و اجراکننده‌ها و گزارش‌سازهای اعتبارسنجی فاز ۵</td></tr>
-        <tr><td class="mono">gui/</td><td>C# · <bdi>.NET</bdi> 10 · WPF</td><td>کنسول</td><td>LightEDR Console: داشبورد فقط‌خواندنی روی <code>lightedr.db</code>، جدا از build سنسور (با <code>dotnet build</code>)</td></tr>
+        <tr><td class="mono">gui/</td><td>C# · <bdi>.NET</bdi> 10 · WPF</td><td>کنسول</td><td>LightEDR Console: داشبورد فقط‌خواندنی روی <span class="nb"><code>lightedr.db</code>،</span> جدا از build سنسور (با <code>dotnet build</code>)</td></tr>
         <tr><td class="mono">third_party/sqlite/</td><td>C</td><td>۲</td><td>کد منبع کامل SQLite که داخل ریپو گذاشته شده (vendored)</td></tr>
         <tr><td class="mono">docs/Architecture/ · docs/Evaluation/</td><td>Markdown</td><td>همه</td><td>ARCHITECTURE، ROADMAP، DETECTION، INJECTION، PHASE1_PLAN تا PHASE5_PLAN، PROJECT_STRUCTURE؛ و نتایج اعتبارسنجی: RULE_COVERAGE، ATOMIC_COVERAGE، phase5-results</td></tr>
       </tbody>
@@ -442,7 +441,7 @@ alerts             0</pre></div>
     <p>
       لایه‌ی جدید <code>src/injection/</code> هم فقط از core وابسته است. storage و detection هیچ فایلی از
       injection را include نمی‌کنند؛ تنها چیزی که می‌بینند <code>core/scan_result.h</code> است، یعنی شکل
-      درخواست و نتیجه. همان الگوی <code>IEventProcessor</code>: نقطه‌ی اتصال در core است و فقط
+      درخواست و نتیجه. همان الگوی <span class="nb"><code>IEventProcessor</code>:</span> نقطه‌ی اتصال در core است و فقط
       <code>main.cpp</code> اسکنر را به بقیه وصل می‌کند.
     </p>
   </div>
@@ -595,7 +594,7 @@ alerts             0</pre></div>
       <p>
         provider <code>Microsoft-Windows-Kernel-Process</code> یک رویداد با Event ID ۱ (ProcessStart)
         در بافرهای session ما (<code>LightEDR_ETW_Session</code>) می‌نویسد. داخلش فیلدهای
-        <code>ProcessID=7344</code>، <code>ParentProcessID=6120</code>، <code>SessionID</code> و
+        <span class="nb"><code>ProcessID=7344</code>،</span> <span class="nb"><code>ParentProcessID=6120</code>،</span> <code>SessionID</code> و
         <code>ImageName</code> هست، و ImageName به شکل NT است:
         <code>\Device\HarddiskVolume3\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code>.
         کار ما هنوز شروع نشده؛ این را مایکروسافت انجام داده چون ما در شروع برنامه provider را روی
@@ -659,7 +658,7 @@ alerts             0</pre></div>
         <code>PathResolver::Translate</code> در <code>path_resolver.cpp</code> پیشوند
         <code>\Device\HarddiskVolume3</code> را با <code>C:</code> عوض می‌کند. نتیجه در فیلد
         <code>imagePathDos</code> می‌نشیند:
-        <code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code>.
+        <span class="nb"><code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code>.</span>
       </p>
     </li>
     <li>
@@ -688,7 +687,7 @@ alerts             0</pre></div>
         <code>proc_creation_office_spawns_script_host.yml</code> می‌پرسد: آیا ParentImage به
         <code>\winword.exe</code> ختم می‌شود؟ بله. آیا Image به <code>\powershell.exe</code> ختم
         می‌شود؟ بله. شرط <code>condition: selection</code> برقرار است، پس یک <code>Alert</code> ساخته
-        می‌شود: severity بالا، technique برابر <code>T1566.001</code>، و فیلدهایی که تطبیق خوردند. زمان
+        می‌شود: severity بالا، technique برابر <span class="nb"><code>T1566.001</code>،</span> و فیلدهایی که تطبیق خوردند. زمان
         این ارزیابی اندازه گرفته و در یک histogram ثبت می‌شود.
       </p>
     </li>
@@ -842,16 +841,16 @@ alerts             0</pre></div>
         <dt>چه چیزهایی تعریف می‌کند</dt>
         <dd>
           <ul>
-            <li>نام ثابت session: <code>LIGHTEDR_SESSION_NAME = L"LightEDR_ETW_Session"</code>.</li>
+            <li>نام ثابت session: <span class="nb"><code>LIGHTEDR_SESSION_NAME = L"LightEDR_ETW_Session"</code>.</span></li>
             <li>GUID provider: <code>KernelProcessProviderGuid = {22FB2CD6-0E7B-422B-A0C7-2FAD1FD0E716}</code>، یعنی Microsoft-Windows-Kernel-Process.</li>
-            <li>struct <code>EtwSessionContext</code> با دو فیلد: <code>sessionHandle</code> و <code>isActive</code>.</li>
-            <li>سه تابع عمومی: <code>EtwSession_Init</code> (صفر کردن context)، <code>EtwSession_Start</code> و <code>EtwSession_Stop</code>.</li>
+            <li>struct <code>EtwSessionContext</code> با دو فیلد: <code>sessionHandle</code> و <span class="nb"><code>isActive</code>.</span></li>
+            <li>سه تابع عمومی: <code>EtwSession_Init</code> (صفر کردن context)، <code>EtwSession_Start</code> و <span class="nb"><code>EtwSession_Stop</code>.</span></li>
           </ul>
         </dd>
         <dt><code>EtwSession_Start</code> قدم به قدم</dt>
         <dd>
           <ol>
-            <li><strong>ساخت بافر تنظیمات.</strong> <code>EVENT_TRACE_PROPERTIES</code> یک struct با طول متغیر است: نام session در همان بافر و بلافاصله بعد از struct می‌آید و فیلد <code>LoggerNameOffset</code> می‌گوید از کدام بایت شروع می‌شود. تابع کمکی <code>AllocateSessionProperties</code> به اندازه‌ی struct به‌اضافه‌ی نام جا می‌گیرد و این تنظیمات را می‌گذارد: <code>WNODE_FLAG_TRACED_GUID</code>، <code>ClientContext = 1</code> (ساعت QPC، یعنی Query Performance Counter با دقت بالا)، و <code>LogFileMode = EVENT_TRACE_REAL_TIME_MODE</code> (رویدادها زنده تحویل داده می‌شوند و هیچ فایل <bdi>.etl</bdi> نوشته نمی‌شود).</li>
+            <li><strong>ساخت بافر تنظیمات.</strong> <code>EVENT_TRACE_PROPERTIES</code> یک struct با طول متغیر است: نام session در همان بافر و بلافاصله بعد از struct می‌آید و فیلد <code>LoggerNameOffset</code> می‌گوید از کدام بایت شروع می‌شود. تابع کمکی <code>AllocateSessionProperties</code> به اندازه‌ی struct به‌اضافه‌ی نام جا می‌گیرد و این تنظیمات را می‌گذارد: <span class="nb"><code>WNODE_FLAG_TRACED_GUID</code>،</span> <code>ClientContext = 1</code> (ساعت QPC، یعنی Query Performance Counter با دقت بالا)، و <code>LogFileMode = EVENT_TRACE_REAL_TIME_MODE</code> (رویدادها زنده تحویل داده می‌شوند و هیچ فایل <bdi>.etl</bdi> نوشته نمی‌شود).</li>
             <li><strong>پاک کردن session یتیم.</strong> اگر اجرای قبلی crash کرده باشد، session آن هنوز در kernel زنده است، چون session به عمر برنامه بسته نیست. پس اول با <code>ControlTraceW(..., EVENT_TRACE_CONTROL_STOP)</code> هر session هم‌نامی را متوقف می‌کند. خطای <code>ERROR_WMI_INSTANCE_NOT_FOUND</code> یعنی «چنین sessionی نبود» و حالت عادی است.</li>
             <li><strong>ساخت session.</strong> بافر را دوباره صفر و پر می‌کند (چون ControlTraceW ممکن است دستکاری‌اش کرده باشد) و <code>StartTraceW</code> را صدا می‌زند که handle برمی‌گرداند.</li>
             <li><strong>علامت‌گذاری قبل از قدم بعد.</strong> <code>isActive = TRUE</code> را <em>قبل</em> از روشن کردن provider می‌گذارد، تا اگر قدم بعد شکست خورد، <code>EtwSession_Stop</code> واقعاً session را پاک کند و زود برنگردد.</li>
@@ -861,7 +860,7 @@ alerts             0</pre></div>
         <dt>نکته‌های ظریف</dt>
         <dd>
           <ul>
-            <li><strong>MatchAnyKeyword = 0.</strong> طبق مستندات <code>EnableTraceEx2</code>، برای providerهای مدرن (manifest-based) مقدار صفر یعنی «همه‌ی keywordها». پس thread start/stop و image unload هم می‌رسند و parser آن‌ها را دور می‌ریزد. این یکی از دلایلی است که بیشتر رویدادهای رسیده در parse رد می‌شوند.</li>
+            <li><strong>MatchAnyKeyword = 0.</strong> طبق مستندات <span class="nb"><code>EnableTraceEx2</code>،</span> برای providerهای مدرن (manifest-based) مقدار صفر یعنی «همه‌ی keywordها». پس thread start/stop و image unload هم می‌رسند و parser آن‌ها را دور می‌ریزد. این یکی از دلایلی است که بیشتر رویدادهای رسیده در parse رد می‌شوند.</li>
             <li><strong>نام را دستی کپی نمی‌کند.</strong> طبق مستندات، خود <code>StartTraceW</code> نام را در جایی که <code>LoggerNameOffset</code> نشان می‌دهد کپی می‌کند. نسخه‌ی اولیه این کار را دستی هم انجام می‌داد؛ در code review مشخص شد کار اضافه است. این ماجرا ریشه‌ی قانون پروژه شد: هر ادعایی درباره‌ی API ویندوز اول با مستندات مایکروسافت چک می‌شود.</li>
             <li><strong>دسترسی.</strong> <code>StartTraceW</code> فقط برای Administrator، گروه Performance Log Users و سرویس‌های سیستمی کار می‌کند. پیام خطای main در این حالت می‌پرسد «Are you running as Administrator?».</li>
           </ul>
@@ -880,9 +879,9 @@ alerts             0</pre></div>
         <dt>توابع</dt>
         <dd>
           <ul>
-            <li><code>EtwConsumer_Open</code>: یک <code>EVENT_TRACE_LOGFILEW</code> می‌سازد با <code>LoggerName</code> برابر نام session، <code>ProcessTraceMode = PROCESS_TRACE_MODE_REAL_TIME | PROCESS_TRACE_MODE_EVENT_RECORD</code> (زنده، و در فرمت جدید <code>EVENT_RECORD</code>)، <code>EventRecordCallback</code> برابر تابع داخلی، و <code>Context</code> برابر اشاره‌گر به context خودش. بعد <code>OpenTraceW</code> را صدا می‌زند.</li>
-            <li><code>EtwConsumer_Run</code>: <code>ProcessTrace</code> را صدا می‌زند. این تابع <strong>blocking</strong> است: تا وقتی session متوقف نشود برنمی‌گردد، و در این مدت برای هر رویداد callback را صدا می‌زند. بازگشت با <code>ERROR_CANCELLED</code> عادی است.</li>
-            <li><code>EtwConsumer_Close</code>: <code>CloseTrace</code> روی handle.</li>
+            <li><span class="nb"><code>EtwConsumer_Open</code>:</span> یک <code>EVENT_TRACE_LOGFILEW</code> می‌سازد با <code>LoggerName</code> برابر نام session، <code>ProcessTraceMode = PROCESS_TRACE_MODE_REAL_TIME | PROCESS_TRACE_MODE_EVENT_RECORD</code> (زنده، و در فرمت جدید <code>EVENT_RECORD</code>)، <code>EventRecordCallback</code> برابر تابع داخلی، و <code>Context</code> برابر اشاره‌گر به context خودش. بعد <code>OpenTraceW</code> را صدا می‌زند.</li>
+            <li><span class="nb"><code>EtwConsumer_Run</code>:</span> <code>ProcessTrace</code> را صدا می‌زند. این تابع <strong>blocking</strong> است: تا وقتی session متوقف نشود برنمی‌گردد، و در این مدت برای هر رویداد callback را صدا می‌زند. بازگشت با <code>ERROR_CANCELLED</code> عادی است.</li>
+            <li><span class="nb"><code>EtwConsumer_Close</code>:</span> <code>CloseTrace</code> روی handle.</li>
           </ul>
         </dd>
         <dt>ترفند trampoline</dt>
@@ -899,7 +898,7 @@ alerts             0</pre></div>
           اشتباه باشد stack خراب می‌شود.
         </dd>
       </dl>
-      <div class="ask"><b>سؤال رایج: «پس چرا main.cpp هنوز متغیر سراسری دارد؟»</b> callback سطح بالا (<code>OnEventReceived</code>) امضای ثابتی دارد و اشاره‌گر context کاربر را نمی‌گیرد، پس صف و فیلتر از طریق <code>g_queue</code> و <code>g_filter</code> در دسترس‌اند. این در کد به‌عنوان کار بعدی ثبت شده: اضافه کردن یک <code>void* userContext</code> به <code>EtwConsumerContext</code>. این یک بدهی فنی کوچک است و دلیل ماندنش این بوده که تغییرش لایه‌ی C را دست می‌زد.</div>
+      <div class="ask"><b>سؤال رایج: «پس چرا main.cpp هنوز متغیر سراسری دارد؟»</b> callback سطح بالا (<code>OnEventReceived</code>) امضای ثابتی دارد و اشاره‌گر context کاربر را نمی‌گیرد، پس صف و فیلتر از طریق <code>g_queue</code> و <code>g_filter</code> در دسترس‌اند. این در کد به‌عنوان کار بعدی ثبت شده: اضافه کردن یک <code>void* userContext</code> به <span class="nb"><code>EtwConsumerContext</code>.</span> این یک بدهی فنی کوچک است و دلیل ماندنش این بوده که تغییرش لایه‌ی C را دست می‌زد.</div>
     </div>
   </div>
 
@@ -911,21 +910,21 @@ alerts             0</pre></div>
       <dl>
         <dt><code>ParsedEvent</code> چیست</dt>
         <dd>
-          یک struct ساده (POD) با <code>type</code>، <code>processId</code>،
-          <code>parentProcessId</code>، <code>sessionId</code>، <code>timestamp</code>، آرایه‌ی ثابت
-          <code>imageName[512]</code> و سه flag <code>hasParentProcessId</code>،
-          <code>hasSessionId</code>، <code>hasImageName</code>. هیچ اشاره‌گر و هیچ حافظه‌ی پویایی ندارد.
+          یک struct ساده (POD) با <span class="nb"><code>type</code>،</span> <span class="nb"><code>processId</code>،</span>
+          <span class="nb"><code>parentProcessId</code>،</span> <span class="nb"><code>sessionId</code>،</span> <span class="nb"><code>timestamp</code>،</span> آرایه‌ی ثابت
+          <code>imageName[512]</code> و سه flag <span class="nb"><code>hasParentProcessId</code>،</span>
+          <span class="nb"><code>hasSessionId</code>،</span> <span class="nb"><code>hasImageName</code>.</span> هیچ اشاره‌گر و هیچ حافظه‌ی پویایی ندارد.
           enum خود پروژه (<code>LightEdrEventType</code>) عمداً از Event IDهای خام ETW جداست، تا اگر روزی
           provider دیگری اضافه شد فقط همین فایل عوض شود.
         </dd>
         <dt><code>EventParser_Parse</code> قدم به قدم</dt>
         <dd>
           <ol>
-            <li>اگر GUID provider با Kernel-Process یکی نیست، <code>FALSE</code>.</li>
+            <li>اگر GUID provider با Kernel-Process یکی نیست، <span class="nb"><code>FALSE</code>.</span></li>
             <li><code>timestamp</code> را از header برمی‌دارد. چون consumer فلگ <code>PROCESS_TRACE_MODE_RAW_TIMESTAMP</code> را نگذاشته، <code>ProcessTrace</code> طبق مستندات خودش زمان را به FILETIME تبدیل کرده.</li>
-            <li>Event ID: ۱ یعنی ProcessStart، ۲ یعنی ProcessStop، ۵ یعنی ImageLoad. هر چیز دیگری (۳ و ۴ برای thread، ۶ برای image unload) <code>FALSE</code>. این <em>خطا نیست</em>، حالت معمول است.</li>
+            <li>Event ID: ۱ یعنی ProcessStart، ۲ یعنی ProcessStop، ۵ یعنی ImageLoad. هر چیز دیگری (۳ و ۴ برای thread، ۶ برای image unload) <span class="nb"><code>FALSE</code>.</span> این <em>خطا نیست</em>، حالت معمول است.</li>
             <li><code>ProcessID</code> اجباری است؛ اگر خوانده نشد رویداد خراب است.</li>
-            <li><code>ParentProcessID</code>، <code>SessionID</code> و <code>ImageName</code> اختیاری‌اند؛ اگر نبودند فقط flagشان <code>FALSE</code> می‌شود.</li>
+            <li><span class="nb"><code>ParentProcessID</code>،</span> <code>SessionID</code> و <code>ImageName</code> اختیاری‌اند؛ اگر نبودند فقط flagشان <code>FALSE</code> می‌شود.</li>
           </ol>
         </dd>
         <dt>الگوی دو مرحله‌ای TDH</dt>
@@ -960,7 +959,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         </p>
         <p>
           راه‌حل: از TDH پرسیده می‌شود هر فیلد چه نوعی (<code>InType</code>) اعلام شده، با
-          <code>TdhGetEventInformation</code>؛ اگر <code>TDH_INTYPE_ANSISTRING</code> بود، با
+          <span class="nb"><code>TdhGetEventInformation</code>؛</span> اگر <code>TDH_INTYPE_ANSISTRING</code> بود، با
           <code>MultiByteToWideChar(CP_ACP, ...)</code> تبدیل می‌شود. این سؤال گران است، پس جوابش
           <strong>برای هر Event ID فقط یک بار</strong> پرسیده و در دو آرایه‌ی static کش می‌شود. عمداً
           «رویداد ۲ ANSI است» hard-code نشده، چون manifestها بین نسخه‌های ویندوز فرق می‌کنند.
@@ -972,7 +971,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
           ابزار عیب‌یابی: نام همه‌ی فیلدهایی را که manifest <em>همین سیستم</em> برای یک رویداد اعلام
           کرده چاپ می‌کند. وجودش به همین دلیل است که نام فیلدها ممکن است بین نسخه‌های ویندوز فرق کند؛
           به‌جای حدس زدن، می‌پرسی. در <code>TRACE_EVENT_INFO</code> رشته‌ها اشاره‌گر نیستند؛ offset
-          بایتی‌اند داخل همان حافظه (<code>NameOffset</code>)، همان الگوی <code>LoggerNameOffset</code>.
+          بایتی‌اند داخل همان حافظه (<code>NameOffset</code>)، همان الگوی <span class="nb"><code>LoggerNameOffset</code>.</span>
         </dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «کش static در محیط چند thread امن است؟»</b> فقط thread مصرف‌کننده به parser می‌رسد، پس بله. کامنت کد صریحاً می‌گوید اگر روزی consumer دوم اضافه شد، این باید بازبینی شود.</div>
@@ -998,17 +997,17 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       <dl>
         <dt>فیلدها</dt>
         <dd>
-          <code>type</code> (یک <code>enum class EventType</code>: Unknown، ProcessStart، ProcessStop،
-          ImageLoad)، <code>processId</code>، <code>parentProcessId</code>، <code>sessionId</code>،
+          <code>type</code> (یک <span class="nb"><code>enum class EventType</code>:</span> Unknown، ProcessStart، ProcessStop،
+          ImageLoad)، <span class="nb"><code>processId</code>،</span> <span class="nb"><code>parentProcessId</code>،</span> <span class="nb"><code>sessionId</code>،</span>
           <code>timestamp</code> (FILETIME)، <code>imageName</code> (مسیر NT دقیقاً همان‌طور که kernel
-          گفت؛ عمداً دست‌نخورده، چون سند جرم‌شناسی است)، و flagهای <code>has*</code>.
+          گفت؛ عمداً دست‌نخورده، چون سند جرم‌شناسی است)، و flagهای <span class="nb"><code>has*</code>.</span>
         </dd>
         <dt>فیلدهایی که فاز ۳ اضافه کرد (غنی‌سازی)</dt>
         <dd>
           <ul>
-            <li><code>imagePathDos</code>: همان مسیر به شکل <code>C:\...</code>.</li>
-            <li><code>parentImageName</code>: مسیر فایل والد، از جدول پروسس‌ها.</li>
-            <li><code>processImageName</code>: فقط برای ImageLoad؛ برنامه‌ای که DLL را بار کرده.</li>
+            <li><span class="nb"><code>imagePathDos</code>:</span> همان مسیر به شکل <span class="nb"><code>C:\...</code>.</span></li>
+            <li><span class="nb"><code>parentImageName</code>:</span> مسیر فایل والد، از جدول پروسس‌ها.</li>
+            <li><span class="nb"><code>processImageName</code>:</span> فقط برای ImageLoad؛ برنامه‌ای که DLL را بار کرده.</li>
           </ul>
           این‌ها را لایه‌ی telemetry پر نمی‌کند؛ روی thread نویسنده پر می‌شوند چون ترجمه و جستجو نباید
           در callback انجام شوند. خالی بودنشان یعنی «پیدا نشد»، و این خودش یک واقعیت است؛ هیچ حدسی
@@ -1017,7 +1016,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt><code>BestImagePath()</code></dt>
         <dd>اگر مسیر ترجمه‌شده هست آن را برمی‌گرداند، وگرنه مسیر خام NT را. همه‌جا (قاعده، لاگ، دیتابیس) از همین استفاده می‌شود.</dd>
         <dt><code>FromParsed</code></dt>
-        <dd>یک تابع static به‌جای constructor، تا محل فراخوانی صریح خوانده شود: <code>NormalizedEvent::FromParsed(raw)</code>. رشته فقط وقتی کپی می‌شود که <code>hasImageName</code> درست باشد، چون ساختن <code>std::wstring</code> از بافر مقداردهی‌نشده رفتار تعریف‌نشده است.</dd>
+        <dd>یک تابع static به‌جای constructor، تا محل فراخوانی صریح خوانده شود: <span class="nb"><code>NormalizedEvent::FromParsed(raw)</code>.</span> رشته فقط وقتی کپی می‌شود که <code>hasImageName</code> درست باشد، چون ساختن <code>std::wstring</code> از بافر مقداردهی‌نشده رفتار تعریف‌نشده است.</dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «چرا هم C هم <bdi>C++</bdi>؟ ناهماهنگ نیست؟»</b> مرز دقیقاً روی همین تبدیل است و سلیقه‌ای نیست. APIهای ETW و TDH به زبان C هستند، callback روی مسیر حساس به تأخیر است که بهتر است در آن حافظه‌ی پویا گرفته نشود، و یک struct ساده که از مرز رد می‌شود یعنی هیچ طرف لازم نیست مدل حافظه‌ی طرف دیگر را بفهمد: parser به زبان C هیچ حافظه‌ای نمی‌گیرد که <bdi>C++</bdi> مجبور به آزاد کردنش باشد. بالای مرز، RAII کار واقعی می‌کند: اتصال دیتابیس، prepared statementها، thread نویسنده و صف همه توسط destructor آزاد می‌شوند. header فایل C با بلوک <code>extern "C"</code> داخل <code>#ifdef __cplusplus</code> محافظت شده تا از <bdi>C++</bdi> هم قابل include باشد.</div>
     </div>
@@ -1027,12 +1026,12 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <div class="file" id="f-logger">
     <div class="fhead"><span class="fname">src/core/logger.h · logger.cpp</span><span class="tag p1">PHASE 1</span><span class="tag p2">+ PHASE 2</span><span class="tag">C++17</span></div>
     <div class="fbody">
-      <p>یک لاگر کوچک برای دیدن وضعیت در زمان توسعه، با چهار سطح <code>Debug</code>، <code>Info</code>، <code>Warn</code>، <code>Error</code> و پیشوندهای <code>[DBG]</code>، <code>[+]</code>، <code>[!]</code>، <code>[-]</code>.</p>
+      <p>یک لاگر کوچک برای دیدن وضعیت در زمان توسعه، با چهار سطح <span class="nb"><code>Debug</code>،</span> <span class="nb"><code>Info</code>،</span> <span class="nb"><code>Warn</code>،</span> <code>Error</code> و پیشوندهای <span class="nb"><code>[DBG]</code>،</span> <span class="nb"><code>[+]</code>،</span> <span class="nb"><code>[!]</code>،</span> <span class="nb"><code>[-]</code>.</span></p>
       <dl>
         <dt>جزئیات</dt>
         <dd>
           <ul>
-            <li>Warn و Error به <code>wcerr</code> می‌روند، بقیه به <code>wcout</code>.</li>
+            <li>Warn و Error به <code>wcerr</code> می‌روند، بقیه به <span class="nb"><code>wcout</code>.</span></li>
             <li><code>FormatTimestamp</code> یک FILETIME را به ساعت محلی با فرمت <code>YYYY-MM-DD HH:MM:SS.mmm</code> تبدیل می‌کند.</li>
             <li><code>LogEvent</code> یک رویداد را در یک خط چاپ می‌کند و مسیر ترجمه‌شده را ترجیح می‌دهد.</li>
             <li>از فاز ۲ سه thread می‌توانند لاگ بنویسند، پس <code>Write</code> یک <code>std::mutex</code> با <code>lock_guard</code> دارد تا خط‌ها وسط هم قاطی نشوند. سطح حداقل (<code>g_minLevel</code>) هم <code>std::atomic</code> است.</li>
@@ -1075,7 +1074,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       <p>صف بین thread مصرف‌کننده (تولیدکننده‌ی صف) و thread نویسنده (مصرف‌کننده‌ی صف). یک تولیدکننده و یک مصرف‌کننده، محدود به ظرفیت پیش‌فرض ۸۱۹۲.</p>
       <dl>
         <dt>اجزا</dt>
-        <dd>یک <code>std::deque</code> برای نگه داشتن رویدادها، یک <code>std::mutex</code> برای محافظتش، یک <code>std::condition_variable</code> برای بیدار کردن نویسنده، و شمارنده‌های atomic: <code>pushed_</code>، <code>dropped_</code> و <code>peakSize_</code> (بیشترین عمقی که صف در کل اجرا به آن رسید).</dd>
+        <dd>یک <code>std::deque</code> برای نگه داشتن رویدادها، یک <code>std::mutex</code> برای محافظتش، یک <code>std::condition_variable</code> برای بیدار کردن نویسنده، و شمارنده‌های atomic: <span class="nb"><code>pushed_</code>،</span> <code>dropped_</code> و <code>peakSize_</code> (بیشترین عمقی که صف در کل اجرا به آن رسید).</dd>
         <dt><code>TryPush</code> (روی thread مصرف‌کننده)</dt>
         <dd>
           <strong>هرگز block نمی‌شود.</strong> اگر صف پر است، رویداد <em>جدید</em> را دور می‌ریزد،
@@ -1201,14 +1200,14 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt>قانون اصلی</dt>
         <dd>
           <strong>فقط ImageLoad فیلتر می‌شود. ProcessStart و ProcessStop هرگز.</strong> اگر کسی بگوید
-          «هرچه از System32 است را نادیده بگیر»، سنسور را کور کرده: <code>powershell.exe</code>،
-          <code>rundll32.exe</code>، <code>mshta.exe</code>، <code>regsvr32.exe</code> و
+          «هرچه از System32 است را نادیده بگیر»، سنسور را کور کرده: <span class="nb"><code>powershell.exe</code>،</span>
+          <span class="nb"><code>rundll32.exe</code>،</span> <span class="nb"><code>mshta.exe</code>،</span> <code>regsvr32.exe</code> و
           <code>wmic.exe</code> همه در System32 هستند و رایج‌ترین تکنیک اجرا در ATT&amp;CK همین‌هاست.
         </dd>
         <dt>suppress-list</dt>
         <dd>
-          سه تکه‌مسیر: <code>\windows\system32\</code>، <code>\windows\syswow64\</code> و
-          <code>\windows\winsxs\</code>. روی مسیر NT کوچک‌شده (lowercase) جستجو می‌شوند، چون در این مرحله
+          سه تکه‌مسیر: <span class="nb"><code>\windows\system32\</code>،</span> <code>\windows\syswow64\</code> و
+          <span class="nb"><code>\windows\winsxs\</code>.</span> روی مسیر NT کوچک‌شده (lowercase) جستجو می‌شوند، چون در این مرحله
           هنوز ترجمه به <code>C:\</code> انجام نشده. فهرست عمداً کوتاه است: هر خانه‌ی اضافه نقطه‌ی کور را
           بزرگ‌تر می‌کند.
         </dd>
@@ -1252,8 +1251,8 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt>توابع</dt>
         <dd>
           <ul>
-            <li><code>ToUtf8</code> و <code>FromUtf8</code> با الگوی دو مرحله‌ای <code>WideCharToMultiByte</code> / <code>MultiByteToWideChar</code> (اول اندازه، بعد تبدیل). طول رشته صریح داده می‌شود نه <code>-1</code>، وگرنه null پایانی هم جزو خروجی می‌شد و یک رشته با NUL وسطش در SQLite ذخیره می‌شد. فلگ <code>WC_ERR_INVALID_CHARS</code> عمداً گذاشته نشده تا یک surrogate تنها کل رشته را خراب نکند.</li>
-            <li><code>ToLowerAscii</code>: فقط حروف A تا Z را کوچک می‌کند. عمداً ASCII است، چون فقط برای مقایسه‌ی مسیرها استفاده می‌شود؛ برای case-folding کامل یونیکد، API درست <code>CompareStringOrdinal</code> است.</li>
+            <li><code>ToUtf8</code> و <code>FromUtf8</code> با الگوی دو مرحله‌ای <code>WideCharToMultiByte</code> / <code>MultiByteToWideChar</code> (اول اندازه، بعد تبدیل). طول رشته صریح داده می‌شود نه <span class="nb"><code>-1</code>،</span> وگرنه null پایانی هم جزو خروجی می‌شد و یک رشته با NUL وسطش در SQLite ذخیره می‌شد. فلگ <code>WC_ERR_INVALID_CHARS</code> عمداً گذاشته نشده تا یک surrogate تنها کل رشته را خراب نکند.</li>
+            <li><span class="nb"><code>ToLowerAscii</code>:</span> فقط حروف A تا Z را کوچک می‌کند. عمداً ASCII است، چون فقط برای مقایسه‌ی مسیرها استفاده می‌شود؛ برای case-folding کامل یونیکد، API درست <code>CompareStringOrdinal</code> است.</li>
           </ul>
         </dd>
       </dl>
@@ -1270,8 +1269,8 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt><code>EtwStats_Query</code></dt>
         <dd>
           <code>ControlTraceW(0, sessionName, props, EVENT_TRACE_CONTROL_QUERY)</code> را صدا می‌زند و
-          سه عدد برمی‌گرداند: <code>EventsLost</code>، <code>RealTimeBuffersLost</code> و
-          <code>BuffersWritten</code>. بافر روی stack است و اول کامل صفر می‌شود، چون ControlTraceW
+          سه عدد برمی‌گرداند: <span class="nb"><code>EventsLost</code>،</span> <code>RealTimeBuffersLost</code> و
+          <span class="nb"><code>BuffersWritten</code>.</span> بافر روی stack است و اول کامل صفر می‌شود، چون ControlTraceW
           فیلدهایی را هم می‌خواند که ما پر نمی‌کنیم. جای <em>دو</em> رشته (نام session و نام فایل لاگ)
           رزرو می‌شود، چون مستندات <code>EVENT_TRACE_PROPERTIES</code> این را حتی وقتی فقط یکی استفاده
           می‌شود می‌خواهد.
@@ -1312,7 +1311,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <table>
           <thead><tr><th class="mono">Column</th><th>معنی</th></tr></thead>
           <tbody>
-            <tr><td class="mono">id</td><td><code>INTEGER PRIMARY KEY</code>، که در SQLite همان rowid داخلی است و هیچ B-tree اضافه‌ای نمی‌سازد.</td></tr>
+            <tr><td class="mono">id</td><td><span class="nb"><code>INTEGER PRIMARY KEY</code>،</span> که در SQLite همان rowid داخلی است و هیچ B-tree اضافه‌ای نمی‌سازد.</td></tr>
             <tr><td class="mono">ts_filetime</td><td>زمان به FILETIME خام: بدون اتلاف، قابل مرتب‌سازی، ۸ بایت.</td></tr>
             <tr><td class="mono">event_type</td><td>۱ = ProcessStart، ۲ = ProcessStop، ۳ = ImageLoad.</td></tr>
             <tr><td class="mono">pid · ppid · session_id</td><td>ppid و session_id وقتی provider نداده باشد <code>NULL</code> هستند، نه صفر. «دیده نشد» و «PID والد صفر است» دو واقعیت متفاوت‌اند.</td></tr>
@@ -1327,8 +1326,8 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       <h4>جدول alerts: یک ردیف برای هر تطبیق قاعده</h4>
       <p>
         <code>event_id</code> (کلید خارجی به <code>events.id</code> با <code>ON DELETE CASCADE</code>)،
-        <code>rule_id</code>، <code>rule_title</code>، <code>severity</code> (عدد ۰ تا ۴ تا «بالا و
-        بالاتر» یک query بازه‌ای باشد)، <code>mitre_technique</code>، <code>raised_at</code>، و در v2:
+        <span class="nb"><code>rule_id</code>،</span> <span class="nb"><code>rule_title</code>،</span> <code>severity</code> (عدد ۰ تا ۴ تا «بالا و
+        بالاتر» یک query بازه‌ای باشد)، <span class="nb"><code>mitre_technique</code>،</span> <span class="nb"><code>raised_at</code>،</span> و در v2:
         <code>matched_fields</code> (چه چیزی دقیقاً تطبیق خورد) و <code>rule_level</code> (همان املای
         فایل قاعده، چون مقداری که از enum رد شده و برگشته دیگر سند حرف قاعده نیست).
       </p>
@@ -1351,7 +1350,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         </table>
       </div>
       <pre>events_seen = events_suppressed + events_stored + events_dropped</pre>
-      <p>این اتحاد در هر اجرا باید برقرار باشد (مگر دسته‌ای در commit شکست خورده باشد، که جداگانه شمرده و لاگ می‌شود). در اجرای تأییدشده‌ی فاز ۲: <code>1763 = 1634 + 129 + 0</code>.</p>
+      <p>این اتحاد در هر اجرا باید برقرار باشد (مگر دسته‌ای در commit شکست خورده باشد، که جداگانه شمرده و لاگ می‌شود). در اجرای تأییدشده‌ی فاز ۲: <span class="nb"><code>1763 = 1634 + 129 + 0</code>.</span></p>
     </div>
   </div>
 
@@ -1362,7 +1361,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
       <p>مالک اتصال SQLite و prepared statementها. فقط یک thread (نویسنده) از آن استفاده می‌کند. struct <code>SessionStats</code> هم اینجا تعریف شده.</p>
       <dl>
         <dt><code>Open</code></dt>
-        <dd>با <code>sqlite3_open_v2</code> (مسیر به UTF-8) فایل را باز یا ایجاد می‌کند، بعد به ترتیب <code>ApplyPragmas</code>، <code>ApplySchema</code> و <code>PrepareStatements</code>. اگر هرکدام شکست بخورد، همه بسته می‌شود.</dd>
+        <dd>با <code>sqlite3_open_v2</code> (مسیر به UTF-8) فایل را باز یا ایجاد می‌کند، بعد به ترتیب <span class="nb"><code>ApplyPragmas</code>،</span> <code>ApplySchema</code> و <span class="nb"><code>PrepareStatements</code>.</span> اگر هرکدام شکست بخورد، همه بسته می‌شود.</dd>
         <dt><code>ApplyPragmas</code></dt>
         <dd>
           <div class="tw">
@@ -1393,13 +1392,13 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         </dd>
         <dt>Prepared statements</dt>
         <dd>سه دستور (درج رویداد، درج هشدار، درج آمار) یک بار در شروع آماده می‌شوند و برای هر ردیف دوباره استفاده می‌شوند. آماده کردن دوباره برای هر درج یعنی هزاران بار parse و برنامه‌ریزی SQL در دقیقه.</dd>
-        <dt><code>CommitBatch</code>: قلب این فایل</dt>
+        <dt><span class="nb"><code>CommitBatch</code>:</span> قلب این فایل</dt>
         <dd>
           <ol>
-            <li><code>BEGIN IMMEDIATE</code>: قفل نوشتن را همان اول می‌گیرد. transaction پیش‌فرض (deferred) قفل را در اولین نوشتن می‌گیرد و می‌تواند وسط دسته با <code>SQLITE_BUSY</code> شکست بخورد.</li>
-            <li>برای هر رویداد: reset، bind کردن مقادیر، <code>sqlite3_step</code>، و ذخیره‌ی <code>sqlite3_last_insert_rowid</code> در یک آرایه به ترتیب دسته.</li>
+            <li><span class="nb"><code>BEGIN IMMEDIATE</code>:</span> قفل نوشتن را همان اول می‌گیرد. transaction پیش‌فرض (deferred) قفل را در اولین نوشتن می‌گیرد و می‌تواند وسط دسته با <code>SQLITE_BUSY</code> شکست بخورد.</li>
+            <li>برای هر رویداد: reset، bind کردن مقادیر، <span class="nb"><code>sqlite3_step</code>،</span> و ذخیره‌ی <code>sqlite3_last_insert_rowid</code> در یک آرایه به ترتیب دسته.</li>
             <li>برای هر هشدار: <code>batchIndex</code> هشدار را به rowid رویدادش ترجمه می‌کند. اگر index خارج از محدوده باشد، باگ موتور است و کل transaction rollback می‌شود تا دیده شود.</li>
-            <li><code>COMMIT</code>. هر شکستی در مسیر: <code>ROLLBACK</code> و <code>false</code>.</li>
+            <li><span class="nb"><code>COMMIT</code>.</span> هر شکستی در مسیر: <code>ROLLBACK</code> و <span class="nb"><code>false</code>.</span></li>
           </ol>
         </dd>
         <dt>تله‌ی کلاسیک SQLite</dt>
@@ -1407,10 +1406,10 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
         <dt>بقیه</dt>
         <dd>
           <ul>
-            <li><code>PurgeOlderThan</code>: رویدادهای قدیمی‌تر از یک زمان را پاک می‌کند (سنسور با ۷ روز صدایش می‌زند) و هشدارهایشان از طریق CASCADE پاک می‌شوند. فایل کوچک نمی‌شود چون صفحه‌ها به freelist برمی‌گردند؛ <code>VACUUM</code> کل فایل را بازنویسی می‌کند و برای اجرای خودکار خیلی گران است.</li>
-            <li><code>RecordSessionStats</code>: با <code>INSERT OR REPLACE</code> ردیف آمار اجرا را می‌نویسد (۱۹ ستون).</li>
-            <li><code>Optimize</code>: <code>PRAGMA optimize</code> قبل از خاموش شدن، برای آمار برنامه‌ریز query.</li>
-            <li><code>Close</code>: اول همه‌ی statementها finalize، بعد <code>sqlite3_close</code>؛ وگرنه close با <code>SQLITE_BUSY</code> شکست می‌خورد.</li>
+            <li><span class="nb"><code>PurgeOlderThan</code>:</span> رویدادهای قدیمی‌تر از یک زمان را پاک می‌کند (سنسور با ۷ روز صدایش می‌زند) و هشدارهایشان از طریق CASCADE پاک می‌شوند. فایل کوچک نمی‌شود چون صفحه‌ها به freelist برمی‌گردند؛ <code>VACUUM</code> کل فایل را بازنویسی می‌کند و برای اجرای خودکار خیلی گران است.</li>
+            <li><span class="nb"><code>RecordSessionStats</code>:</span> با <code>INSERT OR REPLACE</code> ردیف آمار اجرا را می‌نویسد (۱۹ ستون).</li>
+            <li><span class="nb"><code>Optimize</code>:</span> <code>PRAGMA optimize</code> قبل از خاموش شدن، برای آمار برنامه‌ریز query.</li>
+            <li><span class="nb"><code>Close</code>:</span> اول همه‌ی statementها finalize، بعد <span class="nb"><code>sqlite3_close</code>؛</span> وگرنه close با <code>SQLITE_BUSY</code> شکست می‌خورد.</li>
           </ul>
         </dd>
       </dl>
@@ -1639,7 +1638,7 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
     <table>
       <thead><tr><th>هفته</th><th>چه ساخته شد</th><th>چطور تأیید شد</th></tr></thead>
       <tbody>
-        <tr><td class="num">1</td><td>لوله‌کشی: ترجمه‌ی مسیر، جدول پروسس‌ها، <code>Alert</code>، interface بین storage و detection، schema نسخه‌ی ۲، سه قاعده‌ی <em>hard-coded</em> به زبان <bdi>C++</bdi>، تست‌ها بدون نیاز به admin</td><td>اجرای زنده: هشدار با کلید خارجی درست به دیتابیس رسید؛ ParentImage برای ۳۶ از ۳۶ ProcessStart پیدا شد</td></tr>
+        <tr><td class="num">1</td><td>لوله‌کشی: ترجمه‌ی مسیر، جدول پروسس‌ها، <span class="nb"><code>Alert</code>،</span> interface بین storage و detection، schema نسخه‌ی ۲، سه قاعده‌ی <em>hard-coded</em> به زبان <bdi>C++</bdi>، تست‌ها بدون نیاز به admin</td><td>اجرای زنده: هشدار با کلید خارجی درست به دیتابیس رسید؛ ParentImage برای ۳۶ از ۳۶ ProcessStart پیدا شد</td></tr>
         <tr><td class="num">2</td><td>خواننده‌ی YAML اختصاصی با زیرمجموعه‌ی مستند</td><td>۲۸ تست، ۱۵تایش ورودی خراب؛ fallback به yaml-cpp لازم نشد</td></tr>
         <tr><td class="num">3</td><td>مدل قاعده، گرامر condition، loader سخت‌گیر، موتور داده‌محور؛ سه قاعده‌ی هفته‌ی ۱ به فایل YAML تبدیل شدند</td><td>تست‌ها و اجرای زنده</td></tr>
         <tr><td class="num">4</td><td>بسته‌ی ۱۸ قاعده، keep-list در فیلتر، throttle هشدار، schema نسخه‌ی ۳</td><td>تمرین پنج‌مرحله‌ای زنده دقیقاً پنج هشدار مورد انتظار را داد و هیچ چیز دیگر</td></tr>
@@ -1671,18 +1670,18 @@ TdhGetProperty(record, 0, NULL, 1, &amp;descriptor, requiredSize, buffer);</pre>
   <div class="file" id="f-alert">
     <div class="fhead"><span class="fname">src/core/alert.h</span><span class="tag p3">PHASE 3 · WK1</span><span class="tag">C++17</span></div>
     <div class="fbody">
-      <p>نوع داده‌ی یک هشدار. در <code>core/</code> است نه <code>detection/</code>، چون detection آن را می‌سازد و storage ذخیره‌اش می‌کند؛ اگر در یکی از آن دو بود، آن یکی به این وابسته می‌شد.</p>
+      <p>نوع داده‌ی یک هشدار. در <code>core/</code> است نه <span class="nb"><code>detection/</code>،</span> چون detection آن را می‌سازد و storage ذخیره‌اش می‌کند؛ اگر در یکی از آن دو بود، آن یکی به این وابسته می‌شد.</p>
       <dl>
         <dt><code>enum class Severity</code></dt>
         <dd>Informational=0، Low=1، Medium=2، High=3، Critical=4. همان فیلد <code>level</code> در Sigma به‌صورت مقیاس مرتب. به‌صورت عدد ذخیره می‌شود تا «High و بالاتر» یک query بازه‌ای باشد.</dd>
         <dt>فیلدهای <code>Alert</code></dt>
         <dd>
           <ul>
-            <li><code>batchIndex</code>: جایگاه رویداد در دسته‌ی فعلی. <strong>این شناسه‌ی ردیف دیتابیس نیست</strong>؛ آن شناسه هنوز وجود ندارد چون رویداد هنوز درج نشده.</li>
-            <li><code>ruleId</code>، <code>ruleTitle</code>، <code>severity</code>، <code>ruleLevel</code> (املای اصلی فایل).</li>
-            <li><code>mitreTechnique</code> مثل <code>T1059.001</code>، یا خالی.</li>
-            <li><code>matchedFields</code>: متن کوتاهی از آنچه تطبیق خورد، مثل <code>ParentImage=...; Image=...</code>، تا هشدار بدون اجرای دوباره‌ی قاعده قابل بررسی باشد.</li>
-            <li><code>raisedAt</code>: زمان صدور هشدار (FILETIME). تفاوتش با زمان رویداد همان تأخیر تشخیص است.</li>
+            <li><span class="nb"><code>batchIndex</code>:</span> جایگاه رویداد در دسته‌ی فعلی. <strong>این شناسه‌ی ردیف دیتابیس نیست</strong>؛ آن شناسه هنوز وجود ندارد چون رویداد هنوز درج نشده.</li>
+            <li><span class="nb"><code>ruleId</code>،</span> <span class="nb"><code>ruleTitle</code>،</span> <span class="nb"><code>severity</code>،</span> <code>ruleLevel</code> (املای اصلی فایل).</li>
+            <li><code>mitreTechnique</code> مثل <span class="nb"><code>T1059.001</code>،</span> یا خالی.</li>
+            <li><span class="nb"><code>matchedFields</code>:</span> متن کوتاهی از آنچه تطبیق خورد، مثل <span class="nb"><code>ParentImage=...; Image=...</code>،</span> تا هشدار بدون اجرای دوباره‌ی قاعده قابل بررسی باشد.</li>
+            <li><span class="nb"><code>raisedAt</code>:</span> زمان صدور هشدار (FILETIME). تفاوتش با زمان رویداد همان تأخیر تشخیص است.</li>
           </ul>
         </dd>
       </dl>
@@ -1772,7 +1771,7 @@ public:
   <div class="file" id="f-time-utils">
     <div class="fhead"><span class="fname">src/core/time_utils.h</span><span class="tag p3">PHASE 3 · WK1</span><span class="tag">C++17</span></div>
     <div class="fbody">
-      <p>دو تابع کمکی FILETIME، تا محاسبه‌ی زمان فقط در یک جا باشد: <code>CurrentFiletime()</code> با <code>GetSystemTimeAsFileTime</code>، و <code>FiletimeDaysAgo(days)</code> که با ثابت <code>864000000000</code> (تعداد tickهای ۱۰۰ نانوثانیه‌ای در یک روز) زمان N روز قبل را می‌دهد. برای پاکسازی ۷ روزه استفاده می‌شود.</p>
+      <p>دو تابع کمکی FILETIME، تا محاسبه‌ی زمان فقط در یک جا باشد: <code>CurrentFiletime()</code> با <span class="nb"><code>GetSystemTimeAsFileTime</code>،</span> و <code>FiletimeDaysAgo(days)</code> که با ثابت <code>864000000000</code> (تعداد tickهای ۱۰۰ نانوثانیه‌ای در یک روز) زمان N روز قبل را می‌دهد. برای پاکسازی ۷ روزه استفاده می‌شود.</p>
     </div>
   </div>
 
@@ -1782,7 +1781,7 @@ public:
     <div class="fbody">
       <p>ترجمه‌ی مسیر NT به مسیر drive letter. پیش‌نیاز هر قاعده‌ای است که درباره‌ی <em>مکان</em> حرف می‌زند («فایل اجرایی در Temp کاربر»)، چون شماره‌ی volume روی هر سیستم فرق دارد ولی drive letter نه.</p>
       <dl>
-        <dt><code>Refresh()</code>: ساختن جدول (تنها جایی که Windows API صدا زده می‌شود)</dt>
+        <dt><span class="nb"><code>Refresh()</code>:</span> ساختن جدول (تنها جایی که Windows API صدا زده می‌شود)</dt>
         <dd>
           <code>QueryDosDeviceW</code> برعکسِ جهتی که ما لازم داریم کار می‌کند: <code>"C:"</code> را
           می‌گیرد و <code>\Device\HarddiskVolume3</code> را برمی‌گرداند. پس تابع اول با
@@ -1792,14 +1791,14 @@ public:
           می‌شود؛ بقیه نگاشت‌های قدیمی‌اند. <code>GetWindowsDirectoryW</code> هم برای پیشوند
           <code>\SystemRoot\</code> خوانده می‌شود. جدول به ترتیب طول نام device مرتب می‌شود (بلندتر اول).
         </dd>
-        <dt><code>Translate()</code>: بدون هیچ فراخوانی ویندوز</dt>
+        <dt><span class="nb"><code>Translate()</code>:</span> بدون هیچ فراخوانی ویندوز</dt>
         <dd>
           به ترتیب این حالت‌ها را بررسی می‌کند:
           <ul>
             <li>از قبل drive letter دارد (<code>C:...</code>) یا UNC است (<code>\\server</code>): همان را برمی‌گرداند.</li>
-            <li><code>\??\C:\...</code>: پیشوند را حذف می‌کند.</li>
-            <li><code>\SystemRoot\...</code>: با پوشه‌ی ویندوز جایگزین می‌کند.</li>
-            <li><code>\Device\Mup\...</code> و <code>\Device\LanmanRedirector\...</code>: به <code>\\server\share</code> تبدیل می‌کند (اجرا از network share).</li>
+            <li><span class="nb"><code>\??\C:\...</code>:</span> پیشوند را حذف می‌کند.</li>
+            <li><span class="nb"><code>\SystemRoot\...</code>:</span> با پوشه‌ی ویندوز جایگزین می‌کند.</li>
+            <li><code>\Device\Mup\...</code> و <span class="nb"><code>\Device\LanmanRedirector\...</code>:</span> به <code>\\server\share</code> تبدیل می‌کند (اجرا از network share).</li>
             <li>در غیر این صورت جدول volumeها را می‌گردد، با شرط مرز component (پایین را ببین).</li>
             <li>اگر هیچ‌کدام نشد: <strong>رشته‌ی خالی</strong>. فراخواننده مسیر خام را نگه می‌دارد. حدس زدن drive letter بدتر از هیچ نگفتن است.</li>
           </ul>
@@ -1849,8 +1848,8 @@ public:
       <p>یک نمای درون‌حافظه‌ای از درخت پروسس‌ها، ساخته‌شده از جریان رویدادها. provider فقط <code>ParentProcessID</code> را می‌دهد، نه مسیر فایل والد. بدون این جدول قاعده فقط می‌توانست بگوید «PID والد ۴۸۱۲ بود»، که بی‌فایده است؛ با آن می‌گوید «والد WINWORD.EXE بود»، که بخش بزرگی از ارزش تشخیصی telemetry پروسس است. هزینه‌اش یک جستجوی hash.</p>
       <dl>
         <dt>ساختار</dt>
-        <dd>یک <code>std::unordered_map&lt;uint32_t, ProcessInfo&gt;</code> که کلیدش PID است. <code>ProcessInfo</code> شامل <code>pid</code>، <code>parentPid</code>، <code>startTime</code> (FILETIME)، <code>imagePath</code> و <code>hasParent</code>. سقف پیش‌فرض ۸۱۹۲ ورودی.</dd>
-        <dt><code>SeedFromSnapshot</code>: پر کردن اولیه</dt>
+        <dd>یک <code>std::unordered_map&lt;uint32_t, ProcessInfo&gt;</code> که کلیدش PID است. <code>ProcessInfo</code> شامل <span class="nb"><code>pid</code>،</span> <span class="nb"><code>parentPid</code>،</span> <code>startTime</code> (FILETIME)، <code>imagePath</code> و <span class="nb"><code>hasParent</code>.</span> سقف پیش‌فرض ۸۱۹۲ ورودی.</dd>
+        <dt><span class="nb"><code>SeedFromSnapshot</code>:</span> پر کردن اولیه</dt>
         <dd>
           ETW از پروسس‌هایی که قبل از session شروع شده‌اند چیزی نمی‌گوید؛ بدون این تابع، والد تقریباً
           همه‌ی رویدادهای دقایق اول نامعلوم بود. تابع با <code>CreateToolhelp32Snapshot</code> و
@@ -1862,7 +1861,7 @@ public:
           قاعده‌های <code>endswith</code> هنوز به درد می‌خورد.
         </dd>
         <dt><code>OnEvent</code></dt>
-        <dd>ProcessStart درج می‌کند (با مسیر <code>BestImagePath()</code>، یعنی مسیر ترجمه‌شده)، ProcessStop حذف می‌کند، بقیه را نادیده می‌گیرد. حذف هنگام خروج هم جدول را کوچک نگه می‌دارد و هم دفاع اصلی در برابر PID بازیافتی است.</dd>
+        <dd>ProcessStart درج می‌کند (با مسیر <span class="nb"><code>BestImagePath()</code>،</span> یعنی مسیر ترجمه‌شده)، ProcessStop حذف می‌کند، بقیه را نادیده می‌گیرد. حذف هنگام خروج هم جدول را کوچک نگه می‌دارد و هم دفاع اصلی در برابر PID بازیافتی است.</dd>
         <dt><code>ParentImage</code> و محافظ بازیافت PID</dt>
         <dd>اگر والد در جدول هست ولی <code>startTime</code> آن <em>بعد</em> از زمان رویداد فرزند است، PID بازیافت شده و این ورودی پروسس دیگری است؛ پس رشته‌ی خالی برمی‌گرداند. والد نمی‌تواند بعد از فرزندش شروع شده باشد. شمارنده‌های hit و miss در گزارش پایانی چاپ می‌شوند، چون نرخ hit معیار صادقانه‌ی این است که در آن اجرا چقدر می‌شود به قاعده‌های مبتنی بر ParentImage اعتماد کرد.</dd>
         <dt><code>EvictOldest</code></dt>
@@ -1876,15 +1875,15 @@ public:
   <div class="file" id="f-detection-pipeline">
     <div class="fhead"><span class="fname">src/detection/detection_pipeline.h · detection_pipeline.cpp</span><span class="tag p3">PHASE 3</span><span class="tag">C++17</span><span class="tag">IEventProcessor</span></div>
     <div class="fbody">
-      <p>پیاده‌سازی <code>IEventProcessor</code>: همه‌ی کاری که بین صف و دیتابیس روی یک دسته انجام می‌شود. مالک <code>PathResolver</code>، <code>ProcessTable</code>، <code>RuleEngine</code> و <code>AlertThrottle</code> است. دلیل وجود این کلاس <strong>ترتیب</strong> است.</p>
+      <p>پیاده‌سازی <span class="nb"><code>IEventProcessor</code>:</span> همه‌ی کاری که بین صف و دیتابیس روی یک دسته انجام می‌شود. مالک <span class="nb"><code>PathResolver</code>،</span> <span class="nb"><code>ProcessTable</code>،</span> <code>RuleEngine</code> و <code>AlertThrottle</code> است. دلیل وجود این کلاس <strong>ترتیب</strong> است.</p>
       <dl>
         <dt><code>Initialize(rulesDirectory)</code></dt>
         <dd>جدول volumeها را می‌سازد (اگر صفر volume پیدا شد هشدار می‌دهد که قاعده‌های مکان‌محور کار نخواهند کرد)، جدول پروسس‌ها را از snapshot پر می‌کند، و همه‌ی قاعده‌ها را بار می‌کند. هر فایل ردشده با فایل و شماره‌ی خط در سطح Error لاگ می‌شود. فقط وقتی <code>false</code> برمی‌گرداند که هیچ قاعده‌ای بار نشده باشد.</dd>
-        <dt><code>ProcessBatch</code>: پنج قدم برای هر رویداد</dt>
+        <dt><span class="nb"><code>ProcessBatch</code>:</span> پنج قدم برای هر رویداد</dt>
         <dd>
           <ol>
             <li><strong>Translate</strong>: مسیر NT به drive letter. باید اول باشد، چون دو قدم بعد روی شکل ترجمه‌شده کار می‌کنند. شکست‌ها در <code>translationFailures_</code> شمرده می‌شوند.</li>
-            <li><strong>Enrich</strong>: پیدا کردن والد در جدول <em>قبل</em> از اعمال این رویداد. برای ImageLoad یک کار اضافه (2b): پیدا کردن خود پروسس بارکننده با همان محافظ زمان شروع، و گذاشتنش در <code>processImageName</code>.</li>
+            <li><strong>Enrich</strong>: پیدا کردن والد در جدول <em>قبل</em> از اعمال این رویداد. برای ImageLoad یک کار اضافه (2b): پیدا کردن خود پروسس بارکننده با همان محافظ زمان شروع، و گذاشتنش در <span class="nb"><code>processImageName</code>.</span></li>
             <li><strong>Update</strong>: اعمال رویداد به جدول.</li>
             <li><strong>Evaluate</strong>: اجرای قاعده‌ها. فقط همین بخش با <code>steady_clock</code> زمان‌سنجی می‌شود و در <code>matchNanos_</code> و histogram ثبت می‌شود، تا عدد هزینه فقط هزینه‌ی قاعده باشد.</li>
             <li><strong>Throttle</strong>: هر هشدار تازه از <code>AlertThrottle::Admit</code> رد می‌شود؛ تکراری‌ها از vector حذف و شمرده می‌شوند. خارج از ناحیه‌ی زمان‌سنجی.</li>
@@ -1892,7 +1891,7 @@ public:
           زمان <code>raisedAt</code> یک بار برای هر دسته گرفته می‌شود، نه برای هر رویداد، تا برای هر رویداد یک system call نباشد. در آخر، هشدارهای تازه با <code>Logger::Warn</code> در کنسول چاپ می‌شوند.
         </dd>
         <dt>یک اتحاد حسابرسی</dt>
-        <dd><code>RuleMatches() == AlertsRaised() + AlertsThrottled()</code>، همیشه. هر تطبیق یا ذخیره شده یا به‌عنوان تکراری شمرده شده.</dd>
+        <dd><span class="nb"><code>RuleMatches() == AlertsRaised() + AlertsThrottled()</code>،</span> همیشه. هر تطبیق یا ذخیره شده یا به‌عنوان تکراری شمرده شده.</dd>
       </dl>
     </div>
   </div>
@@ -1960,7 +1959,7 @@ public:
       و ستون <code>parent_image</code> با <code>image_path</code> هم‌شکل نمی‌ماند. Enrich قبل از Update
       نیاز ضعیف‌تری است. یک یادداشت قدیمی ادعا می‌کرد جابه‌جا کردن Enrich و Update سیستم را می‌شکند؛ این
       ادعا اصلاح شد، چون ParentImage با <code>parentProcessId</code> جستجو می‌کند و OnEvent با
-      <code>processId</code>، پس با هم تداخل ندارند. ترتیب فعلی فقط معنای «درخت در لحظه‌ی ساخته شدن
+      <span class="nb"><code>processId</code>،</span> پس با هم تداخل ندارند. ترتیب فعلی فقط معنای «درخت در لحظه‌ی ساخته شدن
       پروسس» را حفظ می‌کند. نمودار بالا چهار قدم اول را نشان می‌دهد؛ قدم پنجم، throttle، در هفته‌ی ۴
       اضافه شد.
     </p>
@@ -2048,7 +2047,7 @@ public:
           <thead><tr><th>قبول می‌شود</th><th>رد می‌شود، با فایل و خط</th></tr></thead>
           <tbody>
             <tr><td>block mapping: <code>key: value</code></td><td>flow style: <code>{a: b}</code> و <code>[a, b]</code></td></tr>
-            <tr><td>block sequence: <code>- item</code>، چه تورفته و چه هم‌ستون با کلیدش (سبک رایج قاعده‌های Sigma)</td><td>anchor <code>&amp;name</code> و alias <code>*name</code></td></tr>
+            <tr><td>block sequence: <span class="nb"><code>- item</code>،</span> چه تورفته و چه هم‌ستون با کلیدش (سبک رایج قاعده‌های Sigma)</td><td>anchor <code>&amp;name</code> و alias <code>*name</code></td></tr>
             <tr><td>plain scalar</td><td>سند دوم (<code>---</code> دوم) یا <code>...</code></td></tr>
             <tr><td>رشته‌ی تک‌کوتیشن، با <code>''</code> برای کوتیشن داخلی</td><td>block scalar: <code>|</code> و <code>&gt;</code></td></tr>
             <tr><td>رشته‌ی دوکوتیشن با escapeهای <code>\\ \" \/ \n \r \t \0</code></td><td>tab در تورفتگی</td></tr>
@@ -2094,7 +2093,7 @@ public:
     <div class="fbody">
       <p>شکل یک قاعده‌ی بارشده در حافظه.</p>
       <dl>
-        <dt><code>enum class RuleField</code>: واژگان کامل سنسور</dt>
+        <dt><span class="nb"><code>enum class RuleField</code>:</span> واژگان کامل سنسور</dt>
         <dd>
           فقط پنج فیلد. فیلدی که اینجا نیست قابل تطبیق نیست و قاعده‌ای که از آن استفاده کند رد می‌شود.
           معنای هر فیلد به دسته‌ی <code>logsource</code> قاعده بستگی دارد، طبق قرارداد خود Sigma:
@@ -2112,13 +2111,13 @@ public:
           </div>
         </dd>
         <dt><code>enum class MatchKind</code> و <code>MatchValue</code></dt>
-        <dd>چهار نوع مقایسه: <code>Equals</code>، <code>Contains</code>، <code>StartsWith</code>، <code>EndsWith</code>. نوع برای هر <em>مقدار</em> جداست نه هر فیلد، چون در Sigma wildcard داخل خود مقدار نوشته می‌شود. متن هر مقدار یک بار، موقع بار شدن، کوچک (lowercase) می‌شود.</dd>
+        <dd>چهار نوع مقایسه: <span class="nb"><code>Equals</code>،</span> <span class="nb"><code>Contains</code>،</span> <span class="nb"><code>StartsWith</code>،</span> <span class="nb"><code>EndsWith</code>.</span> نوع برای هر <em>مقدار</em> جداست نه هر فیلد، چون در Sigma wildcard داخل خود مقدار نوشته می‌شود. متن هر مقدار یک بار، موقع بار شدن، کوچک (lowercase) می‌شود.</dd>
         <dt><code>FieldMatcher</code></dt>
-        <dd>یک خط <code>Field|modifier: values</code>: فیلد، فهرست مقادیر، و <code>matchAll</code>. فهرست مقادیر به‌طور پیش‌فرض «یا» (OR) است، مگر modifier <code>|all</code> باشد که «و» (AND) می‌شود.</dd>
-        <dt><code>Selection</code>: همیشه «OR از ANDها»</dt>
-        <dd>یک بلوک نام‌دار زیر <code>detection:</code>. اگر Mapping باشد، یک گزینه است که فیلدهایش با هم AND می‌شوند. اگر فهرستی از Mappingها باشد، چند گزینه است که با هم OR می‌شوند. هر دو شکل یکسان ذخیره می‌شوند: <code>vector&lt;vector&lt;FieldMatcher&gt;&gt;</code>.</dd>
+        <dd>یک خط <span class="nb"><code>Field|modifier: values</code>:</span> فیلد، فهرست مقادیر، و <span class="nb"><code>matchAll</code>.</span> فهرست مقادیر به‌طور پیش‌فرض «یا» (OR) است، مگر modifier <code>|all</code> باشد که «و» (AND) می‌شود.</dd>
+        <dt><span class="nb"><code>Selection</code>:</span> همیشه «OR از ANDها»</dt>
+        <dd>یک بلوک نام‌دار زیر <span class="nb"><code>detection:</code>.</span> اگر Mapping باشد، یک گزینه است که فیلدهایش با هم AND می‌شوند. اگر فهرستی از Mappingها باشد، چند گزینه است که با هم OR می‌شوند. هر دو شکل یکسان ذخیره می‌شوند: <span class="nb"><code>vector&lt;vector&lt;FieldMatcher&gt;&gt;</code>.</span></dd>
         <dt><code>Rule</code></dt>
-        <dd>شناسه، عنوان، توضیح، وضعیت، نویسنده، <code>level</code> و <code>severity</code>، دسته و نوع رویدادی که به آن مربوط است (<code>appliesTo</code>)، اولین technique ATT&amp;CK و همه‌ی tagها، selectionها، درخت condition، فهرست فیلدهای ارجاع‌شده (برای ساختن <code>matched_fields</code>)، و فایل و خط منبع.</dd>
+        <dd>شناسه، عنوان، توضیح، وضعیت، نویسنده، <code>level</code> و <span class="nb"><code>severity</code>،</span> دسته و نوع رویدادی که به آن مربوط است (<code>appliesTo</code>)، اولین technique ATT&amp;CK و همه‌ی tagها، selectionها، درخت condition، فهرست فیلدهای ارجاع‌شده (برای ساختن <code>matched_fields</code>)، و فایل و خط منبع.</dd>
       </dl>
     </div>
   </div>
@@ -2138,8 +2137,8 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
         <dt>دو مرحله</dt>
         <dd>
           <ol>
-            <li><strong>Tokenize</strong>: متن را به token تبدیل می‌کند: پرانتزها، کلمات کلیدی (<code>and</code>، <code>or</code>، <code>not</code>، <code>of</code>، <code>them</code>، <code>all</code>، <code>1</code>) که بزرگی و کوچکی حرفشان مهم نیست، و نام‌ها که مهم است. دیدن <code>|</code> (شروع aggregation) یا عددی غیر از ۱ (مثل <code>2 of</code>) همین‌جا خطاست.</li>
-            <li><strong>Parse</strong>: یک parser بازگشتی با یک تابع برای هر سطح گرامر (<code>ParseOr</code>، <code>ParseAnd</code>، <code>ParseNot</code>، <code>ParsePrimary</code>، <code>ParseQuantifier</code>). همین ساختار اولویت را می‌سازد: <code>not</code> قوی‌تر از <code>and</code>، و <code>and</code> قوی‌تر از <code>or</code>، مثل Sigma و همه‌ی زبان‌های رایج. پس <code>a or b and c</code> یعنی <code>a or (b and c)</code>. پرانتز اولویت را عوض می‌کند.</li>
+            <li><strong>Tokenize</strong>: متن را به token تبدیل می‌کند: پرانتزها، کلمات کلیدی (<span class="nb"><code>and</code>،</span> <span class="nb"><code>or</code>،</span> <span class="nb"><code>not</code>،</span> <span class="nb"><code>of</code>،</span> <span class="nb"><code>them</code>،</span> <span class="nb"><code>all</code>،</span> <code>1</code>) که بزرگی و کوچکی حرفشان مهم نیست، و نام‌ها که مهم است. دیدن <code>|</code> (شروع aggregation) یا عددی غیر از ۱ (مثل <code>2 of</code>) همین‌جا خطاست.</li>
+            <li><strong>Parse</strong>: یک parser بازگشتی با یک تابع برای هر سطح گرامر (<span class="nb"><code>ParseOr</code>،</span> <span class="nb"><code>ParseAnd</code>،</span> <span class="nb"><code>ParseNot</code>،</span> <span class="nb"><code>ParsePrimary</code>،</span> <code>ParseQuantifier</code>). همین ساختار اولویت را می‌سازد: <code>not</code> قوی‌تر از <span class="nb"><code>and</code>،</span> و <code>and</code> قوی‌تر از <span class="nb"><code>or</code>،</span> مثل Sigma و همه‌ی زبان‌های رایج. پس <code>a or b and c</code> یعنی <span class="nb"><code>a or (b and c)</code>.</span> پرانتز اولویت را عوض می‌کند.</li>
           </ol>
         </dd>
         <dt>حل نام‌ها موقع بار شدن</dt>
@@ -2149,7 +2148,7 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
           اشاره کند موقع بار شدن رد می‌شود، نه اولین باری که یک رویداد به آن شاخه برسد.
         </dd>
         <dt><code>EvaluateCondition</code></dt>
-        <dd>درخت را روی یک آرایه‌ی ساده از نتایج selectionها ارزیابی می‌کند (برای هر selection یک خانه). درخت اصلاً به رشته دست نمی‌زند. نوع آرایه <code>vector&lt;char&gt;</code> است نه <code>vector&lt;bool&gt;</code>، چون دومی یک تخصیص فشرده با «proxy reference» است که هم کندتر index می‌شود و هم منبع شناخته‌شده‌ی غافلگیری است.</dd>
+        <dd>درخت را روی یک آرایه‌ی ساده از نتایج selectionها ارزیابی می‌کند (برای هر selection یک خانه). درخت اصلاً به رشته دست نمی‌زند. نوع آرایه <code>vector&lt;char&gt;</code> است نه <span class="nb"><code>vector&lt;bool&gt;</code>،</span> چون دومی یک تخصیص فشرده با «proxy reference» است که هم کندتر index می‌شود و هم منبع شناخته‌شده‌ی غافلگیری است.</dd>
         <dt>محدودیت عمق (هفته‌ی ۵)</dt>
         <dd>هر <code>not</code> و هر جفت پرانتز از <code>ParseNot</code> رد می‌شود، پس یک شمارنده در همان‌جا کل بازگشت را محدود می‌کند: حداکثر ۶۴ سطح. شرط‌های واقعی Sigma دو سه سطح‌اند.</dd>
       </dl>
@@ -2213,8 +2212,8 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
       <code>1 of filter_*</code> همیشه نادرست و <code>all of filter_*</code> همیشه درست می‌شد، چون «همه‌ی
       اعضای یک مجموعه‌ی خالی» از نظر منطقی درست است. قاعده‌ای که دومی را داشت روی <em>هر</em> رویدادی
       هشدار می‌داد. parser هر quantifierی را که به هیچ چیز نخورد رد می‌کند. همچنین رد می‌شوند:
-      quantifier غیر از <code>1</code> و <code>all</code>، نام wildcard بیرون از quantifier،
-      aggregation مثل <code>| count() by host &gt; 5</code> و <code>timeframe</code>. aggregation نوع
+      quantifier غیر از <code>1</code> و <span class="nb"><code>all</code>،</span> نام wildcard بیرون از quantifier،
+      aggregation مثل <code>| count() by host &gt; 5</code> و <span class="nb"><code>timeframe</code>.</span> aggregation نوع
       دیگری از آشکارساز است که باید در یک بازه‌ی زمانی حالت نگه دارد؛ این موتور هر بار یک رویداد را
       ارزیابی می‌کند.
     </p>
@@ -2230,22 +2229,22 @@ quantifier := ( "1" | "all" ) "of" ( NAME | NAME* | "them" )</pre>
         <p>یک قاعده یا کامل بار می‌شود و دقیقاً همان معنی‌ای را دارد که نوشته، یا با فایل، خط و دلیل رد می‌شود. حالت سومی وجود ندارد. حالت سوم خطرناک، یعنی قاعده‌ای که بار شود ولی هیچ‌وقت match نکند، دقیقاً چیزی است که یک loader سهل‌گیر می‌سازد: در شمار قاعده‌ها هست، در جدول پوشش هست، و هرگز هشدار نمی‌دهد.</p>
       </div>
       <dl>
-        <dt><code>RuleBuilder::Build</code>: ترتیب چک‌ها</dt>
+        <dt><span class="nb"><code>RuleBuilder::Build</code>:</span> ترتیب چک‌ها</dt>
         <dd>
           <ol>
-            <li><code>title</code> و <code>id</code> اجباری‌اند؛ <code>description</code>، <code>status</code> و <code>author</code> اختیاری.</li>
+            <li><code>title</code> و <code>id</code> اجباری‌اند؛ <span class="nb"><code>description</code>،</span> <code>status</code> و <code>author</code> اختیاری.</li>
             <li><code>level</code> باید یکی از informational، low، medium، high، critical باشد و به <code>Severity</code> تبدیل می‌شود.</li>
-            <li><code>logsource</code>: <code>product</code> اگر هست باید windows باشد؛ <code>service</code> رد می‌شود (سنسور event log ندارد)؛ <code>category</code> باید <code>process_creation</code> یا <code>image_load</code> باشد.</li>
-            <li><code>tags</code>: اولین tag به شکل <code>attack.tNNNN</code> یا <code>attack.tNNNN.NNN</code> به technique مثل <code>T1566.001</code> تبدیل می‌شود. tagهای tactic مثل <code>attack.execution</code> technique نیستند.</li>
-            <li><code>detection</code>: باید <code>condition</code> داشته باشد (فهرستی از conditionها رد می‌شود؛ با <code>or</code> یکی‌شان کن)، <code>timeframe</code> رد می‌شود، هر بلوک دیگر یک selection است.</li>
+            <li><span class="nb"><code>logsource</code>:</span> <code>product</code> اگر هست باید windows باشد؛ <code>service</code> رد می‌شود (سنسور event log ندارد)؛ <code>category</code> باید <code>process_creation</code> یا <code>image_load</code> باشد.</li>
+            <li><span class="nb"><code>tags</code>:</span> اولین tag به شکل <code>attack.tNNNN</code> یا <code>attack.tNNNN.NNN</code> به technique مثل <code>T1566.001</code> تبدیل می‌شود. tagهای tactic مثل <code>attack.execution</code> technique نیستند.</li>
+            <li><span class="nb"><code>detection</code>:</span> باید <code>condition</code> داشته باشد (فهرستی از conditionها رد می‌شود؛ با <code>or</code> یکی‌شان کن)، <code>timeframe</code> رد می‌شود، هر بلوک دیگر یک selection است.</li>
           </ol>
         </dd>
-        <dt><code>ResolveField</code>: فرق غلط تایپی با محدودیت واقعی</dt>
+        <dt><span class="nb"><code>ResolveField</code>:</span> فرق غلط تایپی با محدودیت واقعی</dt>
         <dd>
           <ul>
             <li>یکی از پنج فیلد: قبول، به شرطی که با دسته‌ی قاعده جور باشد (مثلاً ImageLoaded در process_creation رد می‌شود).</li>
-            <li><code>CommandLine</code>: پیام اختصاصی که می‌گوید provider آن را گزارش نمی‌دهد و به تصمیم D3 ارجاع می‌دهد.</li>
-            <li>۲۳ فیلد شناخته‌شده‌ی دیگر Sigma که سنسور ندارد، مثل <code>User</code>، <code>Hashes</code>، <code>IntegrityLevel</code>، <code>OriginalFileName</code>: پیام «not collected by this sensor».</li>
+            <li><span class="nb"><code>CommandLine</code>:</span> پیام اختصاصی که می‌گوید provider آن را گزارش نمی‌دهد و به تصمیم D3 ارجاع می‌دهد.</li>
+            <li>۲۳ فیلد شناخته‌شده‌ی دیگر Sigma که سنسور ندارد، مثل <span class="nb"><code>User</code>،</span> <span class="nb"><code>Hashes</code>،</span> <span class="nb"><code>IntegrityLevel</code>،</span> <span class="nb"><code>OriginalFileName</code>:</span> پیام «not collected by this sensor».</li>
             <li>هر چیز دیگر: «unknown field» و فهرست فیلدهای مجاز.</li>
           </ul>
           <pre><span class="r">rules/x.yml:12: field 'CommandLine' is not collected by this sensor: the Kernel-Process
@@ -2255,10 +2254,10 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
         </dd>
         <dt>Modifierها</dt>
         <dd>
-          پشتیبانی‌شده: <code>contains</code>، <code>startswith</code>، <code>endswith</code> (فقط یکی از
-          این سه) و <code>all</code>. modifierهای واقعی Sigma که پیاده نشده‌اند، مثل <code>re</code>،
-          <code>base64</code>، <code>windash</code>، <code>cidr</code>، <code>gt</code>/<code>lt</code>،
-          <code>exists</code>، <code>cased</code>، با نام رد می‌شوند. فیلدهای عددی (ProcessId و
+          پشتیبانی‌شده: <span class="nb"><code>contains</code>،</span> <span class="nb"><code>startswith</code>،</span> <code>endswith</code> (فقط یکی از
+          این سه) و <span class="nb"><code>all</code>.</span> modifierهای واقعی Sigma که پیاده نشده‌اند، مثل <span class="nb"><code>re</code>،</span>
+          <span class="nb"><code>base64</code>،</span> <span class="nb"><code>windash</code>،</span> <span class="nb"><code>cidr</code>،</span> <code>gt</code>/<span class="nb"><code>lt</code>،</span>
+          <span class="nb"><code>exists</code>،</span> <span class="nb"><code>cased</code>،</span> با نام رد می‌شوند. فیلدهای عددی (ProcessId و
           ParentProcessId) فقط رقم می‌گیرند و هیچ modifier رشته‌ای.
         </dd>
         <dt>Wildcardها به چهار مقایسه تبدیل می‌شوند</dt>
@@ -2284,10 +2283,10 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
         </dd>
         <dt>شکل selectionها</dt>
         <dd>Mapping یا فهرستی از Mappingها. فهرستی از مقادیر ساده (keyword search در Sigma) رد می‌شود: «یک فیلد نام ببر». selection خالی هم رد می‌شود.</dd>
-        <dt><code>LoadDirectory</code>: بار کردن پوشه</dt>
+        <dt><span class="nb"><code>LoadDirectory</code>:</span> بار کردن پوشه</dt>
         <dd>
           <ul>
-            <li>فقط فایل‌های <code>.yml</code> و <code>.yaml</code>، به ترتیب نام فایل، تا اگر چند قاعده روی یک رویداد match شدند ترتیب هشدارها در هر اجرا یکسان باشد.</li>
+            <li>فقط فایل‌های <code>.yml</code> و <span class="nb"><code>.yaml</code>،</span> به ترتیب نام فایل، تا اگر چند قاعده روی یک رویداد match شدند ترتیب هشدارها در هر اجرا یکسان باشد.</li>
             <li>فایل بزرگ‌تر از ۲۵۶ KiB <strong>بدون خواندن</strong> رد می‌شود (هفته‌ی ۵). بزرگ‌ترین قاعده‌ی واقعی زیر ۲ KB است.</li>
             <li>BOM در UTF-8 حذف می‌شود. Notepad آن را می‌نویسد، و اگر بماند اولین کلید <code>\uFEFFtitle</code> خوانده می‌شود و خطای گیج‌کننده‌ی «missing required field 'title'» می‌دهد.</li>
             <li>UTF-8 نامعتبر رد می‌شود.</li>
@@ -2307,8 +2306,8 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
       <p>قاعده‌های اعتبارسنجی‌شده را روی رویدادها اجرا می‌کند. چون هر چیزی که ممکن است خطا داشته باشد مال زمان بار شدن است، موتور هیچ مسیر خطایی ندارد. (در هفته‌ی ۱ این فایل سه قاعده‌ی hard-coded داشت؛ در هفته‌ی ۳ داده‌محور بازنویسی شد.)</p>
       <dl>
         <dt><code>SetRules</code></dt>
-        <dd>قاعده‌ها را بر اساس نوع رویداد در دو سطل می‌گذارد: <code>processStartRules_</code> و <code>imageLoadRules_</code>، و بافر نتایج selection را یک بار به اندازه‌ی پهن‌ترین قاعده می‌سازد تا هیچ‌وقت در ارزیابی بزرگ نشود.</dd>
-        <dt><code>Evaluate</code>: برای هر رویداد</dt>
+        <dd>قاعده‌ها را بر اساس نوع رویداد در دو سطل می‌گذارد: <code>processStartRules_</code> و <span class="nb"><code>imageLoadRules_</code>،</span> و بافر نتایج selection را یک بار به اندازه‌ی پهن‌ترین قاعده می‌سازد تا هیچ‌وقت در ارزیابی بزرگ نشود.</dd>
+        <dt><span class="nb"><code>Evaluate</code>:</span> برای هر رویداد</dt>
         <dd>
           <ol>
             <li>سطل مناسب را انتخاب می‌کند. ProcessStart ۱۴ قاعده را می‌بیند، ImageLoad ۴ قاعده را، و ProcessStop فوراً برمی‌گردد چون هیچ دسته‌ای پوششش نمی‌دهد.</li>
@@ -2317,8 +2316,8 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
             <li>اگر درست بود، یک <code>Alert</code> ساخته می‌شود. <code>DescribeMatch</code> فقط فیلدهایی را که قاعده واقعاً بررسی کرده با مقدار اصلی‌شان می‌نویسد.</li>
           </ol>
         </dd>
-        <dt><code>Matches</code>: یک مقایسه</dt>
-        <dd>Equals مقایسه‌ی کامل، Contains با <code>find</code>، StartsWith و EndsWith با <code>wmemcmp</code> روی ابتدا یا انتهای رشته. قانون مهم: <strong>فیلد خالی با هیچ چیز match نمی‌شود.</strong> فیلدی که سنسور نتوانست پیدا کند (مثلاً والد نامعلوم) هرگز به هشدار منجر نمی‌شود؛ قاعده‌ای که وقتی والد را نمی‌داند هشدار دهد، آن قاعده‌ای نیست که نوشته شده.</dd>
+        <dt><span class="nb"><code>Matches</code>:</span> یک مقایسه</dt>
+        <dd>Equals مقایسه‌ی کامل، Contains با <span class="nb"><code>find</code>،</span> StartsWith و EndsWith با <code>wmemcmp</code> روی ابتدا یا انتهای رشته. قانون مهم: <strong>فیلد خالی با هیچ چیز match نمی‌شود.</strong> فیلدی که سنسور نتوانست پیدا کند (مثلاً والد نامعلوم) هرگز به هشدار منجر نمی‌شود؛ قاعده‌ای که وقتی والد را نمی‌داند هشدار دهد، آن قاعده‌ای نیست که نوشته شده.</dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «چرا قاعده‌ها <code>'\cmd.exe'</code> را با backslash می‌نویسند؟»</b> ProcessStop فقط نام خالی فایل را گزارش می‌دهد، و <code>C:\Tools\notcmd.exe</code> هم به <code>cmd.exe</code> ختم می‌شود. جداکننده‌ی اول مقدار، تطبیق را به یک نام فایل کامل محدود می‌کند و یک تست هر دو حالت را چک می‌کند.</div>
     </div>
@@ -2344,8 +2343,8 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
       <thead><tr><th class="mono">File</th><th>سطح</th><th class="mono">ATT&amp;CK</th><th>منطق</th></tr></thead>
       <tbody>
         <tr><td class="mono">proc_creation_office_spawns_script_host</td><td>high</td><td class="mono">T1566.001</td><td>والد یکی از ۶ برنامه‌ی Office، فرزند یکی از ۸ shell یا script host</td></tr>
-        <tr><td class="mono">proc_creation_user_writable_location</td><td>medium</td><td class="mono">T1204.002</td><td>اجرا از <code>\AppData\Local\Temp\</code> یا <code>\Windows\Temp\</code>، به‌جز <code>DismHost.exe</code> که سرویس‌دهی ویندوز از Temp اجرا می‌کند</td></tr>
-        <tr><td class="mono">proc_creation_public_or_programdata_location</td><td>medium</td><td class="mono">T1204.002</td><td>اجرا از <code>\Users\Public\</code> یا <code>\ProgramData\</code>، به‌جز <code>\ProgramData\Microsoft\</code> (Defender) و <code>\ProgramData\Package Cache\</code></td></tr>
+        <tr><td class="mono">proc_creation_user_writable_location</td><td>medium</td><td class="mono">T1204.002</td><td>اجرا از <code>\AppData\Local\Temp\</code> یا <span class="nb"><code>\Windows\Temp\</code>،</span> به‌جز <code>DismHost.exe</code> که سرویس‌دهی ویندوز از Temp اجرا می‌کند</td></tr>
+        <tr><td class="mono">proc_creation_public_or_programdata_location</td><td>medium</td><td class="mono">T1204.002</td><td>اجرا از <code>\Users\Public\</code> یا <span class="nb"><code>\ProgramData\</code>،</span> به‌جز <code>\ProgramData\Microsoft\</code> (Defender) و <code>\ProgramData\Package Cache\</code></td></tr>
         <tr><td class="mono">proc_creation_downloads_location</td><td>low</td><td class="mono">T1204.002</td><td>اجرا از پوشه‌ی <code>\Downloads\</code></td></tr>
         <tr><td class="mono">proc_creation_script_host_spawns_powershell</td><td>high</td><td class="mono">T1059.001</td><td>wscript، cscript یا mshta که PowerShell را اجرا کند</td></tr>
         <tr><td class="mono">proc_creation_script_host_spawns_wmic</td><td>high</td><td class="mono">T1047</td><td>script host که wmic را اجرا کند</td></tr>
@@ -2360,7 +2359,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
         <tr><td class="mono">image_load_regsvr32_scrobj</td><td>high</td><td class="mono">T1218.010</td><td>regsvr32 که <code>scrobj.dll</code> را بار کند (Squiblydoo)</td></tr>
         <tr><td class="mono">image_load_office_scripting_engine</td><td>medium</td><td class="mono">T1059.005</td><td>Office که vbscript، jscript یا scrobj بار کند (macro)</td></tr>
         <tr><td class="mono">image_load_script_host_clr</td><td>medium</td><td class="mono">T1620</td><td>wscript، cscript یا mshta که runtime دات‌نت (<code>clr.dll</code>/<code>mscoree.dll</code>) بار کند (DotNetToJScript)</td></tr>
-        <tr><td class="mono">image_load_credential_dump_helper</td><td>high</td><td class="mono">T1003.001</td><td>rundll32 با <code>comsvcs.dll</code>، یا script host با dbghelp/dbgcore (<code>1 of selection_*</code>)</td></tr>
+        <tr><td class="mono">image_load_credential_dump_helper</td><td>high</td><td class="mono">T1003.001</td><td>rundll32 با <span class="nb"><code>comsvcs.dll</code>،</span> یا script host با dbghelp/dbgcore (<code>1 of selection_*</code>)</td></tr>
       </tbody>
     </table>
   </div>
@@ -2379,7 +2378,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   <div class="prose">
     <p>
       <code>EventFilter</code> قبل از صف اجرا می‌شود، پس DLLی که دور بریزد هرگز به قاعده‌ای نمی‌رسد. و
-      همه‌ی چیزهای زیر System32 را دور می‌ریخت، که دقیقاً جای <code>scrobj.dll</code>،
+      همه‌ی چیزهای زیر System32 را دور می‌ریخت، که دقیقاً جای <span class="nb"><code>scrobj.dll</code>،</span>
       <code>comsvcs.dll</code> و <code>vbscript.dll</code> است. با فیلتر فاز ۲، قاعده‌ی Squiblydoo بی‌نقص
       بار می‌شد و هرگز حتی یک رویداد نمی‌دید: همان «بار شود ولی هیچ‌وقت match نکند»، این بار یک لایه
       زودتر.
@@ -2539,7 +2538,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <span class="label">تأیید زنده‌ی هفته‌ی ۴</span>
     <p>
       یک تمرین پنج‌مرحله‌ای روی سیستم توسعه دقیقاً پنج هشدار مورد انتظار داد و هیچ چیز دیگر: اجرای
-      mshta، اجرای یک فایل کپی‌شده در <code>%TEMP%</code>، certutil، <code>regsvr32 /i:x scrobj.dll</code>،
+      mshta، اجرای یک فایل کپی‌شده در <span class="nb"><code>%TEMP%</code>،</span> certutil، <span class="nb"><code>regsvr32 /i:x scrobj.dll</code>،</span>
       و یک VBScript که PowerShell اجرا کرد. هشدار regsvr32 از یک قاعده‌ی image_load است و فقط به خاطر
       keep-list فعال شد. همان اجرا دیتابیس واقعی را از schema نسخه‌ی ۲ به ۳ ارتقا داد.
     </p>
@@ -2684,7 +2683,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <p class="lede">
       فاز ۳ می‌بیند پروسس‌ها کی شروع می‌شوند و چه DLLهایی بار می‌کنند. ولی نمی‌بیند یک پروسس داخل
       حافظه‌ی پروسس <em>دیگری</em> کد بنویسد. provider Kernel-Process چیزی درباره‌ی
-      <code>VirtualAllocEx</code>، <code>WriteProcessMemory</code> یا ساختن thread از راه دور گزارش
+      <span class="nb"><code>VirtualAllocEx</code>،</span> <code>WriteProcessMemory</code> یا ساختن thread از راه دور گزارش
       نمی‌دهد. یک driver این فراخوانی‌ها را همان لحظه می‌گرفت. Light EDR driver ندارد، پس کار user-mode را
       می‌کند: بعداً پروسس هدف را باز می‌کند، نقشه‌ی حافظه‌اش را می‌خواند، و دنبال حافظه‌ای می‌گردد که شبیه
       کدی است که هیچ loaderی بارش نکرده.
@@ -2702,7 +2701,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <p>
       هر چهار هفته زودتر از تاریخ‌های برنامه (اواسط نوامبر) تمام شد: thread اسکنر، چهار نشانه، اندازه‌گیری
       هزینه و false positive (schema v7)، آزمایش اختیاری خواندن command line از PEB، و سند
-      <code>INJECTION.md</code>. ۲۵۰ تست و ۱٬۷۱۷ check روی MSVC در Debug و Release سبزند. همه‌چیز commit و با
+      <span class="nb"><code>INJECTION.md</code>.</span> ۲۵۰ تست و ۱٬۷۱۷ check روی MSVC در Debug و Release سبزند. همه‌چیز commit و با
       <code>v0.4.0</code> tag شده. فقط نتایج Atomic هنوز «موقت»‌اند؛ نهایی کردنشان کار فاز ۵ است.
     </p>
   </div>
@@ -2725,12 +2724,12 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <div class="concept">
       <div class="term">MEM_IMAGE · MEM_MAPPED · MEM_PRIVATE</div>
       <div class="fa-name">سه نوع حافظه</div>
-      <p><code>MEM_IMAGE</code>: فایل exe یا DLLی که loader از روی دیسک map کرده. <code>MEM_MAPPED</code>: نمای یک section، معمولاً با فایلی پشتش. <code>MEM_PRIVATE</code>: حافظه‌ای که خود پروسس گرفته و هیچ فایلی پشتش نیست. کد عادی تقریباً همیشه در MEM_IMAGE است.</p>
+      <p><span class="nb"><code>MEM_IMAGE</code>:</span> فایل exe یا DLLی که loader از روی دیسک map کرده. <span class="nb"><code>MEM_MAPPED</code>:</span> نمای یک section، معمولاً با فایلی پشتش. <span class="nb"><code>MEM_PRIVATE</code>:</span> حافظه‌ای که خود پروسس گرفته و هیچ فایلی پشتش نیست. کد عادی تقریباً همیشه در MEM_IMAGE است.</p>
     </div>
     <div class="concept">
       <div class="term">Page protection · RWX</div>
       <div class="fa-name">سطح دسترسی صفحه</div>
-      <p>مثل <code>PAGE_READWRITE</code> یا <code>PAGE_EXECUTE_READ</code>. هر مقدار <code>PAGE_EXECUTE_*</code> یعنی CPU اجازه دارد آنجا کد اجرا کند. <code>PAGE_EXECUTE_READWRITE</code> (RWX) یعنی هم نوشتنی هم اجرایی، که برای shellcode راحت است. بیت‌های اضافه مثل <code>PAGE_GUARD</code> روی این مقدار سوار می‌شوند.</p>
+      <p>مثل <code>PAGE_READWRITE</code> یا <span class="nb"><code>PAGE_EXECUTE_READ</code>.</span> هر مقدار <code>PAGE_EXECUTE_*</code> یعنی CPU اجازه دارد آنجا کد اجرا کند. <code>PAGE_EXECUTE_READWRITE</code> (RWX) یعنی هم نوشتنی هم اجرایی، که برای shellcode راحت است. بیت‌های اضافه مثل <code>PAGE_GUARD</code> روی این مقدار سوار می‌شوند.</p>
     </div>
     <div class="concept">
       <div class="term">PE header</div>
@@ -2905,7 +2904,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
       نیستند؛ شمرده می‌شوند، پنهان نمی‌شوند.
     </p>
     <p>
-      از هر region حداکثر این‌ها خوانده می‌شود: ۶۴ بایت اول، ۴ بایت در محل <code>e_lfanew</code>، و ۱۶
+      از هر region حداکثر این‌ها خوانده می‌شود: ۶۴ بایت اول، ۴ بایت در محل <span class="nb"><code>e_lfanew</code>،</span> و ۱۶
       بایت برای الگوی shellcode. اسکنر هرگز نمی‌نویسد، هرگز protection را عوض نمی‌کند، و هرگز صفحه‌ی
       <code>PAGE_GUARD</code> یا <code>PAGE_NOACCESS</code> را نمی‌خواند. خواندن guard page آن را خلع سلاح
       می‌کرد، یعنی اسکنر رفتار پروسس هدف را عوض می‌کرد.
@@ -2921,8 +2920,8 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
       <thead><tr><th>نتیجه</th><th class="mono">Counter</th><th>معنی</th></tr></thead>
       <tbody>
         <tr><td class="mono">Ok</td><td class="mono">scans_run</td><td>کل فضای آدرس مرور شد</td></tr>
-        <tr><td class="mono">AccessDenied</td><td class="mono">scans_skipped_access</td><td><code>ERROR_ACCESS_DENIED</code>: پروسس محافظت‌شده، System، CSRSS</td></tr>
-        <tr><td class="mono">Gone</td><td class="mono">scans_skipped_gone</td><td><code>ERROR_INVALID_PARAMETER</code>: پروسس قبل از اسکن بسته شده (یک فرض، که به‌صراحت فرض نوشته شده)</td></tr>
+        <tr><td class="mono">AccessDenied</td><td class="mono">scans_skipped_access</td><td><span class="nb"><code>ERROR_ACCESS_DENIED</code>:</span> پروسس محافظت‌شده، System، CSRSS</td></tr>
+        <tr><td class="mono">Gone</td><td class="mono">scans_skipped_gone</td><td><span class="nb"><code>ERROR_INVALID_PARAMETER</code>:</span> پروسس قبل از اسکن بسته شده (یک فرض، که به‌صراحت فرض نوشته شده)</td></tr>
         <tr><td class="mono">PidReused</td><td class="mono">scans_skipped_reused</td><td>باز شد، ولی بعد از رویداد ProcessStartش ساخته شده</td></tr>
         <tr><td class="mono">self</td><td class="mono">scans_skipped_self</td><td>PID صفر، یا خود سنسور</td></tr>
         <tr><td class="mono">OpenFailed</td><td class="mono">scans_skipped_other</td><td>هر خطای دیگر <code>OpenProcess</code></td></tr>
@@ -3022,7 +3021,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <p>
       «H1 دروازه است، نه حکم.» H1 می‌گوید کجا را نگاه کنیم؛ یکی از H3، H2 یا H5 می‌گوید هشدار بدهیم یا نه.
       قانون کامل: <strong>H1 و حداقل یکی از H3، H2، H5</strong>. شدت: اگر RWX یا H2 باشد
-      <code>critical</code>، وگرنه <code>high</code>.
+      <span class="nb"><code>critical</code>،</span> وگرنه <span class="nb"><code>high</code>.</span>
     </p>
   </div>
 
@@ -3036,7 +3035,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   <div class="prose">
     <p>
       برنامه‌ی فاز می‌گفت قبل از ساختن هر هشداری روی H1، نرخ false positive آن باید روی سیستم تمیز
-      <em>اندازه‌گیری</em> شود. برای همین یک ابزار جدا، <code>tools/mem_census.cpp</code>، نوشته شد که همه‌ی
+      <em>اندازه‌گیری</em> شود. برای همین یک ابزار جدا، <span class="nb"><code>tools/mem_census.cpp</code>،</span> نوشته شد که همه‌ی
       پروسس‌های قابل‌باز کردن را مرور می‌کند و می‌شمارد اسکنر چه چیزی را علامت می‌زد، بدون هیچ هشداری. روی
       سیستم توسعه، حدود ۲۴۰ پروسس در دو اجرا (build Debug):
     </p>
@@ -3100,7 +3099,7 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
       <strong>همه‌ی regionهای RWX به‌جز دو تا در پروسس‌هایی بودند که runtime دات‌نت در آن‌ها بار بود.</strong>
       JIT دات‌نت کدش را read-write-execute map می‌کند، پس RWX در یک پروسس سالم ویژگی runtime مدیریت‌شده است،
       نه نشانه‌ی تزریق. H1 بقیه‌ی پروسس‌ها بیشتر execute-read و در میزبان‌های Chromium و Edge WebView بود
-      (<code>msedgewebview2</code>، <code>SearchApp</code>، <code>M365Copilot</code>، <code>msedge</code>)،
+      (<span class="nb"><code>msedgewebview2</code>،</span> <span class="nb"><code>SearchApp</code>،</span> <span class="nb"><code>M365Copilot</code>،</span> <code>msedge</code>)،
       یعنی JIT جاوااسکریپت، به‌اضافه‌ی shell ویندوز. جواب telemetry در هر ۹ پروسسی که جواب قطعی داشت با فهرست
       ماژول‌ها یکی بود؛ ۱۳۸ پروسس دیگر قبل از سنسور شروع شده بودند و آنجا نبودن ردیف load درست به‌عنوان
       «نامعلوم» خوانده شد، نه «نه».
@@ -3134,11 +3133,11 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
       <code>events</code> اشاره کند. یافته‌ی حافظه هیچ رویداد ETWی پشتش ندارد. به‌جای شل کردن schema،
       اسکنر یک رویداد <strong>ساختگی</strong> می‌سازد: <code>MemoryScan</code> با
       <code>event_type = 4</code> برای پروسس اسکن‌شده. همان <code>CommitBatch</code> فاز ۳، با هشدارها در
-      <code>batchIndex 0</code>، پس هشدار و رویدادش مثل قبل در یک transaction ذخیره می‌شوند.
+      <span class="nb"><code>batchIndex 0</code>،</span> پس هشدار و رویدادش مثل قبل در یک transaction ذخیره می‌شوند.
     </p>
     <p>
       رویداد ساختگی فقط چیزی را ثبت می‌کند که دانسته است: <code>image_path</code> مسیر پروسس هدف است؛
-      <code>image_path_nt</code>، PID والد و session مقدار <code>NULL</code> دارند، نه یک صفر ساختگی،
+      <span class="nb"><code>image_path_nt</code>،</span> PID والد و session مقدار <code>NULL</code> دارند، نه یک صفر ساختگی،
       چون هیچ‌کدام مشاهده نشده‌اند. اسکن تمیز هیچ ردیفی نمی‌نویسد؛ فقط شمرده می‌شود.
     </p>
   </div>
@@ -3158,9 +3157,9 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
     <table>
       <thead><tr><th>نسخه‌ی schema</th><th>چه اضافه شد</th></tr></thead>
       <tbody>
-        <tr><td class="num">v5</td><td><code>event_type</code> برابر ۴ (MemoryScan) و ده ستون اسکن در <code>session_stats</code>: <code>scans_run</code>، <code>scans_dropped</code>، <code>scans_skipped_access</code>، <code>scans_skipped_other</code>، <code>scan_regions_examined</code>، <code>injection_findings</code> و <code>scan_ns_total</code>، <code>scan_ns_p50</code>، <code>scan_ns_p99</code>، <code>scan_ns_max</code></td></tr>
-        <tr><td class="num">v6</td><td>سه شمارنده‌ی جداشده: <code>scans_skipped_gone</code>، <code>scans_skipped_reused</code>، <code>scans_skipped_self</code>. در ردیف‌های قدیمی صفرند، یعنی «ثبت نشده»</td></tr>
-        <tr><td class="num">v7</td><td>شش ستون هزینه برای هفته‌ی ۳: <code>scan_sweep_enabled</code>، <code>scan_sweeps_run</code>، <code>scans_from_sweep</code>، <code>scan_h1_regions</code>، <code>scanner_cpu_ns</code> (CPU خود thread اسکنر) و <code>sensor_cpu_ns</code> (CPU کل سنسور)</td></tr>
+        <tr><td class="num">v5</td><td><code>event_type</code> برابر ۴ (MemoryScan) و ده ستون اسکن در <span class="nb"><code>session_stats</code>:</span> <span class="nb"><code>scans_run</code>،</span> <span class="nb"><code>scans_dropped</code>،</span> <span class="nb"><code>scans_skipped_access</code>،</span> <span class="nb"><code>scans_skipped_other</code>،</span> <span class="nb"><code>scan_regions_examined</code>،</span> <code>injection_findings</code> و <span class="nb"><code>scan_ns_total</code>،</span> <span class="nb"><code>scan_ns_p50</code>،</span> <span class="nb"><code>scan_ns_p99</code>،</span> <code>scan_ns_max</code></td></tr>
+        <tr><td class="num">v6</td><td>سه شمارنده‌ی جداشده: <span class="nb"><code>scans_skipped_gone</code>،</span> <span class="nb"><code>scans_skipped_reused</code>،</span> <span class="nb"><code>scans_skipped_self</code>.</span> در ردیف‌های قدیمی صفرند، یعنی «ثبت نشده»</td></tr>
+        <tr><td class="num">v7</td><td>شش ستون هزینه برای هفته‌ی ۳: <span class="nb"><code>scan_sweep_enabled</code>،</span> <span class="nb"><code>scan_sweeps_run</code>،</span> <span class="nb"><code>scans_from_sweep</code>،</span> <span class="nb"><code>scan_h1_regions</code>،</span> <code>scanner_cpu_ns</code> (CPU خود thread اسکنر) و <code>sensor_cpu_ns</code> (CPU کل سنسور)</td></tr>
       </tbody>
     </table>
   </div>
@@ -3226,11 +3225,11 @@ rules/x.yml:12: unknown field 'Imgae' (supported: Image, ImageLoaded, ParentImag
   <div class="prose">
     <p>
       دو اجرای ۳۰ دقیقه‌ای روی VM ویندوز ۱۰ (۲ پردازنده‌ی منطقی، x64 Release، با Administrator)، یکی با sweep
-      و یکی با <code>--no-sweep</code>، روی یک بار کاری ثابت: هر ۲۰ ثانیه یک <code>powershell.exe</code> که دو
+      و یکی با <span class="nb"><code>--no-sweep</code>،</span> روی یک بار کاری ثابت: هر ۲۰ ثانیه یک <code>powershell.exe</code> که دو
       دقیقه زنده می‌ماند (میزبان <bdi>.NET</bdi>) و یک <code>cmd.exe</code> کوتاه. اسکریپت
       <code>tools\run_phase4_measure.cmd</code> هر دو را build و اجرا می‌کند و
       <code>tools\phase4_cost_report.sql</code> برای هر اجرا یک ردیف از <code>session_stats</code> چاپ می‌کند.
-      CPU یعنی زمان user و kernel از <code>GetThreadTimes</code> و <code>GetProcessTimes</code>، به‌صورت درصدی
+      CPU یعنی زمان user و kernel از <code>GetThreadTimes</code> و <span class="nb"><code>GetProcessTimes</code>،</span> به‌صورت درصدی
       از <strong>یک</strong> هسته در طول session.
     </p>
   </div>
@@ -3333,7 +3332,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="note warn">
     <span class="label">تصمیم: آزمایش اختیاری، پیش‌فرض خاموش</span>
     <p>
-      <code>Light_EDR --peb-cmdline</code>. روی هر پروسس ۶۴ بیتی که بررسی توانست باز کند و در سنسور از اول تا
+      <span class="nb"><code>Light_EDR --peb-cmdline</code>.</span> روی هر پروسس ۶۴ بیتی که بررسی توانست باز کند و در سنسور از اول تا
       آخر کار کرد. سه دلیل که پیش‌فرض خاموش است: روی ساختارهایی تکیه دارد که مایکروسافت می‌گوید ممکن است عوض
       شوند؛ پروسس‌های ۳۲ بیتی را رد می‌کند؛ و مقدار <strong>خوداظهاری</strong> است: PEB در حافظه‌ی قابل‌نوشتن خود
       پروسس است، پس پروسس می‌تواند command lineش را بعد از شروع بازنویسی کند. چیزی که ذخیره می‌شود همان است که
@@ -3369,15 +3368,15 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>BoundedQueue&lt;T&gt;</code></dt>
         <dd>
           <ul>
-            <li><code>TryPush</code>: هرگز block نمی‌شود؛ اگر صف پر باشد جدیدترین مورد دور ریخته و شمرده می‌شود (drop-newest، مثل صف رویداد).</li>
-            <li><code>PopBatch(out, max, timeout)</code>: تا <code>max</code> مورد برمی‌دارد یا تا timeout صبر می‌کند.</li>
-            <li><code>DrainNow</code>: <strong>بدون انتظار</strong> هر چه هست برمی‌دارد. نویسنده بین دسته‌های رویداد همین را صدا می‌زند، چون نباید منتظر نتیجه‌ی اسکن بماند.</li>
-            <li><code>Shutdown</code> و <code>IsDrained</code>: بعد از Shutdown مورد جدید پذیرفته نمی‌شود ولی موارد موجود تا تخلیه می‌مانند.</li>
-            <li>شمارنده‌های <code>Pushed</code>، <code>Dropped</code> و <code>PeakSize</code>.</li>
+            <li><span class="nb"><code>TryPush</code>:</span> هرگز block نمی‌شود؛ اگر صف پر باشد جدیدترین مورد دور ریخته و شمرده می‌شود (drop-newest، مثل صف رویداد).</li>
+            <li><span class="nb"><code>PopBatch(out, max, timeout)</code>:</span> تا <code>max</code> مورد برمی‌دارد یا تا timeout صبر می‌کند.</li>
+            <li><span class="nb"><code>DrainNow</code>:</span> <strong>بدون انتظار</strong> هر چه هست برمی‌دارد. نویسنده بین دسته‌های رویداد همین را صدا می‌زند، چون نباید منتظر نتیجه‌ی اسکن بماند.</li>
+            <li><code>Shutdown</code> و <span class="nb"><code>IsDrained</code>:</span> بعد از Shutdown مورد جدید پذیرفته نمی‌شود ولی موارد موجود تا تخلیه می‌مانند.</li>
+            <li>شمارنده‌های <span class="nb"><code>Pushed</code>،</span> <code>Dropped</code> و <span class="nb"><code>PeakSize</code>.</span></li>
           </ul>
         </dd>
         <dt><code>scan_result.h</code></dt>
-        <dd><code>ScanRequest{pid, startTime, image}</code> (چیزی که نویسنده می‌فرستد)، <code>ScanResult{NormalizedEvent event; vector&lt;Alert&gt; alerts}</code> (چیزی که برمی‌گردد)، و دو نوع <code>ScanRequestQueue</code> و <code>ScanResultQueue</code>. ظرفیت‌ها در <code>main.cpp</code>: ۱۰۲۴ درخواست و ۲۵۶ نتیجه.</dd>
+        <dd><code>ScanRequest{pid, startTime, image}</code> (چیزی که نویسنده می‌فرستد)، <code>ScanResult{NormalizedEvent event; vector&lt;Alert&gt; alerts}</code> (چیزی که برمی‌گردد)، و دو نوع <code>ScanRequestQueue</code> و <span class="nb"><code>ScanResultQueue</code>.</span> ظرفیت‌ها در <span class="nb"><code>main.cpp</code>:</span> ۱۰۲۴ درخواست و ۲۵۶ نتیجه.</dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «چرا EventQueue را هم به این template منتقل نکردید؟»</b> چون مسیر فاز ۲ و ۳ تست‌شده و اندازه‌گیری‌شده بود و هیچ سودی از تغییرش نمی‌آمد. صف قدیمی دست‌نخورده ماند و template فقط برای دو صف جدید استفاده شد؛ ریسک تغییر صفر.</div>
     </div>
@@ -3390,9 +3389,9 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
       <p>شکل یک «یافته»: یک region مشکوک در یک پروسس، به‌اضافه‌ی بیت‌های نشانه‌هایش.</p>
       <dl>
         <dt>بیت‌های نشانه (<code>namespace signal</code>)</dt>
-        <dd><code>kH1PrivateExec = 1&lt;&lt;0</code>، <code>kH1Rwx = 1&lt;&lt;1</code>، <code>kH3PeHeader = 1&lt;&lt;2</code>، <code>kH2ThreadStart = 1&lt;&lt;3</code>، <code>kH5Shellcode = 1&lt;&lt;4</code>، <code>kH1MappedExec = 1&lt;&lt;5</code>، و <code>kH1Any</code> که OR دو نوع H1 است. یک یافته می‌تواند چند بیت با هم داشته باشد.</dd>
+        <dd><span class="nb"><code>kH1PrivateExec = 1&lt;&lt;0</code>،</span> <span class="nb"><code>kH1Rwx = 1&lt;&lt;1</code>،</span> <span class="nb"><code>kH3PeHeader = 1&lt;&lt;2</code>،</span> <span class="nb"><code>kH2ThreadStart = 1&lt;&lt;3</code>،</span> <span class="nb"><code>kH5Shellcode = 1&lt;&lt;4</code>،</span> <span class="nb"><code>kH1MappedExec = 1&lt;&lt;5</code>،</span> و <code>kH1Any</code> که OR دو نوع H1 است. یک یافته می‌تواند چند بیت با هم داشته باشد.</dd>
         <dt><code>struct Finding</code></dt>
-        <dd><code>pid</code>، <code>scanTime</code>، <code>image</code>، <code>regionBase</code>، <code>regionSize</code>، <code>regionProtect</code>، <code>allocProtect</code> (protection زمان گرفتن حافظه)، <code>h2ThreadId</code> و <code>h2ThreadStartAddress</code> (یک thread نماینده)، و <code>signals</code>.</dd>
+        <dd><span class="nb"><code>pid</code>،</span> <span class="nb"><code>scanTime</code>،</span> <span class="nb"><code>image</code>،</span> <span class="nb"><code>regionBase</code>،</span> <span class="nb"><code>regionSize</code>،</span> <span class="nb"><code>regionProtect</code>،</span> <code>allocProtect</code> (protection زمان گرفتن حافظه)، <code>h2ThreadId</code> و <code>h2ThreadStartAddress</code> (یک thread نماینده)، و <span class="nb"><code>signals</code>.</span></dd>
         <dt>توابع</dt>
         <dd><code>IsReportable</code> و <code>SeverityOf</code> (پیاده‌سازی در <code>scan_conversion.cpp</code>).</dd>
       </dl>
@@ -3403,16 +3402,16 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="file" id="f-region-classifier">
     <div class="fhead"><span class="fname">src/injection/region_classifier.h · .cpp</span><span class="tag p4">PHASE 4 · WK1 → WK2</span><span class="tag">C++17</span><span class="tag">PURE</span></div>
     <div class="fbody">
-      <p>H1، H1 mapped و H2 به شکل توابع خالص روی یک کپی ساده از <code>MEMORY_BASIC_INFORMATION</code>.</p>
+      <p>H1، H1 mapped و H2 به شکل توابع خالص روی یک کپی ساده از <span class="nb"><code>MEMORY_BASIC_INFORMATION</code>.</span></p>
       <dl>
         <dt><code>RegionInfo</code></dt>
-        <dd>همان فیلدهای <code>MEMORY_BASIC_INFORMATION</code> با نوع‌های ثابت (<code>baseAddress</code>، <code>allocationBase</code>، <code>regionSize</code>، <code>allocationProtect</code>، <code>state</code>، <code>protect</code>، <code>type</code>)، تا تست‌ها بدون حافظه‌ی واقعی region بسازند.</dd>
+        <dd>همان فیلدهای <code>MEMORY_BASIC_INFORMATION</code> با نوع‌های ثابت (<span class="nb"><code>baseAddress</code>،</span> <span class="nb"><code>allocationBase</code>،</span> <span class="nb"><code>regionSize</code>،</span> <span class="nb"><code>allocationProtect</code>،</span> <span class="nb"><code>state</code>،</span> <span class="nb"><code>protect</code>،</span> <code>type</code>)، تا تست‌ها بدون حافظه‌ی واقعی region بسازند.</dd>
         <dt><code>BaseProtection · IsExecutable · IsWritableExecutable</code></dt>
-        <dd><code>BaseProtection</code> بیت‌های اصلاح‌کننده را با ماسک <code>0xFF</code> کنار می‌گذارد. <code>IsExecutable</code> یعنی یکی از چهار مقدار <code>PAGE_EXECUTE*</code> (بیت‌های <code>0xF0</code>). <code>IsWritableExecutable</code> یعنی دقیقاً <code>PAGE_EXECUTE_READWRITE</code>.</dd>
+        <dd><code>BaseProtection</code> بیت‌های اصلاح‌کننده را با ماسک <code>0xFF</code> کنار می‌گذارد. <code>IsExecutable</code> یعنی یکی از چهار مقدار <code>PAGE_EXECUTE*</code> (بیت‌های <code>0xF0</code>). <code>IsWritableExecutable</code> یعنی دقیقاً <span class="nb"><code>PAGE_EXECUTE_READWRITE</code>.</span></dd>
         <dt><code>IsReadableByScanner</code></dt>
         <dd>region کامیت‌نشده، <code>PAGE_GUARD</code> و <code>PAGE_NOACCESS</code> را رد می‌کند. این تنها دروازه‌ی همه‌ی خواندن‌هاست.</dd>
         <dt><code>ClassifyH1 · ClassifyMappedH1</code></dt>
-        <dd>اولی: کامیت‌شده و <code>MEM_PRIVATE</code> و اجرایی؛ خروجی <code>{hit, rwx}</code>. دومی: <code>MEM_MAPPED</code> اجرایی که فایلی پشتش گزارش نشده.</dd>
+        <dd>اولی: کامیت‌شده و <code>MEM_PRIVATE</code> و اجرایی؛ خروجی <span class="nb"><code>{hit, rwx}</code>.</span> دومی: <code>MEM_MAPPED</code> اجرایی که فایلی پشتش گزارش نشده.</dd>
         <dt><code>ClassifyH2(H2Input)</code></dt>
         <dd>hit وقتی: آدرس شروع thread داخل یک region کامیت‌شده باشد، نوع PRIVATE یا MAPPED باشد (نه IMAGE)، query فایل پشتش واقعاً انجام شده باشد، و هیچ فایلی برنگرداند. چک مرز طوری نوشته شده که با regionهای ناجور overflow نکند.</dd>
       </dl>
@@ -3439,14 +3438,14 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="file" id="f-shellcode-probe">
     <div class="fhead"><span class="fname">src/injection/shellcode_probe.h · .cpp</span><span class="tag p4">PHASE 4 · WK2</span><span class="tag">C++17</span><span class="tag">PURE · H5</span></div>
     <div class="fbody">
-      <p>۱۶ بایت (<code>kShellcodeProbeBytes</code>) را با الگوهای شناخته‌شده‌ی شروع shellcode مقایسه می‌کند. تابع اصلی: <code>LooksLikeShellcodeStub(bytes, size)</code>.</p>
+      <p>۱۶ بایت (<code>kShellcodeProbeBytes</code>) را با الگوهای شناخته‌شده‌ی شروع shellcode مقایسه می‌کند. تابع اصلی: <span class="nb"><code>LooksLikeShellcodeStub(bytes, size)</code>.</span></p>
       <dl>
         <dt>الگوها، آن‌طور که در کد آمده</dt>
         <dd>
           <ul>
-            <li><code>FC 48 83 E4 F0 E8</code>: <code>cld; and rsp, -16; call</code>، prologue x64 در <code>block_api</code> Metasploit.</li>
-            <li><code>FC 48 81 E4 F0 FF FF FF E8</code>: همان، با شکل دیگر دستور <code>and</code>.</li>
-            <li><code>FC E8 xx 00 00 00</code>: prologue x86.</li>
+            <li><span class="nb"><code>FC 48 83 E4 F0 E8</code>:</span> <span class="nb"><code>cld; and rsp, -16; call</code>،</span> prologue x64 در <code>block_api</code> Metasploit.</li>
+            <li><span class="nb"><code>FC 48 81 E4 F0 FF FF FF E8</code>:</span> همان، با شکل دیگر دستور <span class="nb"><code>and</code>.</span></li>
+            <li><span class="nb"><code>FC E8 xx 00 00 00</code>:</span> prologue x86.</li>
             <li><code>E8 00 00 00 00</code> و بعد یک <code>pop reg</code> (<code>58..5F</code> یا <code>41 5x</code>): الگوی GetPC؛ <code>call</code> به دستور بعدی، تا آدرس فعلی روی stack بیاید و برداشته شود.</li>
           </ul>
         </dd>
@@ -3474,12 +3473,12 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
           <ol>
             <li><code>NtQueryInformationThread</code> را با <code>LoadLibraryW</code> و <code>GetProcAddress</code> در زمان اجرا پیدا می‌کند، چون مایکروسافت آن را «ممکن است تغییر کند» مستند کرده. اگر نبود، فقط H2 خاموش می‌شود.</li>
             <li>با <code>CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD)</code> همه‌ی threadهای سیستم را مرور و threadهای این PID را جدا می‌کند.</li>
-            <li>هر thread را با <code>THREAD_QUERY_INFORMATION</code> باز می‌کند و کلاس ۹، <code>ThreadQuerySetWin32StartAddress</code>، را می‌پرسد.</li>
+            <li>هر thread را با <code>THREAD_QUERY_INFORMATION</code> باز می‌کند و کلاس ۹، <span class="nb"><code>ThreadQuerySetWin32StartAddress</code>،</span> را می‌پرسد.</li>
             <li><code>VirtualQueryEx</code> روی آن آدرس؛ اگر region از نوع IMAGE نباشد، <code>GetMappedFileNameW</code> می‌گوید فایلی پشتش هست یا نه.</li>
           </ol>
         </dd>
         <dt>مدیریت منابع</dt>
-        <dd>handleها و ماژول با کلاس‌های RAII کوچک (<code>UniqueHandle</code>، <code>UniqueModule</code>) بسته می‌شوند. threadی که بین snapshot و باز کردن بسته شده فقط رد می‌شود.</dd>
+        <dd>handleها و ماژول با کلاس‌های RAII کوچک (<span class="nb"><code>UniqueHandle</code>،</span> <code>UniqueModule</code>) بسته می‌شوند. threadی که بین snapshot و باز کردن بسته شده فقط رد می‌شود.</dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «چرا H2 این‌قدر گران است؟»</b> چون snapshot threadها کل سیستم را می‌گیرد، نه فقط یک پروسس، و برای هر thread یک handle، یک syscall و یک <code>VirtualQueryEx</code> لازم است. در census Debug زمان کل از ۲.۲–۳.۷ ثانیه به ۱۹ ثانیه رسید. اندازه‌گیری Release با و بدون H2 کار هفته‌ی ۳ است.</div>
     </div>
@@ -3500,15 +3499,15 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>ScanProcessMemory(pid, expectedStartTime, findings, stats)</code></dt>
         <dd>
           <ol>
-            <li><code>OpenProcess</code>؛ اگر نشد، نتیجه از <code>ClassifyOpenFailure</code>.</li>
+            <li><span class="nb"><code>OpenProcess</code>؛</span> اگر نشد، نتیجه از <span class="nb"><code>ClassifyOpenFailure</code>.</span></li>
             <li>محافظ بازیافت PID با <code>GetProcessTimes</code> و تحمل یک ثانیه (چون زمان رویداد و زمان kernel از یک خواندن ساعت نیامده‌اند).</li>
             <li>حلقه‌ی <code>VirtualQueryEx</code> تا وقتی صفر برگرداند؛ برای region صفر‌اندازه یا wrap آدرس متوقف می‌شود تا هرگز حلقه‌ی بی‌پایان نشود.</li>
             <li>برای هر region کامیت‌شده: H1، و فقط برای MAPPED اجرایی یک <code>GetMappedFileNameW</code> برای H1 mapped. روی H1 قابل‌خواندن: H3 (<code>RegionHasPeHeader</code>) و H5.</li>
-            <li>بعد از مرور: threadها از <code>thread_inspector</code>؛ H2 فقط به یافته‌ای وصل می‌شود که آدرس شروع thread <em>داخل</em> آن باشد، و H5 دوباره در آن آدرس چک می‌شود.</li>
+            <li>بعد از مرور: threadها از <span class="nb"><code>thread_inspector</code>؛</span> H2 فقط به یافته‌ای وصل می‌شود که آدرس شروع thread <em>داخل</em> آن باشد، و H5 دوباره در آن آدرس چک می‌شود.</li>
           </ol>
         </dd>
       </dl>
-      <div class="ask"><b>سؤال رایج: «از کجا می‌دانید اسکنر به پروسس هدف آسیب نمی‌زند؟»</b> فقط سه API خواندنی صدا زده می‌شود: <code>VirtualQueryEx</code>، <code>ReadProcessMemory</code> و <code>GetMappedFileNameW</code>. از هر region حداکثر ۸۴ بایت خوانده می‌شود (و ۱۶ بایت دیگر در آدرس شروع thread H2)، هرگز از صفحه‌ی guard یا noaccess، و handle فقط حق query و read دارد، نه نوشتن.</div>
+      <div class="ask"><b>سؤال رایج: «از کجا می‌دانید اسکنر به پروسس هدف آسیب نمی‌زند؟»</b> فقط سه API خواندنی صدا زده می‌شود: <span class="nb"><code>VirtualQueryEx</code>،</span> <code>ReadProcessMemory</code> و <span class="nb"><code>GetMappedFileNameW</code>.</span> از هر region حداکثر ۸۴ بایت خوانده می‌شود (و ۱۶ بایت دیگر در آدرس شروع thread H2)، هرگز از صفحه‌ی guard یا noaccess، و handle فقط حق query و read دارد، نه نوشتن.</div>
     </div>
   </div>
 
@@ -3521,21 +3520,21 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dt><code>IsReportable</code></dt>
         <dd><code>(signals &amp; kH1Any) != 0 &amp;&amp; (signals &amp; (H3 | H2 | H5)) != 0</code>.</dd>
         <dt><code>SeverityOf</code></dt>
-        <dd>RWX یا H2 ← <code>Critical</code>؛ وگرنه <code>High</code>.</dd>
+        <dd>RWX یا H2 ← <span class="nb"><code>Critical</code>؛</span> وگرنه <span class="nb"><code>High</code>.</span></dd>
         <dt><code>InjectionRuleId · InjectionRuleTitle</code></dt>
         <dd>
           ترتیب اولویت H3، بعد H2، بعد H5:
           <ul>
-            <li><code>lightedr-inj-h1h3</code>: «Executable private memory containing a PE header»</li>
-            <li><code>lightedr-inj-h1h2</code>: «Thread executing from unbacked executable memory»</li>
-            <li><code>lightedr-inj-h1h5</code>: «Shellcode stub in unbacked executable memory»</li>
+            <li><span class="nb"><code>lightedr-inj-h1h3</code>:</span> «Executable private memory containing a PE header»</li>
+            <li><span class="nb"><code>lightedr-inj-h1h2</code>:</span> «Thread executing from unbacked executable memory»</li>
+            <li><span class="nb"><code>lightedr-inj-h1h5</code>:</span> «Shellcode stub in unbacked executable memory»</li>
           </ul>
-          technique همیشه <code>T1055</code>.
+          technique همیشه <span class="nb"><code>T1055</code>.</span>
         </dd>
         <dt><code>DescribeFinding</code></dt>
         <dd>متن <code>matched_fields</code> (Region، Size، Protect، AllocProtect، Signals، و برای H2 شماره و آدرس thread).</dd>
         <dt><code>BuildScanResult</code></dt>
-        <dd>یک رویداد <code>MemoryScan</code> و برای هر یافته‌ی قابل‌گزارش یک <code>Alert</code> با <code>batchIndex = 0</code>. اگر هیچ یافته‌ای قابل‌گزارش نباشد <code>false</code> برمی‌گرداند و خروجی دست‌نخورده می‌ماند: اسکن تمیز هیچ ردیفی نمی‌نویسد.</dd>
+        <dd>یک رویداد <code>MemoryScan</code> و برای هر یافته‌ی قابل‌گزارش یک <code>Alert</code> با <span class="nb"><code>batchIndex = 0</code>.</span> اگر هیچ یافته‌ای قابل‌گزارش نباشد <code>false</code> برمی‌گرداند و خروجی دست‌نخورده می‌ماند: اسکن تمیز هیچ ردیفی نمی‌نویسد.</dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «چرا rule id ثابت و نه یک فایل YAML؟»</b> چون این یافته از هیچ قاعده‌ی YAMLی نیامده و موتور قاعده فیلدهای حافظه را نمی‌شناسد. یک شناسه‌ی ثابت و مستند صادقانه‌تر از قرض گرفتن شناسه‌ی یک قاعده است، و با <code>WHERE rule_id LIKE 'lightedr-inj-%'</code> جدا می‌شود.</div>
     </div>
@@ -3545,26 +3544,26 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="file" id="f-scanner">
     <div class="fhead"><span class="fname">src/injection/scanner.h · .cpp</span><span class="tag p4">PHASE 4 · WK1 → WK2</span><span class="tag">C++17</span><span class="tag">THREAD</span></div>
     <div class="fbody">
-      <p>کلاس <code>ScannerThread</code>: خود thread چهارم.</p>
+      <p>کلاس <span class="nb"><code>ScannerThread</code>:</span> خود thread چهارم.</p>
       <dl>
         <dt><code>Start · Stop</code></dt>
         <dd><code>Stop</code> صف درخواست را Shutdown می‌کند، می‌گذارد درخواست‌های موجود اسکن شوند، و join می‌کند. صف نتیجه را <em>نمی‌بندد</em>؛ آن کار نویسنده است، بعد از اینکه اسکنر متوقف شد، تا هیچ نتیجه‌ای رد نشود. چند بار صدا زدنش امن است.</dd>
         <dt><code>Run</code> (حلقه‌ی اصلی)</dt>
         <dd>
           <ol>
-            <li>ورود به <code>THREAD_MODE_BACKGROUND_BEGIN</code>؛ اگر نشد فقط warning.</li>
+            <li>ورود به <span class="nb"><code>THREAD_MODE_BACKGROUND_BEGIN</code>؛</span> اگر نشد فقط warning.</li>
             <li>تا ۱۶ درخواست با timeout حداکثر ۲۰۰ ms برمی‌دارد و برای هرکدام اسکن ۰.۵ ثانیه بعد را زمان‌بندی می‌کند.</li>
-            <li><code>RunDueScheduled</code>: اسکن‌های موعدرسیده را اجرا و اسکن بعدی (۳، ۱۰، ۳۰ ثانیه) را زمان‌بندی می‌کند.</li>
-            <li><code>StartSweepIfDue</code> و <code>RunSweepSlice</code>: sweep و برش‌های ۴تایی.</li>
+            <li><span class="nb"><code>RunDueScheduled</code>:</span> اسکن‌های موعدرسیده را اجرا و اسکن بعدی (۳، ۱۰، ۳۰ ثانیه) را زمان‌بندی می‌کند.</li>
+            <li><code>StartSweepIfDue</code> و <span class="nb"><code>RunSweepSlice</code>:</span> sweep و برش‌های ۴تایی.</li>
             <li>اگر صف Shutdown و خالی شد: اولین اسکن هر درخواست باقی‌مانده اجرا می‌شود و حلقه تمام می‌شود.</li>
           </ol>
         </dd>
         <dt><code>Handle(request)</code></dt>
-        <dd>رد کردن PID صفر و خود سنسور، صدا زدن <code>ScanProcessMemory</code>، شمارش نتیجه، ثبت زمان در <code>LatencyHistogram</code>، کنار گذاشتن یافته‌هایی که قبلاً با همین نشانه‌ها گزارش شده‌اند، گرفتن مسیر کامل با <code>QueryFullProcessImageNameW</code> (چون sweep فقط نام exe دارد)، چاپ <code>ALERT</code> در لاگ، و <code>TryPush</code> به صف نتیجه. اگر صف نتیجه پر باشد، <code>ResultsDropped</code> زیاد و یک Error لاگ می‌شود: یافته‌ی ازدست‌رفته هرگز بی‌صدا نیست.</dd>
+        <dd>رد کردن PID صفر و خود سنسور، صدا زدن <span class="nb"><code>ScanProcessMemory</code>،</span> شمارش نتیجه، ثبت زمان در <span class="nb"><code>LatencyHistogram</code>،</span> کنار گذاشتن یافته‌هایی که قبلاً با همین نشانه‌ها گزارش شده‌اند، گرفتن مسیر کامل با <code>QueryFullProcessImageNameW</code> (چون sweep فقط نام exe دارد)، چاپ <code>ALERT</code> در لاگ، و <code>TryPush</code> به صف نتیجه. اگر صف نتیجه پر باشد، <code>ResultsDropped</code> زیاد و یک Error لاگ می‌شود: یافته‌ی ازدست‌رفته هرگز بی‌صدا نیست.</dd>
         <dt>اضافه‌های هفته‌ی ۳ و ۴</dt>
-        <dd><code>SetSweepEnabled</code> برای <code>--no-sweep</code>؛ ثبت CPU خود thread با <code>GetThreadTimes</code> (<code>CpuNanos</code>)؛ لاگ جداگانه‌ی هر اسکن یک ثانیه یا بیشتر (<code>kSlowScanNanos</code> و <code>DescribeSlowScan</code>، با حکم waiting یا working) و شمارنده‌ی <code>SlowScans</code>؛ و در حالت <code>--peb-cmdline</code>، خواندن command line فقط برای پروسسی که هشدار داده.</dd>
+        <dd><code>SetSweepEnabled</code> برای <span class="nb"><code>--no-sweep</code>؛</span> ثبت CPU خود thread با <code>GetThreadTimes</code> (<code>CpuNanos</code>)؛ لاگ جداگانه‌ی هر اسکن یک ثانیه یا بیشتر (<code>kSlowScanNanos</code> و <span class="nb"><code>DescribeSlowScan</code>،</span> با حکم waiting یا working) و شمارنده‌ی <span class="nb"><code>SlowScans</code>؛</span> و در حالت <span class="nb"><code>--peb-cmdline</code>،</span> خواندن command line فقط برای پروسسی که هشدار داده.</dd>
         <dt>شمارنده‌ها</dt>
-        <dd>همه atomic و هر لحظه خواندنی؛ ولی histogram فقط بعد از <code>Stop</code>، همان قانون histogram موتور تشخیص در فاز ۳.</dd>
+        <dd>همه atomic و هر لحظه خواندنی؛ ولی histogram فقط بعد از <span class="nb"><code>Stop</code>،</span> همان قانون histogram موتور تشخیص در فاز ۳.</dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «چرا background mode؟»</b> مستندات <code>SetThreadPriority</code> این حالت را برای threadهایی معرفی می‌کند که کار پس‌زمینه انجام می‌دهند: اولویت CPU، I/O و حافظه پایین می‌آید. اسکن هرگز از برنامه‌های خود کاربر فوری‌تر نیست.</div>
     </div>
@@ -3576,15 +3575,15 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
     <div class="fbody">
       <dl>
         <dt><code>src/core/event.h</code></dt>
-        <dd><code>EventType::MemoryScan</code>، با توضیح صریح که لایه‌ی telemetry هرگز آن را تولید نمی‌کند.</dd>
+        <dd><span class="nb"><code>EventType::MemoryScan</code>،</span> با توضیح صریح که لایه‌ی telemetry هرگز آن را تولید نمی‌کند.</dd>
         <dt><code>schema.sql · db_manager</code></dt>
-        <dd><code>PRAGMA user_version = 7</code>؛ migration از v4 به v5، v6 و v7، با همان روش تست فاز ۳: دیتابیس migrate‌شده ستون‌به‌ستون با دیتابیس نو مقایسه می‌شود.</dd>
+        <dd><span class="nb"><code>PRAGMA user_version = 7</code>؛</span> migration از v4 به v5، v6 و v7، با همان روش تست فاز ۳: دیتابیس migrate‌شده ستون‌به‌ستون با دیتابیس نو مقایسه می‌شود.</dd>
         <dt><code>detection_pipeline</code></dt>
-        <dd><code>SetScanRequestQueue</code>. بعد از غنی‌سازی، برای هر <code>ProcessStart</code> یک درخواست <code>TryPush</code> می‌شود. اختیاری است: بدون صف، رفتار همان فاز ۳ است.</dd>
+        <dd><span class="nb"><code>SetScanRequestQueue</code>.</span> بعد از غنی‌سازی، برای هر <code>ProcessStart</code> یک درخواست <code>TryPush</code> می‌شود. اختیاری است: بدون صف، رفتار همان فاز ۳ است.</dd>
         <dt><code>writer_thread</code></dt>
-        <dd>پارامتر اختیاری <code>ScanResultQueue*</code>. در هر دور اول <code>CommitScanResults</code> (با <code>DrainNow</code>، هر نتیجه یک <code>CommitBatch</code> جدا)، بعد دسته‌ی رویداد. فقط وقتی خارج می‌شود که <em>هر دو</em> صف خالی و بسته باشند. شمارنده‌ی جدید <code>ScanEventsStored</code>.</dd>
+        <dd>پارامتر اختیاری <span class="nb"><code>ScanResultQueue*</code>.</span> در هر دور اول <code>CommitScanResults</code> (با <span class="nb"><code>DrainNow</code>،</span> هر نتیجه یک <code>CommitBatch</code> جدا)، بعد دسته‌ی رویداد. فقط وقتی خارج می‌شود که <em>هر دو</em> صف خالی و بسته باشند. شمارنده‌ی جدید <span class="nb"><code>ScanEventsStored</code>.</span></dd>
         <dt><code>main.cpp</code></dt>
-        <dd>روشن کردن SeDebugPrivilege، ساختن دو صف و اسکنر، وصل کردن صف درخواست به pipeline و صف نتیجه به نویسنده، ترتیب جدید خاموش شدن، و خط <code>Scan summary</code> و <code>Scan cost per process</code> در گزارش پایانی (جزئیات در بخش main.cpp). از هفته‌ی ۳ و ۴ چهار سوییچ: <code>--no-sweep</code>، <code>--peb-cmdline</code>، <code>--duration N</code> (اجرای زمان‌دار برای اندازه‌گیری) و <code>--db path</code>.</dd>
+        <dd>روشن کردن SeDebugPrivilege، ساختن دو صف و اسکنر، وصل کردن صف درخواست به pipeline و صف نتیجه به نویسنده، ترتیب جدید خاموش شدن، و خط <code>Scan summary</code> و <code>Scan cost per process</code> در گزارش پایانی (جزئیات در بخش main.cpp). از هفته‌ی ۳ و ۴ چهار سوییچ: <span class="nb"><code>--no-sweep</code>،</span> <span class="nb"><code>--peb-cmdline</code>،</span> <code>--duration N</code> (اجرای زمان‌دار برای اندازه‌گیری) و <span class="nb"><code>--db path</code>.</span></dd>
       </dl>
     </div>
   </div>
@@ -3599,9 +3598,9 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
         <dd>
           سه جواب:
           <ul>
-            <li><code>Loaded</code>: یک ImageLoad برای <code>clr.dll</code> یا <code>coreclr.dll</code> برای همین نمونه‌ی پروسس.</li>
-            <li><code>NotLoaded</code>: سنسور شروع پروسس را دیده و هیچ loadی بعدش نیامده.</li>
-            <li><code>Unknown</code>: پروسس قبل از سنسور شروع شده؛ نبودن load مدرک نیست، چون runtime موقع شروع بار می‌شود.</li>
+            <li><span class="nb"><code>Loaded</code>:</span> یک ImageLoad برای <code>clr.dll</code> یا <code>coreclr.dll</code> برای همین نمونه‌ی پروسس.</li>
+            <li><span class="nb"><code>NotLoaded</code>:</span> سنسور شروع پروسس را دیده و هیچ loadی بعدش نیامده.</li>
+            <li><span class="nb"><code>Unknown</code>:</span> پروسس قبل از سنسور شروع شده؛ نبودن load مدرک نیست، چون runtime موقع شروع بار می‌شود.</li>
           </ul>
           loadی که قدیمی‌تر از پروسس باشد (با همان تحمل یک ثانیه‌ی محافظ بازیافت PID) مال صاحب قبلی آن PID است و حساب نمی‌شود.
         </dd>
@@ -3616,7 +3615,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="file" id="f-peb-reader">
     <div class="fhead"><span class="fname">src/injection/peb_reader.h · .cpp</span><span class="tag p4">PHASE 4 · WK4</span><span class="tag">C++17</span><span class="tag">EXPERIMENT D6</span></div>
     <div class="fbody">
-      <p>آزمایش D6: command line پروسس هدف از PEBش، پشت سوییچ <code>--peb-cmdline</code>. توضیح کامل در بخش «command line از PEB» بالاتر.</p>
+      <p>آزمایش D6: command line پروسس هدف از PEBش، پشت سوییچ <span class="nb"><code>--peb-cmdline</code>.</span> توضیح کامل در بخش «command line از PEB» بالاتر.</p>
       <dl>
         <dt>ساختار</dt>
         <dd>دنبال کردن اشاره‌گرها و چک‌های معقول بودن (طول زوج، غیرصفر، حداکثر MaximumLength، بافر aligned، حداکثر ۶۴ KiB) توابع خالص روی بافر بایت‌اند و تست واحد دارند؛ بخش Win32 فقط می‌خواند. وضعیت هر خواندن یک <code>PebReadStatus</code> است (مثلاً <code>Wow64Skipped</code> یا <code>Unavailable</code>) و خلاصه‌ی اجرا <code>read / wow64_skipped / failed</code> را چاپ می‌کند.</dd>
@@ -3629,7 +3628,7 @@ RTL_USER_PROCESS_PARAMETERS.CommandLine  <span class="c">(0x70) → UNICODE_STRI
   <div class="file" id="f-phase4-measure">
     <div class="fhead"><span class="fname">tools/run_phase4_measure.cmd · phase4_workload.cmd · phase4_cost_report.sql</span><span class="tag p4">PHASE 4 · WK3</span><span class="tag">CMD · SQL</span><span class="tag">TOOL</span></div>
     <div class="fbody">
-      <p>اندازه‌گیری هزینه با یک دستور (با Administrator): build Release، اجرای سنسور با و بدون sweep روی بار کاری ثابت (<code>run_phase4_measure.cmd 1800</code> یعنی هر اجرا ۳۰ دقیقه)، اجرای census با <code>--db</code> برای نسبت دادن CLR، و چاپ یک ردیف برای هر اجرا از <code>session_stats</code>.</p>
+      <p>اندازه‌گیری هزینه با یک دستور (با Administrator): build Release، اجرای سنسور با و بدون sweep روی بار کاری ثابت (<code>run_phase4_measure.cmd 1800</code> یعنی هر اجرا ۳۰ دقیقه)، اجرای census با <code>--db</code> برای نسبت دادن CLR، و چاپ یک ردیف برای هر اجرا از <span class="nb"><code>session_stats</code>.</span></p>
     </div>
   </div>
 
@@ -3690,7 +3689,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     <div class="concept">
       <div class="term">Atomic test · Manual trigger</div>
       <div class="fa-name">تست آماده · محرک دستی</div>
-      <p>تست Atomic Red Team یک پیاده‌سازی کوچک و عمومی از یک تکنیک ATT&amp;CK است. محرک دستی یک payload بی‌خطر است که همان الگوی <code>Image</code>، <code>ParentImage</code> یا <code>ImageLoaded</code> را می‌سازد، مثلاً یک باینری واقعی ویندوز که با نام دیگری کپی شده.</p>
+      <p>تست Atomic Red Team یک پیاده‌سازی کوچک و عمومی از یک تکنیک ATT&amp;CK است. محرک دستی یک payload بی‌خطر است که همان الگوی <span class="nb"><code>Image</code>،</span> <code>ParentImage</code> یا <code>ImageLoaded</code> را می‌سازد، مثلاً یک باینری واقعی ویندوز که با نام دیگری کپی شده.</p>
     </div>
     <div class="concept">
       <div class="term">Soak test</div>
@@ -3714,7 +3713,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     <p>
       هر اجرا پروسس سنسور و دیتابیس خودش را دارد: سنسور روشن می‌شود، منتظر خط «running» و ۱۵ ثانیه‌ی دیگر
       می‌ماند، محرک اجرا می‌شود، ۴۵ ثانیه صبر، توقف سنسور با Ctrl+Break، cleanup محرک، و خروجی
-      <code>alerts.csv</code> و <code>session_stats.csv</code>. هر قاعده سه اجرای true positive و یک اجرای near miss
+      <code>alerts.csv</code> و <span class="nb"><code>session_stats.csv</code>.</span> هر قاعده سه اجرای true positive و یک اجرای near miss
       دارد. بعد <code>tools/phase5_validity.ps1</code> تصمیم می‌گیرد اجرا شمرده شود یا نه:
     </p>
     <ul>
@@ -3771,7 +3770,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
         <tr><td class="mono">regsvr32_scrobj</td><td>atomic T1218.010-1</td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">office_scripting_engine</td><td>دستی · <code>WINWORD.EXE</code> = wscript تغییرنام‌داده</td><td class="num">3/3</td><td>PASS</td></tr>
         <tr><td class="mono">script_host_clr</td><td>دستی · cscript یک شیء COM دات‌نت می‌سازد</td><td class="num">3/3</td><td>PASS</td></tr>
-        <tr><td class="mono">credential_dump_helper</td><td>دستی · <code>rundll32 comsvcs.dll,#-1</code>، چیزی dump نمی‌شود</td><td class="num">3/3</td><td>PASS</td></tr>
+        <tr><td class="mono">credential_dump_helper</td><td>دستی · <span class="nb"><code>rundll32 comsvcs.dll,#-1</code>،</span> چیزی dump نمی‌شود</td><td class="num">3/3</td><td>PASS</td></tr>
       </tbody>
     </table>
   </div>
@@ -3815,7 +3814,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
       <tbody>
         <tr><td>T1055.002-1 · PE injection</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h3 · H1+RWX+H3+H2 · critical</td><td><code>notepad.exe</code> از <code>RedInjection.exe</code></td></tr>
         <tr><td>T1055.003-1 · thread hijacking</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h5 · H1+H5 · high</td><td><code>notepad.exe</code></td></tr>
-        <tr><td>T1055.012-1 · hollowing با PowerShell</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h2 · H1+H2 · critical</td><td><code>notepad.exe</code>، region در <code>0x40001000</code></td></tr>
+        <tr><td>T1055.012-1 · hollowing با PowerShell</td><td style="color:var(--ok)">3/3</td><td class="mono">h1h2 · H1+H2 · critical</td><td><span class="nb"><code>notepad.exe</code>،</span> region در <code>0x40001000</code></td></tr>
         <tr><td>T1055.001-1, -2 · .004-1, -2, -3 · .011-1 · .012-3, -4 · .015-1</td><td style="color:var(--crit)">0/3 هرکدام</td><td>–</td><td>–</td></tr>
         <tr><td>T1055.012-2 · RunPE با VBA</td><td style="color:var(--dim)">N/A</td><td colspan="2">Microsoft Office لازم دارد</td></tr>
       </tbody>
@@ -3921,7 +3920,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
 
   <h3 id="p5cost">هزینه</h3>
   <div class="prose">
-    <p><strong>ظرفیت thread نویسنده</strong>، با بازپخش دیتابیس soak (۲٬۷۳۵ رویداد) در <code>lightedr_bench</code>، ۱۱ تکرار یک‌درمیان، میانه:</p>
+    <p><strong>ظرفیت thread نویسنده</strong>، با بازپخش دیتابیس soak (۲٬۷۳۵ رویداد) در <span class="nb"><code>lightedr_bench</code>،</span> ۱۱ تکرار یک‌درمیان، میانه:</p>
   </div>
   <div class="tw">
     <table>
@@ -3996,7 +3995,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
   <div class="file" id="f-p5-load">
     <div class="fhead"><span class="fname">tools/run_phase5_load.ps1 · phase5_load_report.sql</span><span class="tag p5">PHASE 5</span><span class="tag">POWERSHELL · SQL</span><span class="tag">LOAD</span></div>
     <div class="fbody">
-      <p>نردبان نرخ: ۵، ۱۰، ۲۰ و ۴۰ پروسس در ثانیه، هرکدام ۳۰۰ ثانیه، توقف تمیز، و یک گزارش برای هر اجرا از <code>session_stats</code>.</p>
+      <p>نردبان نرخ: ۵، ۱۰، ۲۰ و ۴۰ پروسس در ثانیه، هرکدام ۳۰۰ ثانیه، توقف تمیز، و یک گزارش برای هر اجرا از <span class="nb"><code>session_stats</code>.</span></p>
       <div class="ask"><b>سؤال رایج: «چرا events_per_s تنها نقل نمی‌شود؟»</b> چون روی کل session میانگین گرفته می‌شود که حدود ۸۷ ثانیه حاشیه‌ی بیکار شروع و پایان دارد. برای همین همیشه همراه نرخ پروسس پیشنهادی و به‌دست‌آمده، و «رویداد در پنجره‌ی بار» نقل می‌شود.</div>
     </div>
   </div>
@@ -4021,7 +4020,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
       دیتابیس باز خوانده می‌شود و هر صفحه می‌گوید از کدام جدول آمده.
     </p>
     <p>
-      یک برنامه‌ی جدا با زبان جدا، در پوشه‌ی <code>gui/</code>: C# روی <bdi>.NET</bdi> 10 LTS با WPF، که با <bdi>.NET</bdi> SDK ساخته
+      یک برنامه‌ی جدا با زبان جدا، در پوشه‌ی <span class="nb"><code>gui/</code>:</span> C# روی <bdi>.NET</bdi> 10 LTS با WPF، که با <bdi>.NET</bdi> SDK ساخته
       می‌شود نه با CMake سنسور. سنسور اصلاً از وجودش خبر ندارد.
     </p>
   </div>
@@ -4143,7 +4142,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
       <b>دو حالت باز کردن، که فایل <code>-wal</code> تعیینشان می‌کند.</b> وقتی نویسنده‌ای نیست،
       <code>immutable=1</code> هیچ قفلی نمی‌گیرد و هیچ فایلی کنار دیتابیس نمی‌سازد؛ نمونه‌های فاز ۵ این‌طور باز
       می‌شوند. وقتی سنسور می‌نویسد، کنسول یک خواننده‌ی معمولی WAL است: اتصال فقط‌خواندنی،
-      <code>PRAGMA query_only = 1</code>، و فقط قفل‌های اشتراکی خواندن. وقتی <code>-wal</code> ظاهر یا ناپدید شود
+      <span class="nb"><code>PRAGMA query_only = 1</code>،</span> و فقط قفل‌های اشتراکی خواندن. وقتی <code>-wal</code> ظاهر یا ناپدید شود
       دوباره باز می‌کند، تا snapshot تغییرناپذیر هیچ‌وقت کهنه نماند.
     </figcaption>
   </figure>
@@ -4206,7 +4205,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
         <tr><td>Overview</td><td>وضعیت سنسور، شمارنده‌های session، خط زمانی هشدارها، تفکیک شدت و ATT&amp;CK، آخرین هشدارها؛ کلیک روی هر بخش نمودار Alerts را با همان فیلتر باز می‌کند</td><td class="mono">session_stats · events · alerts</td></tr>
         <tr><td>Alerts</td><td>جست‌وجو و فیلتر (شدت، قاعده، تکنیک با زیرتکنیک‌ها، بازه‌ی زمانی) و پنل جزئیات با <code>matched_fields</code> به‌صورت کلید/مقدار و تأخیر تشخیص</td><td class="mono">alerts ⋈ events</td></tr>
         <tr><td>Process Tree</td><td>رویدادهای ProcessStart به شکل درخت، با علامت شدت روی پروسس‌های دارای هشدار و اجدادشان</td><td class="mono">events · alerts</td></tr>
-        <tr><td>Memory Scanner</td><td>یک کارت برای هر یافته‌ی <code>lightedr-inj-*</code>: badge نشانه‌ها، region، اندازه، protection با نام، thread H2 و offset</td><td class="mono">alerts.matched_fields</td></tr>
+        <tr><td>Memory Scanner</td><td>یک کارت برای هر یافته‌ی <span class="nb"><code>lightedr-inj-*</code>:</span> badge نشانه‌ها، region، اندازه، protection با نام، thread H2 و offset</td><td class="mono">alerts.matched_fields</td></tr>
         <tr><td>Rules</td><td>۱۸ قاعده‌ی YAML و ۳ قاعده‌ی داخلی اسکنر، هرکدام با تعداد هشدارش در دیتابیس باز</td><td class="mono">rules/*.yml · alerts</td></tr>
         <tr><td>About</td><td>SHA-256 سنسور در مقایسه با v0.5.0، مشخصات دیتابیس، مجوزهای شخص ثالث</td><td class="mono">env.txt · باینری در حال اجرا</td></tr>
       </tbody>
@@ -4229,7 +4228,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     </div>
     <figcaption>
       <b>زنجیره‌ی mshta از فاز ۵</b>: <code>powershell 9576</code> زیر <code>mshta 8384</code> زیر
-      <code>cmd 11116</code>، پایین یک PowerShell که قبل از سنسور شروع شده و همین‌طور هم نشان داده می‌شود.
+      <span class="nb"><code>cmd 11116</code>،</span> پایین یک PowerShell که قبل از سنسور شروع شده و همین‌طور هم نشان داده می‌شود.
     </figcaption>
   </figure>
   <figure>
@@ -4298,11 +4297,11 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
     <div class="fbody">
       <dl>
         <dt><code>OpenMode</code> و <code>ChooseMode(path)</code></dt>
-        <dd><code>Immutable</code> اگر <code>-wal</code> نباشد یا خالی باشد، وگرنه <code>Live</code>. منطقش این است: در حالت WAL، فایل <code>-wal</code> تا وقتی اتصالی باز است وجود دارد و سنسور موقع خاموشی تمیز پاکش می‌کند.</dd>
+        <dd><code>Immutable</code> اگر <code>-wal</code> نباشد یا خالی باشد، وگرنه <span class="nb"><code>Live</code>.</span> منطقش این است: در حالت WAL، فایل <code>-wal</code> تا وقتی اتصالی باز است وجود دارد و سنسور موقع خاموشی تمیز پاکش می‌کند.</dd>
         <dt><code>Open(path, mode)</code></dt>
-        <dd>رشته‌ی اتصال: برای Immutable، URI با <code>?immutable=1</code>؛ برای Live، <code>Mode=ReadOnly</code> با timeout پنج ثانیه. در هر دو <code>Pooling=false</code>، تا هیچ اتصالی پنهانی باز نماند. بعد یک بار <code>user_version</code> و ستون‌های <code>session_stats</code> را می‌خواند، و بایت‌های ۱۸ و ۱۹ سرآیند فایل را برای تشخیص WAL چک می‌کند.</dd>
+        <dd>رشته‌ی اتصال: برای Immutable، URI با <span class="nb"><code>?immutable=1</code>؛</span> برای Live، <code>Mode=ReadOnly</code> با timeout پنج ثانیه. در هر دو <span class="nb"><code>Pooling=false</code>،</span> تا هیچ اتصالی پنهانی باز نماند. بعد یک بار <code>user_version</code> و ستون‌های <code>session_stats</code> را می‌خواند، و بایت‌های ۱۸ و ۱۹ سرآیند فایل را برای تشخیص WAL چک می‌کند.</dd>
         <dt><code>Read(query)</code></dt>
-        <dd>اتصال تازه، <code>PRAGMA query_only = 1</code>، یک transaction deferred، اجرای query، commit و بستن. هر چیزی که کنسول نشان می‌دهد از همین یک تابع رد می‌شود.</dd>
+        <dd>اتصال تازه، <span class="nb"><code>PRAGMA query_only = 1</code>،</span> یک transaction deferred، اجرای query، commit و بستن. هر چیزی که کنسول نشان می‌دهد از همین یک تابع رد می‌شود.</dd>
       </dl>
       <div class="ask"><b>سؤال رایج: «چرا Pooling خاموش است؟ کندتر نیست؟»</b> چرا، کمی. ولی pool یعنی اتصالی که بعد از «بستن» واقعاً باز می‌ماند، و اتصال باز ممکن است snapshot یا قفل نگه دارد. برای برنامه‌ای که هر ۲ ثانیه یک query کوچک دارد، هزینه‌ی باز کردن اتصال ناچیز است و تضمین «هیچ چیز باز نمی‌ماند» ارزشش را دارد.</div>
     </div>
@@ -4311,7 +4310,7 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
   <div class="file" id="f-gui-monitor">
     <div class="fhead"><span class="fname">gui/…/Services/DatabaseMonitor.cs</span><span class="tag">GUI</span><span class="tag">C#</span><span class="tag">LIVE</span></div>
     <div class="fbody">
-      <p>هر <code>Poll()</code>: آیا سنسور در حال اجراست (<code>SensorProbe.IsRunning</code>)، آیا «مهر» فایل (اندازه و زمان نوشتن دیتابیس و <code>-wal</code>) عوض شده، و آیا حالت باز کردن باید عوض شود (اگر بله، دیتابیس دوباره باز و تغییر علامت زده می‌شود). شمارنده‌ی <code>_ticksSinceChange</code> با پنجره‌ی سه سرکشی حالت «در حال نوشتن همین دیتابیس» را تعیین می‌کند. روی thread پس‌زمینه اجرا می‌شود و بین دو سرکشی هیچ اتصالی نگه نمی‌دارد.</p>
+      <p>هر <span class="nb"><code>Poll()</code>:</span> آیا سنسور در حال اجراست (<code>SensorProbe.IsRunning</code>)، آیا «مهر» فایل (اندازه و زمان نوشتن دیتابیس و <code>-wal</code>) عوض شده، و آیا حالت باز کردن باید عوض شود (اگر بله، دیتابیس دوباره باز و تغییر علامت زده می‌شود). شمارنده‌ی <code>_ticksSinceChange</code> با پنجره‌ی سه سرکشی حالت «در حال نوشتن همین دیتابیس» را تعیین می‌کند. روی thread پس‌زمینه اجرا می‌شود و بین دو سرکشی هیچ اتصالی نگه نمی‌دارد.</p>
     </div>
   </div>
 
@@ -4389,13 +4388,13 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
   <h3>ترتیب راه‌اندازی</h3>
   <ol>
     <li><code>SetConsoleOutputCP(CP_UTF8)</code> و سطح لاگ.</li>
-    <li>باز کردن دیتابیس (<code>DbManager::Open</code>: pragmaها، schema یا migration، statementها). اگر نشد، خروج.</li>
+    <li>باز کردن دیتابیس (<span class="nb"><code>DbManager::Open</code>:</span> pragmaها، schema یا migration، statementها). اگر نشد، خروج.</li>
     <li>پاکسازی رویدادهای قدیمی‌تر از ۷ روز.</li>
-    <li>ساختن صف، فیلتر و <code>DetectionPipeline</code> و گذاشتن <code>g_queue</code> و <code>g_filter</code>.</li>
-    <li><code>EtwSession_Start</code>: ساخت session و روشن کردن provider. اگر نشد: «Are you running as Administrator?».</li>
-    <li><code>EtwConsumer_Open</code>: باز کردن session برای خواندن.</li>
-    <li><code>detection.Initialize(ResolveRulesDirectory())</code>: جدول volumeها، snapshot پروسس‌ها، بار کردن قاعده‌ها.</li>
-    <li>فاز ۴: <code>EnableDebugPrivilege</code> (اگر نشد فقط warning؛ پروسس‌های کاربرهای دیگر به‌عنوان skipped_access شمرده می‌شوند)، ساختن <code>ScanRequestQueue</code>، <code>ScanResultQueue</code> و <code>ScannerThread</code>، و <code>detection.SetScanRequestQueue</code>.</li>
+    <li>ساختن صف، فیلتر و <code>DetectionPipeline</code> و گذاشتن <code>g_queue</code> و <span class="nb"><code>g_filter</code>.</span></li>
+    <li><span class="nb"><code>EtwSession_Start</code>:</span> ساخت session و روشن کردن provider. اگر نشد: «Are you running as Administrator?».</li>
+    <li><span class="nb"><code>EtwConsumer_Open</code>:</span> باز کردن session برای خواندن.</li>
+    <li><span class="nb"><code>detection.Initialize(ResolveRulesDirectory())</code>:</span> جدول volumeها، snapshot پروسس‌ها، بار کردن قاعده‌ها.</li>
+    <li>فاز ۴: <code>EnableDebugPrivilege</code> (اگر نشد فقط warning؛ پروسس‌های کاربرهای دیگر به‌عنوان skipped_access شمرده می‌شوند)، ساختن <span class="nb"><code>ScanRequestQueue</code>،</span> <code>ScanResultQueue</code> و <span class="nb"><code>ScannerThread</code>،</span> و <span class="nb"><code>detection.SetScanRequestQueue</code>.</span></li>
     <li>ساختن <code>WriterThread</code> (حالا با صف نتیجه‌ی اسکن به‌عنوان پارامتر آخر)، و <code>Start</code> کردن نویسنده و اسکنر.</li>
     <li>ثبت <code>ConsoleCtrlHandler</code> برای Ctrl+C، فقط وقتی همه‌ی لایه‌ها آماده‌اند، تا هرگز روی سیستم نیمه‌آماده اجرا نشود.</li>
     <li>ساختن thread مصرف‌کننده که <code>EtwConsumer_Run</code> را اجرا می‌کند.</li>
@@ -4468,14 +4467,14 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
         <dd>C17 و C++17، هر دو اجباری؛ اگر سیستم Windows نباشد build با خطا متوقف می‌شود چون پروژه روی ETW ساخته شده.</dd>
         <dt>هدف <code>sqlite3</code> (کتابخانه‌ی static)</dt>
         <dd>
-          فقط از <code>sqlite3.c</code>؛ <code>shell.c</code> ابزار خط فرمان است و <code>main()</code> خودش
+          فقط از <span class="nb"><code>sqlite3.c</code>؛</span> <code>shell.c</code> ابزار خط فرمان است و <code>main()</code> خودش
           را دارد. با C99 کامپایل می‌شود (کد شخص ثالث) و warningهایش خاموش است. گزینه‌های کامپایل از
           صفحه‌ی گزینه‌های توصیه‌شده‌ی SQLite آمده‌اند، از جمله:
           <ul>
-            <li><code>SQLITE_OMIT_LOAD_EXTENSION=1</code>: <strong>امنیتی.</strong> یک عامل امنیتی هرگز نباید از طریق دیتابیسش DLL دلخواه بار کند.</li>
-            <li><code>SQLITE_DQS=0</code>: رشته‌ی دوکوتیشن خطاست، نه برگشت بی‌صدا به نام شناسه.</li>
-            <li><code>SQLITE_THREADSAFE=1</code>: اشتباه در قرارداد thread به هزینه‌ی کارایی تبدیل می‌شود نه خرابی داده.</li>
-            <li>به‌علاوه‌ی <code>DEFAULT_MEMSTATUS=0</code>، <code>DEFAULT_WAL_SYNCHRONOUS=1</code>، <code>OMIT_DEPRECATED</code>، <code>OMIT_SHARED_CACHE</code> و چند گزینه‌ی دیگر.</li>
+            <li><span class="nb"><code>SQLITE_OMIT_LOAD_EXTENSION=1</code>:</span> <strong>امنیتی.</strong> یک عامل امنیتی هرگز نباید از طریق دیتابیسش DLL دلخواه بار کند.</li>
+            <li><span class="nb"><code>SQLITE_DQS=0</code>:</span> رشته‌ی دوکوتیشن خطاست، نه برگشت بی‌صدا به نام شناسه.</li>
+            <li><span class="nb"><code>SQLITE_THREADSAFE=1</code>:</span> اشتباه در قرارداد thread به هزینه‌ی کارایی تبدیل می‌شود نه خرابی داده.</li>
+            <li>به‌علاوه‌ی <span class="nb"><code>DEFAULT_MEMSTATUS=0</code>،</span> <span class="nb"><code>DEFAULT_WAL_SYNCHRONOUS=1</code>،</span> <span class="nb"><code>OMIT_DEPRECATED</code>،</span> <code>OMIT_SHARED_CACHE</code> و چند گزینه‌ی دیگر.</li>
           </ul>
           ابزار <code>sqlite3.exe</code> اختیاری است (<code>-DLIGHTEDR_BUILD_SQLITE_SHELL=ON</code>) و نسخه‌ی
           جداگانه‌ی خودش از SQLite را با تنظیمات پیش‌فرض می‌سازد، چون shell.c به نمادهایی نیاز دارد که
@@ -4483,17 +4482,17 @@ mem_census.exe --db lightedr.db <span class="c"># week 3: attribute each process
           ابزار نسخه‌ی خودش را دارد.
         </dd>
         <dt>هدف <code>lightedr_core</code> (کتابخانه‌ی static)</dt>
-        <dd>همه‌چیز به‌جز <code>main()</code>. دلیلش تست‌پذیری است: تست‌ها مستقیم به این کتابخانه لینک می‌شوند و بدون ETW و بدون Administrator اجرا می‌شوند. به <code>advapi32</code> (توابع ETW) و <code>tdh</code> لینک است. includeها از ریشه‌ی <code>src/</code> هستند (<code>"core/event.h"</code>).</dd>
+        <dd>همه‌چیز به‌جز <span class="nb"><code>main()</code>.</span> دلیلش تست‌پذیری است: تست‌ها مستقیم به این کتابخانه لینک می‌شوند و بدون ETW و بدون Administrator اجرا می‌شوند. به <code>advapi32</code> (توابع ETW) و <code>tdh</code> لینک است. includeها از ریشه‌ی <code>src/</code> هستند (<code>"core/event.h"</code>).</dd>
         <dt>فلگ‌های MSVC</dt>
         <dd>
-          <code>/W4</code>، <code>/permissive-</code>، و <code>/utf-8</code>. سومی داستان دارد: بدون آن
+          <span class="nb"><code>/W4</code>،</span> <span class="nb"><code>/permissive-</code>،</span> و <span class="nb"><code>/utf-8</code>.</span> سومی داستان دارد: بدون آن
           MSVC فایل‌ها را با code page سیستم می‌خواند، و ریپو دقیقاً به این خورد: <code>src/telemetry/</code>
           با Windows-1252 ذخیره شده بود و <code>src/core/</code> با UTF-8. <code>UNICODE</code> و
           <code>_UNICODE</code> هم تعریف شده‌اند تا ماکروهای Win32 به نسخه‌ی W بروند و یک فراخوانی ANSI
           تصادفی خطای کامپایل بدهد.
         </dd>
         <dt>اهداف دیگر</dt>
-        <dd><code>Light_EDR</code> (سنسور، فقط <code>main.cpp</code>)، <code>lightedr_bench</code> (ابزار اندازه‌گیری) و <code>lightedr_tests</code>، که هر سه <code>LIGHTEDR_SOURCE_RULES_DIR</code> را می‌گیرند. از فاز ۴: <code>mem_census</code> (ابزار baseline حافظه)، و فایل‌های <code>src/injection/*.cpp</code> (از جمله <code>clr_attribution</code> و <code>peb_reader</code>) که به <code>lightedr_core</code> اضافه شدند تا تست‌ها به آن‌ها هم لینک شوند.</dd>
+        <dd><code>Light_EDR</code> (سنسور، فقط <code>main.cpp</code>)، <code>lightedr_bench</code> (ابزار اندازه‌گیری) و <span class="nb"><code>lightedr_tests</code>،</span> که هر سه <code>LIGHTEDR_SOURCE_RULES_DIR</code> را می‌گیرند. از فاز ۴: <code>mem_census</code> (ابزار baseline حافظه)، و فایل‌های <code>src/injection/*.cpp</code> (از جمله <code>clr_attribution</code> و <code>peb_reader</code>) که به <code>lightedr_core</code> اضافه شدند تا تست‌ها به آن‌ها هم لینک شوند.</dd>
       </dl>
       <pre><span class="c"># build + test (no Administrator needed)</span>
 cmake --build out\build\x64-Debug
@@ -4576,7 +4575,7 @@ tools\run_bench.cmd</pre>
         <dt><code>lightedr_bench</code></dt>
         <dd>
           <ul>
-            <li>رویدادهای یک <code>lightedr.db</code> را <strong>فقط‌خواندنی</strong> می‌خواند و به همان شکلی برمی‌گرداند که callback تولید کرده بود (مسیر خام kernel از <code>image_path_nt</code>، بدون ترجمه و غنی‌سازی).</li>
+            <li>رویدادهای یک <code>lightedr.db</code> را <strong>فقط‌خواندنی</strong> می‌خواند و به همان شکلی برمی‌گرداند که callback تولید کرده بود (مسیر خام kernel از <span class="nb"><code>image_path_nt</code>،</span> بدون ترجمه و غنی‌سازی).</li>
             <li>آن‌ها را در دسته‌های ۲۵۶تایی از <code>DetectionPipeline::ProcessBatch</code> و <code>DbManager::CommitBatch</code> روی یک دیتابیس موقت رد می‌کند، یک بار با قاعده‌ها و یک بار بدون.</li>
             <li>یک دور گرم‌کردن بدون زمان‌سنجی برای هرکدام، بعد تکرارهای <em>یک‌درمیان</em> (۱۱ بار در <code>run_bench.cmd</code>) تا اگر پروسس دیگری چند ثانیه سیستم را کند کرد، روی هر دو حالت اثر بگذارد.</li>
             <li>در زمان اندازه‌گیری فقط لاگ‌های Error چاپ می‌شوند، چون چاپ در کنسول آن‌قدر کند است که کار را می‌پوشاند.</li>
@@ -4673,7 +4672,7 @@ tools\run_bench.cmd</pre>
       <thead><tr><th>محدودیت</th><th>دلیل</th><th>وضعیت</th></tr></thead>
       <tbody>
         <tr><td>هیچ Response (کشتن، بلاک)</td><td>محدوده‌ی پروژه: Detection</td><td style="color:var(--crit)">خارج از محدوده</td></tr>
-        <tr><td><code>CommandLine</code> ندارد</td><td>provider Kernel-Process گزارشش نمی‌دهد؛ بزرگ‌ترین شکاف پوشش قاعده. از فاز ۴ فقط برای پروسسی که اسکن رویش هشدار داده، با <code>--peb-cmdline</code>، از PEB خوانده می‌شود؛ خوداظهاری و فقط ۶۴ بیتی</td><td style="color:var(--warn)">آزمایش اختیاری</td></tr>
+        <tr><td><code>CommandLine</code> ندارد</td><td>provider Kernel-Process گزارشش نمی‌دهد؛ بزرگ‌ترین شکاف پوشش قاعده. از فاز ۴ فقط برای پروسسی که اسکن رویش هشدار داده، با <span class="nb"><code>--peb-cmdline</code>،</span> از PEB خوانده می‌شود؛ خوداظهاری و فقط ۶۴ بیتی</td><td style="color:var(--warn)">آزمایش اختیاری</td></tr>
         <tr><td>رویدادهای قبل از شروع session دیده نمی‌شوند</td><td>ذات ETW؛ snapshot فقط جدول پروسس‌ها را پر می‌کند، نه رویدادها را</td><td>ذاتی</td></tr>
         <tr><td>ممکن است kernel رویداد دور بریزد</td><td>بافرهای پر؛ ولی شمرده و ذخیره می‌شود</td><td style="color:var(--ok)">اندازه‌گیری‌شده</td></tr>
         <tr><td>محافظت از خود ندارد</td><td>هر Administrator می‌تواند session را متوقف یا پروسس را بکشد؛ مقاومت در برابر دستکاری driver لازم دارد</td><td style="color:var(--crit)">ممکن نیست</td></tr>
@@ -4762,7 +4761,7 @@ tools\run_bench.cmd</pre>
     </details>
     <details>
       <summary>چرا Administrator لازم است؟</summary>
-      <div class="answer"><p>طبق مستندات <code>StartTraceW</code>، فقط Administratorها، اعضای گروه Performance Log Users و سرویس‌های LocalSystem/LocalService/NetworkService می‌توانند session بسازند. تست‌ها این را لازم ندارند چون به کتابخانه‌ی <code>lightedr_core</code> لینک می‌شوند و ETW را لمس نمی‌کنند.</p></div>
+      <div class="answer"><p>طبق مستندات <span class="nb"><code>StartTraceW</code>،</span> فقط Administratorها، اعضای گروه Performance Log Users و سرویس‌های LocalSystem/LocalService/NetworkService می‌توانند session بسازند. تست‌ها این را لازم ندارند چون به کتابخانه‌ی <code>lightedr_core</code> لینک می‌شوند و ETW را لمس نمی‌کنند.</p></div>
     </details>
     <details>
       <summary>اگر سنسور crash کند چه؟</summary>
@@ -4847,7 +4846,7 @@ tools\run_bench.cmd</pre>
       <div class="answer">
         <p>درست است و بزرگ‌ترین شکاف پوشش است. سه گزینه بررسی شد:</p>
         <p><strong>الف) بدون آن.</strong> حدود ۳۰ تا ۴۰ درصد قاعده‌های جالب process creation با Image، ParentImage و مسیر قابل بیان می‌مانند.</p>
-        <p><strong>ب) خواندن PEB پروسس هدف</strong> با <code>NtQueryInformationProcess</code>. در <code>winternl.h</code> مستند است، ولی مایکروسافت صریحاً هم تابع و هم ساختار PEB را «ممکن است تغییر کند یا حذف شود» علامت زده. در برابر پروسس‌های کوتاه‌عمر هم race دارد.</p>
+        <p><strong>ب) خواندن PEB پروسس هدف</strong> با <span class="nb"><code>NtQueryInformationProcess</code>.</span> در <code>winternl.h</code> مستند است، ولی مایکروسافت صریحاً هم تابع و هم ساختار PEB را «ممکن است تغییر کند یا حذف شود» علامت زده. در برابر پروسس‌های کوتاه‌عمر هم race دارد.</p>
         <p><strong>ج) رویداد 4688 در Security log</strong>، که تنظیمات سیستمی لازم دارد که سنسور کنترلشان نمی‌کند و فرض فقط-ETW را کنار می‌گذارد.</p>
         <p>تصمیم: (الف) برای فاز ۳ و (ب) به‌عنوان آزمایش زمان‌دار در فاز ۴. (ب) در فاز ۴ ساخته شد و به‌صورت اختیاری (<code>--peb-cmdline</code>) ماند: command line پروسسی را که اسکن رویش هشدار داده پر می‌کند، ولی مقدارش خوداظهاری است، پروسس‌های ۳۲ بیتی رد می‌شوند، و قاعده‌ها همچنان نمی‌توانند از آن استفاده کنند. و مهم‌ترین بخش: <strong>قاعده‌ای که به فیلد ناموجود اشاره کند موقع بار شدن، با صدای بلند رد می‌شود.</strong></p>
       </div>
@@ -4899,7 +4898,7 @@ tools\run_bench.cmd</pre>
     </details>
     <details>
       <summary>یک قاعده‌ی جدید چطور اضافه می‌شود؟</summary>
-      <div class="answer"><p>یک فایل <code>.yml</code> در <code>rules/</code> با <code>title</code>، یک <code>id</code> یکتا، <code>level</code>، <code>logsource</code> با <code>product: windows</code> و <code>category</code> برابر <code>process_creation</code> یا <code>image_load</code>، <code>detection</code> با حداقل یک selection و یک <code>condition</code>، و tag ATT&amp;CK. سنسور در اجرای بعدی بارش می‌کند بدون build دوباره. اگر قاعده image_load باشد و DLLش در System32، باید به keep-list هم اضافه شود؛ تست <code>EventFilter_KeepsEveryModuleTheRulePackMatchesOn</code> اگر فراموش شود می‌شکند. برای بسته‌ی رسمی، یک مثبت و یک near miss هم در <code>test_rule_pack.cpp</code> لازم است.</p></div>
+      <div class="answer"><p>یک فایل <code>.yml</code> در <code>rules/</code> با <span class="nb"><code>title</code>،</span> یک <code>id</code> یکتا، <span class="nb"><code>level</code>،</span> <code>logsource</code> با <code>product: windows</code> و <code>category</code> برابر <code>process_creation</code> یا <span class="nb"><code>image_load</code>،</span> <code>detection</code> با حداقل یک selection و یک <span class="nb"><code>condition</code>،</span> و tag ATT&amp;CK. سنسور در اجرای بعدی بارش می‌کند بدون build دوباره. اگر قاعده image_load باشد و DLLش در System32، باید به keep-list هم اضافه شود؛ تست <code>EventFilter_KeepsEveryModuleTheRulePackMatchesOn</code> اگر فراموش شود می‌شکند. برای بسته‌ی رسمی، یک مثبت و یک near miss هم در <code>test_rule_pack.cpp</code> لازم است.</p></div>
     </details>
   </div>
 
@@ -4966,7 +4965,7 @@ tools\run_bench.cmd</pre>
     <h3>اعتبارسنجی (فاز ۵)</h3>
     <details>
       <summary>۱۲ قاعده با محرک دستی آزموده شدند. این آزمودن قاعده با خودش نیست؟</summary>
-      <div class="answer"><p>قاعده با همان الگویی آزموده می‌شود که ادعا می‌کند تشخیص می‌دهد، و این تنها سؤالی است که تست قاعده می‌تواند جواب بدهد. ۹ قاعده روی والدی (script host، Office، وب‌سرور) بنا شده‌اند که atomic نمی‌تواند بسازد، چون پروسس خود atomic همیشه <code>cmd</code> یا <code>powershell</code> است؛ و بدون command line، چند atomic دانلود دقیقاً مثل اجرای خالی ابزارند. یک باینری واقعی با نام دیگر همان <code>Image</code>، <code>ParentImage</code> و <code>ImageLoaded</code>ی را به سنسور می‌دهد که حمله‌ی واقعی می‌داد. چیزی که نشان نمی‌دهد صریح نوشته شده: اینکه نفوذ واقعی به Office همین الگو را می‌سازد. near missها نیمه‌ی دیگرند: هر قاعده روی نزدیک‌ترین نسخه‌ی بی‌خطر ساکت ماند.</p></div>
+      <div class="answer"><p>قاعده با همان الگویی آزموده می‌شود که ادعا می‌کند تشخیص می‌دهد، و این تنها سؤالی است که تست قاعده می‌تواند جواب بدهد. ۹ قاعده روی والدی (script host، Office، وب‌سرور) بنا شده‌اند که atomic نمی‌تواند بسازد، چون پروسس خود atomic همیشه <code>cmd</code> یا <code>powershell</code> است؛ و بدون command line، چند atomic دانلود دقیقاً مثل اجرای خالی ابزارند. یک باینری واقعی با نام دیگر همان <span class="nb"><code>Image</code>،</span> <code>ParentImage</code> و <code>ImageLoaded</code>ی را به سنسور می‌دهد که حمله‌ی واقعی می‌داد. چیزی که نشان نمی‌دهد صریح نوشته شده: اینکه نفوذ واقعی به Office همین الگو را می‌سازد. near missها نیمه‌ی دیگرند: هر قاعده روی نزدیک‌ترین نسخه‌ی بی‌خطر ساکت ماند.</p></div>
     </details>
     <details>
       <summary>soak هیچ هشداری نداد. یعنی قاعده‌ها آن‌قدر باریک‌اند که اصلاً fire نمی‌کنند؟</summary>
@@ -5069,7 +5068,7 @@ tools\run_bench.cmd</pre>
         <tr><td class="mono">Process injection</td><td>اجرای کد مهاجم داخل یک پروسس سالم؛ T1055 در ATT&amp;CK</td></tr>
         <tr><td class="mono">Region · VirtualQueryEx</td><td>تکه‌ای از فضای آدرس با ویژگی یکسان · API که ویژگی‌های region را در پروسس دیگر برمی‌گرداند</td></tr>
         <tr><td class="mono">MEM_IMAGE · MEM_MAPPED · MEM_PRIVATE</td><td>حافظه‌ی فایل اجرایی · نمای section · حافظه‌ی گرفته‌شده بدون فایل</td></tr>
-        <tr><td class="mono">RWX</td><td><code>PAGE_EXECUTE_READWRITE</code>؛ هم نوشتنی هم اجرایی</td></tr>
+        <tr><td class="mono">RWX</td><td><span class="nb"><code>PAGE_EXECUTE_READWRITE</code>؛</span> هم نوشتنی هم اجرایی</td></tr>
         <tr><td class="mono">PAGE_GUARD</td><td>صفحه‌ای که اولین دسترسی به آن استثنا می‌دهد و guard را برمی‌دارد؛ اسکنر هرگز نمی‌خواندش</td></tr>
         <tr><td class="mono">JIT</td><td>تولید کد ماشین در زمان اجرا (<bdi>.NET</bdi>، V8)؛ منبع اصلی H1 در برنامه‌های سالم</td></tr>
         <tr><td class="mono">Shellcode · GetPC</td><td>کد خام مستقل از loader · الگوی <code>call $+5; pop</code> برای پیدا کردن آدرس خود</td></tr>
@@ -5091,7 +5090,7 @@ tools\run_bench.cmd</pre>
         <tr><td class="mono">WPF · XAML · MVVM</td><td>فریم‌ورک دسکتاپ ویندوز · زبان توصیف ظاهر · الگوی جدا کردن منطق از صفحه</td></tr>
         <tr><td class="mono">immutable=1 · query_only</td><td>باز کردن SQLite بدون قفل وقتی نویسنده‌ای نیست · pragmaی که هر نوشتن را روی آن اتصال رد می‌کند</td></tr>
         <tr><td class="mono">Self-contained build</td><td>فایل اجرایی‌ای که runtime خودش را همراه دارد و نصب <bdi>.NET</bdi> لازم ندارد</td></tr>
-        <tr><td class="mono">Background mode</td><td><code>THREAD_MODE_BACKGROUND_BEGIN</code>؛ اولویت پایین CPU، I/O و حافظه برای thread اسکنر</td></tr>
+        <tr><td class="mono">Background mode</td><td><span class="nb"><code>THREAD_MODE_BACKGROUND_BEGIN</code>؛</span> اولویت پایین CPU، I/O و حافظه برای thread اسکنر</td></tr>
       </tbody>
     </table>
   </div>

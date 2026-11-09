@@ -377,3 +377,15 @@ html, body { overflow-x: clip; }
 main .concept { display: flex; flex-direction: column; }
 main .concept .term { text-align: center; direction: ltr; overflow-wrap: anywhere; line-height: 1.5; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }
 main .concept .fa-name { text-align: center; }
+
+/* reading alignment: justified body text, start-aligned UI */
+@media (min-width: 720px) {
+  main .prose > p, main .fbody > p, main .note p, main .answer p { text-align: justify; text-justify: inter-word; }
+}
+main .concept p, main .fbody p { overflow-wrap: break-word; }
+html[lang="en"] main .prose p, html[lang="en"] main .fbody p, html[lang="en"] main .note p, html[lang="en"] main .answer p { hyphens: auto; }
+main h2, main h3 { text-wrap: balance; }
+.nb { white-space: nowrap; }
+/* quiet sidebar scrollbar */
+.side { scrollbar-width: thin; scrollbar-color: rgba(167,139,250,.25) transparent; }
+.side::-webkit-scrollbar { width: 6px; } .side::-webkit-scrollbar-thumb { background: rgba(167,139,250,.25); border-radius: 3px; } .side::-webkit-scrollbar-track { background: transparent; }
